@@ -37,10 +37,10 @@ function SearchBar() {
 
             <div>
                 <div id="enterQRDiv">
-                    <span style={{ flex: '1', flexBasis: '77%',padding: '0' }}>
+                    <span style={{ flex: '1', flexBasis: '73%',padding: '0' }}>
                         <TextInput id="enterCurrentPostion" style={{ display: enterCurrentPos ? 'block' : 'none' }} />
                     </span>
-                    <span style={{ flex: '1', flexBasis: '23',padding: '0'}}>
+                    <span style={{ flex: '1', flexBasis: '27',padding: '0'}}>
                         <Button id="QRLogo" style={{display: enterCurrentPos ? 'block' : 'none' }}></Button>
                     </span>
                 </div>
