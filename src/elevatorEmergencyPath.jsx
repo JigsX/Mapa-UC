@@ -21,7 +21,6 @@ function AltPath({ id }) {
     };
 
     return (
-        <div>
             <div className={`CheckboxDiv ${isClicked ? 'clicked' : ''}`} onClick={handleCheckboxClick}>
                 <input
                     type="checkbox"
@@ -30,8 +29,7 @@ function AltPath({ id }) {
                     onChange={() => {}}
                 />
                 <img src={Logo} className="checkbox-image" alt="Elevator Logo" />
-            </div>
-        </div>
+            </div>  
     );
 }
 

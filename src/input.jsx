@@ -36,12 +36,21 @@ function TextInput({ id, style }) {
     const filteredSuggestions = suggestions.filter(suggestion =>
         suggestion.toLowerCase().indexOf(inputValue.toLowerCase()) !== -1
     );
+    
+    let placeholder;
+    if(id === "enterCurrentPostion"){
+        placeholder = "Enter Your Current Location";
+    }
+    else if(id === "enterDestination"){
+        placeholder = "Enter Your Destination";
+    }
+    
 
     return (
         <div id={id} style={style} ref={inputRef}>
-            <input 
-                className="InputBox" 
-                placeholder="Enter text..."
+            <input
+                className="InputBox"
+                placeholder={placeholder}
                 type="text"
                 value={inputValue}
                 onChange={handleInputChange}

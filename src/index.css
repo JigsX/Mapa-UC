@@ -31,6 +31,8 @@ html, body{
 
 .Locatebuttons{
     
+    width: 100%;
+    height: auto;
     display: inline-block;
     outline: none;
     cursor: pointer;
@@ -49,38 +51,37 @@ html, body{
     box-shadow: rgba(149, 157, 165, 0.15) 0px 3px 6px 0px
 }
 
-.InputBox{
+.InputBox {
     width: 100%;
     margin-top: 4px;
     box-shadow: rgba(149, 157, 165, 0.15) 0px 3px 6px 0px;
-
     font-size: 13px;
     border-radius: 4px;
     line-height: 1.5;
     padding: 5px 10px;
     transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
     border: 2px solid #dee1e2;
-    color: rgb(14, 14, 16);
     background: #dee1e2;
     display: block;
     height: 30px;
-    :hover {
-        border-color: #ccc;
-    }
-    :focus{
-        border-color: #9147ff;
-        background: #fff;
-    }
-    
+}
+.InputBox:focus {
+    border-color: #dee1e2; /* Maintain the original border color */
+    outline: none;
 }
 
+
+
+
 .CheckboxDiv{
+    border: solid;
     background: #1de9b6;
-    max-width: 50%;
+    max-width: 90%;
     text-align: center;
     display: inline-block;
     border-radius: 20px;
     border-color: #000021;
+    margin: 10pxp,
 }
 
 .CheckboxDiv .checkbox-image{
@@ -109,6 +110,39 @@ html, body{
     cursor: pointer;
     transition: background-color 0.3s;
   }
-  
-  
-  
+
+#logo{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+
+#enterQRDiv{
+    margin-top: 4px;
+    display: flex;
+    background: #dee1e2;
+    flex-direction: row;
+    
+}
+
+#locateDiv{
+    margin: 10px;
+    border: solid;
+}
+
+#qrButton{ 
+   
+    padding: 0;
+    background: 'none';
+   
+}
+
+#QRLogo{
+    background: #dee1e2;
+    margin-top: 4px;
+    margin-right: 4px;
+    width: '100%';
+    padding: 0;
+    cursor: pointer;
+}
+
