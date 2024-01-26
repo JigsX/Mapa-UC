@@ -1,7 +1,10 @@
-function FacList(){
-    return(
-        <div>
-            <select className="InputBox"id="selectFac">
+
+import PropTypes from 'prop-types';
+
+function FacList({ id, style }) {
+    return (
+        <div id={id} style={style}>
+            <select className="InputBox" id="selectFac">
                 <option>Select Facility</option>
                 <option>cr</option>
                 <option>Gymnasium</option>
@@ -11,5 +14,10 @@ function FacList(){
         </div>
     );
 }
+
+FacList.propTypes = {
+    id: PropTypes.string.isRequired,
+    style: PropTypes.object // Validate style prop as an object
+};
 
 export default FacList;
