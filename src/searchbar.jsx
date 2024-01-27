@@ -35,35 +35,49 @@ function SearchBar() {
 
 
 
-            <div>
-                <div id="enterQRDiv">
-                    <span style={{ flex: '1', flexBasis: '90%',padding: '0' }}>
-                        <TextInput id="enterCurrentPostion" style={{ display: enterCurrentPos ? 'block' : 'none' }} />
-                    </span>
-                    <span style={{ flex: '1', flexBasis: '10%',padding: '0'}}>
-                        <Button id="QRLogo" style={{display: enterCurrentPos ? 'block' : 'none' }}></Button>
-                    </span>
-                </div>
-                
-                <TextInput id="enterDestination" style={{ display: enterDes ?'block' : 'none'}}/>
-                <FacList id="facilities" style={{ display: enterFac ? 'block' : 'none'}} />
-            </div>
+            <div id="searchBarFullDiv">
+                <span style={{ flex: '1', flexBasis: '70%',padding: '0' }}>
+                    <div id="enterQRDiv">
+                        <span style={{ flex: '1', flexBasis: '90%',padding: '0' }}>
+                            <TextInput id="enterCurrentPostion" style={{ display: enterCurrentPos ? 'block' : 'none' }} />
+                        </span>
+                        <span style={{ flex: '1', flexBasis: '10%',padding: '0'}}>
+                            <Button id="QRLogo" style={{display: enterCurrentPos ? 'block' : 'none' }}></Button>
+                        </span>
+                    </div>
 
-
-            <div>
-                <div id="logo">
-                    <span>
-                        <AltPath id="useElevator"></AltPath>
+                    <span >
+                        <TextInput id="enterDestination" style={{ display: enterDes ?'block' : 'none'}}/>
+                        <FacList id="facilities" style={{ display: enterFac ? 'block' : 'none'}} />
                     </span>
+                </span>
+                    
 
-                    <span>
-                        <AltPath id="useEmerExit"></AltPath>
-                    </span>
-                </div>
+                <span style={{ marginTop: '4px', flex: '1', flexBasis: '30%',padding: '0', 
+                                display: enterCurrentPos ? 'block' : 'none' }}> 
+                    <div style={{display:'flex', flexDirection: 'column' }}>
+                        <span style={{ flex: '1', flexBasis: '80%',padding: '0' }}>
+                            <div id="logo">
+                                <span>
+                                    <AltPath id="useElevator"></AltPath>
+                                </span>
 
-                <div id="locateDiv">
-                    <LocateButton title="Locate"></LocateButton>
-                </div>
+                                <span>
+                                    <AltPath id="useEmerExit"></AltPath>
+                                </span>
+                            </div>
+                        </span>
+
+                        <span style={{ flex: '1', flexBasis: '20%',padding: '0' }}>
+                            <div id="locateDiv">
+                                <LocateButton title="Locate"></LocateButton>
+                            </div>
+                        </span>                      
+                    </div>
+                    
+
+                    
+                </span>
             </div>
             
             
