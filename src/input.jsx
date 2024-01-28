@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import elevatorLogo from './assets/elevatorLogo.png';
 import emergencyExit from './assets/emergencyExit.png';
 import UCLogo from './assets/UCLogo.png';
-import arrow from './assets/arrow.png';
+
 
 function TextInput({ style }) {
     const [currentInputValue, setCurrentInputValue] = useState('');
@@ -74,9 +74,7 @@ function TextInput({ style }) {
 
     const clickHandle = (event) => {
         event.preventDefault();
-        console.log(currentInputValue);
-        console.log(isUseElevatorChecked);
-        console.log(isUseEmergencyExitChecked);
+        
     }
 
     const filteredCurrentSuggestions = suggestions.filter(suggestion =>
