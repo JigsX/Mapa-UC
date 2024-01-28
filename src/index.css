@@ -20,10 +20,17 @@ html, body{
     background: #0c380c;
     line-height: 1;
     font-size: 20px;
+    
     :hover {
         transition: all .1s ease;
         box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
     }
+    @media screen and (max-width: 414px) {
+        .pickButton {
+            text-align: center; /* Center-align text on devices with screen width up to 6.7 inches */
+        }
+    }
+    
    
 
     box-shadow: 0 25.6px 57.6px 0 rgb(0 0 0 / 22%), 0 4.8px 14.4px 0 rgb(0 0 0 / 18%);
