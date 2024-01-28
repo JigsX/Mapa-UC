@@ -25,11 +25,7 @@ html, body{
         transition: all .1s ease;
         box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
     }
-    @media screen and (max-width: 414px) {
-        .pickButton {
-            text-align: center; /* Center-align text on devices with screen width up to 6.7 inches */
-        }
-    }
+   
     
    
 
