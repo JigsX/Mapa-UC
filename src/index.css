@@ -19,7 +19,7 @@ html, body{
     color: #ededfd;
     background: #0c380c;
     line-height: 1;
-    font-size: 12px;
+    font-size: 15px;
     
     :hover {
         transition: all .1s ease;
@@ -165,8 +165,9 @@ html, body{
 #mapaUC {
     background: #0c380c;
     color: #93fde3;
-    margin-left: 43.7%;
+    text-align: center;
     padding-top: 4px;
+    padding-bottom: 4px;
     margin-top: 0px;
     margin-bottom: 0px;
     position: relative; /* Ensure the positioning context is set */

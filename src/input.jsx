@@ -2,7 +2,8 @@ import{ useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import elevatorLogo from './assets/elevatorLogo.png';
 import emergencyExit from './assets/emergencyExit.png';
-import UCLogo from './assets/UCLogo.png'
+import UCLogo from './assets/UCLogo.png';
+import arrow from './assets/arrow.png';
 
 function TextInput({ style }) {
     const [currentInputValue, setCurrentInputValue] = useState('');
@@ -113,8 +114,9 @@ function TextInput({ style }) {
                         value={selectedDestination}
                         onChange={handlePickButtonChange}
                         className='pickButton'>
+                    
                     <option  disabled selected value="">
-                        Choose Your Destination
+                       
                     </option>
                     <option value="Enter Destination">
                         Enter Destination
