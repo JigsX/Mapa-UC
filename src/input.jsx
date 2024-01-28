@@ -99,10 +99,12 @@ function TextInput({ style }) {
     
     return (
         <div style={style} ref={inputRef}>
-            <div >
+            <div style={{background:'#0c380c'}}>
                 <h1 id="mapaUC">Mapa-UC
                     <img id="ucLogo"src={UCLogo} />
                 </h1>
+                
+                
             </div>
             
             
