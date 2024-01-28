@@ -1,15 +1,41 @@
-import { useState, useRef, useEffect } from 'react';
+import{ useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import elevatorLogo from './assets/elevatorLogo.png';
+import emergencyExit from './assets/emergencyExit.png';
 
-function TextInput({ id, style }) {
-    const [inputValue, setInputValue] = useState('');
-    const [showSuggestions, setShowSuggestions] = useState(false);
+function TextInput({ style }) {
+    const [currentInputValue, setCurrentInputValue] = useState('');
+    const [destinationInputValue, setDestinationInputValue] = useState('');
+    const [showCurrentSuggestions, setShowCurrentSuggestions] = useState(false);
+    const [showDestinationSuggestions, setShowDestinationSuggestions] = useState(false);
     const inputRef = useRef(null);
+
+    const [isUseElevatorChecked, setIsUseElevatorChecked] = useState(false);
+    const [isElevatorClicked, setIsElevatorClicked] = useState(false);
+
+    const [isUseEmergencyExitChecked, setIsUseEmergencyExitChecked] = useState(false);
+    const [isEmergencyExitClicked, setIsEmergencyExitClicked] = useState(false);
+    
+    const [isChoiceEnterDest, setIsChoiceEnterDest] = useState(false);
+
+    const handleCheckboxElevatorClick = () => {
+        setIsUseElevatorChecked(!isUseElevatorChecked);
+        setIsElevatorClicked(!isUseElevatorChecked); // Toggle isClicked when the checkbox is clicked
+    };
+
+    const handleCheckboxEmergencyExitClick = () => {
+        setIsUseEmergencyExitChecked(!isUseEmergencyExitChecked);
+        setIsEmergencyExitClicked(!isUseEmergencyExitChecked); // Toggle isClicked when the checkbox is clicked
+    };
+    
+    
+    
 
     useEffect(() => {
         const handleOutsideClick = (event) => {
             if (inputRef.current && !inputRef.current.contains(event.target)) {
-                setShowSuggestions(false);
+                setShowCurrentSuggestions(false);
+                setShowDestinationSuggestions(false);
             }
         };
 
@@ -22,54 +48,162 @@ function TextInput({ id, style }) {
 
     const suggestions = ["S123", "S214", "S215", "S216", "S217", "S218", "S219", "S220"];
 
-    const handleInputChange = (event) => {
-        const value = event.target.value;
-        setInputValue(value);
-        setShowSuggestions(value.trim().length > 0);
+    const handleCurrentInputChange = (event) => {
+        const { value } = event.target;
+        setCurrentInputValue(value);
+        setShowCurrentSuggestions(value.trim().length > 0);
     };
 
-    const handleSuggestionClick = (suggestion) => {
-        setInputValue(suggestion);
-        setShowSuggestions(false);
+    const handleDestinationInputChange = (event) => {
+        const { value } = event.target;
+        setDestinationInputValue(value);
+        setShowDestinationSuggestions(value.trim().length > 0);
     };
 
-    const filteredSuggestions = suggestions.filter(suggestion =>
-        suggestion.toLowerCase().indexOf(inputValue.toLowerCase()) !== -1
+    const handleSuggestionClick = (suggestion, isCurrent) => {
+        if (isCurrent) {
+            setCurrentInputValue(suggestion);
+            setShowCurrentSuggestions(false);
+        } else {
+            setDestinationInputValue(suggestion);
+            setShowDestinationSuggestions(false);
+        }
+    };
+
+    const clickHandle = (event) => {
+        event.preventDefault();
+        console.log(currentInputValue);
+        console.log(isUseElevatorChecked);
+        console.log(isUseEmergencyExitChecked);
+    }
+
+    const filteredCurrentSuggestions = suggestions.filter(suggestion =>
+        suggestion.toLowerCase().indexOf(currentInputValue.toLowerCase()) !== -1
     );
-    
-    let placeholder;
-    if(id === "enterCurrentPostion"){
-        placeholder = "Enter Your Current Location";
-    }
-    else if(id === "enterDestination"){
-        placeholder = "Enter Your Destination";
-    }
-    
 
+    const filteredDestinationSuggestions = suggestions.filter(suggestion =>
+        suggestion.toLowerCase().indexOf(destinationInputValue.toLowerCase()) !== -1
+    );
+
+
+    const [selectedDestination, setSelectedDestination] = useState('');
+    const handlePickButtonChange = (event) => {
+        const { value } = event.target;
+        setSelectedDestination(value);
+        setIsChoiceEnterDest(value === 'Enter Destination');
+    };
+    
+    
+    
+    
     return (
-        <div id={id} style={style} ref={inputRef}>
-            <input
-                className="InputBox"
-                placeholder={placeholder}
-                type="text"
-                value={inputValue}
-                onChange={handleInputChange}
-            />
-            {showSuggestions && (
-                <ul className="Suggestions">
-                    {filteredSuggestions.map((suggestion, index) => (
-                        <li key={index} onClick={() => handleSuggestionClick(suggestion)}>
-                            {suggestion}
-                        </li>
-                    ))}
-                </ul>
-            )}
+        <div style={style} ref={inputRef}>
+            <div>
+
+                <select 
+                        value={selectedDestination}
+                        onChange={handlePickButtonChange}
+                        className='pickButton'>
+                    <option  disabled selected value="">
+                        Choose Your Destination
+                    </option>
+                    <option value="Enter Destination">
+                        Enter Destination
+                    </option>
+                    <option value="Find Closest Facility">
+                        Find Closest Facility
+                    </option>
+                </select>
+                
+            </div>
+
+
+
+            <form>
+                <label>
+                    <input
+                        className="InputBox"
+                        placeholder="Enter Your Current Location"
+                        type="text"
+                        name='currentPost'
+                        value={currentInputValue}
+                        onChange={handleCurrentInputChange}
+                            
+                    />
+                </label>
+                {showCurrentSuggestions && (
+                    <ul className="Suggestions">
+                        {filteredCurrentSuggestions.map((suggestion, index) => (
+                            <li key={index} onClick={() => handleSuggestionClick(suggestion, true)}>
+                                {suggestion}
+                            </li>
+                        ))}
+                    </ul>
+                )}
+
+                <label>
+                    <input
+                        className="InputBox"
+                        placeholder="Enter Your Destination"
+                        type="text"
+                        name="destination"
+                        value={destinationInputValue}
+                        onChange={handleDestinationInputChange}
+                        style={{ display: isChoiceEnterDest ? 'block' : 'none' }}
+                    />
+                </label>
+                {showDestinationSuggestions && (
+                    <ul className="Suggestions">
+                        {filteredDestinationSuggestions.map((suggestion, index) => (
+                            <li key={index} onClick={() => handleSuggestionClick(suggestion, false)}>
+                                {suggestion}
+                            </li>
+                        ))}
+                    </ul>
+                )}
+
+                    
+                <select style={{ display: !isChoiceEnterDest ? 'block' : 'none' }}
+                        className="InputBox" id="selectFac">
+                    <option>Select Facility</option>
+                    <option>cr</option>
+                    <option>Gymnasium</option>
+                    <option>test</option>
+                    <option>test</option>
+                </select>
+
+        
+                <div className={`CheckboxDiv ${isElevatorClicked ? 'clicked' : ''}`} onClick={handleCheckboxElevatorClick}>
+                    <input
+                        type="checkbox"
+                        className='checkbox'
+                        checked={isUseElevatorChecked}
+                        onChange={() => {}}
+                    />
+                    <img src={elevatorLogo} className="checkbox-image" alt="Elevator Logo" />
+                </div>  
+                <div className={`CheckboxDiv ${isEmergencyExitClicked ? 'clicked' : ''}`} onClick={handleCheckboxEmergencyExitClick}>
+                    <input
+                        type="checkbox"
+                        className='checkbox'
+                        checked={isUseEmergencyExitChecked}
+                        onChange={() => {}}
+                    />
+                    <img src={emergencyExit} className="checkbox-image" alt="Elevator Logo" />
+                </div>  
+                
+
+                <button title="Locate"
+                        className="Locatebuttons"
+                        onClick={clickHandle}> Locate </button>
+
+            </form>
+            
         </div>
     );
 }
 
 TextInput.propTypes = {
-    id: PropTypes.string.isRequired,
     style: PropTypes.object // Validate style prop as an object
 };
 

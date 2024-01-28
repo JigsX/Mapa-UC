@@ -1,8 +1,9 @@
-import SearchBar from "./searchbar";
+import TextInput from "./input";
+
 function App() {
     return (
         <>
-        <SearchBar/>
+        <TextInput></TextInput>
         </>
 
     );
