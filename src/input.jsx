@@ -4,7 +4,6 @@ import elevatorLogo from './assets/elevatorLogo.png';
 import emergencyExit from './assets/emergencyExit.png';
 import UCLogo from './assets/UCLogo.png';
 import getEnterDestinationData from './FindDestination';
-import getEnterFacilityData from './FindFacility';
 
 function TextInput({ style }) {
     const [currentInputValue, setCurrentInputValue] = useState('');
@@ -85,7 +84,9 @@ function TextInput({ style }) {
     const clickHandle = (event) => {
         event.preventDefault();
         if(isChoiceEnterDest){
+            
             getEnterDestinationData(
+                "enterDestination",
                 currentInputValue,
                 destinationInputValue,
                 isUseElevatorChecked,
@@ -93,7 +94,8 @@ function TextInput({ style }) {
             );
         }
         else if(isChoiceEnterFac){
-            getEnterFacilityData(
+            getEnterDestinationData(
+                "enterFindFacility",
                 currentInputValue,
                 selectedFacility,
                 isUseElevatorChecked,
@@ -231,7 +233,7 @@ function TextInput({ style }) {
                                     <img src={elevatorLogo} className="checkbox-image" alt="Elevator Logo" />
                                 </div> 
 
-                                <div style={{ margin: '0 1px' }}></div>
+                                
 
                                 <div className={`CheckboxDiv ${isEmergencyExitClicked ? 'clicked' : ''}`} onClick={handleCheckboxEmergencyExitClick}>
                                     <input
@@ -255,11 +257,6 @@ function TextInput({ style }) {
 
                 </div>
                     
-
-                
-                
-                
-
             </form>
             
         </div>

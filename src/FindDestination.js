@@ -1,9 +1,9 @@
+import  computeDestPath from "./dijktrasAlgo";
+function getEnterDestinationData (destOrFac, curretPosition, roomDestination, useElevator, useEmExit){
+   
 
-function getEnterDestinationData (curretPosition, roomDestination, useElevator, useEmExit){
-    console.log(curretPosition);
-    console.log(roomDestination);
-    console.log(useElevator);
-    console.log(useEmExit);
+    computeDestPath(destOrFac,curretPosition, roomDestination, useElevator, useEmExit);
+    
 }
 
 export default getEnterDestinationData;
