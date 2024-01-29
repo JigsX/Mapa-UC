@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import elevatorLogo from './assets/elevatorLogo.png';
 import emergencyExit from './assets/emergencyExit.png';
 import UCLogo from './assets/UCLogo.png';
-
+import getEnterDestinationData from './FindDestination';
+import getEnterFacilityData from './FindFacility';
 
 function TextInput({ style }) {
     const [currentInputValue, setCurrentInputValue] = useState('');
@@ -19,6 +20,15 @@ function TextInput({ style }) {
     const [isEmergencyExitClicked, setIsEmergencyExitClicked] = useState(false);
     
     const [isChoiceEnterDest, setIsChoiceEnterDest] = useState(false);
+    const [isChoiceEnterFac, setIsChoiceEnterFac] = useState(false);
+
+    const [selectedFacility, setSelectedFacility] = useState('');
+
+    const handleChangeFacility = (event) =>{
+        const {value} = event.target;
+        setSelectedFacility(value);
+
+    }
 
     const handleCheckboxElevatorClick = () => {
         setIsUseElevatorChecked(!isUseElevatorChecked);
@@ -74,6 +84,23 @@ function TextInput({ style }) {
 
     const clickHandle = (event) => {
         event.preventDefault();
+        if(isChoiceEnterDest){
+            getEnterDestinationData(
+                currentInputValue,
+                destinationInputValue,
+                isUseElevatorChecked,
+                isEmergencyExitClicked
+            );
+        }
+        else if(isChoiceEnterFac){
+            getEnterFacilityData(
+                currentInputValue,
+                selectedFacility,
+                isUseElevatorChecked,
+                isEmergencyExitClicked
+            );
+
+        }
         
     }
 
@@ -90,7 +117,14 @@ function TextInput({ style }) {
     const handlePickButtonChange = (event) => {
         const { value } = event.target;
         setSelectedDestination(value);
-        setIsChoiceEnterDest(value === 'Enter Destination');
+        if(value === 'Enter Destination'){
+            setIsChoiceEnterDest(true);
+            setIsChoiceEnterFac(false);
+        }else{
+            setIsChoiceEnterDest(false);
+            setIsChoiceEnterFac(true);
+        }
+        
     };
     
     
@@ -113,7 +147,7 @@ function TextInput({ style }) {
                         onChange={handlePickButtonChange}
                         className='pickButton'>
                     
-                    <option  disabled selected value="">
+                    <option disabled defaultValue={""} >
                        
                     </option>
                     <option value="Enter Destination">
@@ -129,82 +163,102 @@ function TextInput({ style }) {
 
 
             <form>
-                <label>
-                    <input
-                        className="InputBox"
-                        placeholder="Enter Your Current Location"
-                        type="text"
-                        name='currentPost'
-                        value={currentInputValue}
-                        onChange={handleCurrentInputChange}
+                <div style={{display:'flex'}}>
+                    <span style={{flex:'70%', background:'#0c380c'}}>
+                        <label>
+                            <input
+                                className="InputBox"
+                                placeholder="Enter Your Current Location"
+                                type="text"
+                                name='currentPost'
+                                value={currentInputValue}
+                                onChange={handleCurrentInputChange}
+                                    
+                            />
+                        </label>
+                        {showCurrentSuggestions && (
+                            <ul className="Suggestions">
+                                {filteredCurrentSuggestions.map((suggestion, index) => (
+                                    <li key={index} onClick={() => handleSuggestionClick(suggestion, true)}>
+                                        {suggestion}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+
+                        <label>
+                            <input
+                                className="InputBox"
+                                placeholder="Enter Your Destination"
+                                type="text"
+                                name="destination"
+                                value={destinationInputValue}
+                                onChange={handleDestinationInputChange}
+                                style={{ display: isChoiceEnterDest ? 'block' : 'none' }}
+                            />
+                        </label>
+                        {showDestinationSuggestions && (
+                            <ul className="Suggestions">
+                                {filteredDestinationSuggestions.map((suggestion, index) => (
+                                    <li key={index} onClick={() => handleSuggestionClick(suggestion, false)}>
+                                        {suggestion}
+                                    </li>
+                                ))}
+                            </ul>
+                        )}
+
                             
-                    />
-                </label>
-                {showCurrentSuggestions && (
-                    <ul className="Suggestions">
-                        {filteredCurrentSuggestions.map((suggestion, index) => (
-                            <li key={index} onClick={() => handleSuggestionClick(suggestion, true)}>
-                                {suggestion}
-                            </li>
-                        ))}
-                    </ul>
-                )}
+                        <select style={{ display: !isChoiceEnterDest ? 'block' : 'none' }}
+                                className="InputBox" id="selectFac" value={selectedFacility} onChange={handleChangeFacility}>
+                            <option>Select Facility</option>
+                            <option>cr</option>
+                            <option>Gymnasium</option>
+                            <option>test</option>
+                            <option>test</option>
+                        </select>
+                    </span>
 
-                <label>
-                    <input
-                        className="InputBox"
-                        placeholder="Enter Your Destination"
-                        type="text"
-                        name="destination"
-                        value={destinationInputValue}
-                        onChange={handleDestinationInputChange}
-                        style={{ display: isChoiceEnterDest ? 'block' : 'none' }}
-                    />
-                </label>
-                {showDestinationSuggestions && (
-                    <ul className="Suggestions">
-                        {filteredDestinationSuggestions.map((suggestion, index) => (
-                            <li key={index} onClick={() => handleSuggestionClick(suggestion, false)}>
-                                {suggestion}
-                            </li>
-                        ))}
-                    </ul>
-                )}
+                    <span style={{flex:'30%', background:'#0c380c'}}>
+                        <div>
+                            <div style={{ display: 'flex', justifyContent: 'center' }}>
+                                <div className={`CheckboxDiv ${isElevatorClicked ? 'clicked' : ''}`} onClick={handleCheckboxElevatorClick}>
+                                    <input
+                                        type="checkbox"
+                                        className='checkbox'
+                                        checked={isUseElevatorChecked}
+                                        onChange={() => {}}
+                                    />
+                                    <img src={elevatorLogo} className="checkbox-image" alt="Elevator Logo" />
+                                </div> 
 
+                                <div style={{ margin: '0 1px' }}></div>
+
+                                <div className={`CheckboxDiv ${isEmergencyExitClicked ? 'clicked' : ''}`} onClick={handleCheckboxEmergencyExitClick}>
+                                    <input
+                                        type="checkbox"
+                                        className='checkbox'
+                                        checked={isUseEmergencyExitChecked}
+                                        onChange={() => {}}
+                                    />
+                                    <img src={emergencyExit} className="checkbox-image" alt="Elevator Logo" />
+                                </div>
+                            </div>            
+                                
+                            <div >
+                                <button title="Locate"
+                                        className="Locatebuttons"
+                                        onClick={clickHandle}> Locate 
+                                </button>
+                            </div>
+                        </div>
+                    </span>
+
+                </div>
                     
-                <select style={{ display: !isChoiceEnterDest ? 'block' : 'none' }}
-                        className="InputBox" id="selectFac">
-                    <option>Select Facility</option>
-                    <option>cr</option>
-                    <option>Gymnasium</option>
-                    <option>test</option>
-                    <option>test</option>
-                </select>
 
-        
-                <div className={`CheckboxDiv ${isElevatorClicked ? 'clicked' : ''}`} onClick={handleCheckboxElevatorClick}>
-                    <input
-                        type="checkbox"
-                        className='checkbox'
-                        checked={isUseElevatorChecked}
-                        onChange={() => {}}
-                    />
-                    <img src={elevatorLogo} className="checkbox-image" alt="Elevator Logo" />
-                </div>  
-                <div className={`CheckboxDiv ${isEmergencyExitClicked ? 'clicked' : ''}`} onClick={handleCheckboxEmergencyExitClick}>
-                    <input
-                        type="checkbox"
-                        className='checkbox'
-                        checked={isUseEmergencyExitChecked}
-                        onChange={() => {}}
-                    />
-                    <img src={emergencyExit} className="checkbox-image" alt="Elevator Logo" />
-                </div>  
                 
-
-                <button title="Locate"
-                        className="Locatebuttons"
-                        onClick={clickHandle}> Locate </button>
+                
+                
 
             </form>
             
