@@ -11,6 +11,7 @@ import  {computeDestPath,findFloorInfo} from "./dijktrasAlgo";
 
 
 function TextInput({ style }) {
+    
     const [currentInputValue, setCurrentInputValue] = useState('');
     const [destinationInputValue, setDestinationInputValue] = useState('');
     const [showCurrentSuggestions, setShowCurrentSuggestions] = useState(false);
@@ -43,6 +44,7 @@ function TextInput({ style }) {
         setIsUseEmergencyExitChecked(!isUseEmergencyExitChecked);
         setIsEmergencyExitClicked(!isUseEmergencyExitChecked); // Toggle isClicked when the checkbox is clicked
     };
+
     
     
     let path = [];
@@ -57,20 +59,21 @@ function TextInput({ style }) {
           mapRef.current.setView([10,10], 5.5);
           
         
-        const handleOutsideClick = (event) => {
-            if (inputRef.current && !inputRef.current.contains(event.target)) {
+          const handleOutsideClick = () => {
                 setShowCurrentSuggestions(false);
                 setShowDestinationSuggestions(false);
-            }
         };
 
         document.body.addEventListener('click', handleOutsideClick);
+        
 
         return () => {
             mapRef.current.remove();
             document.body.removeEventListener('click', handleOutsideClick);
         };
     }, []);
+
+    
 
     const addImageOverlay = (ImageUrl) => {
         let images = [
