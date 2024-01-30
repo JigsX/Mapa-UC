@@ -10,6 +10,7 @@ import arrow from './assets/arrow.png';
 import  {computeDestPath,findFloorInfo} from "./dijktrasAlgo";
 
 
+
 function TextInput({ style }) {
     const [currentInputValue, setCurrentInputValue] = useState('');
     const [destinationInputValue, setDestinationInputValue] = useState('');
@@ -143,11 +144,12 @@ function TextInput({ style }) {
             return;
         }
     
-        const marker = L.marker([node.lat, node.lon]).addTo(map);
         
-        marker.bindPopup(`Node ${node.id}`);
         
         if (node.label === 'leaveButton') {
+            const marker = L.marker([node.lat, node.lon]).addTo(map);
+        
+            marker.bindPopup(`Node ${node.id}`);
             marker.setIcon(L.icon({
                 iconUrl: arrow,
                 iconSize: [32, 32],
@@ -163,9 +165,7 @@ function TextInput({ style }) {
                 connectBuildingNodes(node.desti);
     
             });
-            
-        }
-        leaveButton1Clicked;
+            leaveButton1Clicked;
         let popupName = 'Your Current Location: ';
         let targetLoc = 'Your Destination: '
         let currentLocation = path[0];
@@ -180,6 +180,8 @@ function TextInput({ style }) {
             marker.openPopup();
         }
         zoomToNode(path[0]);
+        }
+        
     };
     
     const findNodeById = (nodeId) => nodes.find((node) => node.id === nodeId);
