@@ -140,25 +140,38 @@ function computeDestPath(choice, currentPosition, Destination, useElevator, useE
 
     if(choice==='enterDestination'){
         g.shortestPath(currentPosition, Destination, useElevator, useEmerExit);
-        console.log(Number(currentPosition));
-        console.log(Number(Destination));
-        console.log(useElevator);
-        console.log(useEmerExit);
-        console.log(g.arrayPath);
+        
+        return g.arrayPath
         
     }
     else if(choice === 'enterFindFacility'){
         g.findClosestCategory(currentPosition, Destination, useElevator, useEmerExit);
-        console.log(Number(currentPosition));
-        console.log(Number(Destination));
-        console.log(useElevator);
-        console.log(useEmerExit);
-        console.log(g.arrayPath);
+        return g.arrayPath
     }
     
 }
 
-export default computeDestPath;
+function findFloorInfo(choice, currentPosition, Destination, useElevator, useEmerExit) {
+
+    g.parent = new Array(V).fill(-1);
+    g.arrayPath = [];
+
+
+    if(choice==='enterDestination'){
+        g.shortestPath(currentPosition, Destination, useElevator, useEmerExit);
+        return g.nodeBuilding[g.arrayPath[0]]
+        
+        
+    }
+    else if(choice === 'enterFindFacility'){
+        g.findClosestCategory(currentPosition, Destination, useElevator, useEmerExit);
+        return g.nodeBuilding[g.arrayPath[0]]
+        
+    }
+    
+}
+
+export {computeDestPath,findFloorInfo};
 
 const V = 24;
 const g = new Graph(V);

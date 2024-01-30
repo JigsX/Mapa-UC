@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import finImage from './assets/fin.png'; // Import the image file
+import arrow from './assets/arrow.png';
+
 
 const Map = () => {
   const mapRef = useRef(null);
@@ -11,25 +13,47 @@ const Map = () => {
     mapRef.current = L.map('map', {
       center: [51.505, -0.09],
       zoom: 13,
+      zoomControl: false
     });
     mapRef.current.setView([10,10], 5.5);
-    addImageOverlay();
+    
     connectBuildingNodes('science');
     return () => {
       mapRef.current.remove();
     };
-  }, []);
+  },);
 
-  const addImageOverlay = () => {
-    const imageUrl = finImage; 
-    const imageBounds =  [[0, 0], [20, 25]] ; 
-    L.imageOverlay(imageUrl, imageBounds).addTo(mapRef.current);
+  const addImageOverlay = (ImageUrl) => {
+    let images = [
+        { url: ImageUrl, bounds: [[0, 0], [20, 25]] },
+        // Add more images as needed
+    ];
+    mapRef.current.eachLayer(function (layer) {
+        if (layer instanceof L.ImageOverlay) {
+            mapRef.current.removeLayer(layer);
+        }
+    });
+    images.forEach(function (image) {
+        L.imageOverlay(image.url, image.bounds).addTo(mapRef.current);
+    });
   };
+
+  function loadBuildingFloor (floorName) {
+    if(floorName === 'science'){
+        addImageOverlay(finImage);
+    }
+    else if(floorName === 'science2'){
+        addImageOverlay(arrow);
+    }
+  }
+  
+  
 
   const connectBuildingNodes = (building) => {
     clearMapMarkers();
     clearMapPolylines();
     loadBuildingNodes(building);
+    loadBuildingFloor(building);
     const nodesToConnect = path;
     connectNodes(nodesToConnect);
 };
@@ -92,7 +116,7 @@ const drawNodeOnMap = (node, map) => {
         });
         
     }
-    
+    leaveButton1Clicked;
     let popupName = 'Your Current Location: ';
     let targetLoc = 'Your Destination: '
     let currentLocation = path[0];
@@ -147,10 +171,12 @@ const drawPolyline = (map, node1, node2) => {
 
 
 
+
+
 function buildingNodes(buildingName) {
     let nodes = [];
     if (buildingName == "science") {
-        addImageOverlay();
+        
         
         nodes = [
             { id: 1, lat: 1, lon: 2,building: `science` },
@@ -161,7 +187,7 @@ function buildingNodes(buildingName) {
             { id: 5, lat: 6, lon: 1,building: `science` , label: 'leaveButton', cat: 'exit', desti: 'science2' }
         ];
     } else if (buildingName == "science2") {
-        addImageOverlay();
+        
         nodes = [
             { id: 7, lat: 1, lon: 0,building: `science2`  },
             { id: 8, lat: 2, lon: 0,building: `science2`  },
@@ -173,34 +199,6 @@ function buildingNodes(buildingName) {
 
     return nodes;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   return (
     <div id="map" style={{ width: '100%', height: '750px' }}></div>
   );
