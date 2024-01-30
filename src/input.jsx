@@ -2,7 +2,6 @@ import{ useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import elevatorLogo from './assets/elevatorLogo.png';
 import emergencyExit from './assets/emergencyExit.png';
-import UCLogo from './assets/UCLogo.png';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import finImage from './assets/fin.png'; // Import the image file
@@ -165,7 +164,10 @@ function TextInput({ style }) {
                 connectBuildingNodes(node.desti);
     
             });
-            leaveButton1Clicked;
+            
+
+
+        leaveButton1Clicked;    
         let popupName = 'Your Current Location: ';
         let targetLoc = 'Your Destination: '
         let currentLocation = path[0];
@@ -347,15 +349,7 @@ function TextInput({ style }) {
     
     return (
         <div style={style} ref={inputRef}>
-            <div style={{background:'#0c380c'}}>
-                <h1 id="mapaUC">Mapa-UC
-                    <img id="ucLogo"src={UCLogo} />
-                </h1>
-                
-                
-            </div>
-            
-            
+
             <div>
                 <select 
                         value={selectedDestination}

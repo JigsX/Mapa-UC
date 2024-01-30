@@ -162,24 +162,6 @@ html, body{
     height: '44px'
 }
 
-#mapaUC {
-    background: #0c380c;
-    color: #93fde3;
-    text-align: center;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    position: relative; /* Ensure the positioning context is set */
-}
-
-#ucLogo {
-    position: absolute; /* Position relative to the nearest positioned ancestor */
-     /* Position the image at the bottom of its containing block */
-    width: 32px;
-
-    
-}
 
 
 
