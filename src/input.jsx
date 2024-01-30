@@ -149,7 +149,7 @@ function TextInput({ style }) {
         
         if (node.label === 'leaveButton') {
             marker.setIcon(L.icon({
-                iconUrl: 'exit.png',
+                iconUrl: arrow,
                 iconSize: [32, 32],
                 iconAnchor: [16, 16],
                 popupAnchor: [0, -16]
