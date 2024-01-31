@@ -20,17 +20,18 @@ html, body{
     background: #0c380c;
     line-height: 1;
     font-size: 15px;
-    
+    background: linear-gradient(to middle-center, #ffffff 0%, #ffffff 50%, #000000 50%, #000000 100%);
     :hover {
         transition: all .1s ease;
         box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
     }
-   
-    
-   
-
-    
 }
+
+.pickButton option:first-child {
+    color: gray;
+    display: none; /* Hide the default option */
+}
+
 
 .Locatebuttons{
     
@@ -39,24 +40,23 @@ html, body{
     display: inline-block;
     cursor: pointer;
     font-weight: 600;
-    color: #000021;
+    color: #0c380c;
     padding: 0%;
-    background: #669488;
+    background: #7bf0d8;
     line-height: 1;
     font-size: 16px;
-    height: 38px;
+    height: 43px;
     border: solid #0c380c;
     
-    margin-top: 2px;
+    
     :hover {
         transition: all .1s ease;
         box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
     }
     
 }
-
-.Locatebuttons #elev{
-    border-left: 2px solid red;
+select{
+    appearance: none;
 }
 
 
@@ -94,7 +94,7 @@ input[type="checkbox" i] {
     border: solid;
     background: #7bf0d8;
     width: 100%;
-    height: 42px;
+    height: 41px;
     text-align: center;
     
     display: inline-block;
@@ -103,7 +103,9 @@ input[type="checkbox" i] {
 }
 
 .CheckboxDiv .checkbox-image{
-    max-height: 100%;
+    width: 100%;
+    height: 100%;
+    
 }
 
 .clicked {

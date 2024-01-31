@@ -358,14 +358,14 @@ function TextInput({ style }) {
     return (
         <div style={style} ref={inputRef}>
 
-            <div>
+            <div >
                 <select 
                         value={selectedDestination}
                         onChange={handlePickButtonChange}
                         className='pickButton'>
                     
-                    <option disabled defaultValue={""} >
-                       
+                    <option defaultValue={""} >
+                       Choose Destination
                     </option>
                     <option value="Enter Destination">
                         Enter Destination
