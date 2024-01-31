@@ -146,46 +146,44 @@ function TextInput({ style }) {
             return;
         }
     
-        
-        
-        if (node.label === 'leaveButton') {
+        if(Object.prototype.hasOwnProperty.call(node, "label")){
             const marker = L.marker([node.lat, node.lon]).addTo(map);
-        
-            marker.bindPopup(`Node ${node.id}`);
-            marker.setIcon(L.icon({
-                iconUrl: arrow,
-                iconSize: [32, 32],
-                iconAnchor: [16, 16],
-                popupAnchor: [0, -16]
-            }));
-    
-            marker.on('click', () => {
-                // Set the flag indicating leaveButton1 is clicked
-                leaveButton1Clicked = true;
-                clearMapMarkers();
-                // Connect to "science2" and handle other logic if needed
-                connectBuildingNodes(node.desti);
-    
-            });
             
-
-
-        leaveButton1Clicked;    
-        let popupName = 'Your Current Location: ';
-        let targetLoc = 'Your Destination: '
-        let currentLocation = path[0];
-        let destination = path[path.length -1];
-    
-        if (node.id === currentLocation) {
-            marker.bindPopup(`<strong>${popupName}</strong> Room: ${node.id}`);
-            marker.openPopup();
+            if (node.label === 'leaveButton') {
+                marker.bindPopup(`Node ${node.id}`);
+                marker.setIcon(L.icon({
+                    iconUrl: arrow,
+                    iconSize: [32, 32],
+                    iconAnchor: [16, 16],
+                    popupAnchor: [0, -16]
+                }));
+        
+                marker.on('click', () => {
+                    // Set the flag indicating leaveButton1 is clicked
+                    leaveButton1Clicked = true;
+                    clearMapMarkers();
+                    // Connect to "science2" and handle other logic if needed
+                    connectBuildingNodes(node.desti);
+        
+                });
+            } 
+            leaveButton1Clicked;    
+            let popupName = 'Your Current Location: ';
+            let targetLoc = 'Your Destination: '
+            let currentLocation = path[0];
+            let destination = path[path.length -1];
+        
+            if (node.id === currentLocation) {
+                marker.bindPopup(`<strong>${popupName}</strong> Room: ${node.id}`);
+                marker.openPopup();
+            }
+            else if(node.id === destination){
+                marker.bindPopup(`<strong>${targetLoc}</strong> Room: ${node.id}`);
+                marker.openPopup();
+            }
+            zoomToNode(path[0]);
         }
-        else if(node.id === destination){
-            marker.bindPopup(`<strong>${targetLoc}</strong> Room: ${node.id}`);
-            marker.openPopup();
-        }
-        zoomToNode(path[0]);
-        }
+        
         
     };
     
@@ -334,6 +332,8 @@ function TextInput({ style }) {
 
 
     const [selectedDestination, setSelectedDestination] = useState('');
+    
+    
     const handlePickButtonChange = (event) => {
         const { value } = event.target;
         setSelectedDestination(value);
@@ -349,7 +349,12 @@ function TextInput({ style }) {
     
     
     
+   
+
+
+
     
+
     return (
         <div style={style} ref={inputRef}>
 
@@ -372,102 +377,103 @@ function TextInput({ style }) {
                 
             </div>
 
+            <div style={{ display: isChoiceEnterDest || isChoiceEnterFac ? 'block' : 'none' }}>
+                <form>
+                    <div style={{display:'flex'}}>
+                        <span style={{flex:'70%', background:'#0c380c'}}>
+                            <label>
+                                <input
+                                    className="InputBox"
+                                    placeholder="Enter Your Current Location"
+                                    type="text"
+                                    name='currentPost'
+                                    value={currentInputValue}
+                                    onChange={handleCurrentInputChange}
+                                        
+                                />
+                            </label>
+                            {showCurrentSuggestions && (
+                                <ul className="Suggestions">
+                                    {filteredCurrentSuggestions.map((suggestion, index) => (
+                                        <li key={index} onClick={() => handleSuggestionClick(suggestion, true)}>
+                                            {suggestion}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
 
+                            <label>
+                                <input
+                                    className="InputBox"
+                                    placeholder="Enter Your Destination"
+                                    type="text"
+                                    name="destination"
+                                    value={destinationInputValue}
+                                    onChange={handleDestinationInputChange}
+                                    style={{ display: isChoiceEnterDest ? 'block' : 'none' }}
+                                />
+                            </label>
+                            {showDestinationSuggestions && (
+                                <ul className="Suggestions">
+                                    {filteredDestinationSuggestions.map((suggestion, index) => (
+                                        <li key={index} onClick={() => handleSuggestionClick(suggestion, false)}>
+                                            {suggestion}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
 
-            <form>
-                <div style={{display:'flex'}}>
-                    <span style={{flex:'70%', background:'#0c380c'}}>
-                        <label>
-                            <input
-                                className="InputBox"
-                                placeholder="Enter Your Current Location"
-                                type="text"
-                                name='currentPost'
-                                value={currentInputValue}
-                                onChange={handleCurrentInputChange}
+                                
+                            <select style={{ display: !isChoiceEnterDest ? 'block' : 'none' }}
+                                    className="InputBox" id="selectFac" value={selectedFacility} onChange={handleChangeFacility}>
+                                <option>Select Facility</option>
+                                <option>cr</option>
+                                <option>Gymnasium</option>
+                                <option>test</option>
+                                <option>test</option>
+                            </select>
+                        </span>
+
+                        <span style={{flex:'30%', background:'#0c380c'}}>
+                            <div>
+                                <div style={{ display: 'flex', justifyContent: 'center' }}>
+                                    <div className={`CheckboxDiv ${isElevatorClicked ? 'clicked' : ''}`} onClick={handleCheckboxElevatorClick}>
+                                        <input
+                                            type="checkbox"
+                                            className='checkbox'
+                                            checked={isUseElevatorChecked}
+                                            onChange={() => {}}
+                                        />
+                                        <img src={elevatorLogo} className="checkbox-image" alt="Elevator Logo" />
+                                    </div> 
+
                                     
-                            />
-                        </label>
-                        {showCurrentSuggestions && (
-                            <ul className="Suggestions">
-                                {filteredCurrentSuggestions.map((suggestion, index) => (
-                                    <li key={index} onClick={() => handleSuggestionClick(suggestion, true)}>
-                                        {suggestion}
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
 
-                        <label>
-                            <input
-                                className="InputBox"
-                                placeholder="Enter Your Destination"
-                                type="text"
-                                name="destination"
-                                value={destinationInputValue}
-                                onChange={handleDestinationInputChange}
-                                style={{ display: isChoiceEnterDest ? 'block' : 'none' }}
-                            />
-                        </label>
-                        {showDestinationSuggestions && (
-                            <ul className="Suggestions">
-                                {filteredDestinationSuggestions.map((suggestion, index) => (
-                                    <li key={index} onClick={() => handleSuggestionClick(suggestion, false)}>
-                                        {suggestion}
-                                    </li>
-                                ))}
-                            </ul>
-                        )}
-
-                            
-                        <select style={{ display: !isChoiceEnterDest ? 'block' : 'none' }}
-                                className="InputBox" id="selectFac" value={selectedFacility} onChange={handleChangeFacility}>
-                            <option>Select Facility</option>
-                            <option>cr</option>
-                            <option>Gymnasium</option>
-                            <option>test</option>
-                            <option>test</option>
-                        </select>
-                    </span>
-
-                    <span style={{flex:'30%', background:'#0c380c'}}>
-                        <div>
-                            <div style={{ display: 'flex', justifyContent: 'center' }}>
-                                <div className={`CheckboxDiv ${isElevatorClicked ? 'clicked' : ''}`} onClick={handleCheckboxElevatorClick}>
-                                    <input
-                                        type="checkbox"
-                                        className='checkbox'
-                                        checked={isUseElevatorChecked}
-                                        onChange={() => {}}
-                                    />
-                                    <img src={elevatorLogo} className="checkbox-image" alt="Elevator Logo" />
-                                </div> 
-
-                                
-
-                                <div className={`CheckboxDiv ${isEmergencyExitClicked ? 'clicked' : ''}`} onClick={handleCheckboxEmergencyExitClick}>
-                                    <input
-                                        type="checkbox"
-                                        className='checkbox'
-                                        checked={isUseEmergencyExitChecked}
-                                        onChange={() => {}}
-                                    />
-                                    <img src={emergencyExit} className="checkbox-image" alt="Elevator Logo" />
+                                    <div className={`CheckboxDiv ${isEmergencyExitClicked ? 'clicked' : ''}`} onClick={handleCheckboxEmergencyExitClick}>
+                                        <input
+                                            type="checkbox"
+                                            className='checkbox'
+                                            checked={isUseEmergencyExitChecked}
+                                            onChange={() => {}}
+                                        />
+                                        <img src={emergencyExit} className="checkbox-image" alt="Elevator Logo" />
+                                    </div>
+                                </div>            
+                                    
+                                <div >
+                                    <button title="Locate"
+                                            className="Locatebuttons"
+                                            onClick={clickHandle}> Locate 
+                                    </button>
                                 </div>
-                            </div>            
-                                
-                            <div >
-                                <button title="Locate"
-                                        className="Locatebuttons"
-                                        onClick={clickHandle}> Locate 
-                                </button>
                             </div>
-                        </div>
-                    </span>
+                        </span>
 
-                </div>
-                    
-            </form>
+                    </div>
+                        
+                </form>
+            </div>
+            
             <div id="map" style={{ width: '100%', height: '750px' }}></div>
         </div>
     );
