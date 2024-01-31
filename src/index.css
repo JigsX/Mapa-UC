@@ -5,6 +5,7 @@ html, body{
     padding: 0px;
     overflow-x: hidden;
     background-color: #7FFFD4;
+    overflow: hidden; 
 }
 
 .pickButton{
@@ -181,11 +182,7 @@ input[type="checkbox" i] {
     height: '44px'
 }
 
-#map{
-    background:	#7FFFD4;
-    height: 100%;
-    position: relative;
-}
+
 
 .sticky-div {
     position: fixed;
