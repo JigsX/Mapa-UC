@@ -40,18 +40,25 @@ html, body{
     cursor: pointer;
     font-weight: 600;
     color: #000021;
+    padding: 0%;
     background: #669488;
     line-height: 1;
     font-size: 16px;
     height: 38px;
-    border: 2px solid #0c380c;
-    margin-top: 0px;
+    border: solid #0c380c;
+    
+    margin-top: 2px;
     :hover {
         transition: all .1s ease;
         box-shadow: 0 0 0 0 #fff, 0 0 0 3px #1de9b6;
     }
     
 }
+
+.Locatebuttons #elev{
+    border-left: 2px solid red;
+}
+
 
 .InputBox {
     width: 100%;
@@ -73,7 +80,15 @@ html, body{
 }
 
 
-
+input[type="checkbox" i] {
+    background-color: initial;
+    cursor: default;
+    appearance: none;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: initial;
+    border: initial;
+}
 
 .CheckboxDiv{
     border: solid;
@@ -81,10 +96,10 @@ html, body{
     width: 100%;
     height: 42px;
     text-align: center;
+    
     display: inline-block;
     
-    border-color: #0c380c;
-    
+    border: solid #0c380c;
 }
 
 .CheckboxDiv .checkbox-image{
@@ -137,7 +152,7 @@ html, body{
     width: 90%;
     margin-bottom: 5px;
     margin-top: 5px;
-    margin-left: 7px;
+    
     border: solid;
     border-color: #0c380c;
     border-radius: 5px;
@@ -160,6 +175,12 @@ html, body{
     cursor: pointer;
     border:  #a0dcf0;
     height: '44px'
+}
+
+#map{
+    background:	#7FFFD4;
+    height: 100%;
+    position: relative;
 }
 
 

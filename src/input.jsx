@@ -379,7 +379,7 @@ function TextInput({ style }) {
 
             <div style={{ display: isChoiceEnterDest || isChoiceEnterFac ? 'block' : 'none' }}>
                 <form>
-                    <div style={{display:'flex'}}>
+                    <div style={{display:'flex', borderBottom: '4px solid #0c380c'}}>
                         <span style={{flex:'70%', background:'#0c380c'}}>
                             <label>
                                 <input
@@ -434,13 +434,14 @@ function TextInput({ style }) {
                             </select>
                         </span>
 
-                        <span style={{flex:'30%', background:'#0c380c'}}>
+                        <span style={{flex:'30%', background:'#0c380c', borderLeft: '2px solid #0c380c',borderRight: '2px solid #0c380c',borderTop: '1px solid #0c380c'}}>
                             <div>
                                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                                     <div className={`CheckboxDiv ${isElevatorClicked ? 'clicked' : ''}`} onClick={handleCheckboxElevatorClick}>
                                         <input
                                             type="checkbox"
                                             className='checkbox'
+                                            id="elev"
                                             checked={isUseElevatorChecked}
                                             onChange={() => {}}
                                         />
@@ -453,6 +454,7 @@ function TextInput({ style }) {
                                         <input
                                             type="checkbox"
                                             className='checkbox'
+                                            id="emer"
                                             checked={isUseEmergencyExitChecked}
                                             onChange={() => {}}
                                         />
