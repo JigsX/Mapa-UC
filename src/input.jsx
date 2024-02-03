@@ -1,6 +1,6 @@
 import{ useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import elevatorLogo from './assets/elevatorLogo.png';
+import elevatorLogo from './assets/elevator.png';
 import emergencyExit from './assets/emergencyExit.png';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -145,6 +145,27 @@ function TextInput({ style }) {
             console.error("Map not defined. Cannot add marker.");
             return;
         }
+
+        function handleButtonClick(choice) {
+            // Perform actions based on the user's choice
+            switch (choice) {
+                case 1:
+                    // Set the flag indicating leaveButton1 is clicked
+                    leaveButton1Clicked = true;
+                    console.log("Tnafaf");
+                    break;
+                case 2:
+                    // Perform actions for choice 2
+                    break;
+                // Add cases for choices 3, 4, and 5 as needed
+                default:
+                    break;
+            }
+        
+            // Clear map markers and connect to "science2"
+            clearMapMarkers();
+            connectBuildingNodes(node.desti);
+        }
     
         if(Object.prototype.hasOwnProperty.call(node, "label")){
             const marker = L.marker([node.lat, node.lon]).addTo(map);
@@ -167,6 +188,42 @@ function TextInput({ style }) {
         
                 });
             } 
+            
+            if (node.label === 'elevator') {
+                marker.bindPopup(`Node ${node.id}`);
+                marker.setIcon(L.icon({
+                    iconUrl: elevatorLogo,
+                    iconSize: [32, 32],
+                    iconAnchor: [16, 16],
+                    popupAnchor: [0, -16]
+                }));
+        
+                marker.on('click', () => {
+                    // Create a div element to contain the buttons
+                    let buttonDiv = document.createElement('div');
+            
+                    // Create buttons for choices 1 to 5
+                    for (let i = 1; i <= 5; i++) {
+                        let button = document.createElement('button');
+                        button.textContent = i;
+                        button.addEventListener('click', () => {
+                            handleButtonClick(i);
+                        });
+                        buttonDiv.appendChild(button);
+                    }
+            
+                    // Append the button div to the popup
+                    marker.getPopup().setContent(buttonDiv);
+                    marker.openPopup();
+                });
+            } 
+
+
+
+
+
+
+
             leaveButton1Clicked;    
             let popupName = 'Your Current Location: ';
             let targetLoc = 'Your Destination: '
@@ -181,11 +238,22 @@ function TextInput({ style }) {
                 marker.bindPopup(`<strong>${targetLoc}</strong> Room: ${node.id}`);
                 marker.openPopup();
             }
+            
+            let popupContent = `<strong>Node ${node.id}</strong><br>`;
+        
+            // Add buttons if it's not a leaveButton
+            
+            
+            marker.bindPopup(popupContent);
+
             zoomToNode(path[0]);
+            
         }
         
         
     };
+   
+    
     
     const findNodeById = (nodeId) => nodes.find((node) => node.id === nodeId);
     
@@ -237,7 +305,7 @@ function TextInput({ style }) {
                 { id: 2, lat: 2, lon: 0,building: `science` },
                 { id: 3, lat: 3, lon: 1,building: `science`  },
                 { id: 4, lat: 4, lon: 0,building: `science`  },
-                { id: 6, lat: 5, lon: 1,building: `science`  },
+                { id: 6, lat: 5, lon: 1,building: `science`, label:'elevator'  },
                 { id: 5, lat: 6, lon: 1,building: `science` , label: 'leaveButton', cat: 'exit', desti: 'science2' }
             ];
         } else if (buildingName == "science2") {
