@@ -163,8 +163,7 @@ function TextInput({ style }) {
             }
         
             // Clear map markers and connect to "science2"
-            clearMapMarkers();
-            connectBuildingNodes(node.desti);
+            
         }
     
         if(Object.prototype.hasOwnProperty.call(node, "label")){
@@ -193,7 +192,7 @@ function TextInput({ style }) {
                 marker.bindPopup(`Node ${node.id}`);
                 marker.setIcon(L.icon({
                     iconUrl: elevatorLogo,
-                    iconSize: [32, 32],
+                    iconSize: [40, 40],
                     iconAnchor: [16, 16],
                     popupAnchor: [0, -16]
                 }));
@@ -287,7 +286,7 @@ function TextInput({ style }) {
             [node2.lat, node2.lon]
         ];
     
-        const polyline = L.polyline(latlngs, { color: 'red' });
+        const polyline = L.polyline(latlngs, { weight:'8', color: '#4a80f5' });
         polyline.addTo(map);
     };
     
@@ -298,7 +297,7 @@ function TextInput({ style }) {
     function buildingNodes(buildingName) {
         let nodes = [];
         if (buildingName == "science") {
-            
+            setCurrentFloor("Science Building, 1st Floor");
             
             nodes = [
                 { id: 1, lat: 1, lon: 2,building: `science` },
@@ -309,7 +308,7 @@ function TextInput({ style }) {
                 { id: 5, lat: 6, lon: 1,building: `science` , label: 'leaveButton', cat: 'exit', desti: 'science2' }
             ];
         } else if (buildingName == "science2") {
-            
+            setCurrentFloor("Science Building, 2nd Floor");
             nodes = [
                 { id: 7, lat: 1, lon: 0,building: `science2`  },
                 { id: 8, lat: 2, lon: 0,building: `science2`  },
@@ -420,7 +419,7 @@ function TextInput({ style }) {
    
 
 
-
+    const [currentFloor, setCurrentFloor] = useState('');
     
 
     return (
@@ -542,6 +541,12 @@ function TextInput({ style }) {
                         </div>
                             
                     </form>
+                </div>
+                <div className='currentPosition' style={{}}>
+                    <h4 style={{
+                        textAlign:'center', margin: '5px', opacity:'0.6',borderRadius:'60px'
+                    }}
+                    > {currentFloor}</h4>
                 </div>
             </div>
             
