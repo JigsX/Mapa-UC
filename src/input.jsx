@@ -1,6 +1,6 @@
 import{ useState, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import elevatorLogo from './assets/elevator.png';
+import elevatorLogo from './assets/elevatorLogo.png';
 import emergencyExit from './assets/emergencyExit.png';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -151,11 +151,10 @@ function TextInput({ style }) {
             switch (choice) {
                 case 1:
                     // Set the flag indicating leaveButton1 is clicked
-                    leaveButton1Clicked = true;
-                    console.log("Tnafaf");
+                    connectBuildingNodes('science');
                     break;
                 case 2:
-                    // Perform actions for choice 2
+                    connectBuildingNodes('science2');
                     break;
                 // Add cases for choices 3, 4, and 5 as needed
                 default:
@@ -448,17 +447,32 @@ function TextInput({ style }) {
                     <form>
                         <div style={{display:'flex', borderBottom: '4px solid #0c380c'}}>
                             <span style={{flex:'70%', background:'#0c380c'}}>
-                                <label>
-                                    <input
-                                        className="InputBox"
-                                        placeholder="Enter Your Current Location"
-                                        type="text"
-                                        name='currentPost'
-                                        value={currentInputValue}
-                                        onChange={handleCurrentInputChange}
-                                            
-                                    />
-                                </label>
+                                <div style={{display:'flex'}}>
+                                    <div style={{flex: '100%'}}>
+                                        <label>
+                                            <input
+                                                className="InputBox"
+                                                placeholder="Enter Your Current Location"
+                                                type="text"
+                                                name='currentPost'
+                                                value={currentInputValue}
+                                                onChange={handleCurrentInputChange}
+                                                    
+                                            />
+                                        </label>
+                                    </div>
+                                        
+                                    <div>
+                                        <button
+                                                className='qrButton'>QR</button>
+                                    </div>
+                                    
+
+
+                                    
+                                </div>
+                                
+                                
                                 {showCurrentSuggestions && (
                                     <ul className="Suggestions">
                                         {filteredCurrentSuggestions.map((suggestion, index) => (

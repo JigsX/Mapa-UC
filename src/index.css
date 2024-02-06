@@ -60,6 +60,15 @@ select{
     appearance: none;
 }
 
+.qrButton{
+    margin-top: 4px;
+    color: #797676;
+    background: #84abb8;
+    border: none;
+    height: 90%;
+    cursor: pointer;
+}
+
 
 .InputBox {
     width: 100%;
