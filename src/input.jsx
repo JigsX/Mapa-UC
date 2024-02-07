@@ -50,8 +50,12 @@ function TextInput({ style }) {
             
             const success = (result) => {
                 console.log('QR Code Value Detected:', result);
+                document.getElementById('result').innerHTML = `
+                    <h2>Success!</h2>
+                    <p><a href="${result}">${result}</a></p>
+                `;
                 scanner.clear();
-                setQRCodeScanner(false);
+                document.getElementById('reader').remove();
             }
     
             const error = (err) => {
@@ -465,8 +469,8 @@ function TextInput({ style }) {
     return (
         
         <div style={style} ref={inputRef}>
-            <div className='reader' style={{display: qrCodeScanner? 'block':'none'}}></div>
-            <div className='result'></div>
+            <div id='reader' style={{display: qrCodeScanner? 'block':'none'}}></div>
+            <div id='result'></div>
             <div className="sticky-div">
                 <div >
                     <select 
