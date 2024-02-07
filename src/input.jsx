@@ -35,36 +35,38 @@ function TextInput({ style }) {
         console.log("tangaga");
         event.preventDefault();
         
+        const scanner = new Html5QrcodeScanner('reader', { 
+            qrbox: {
+
+                width: 300,
+                height: 300,
+            },
+            fps: 20,
+        });
+        
+        const success = (result) => {
+            console.log('QR Code Value Detected:', result);
+            setCurrentInputValue(result);
+            setQRCodeScanner(false);
+            scanner.clear();
+
+        }
+
+        const error = (err) => {
+            console.error(err);
+        }
         
 
         if(!qrCodeScanner){
             setQRCodeScanner(true);
-            const scanner = new Html5QrcodeScanner('reader', { 
-                qrbox: {
-    
-                    width: 300,
-                    height: 300,
-                },
-                fps: 20,
-            });
             
-            const success = (result) => {
-                console.log('QR Code Value Detected:', result);
-                setCurrentInputValue(result);
-                setQRCodeScanner(false);
-                scanner.clear();
-
-            }
-    
-            const error = (err) => {
-                console.error(err);
-            }
             scanner.render(success, error);
         }
         
         
         
         else{
+            scanner.clear();
             setQRCodeScanner(false);
             
         }
