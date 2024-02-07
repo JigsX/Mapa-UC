@@ -469,7 +469,8 @@ function TextInput({ style }) {
     return (
         
         <div style={style} ref={inputRef}>
-            <div id='reader' style={{display: qrCodeScanner? 'block':'none'}}></div>
+            <div className='reader' style={{display: qrCodeScanner? 'block':'none'}}></div>
+            <div className='result'></div>
             <div className="sticky-div">
                 <div >
                     <select 
