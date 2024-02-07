@@ -7,7 +7,7 @@ import 'leaflet/dist/leaflet.css';
 import finImage from './assets/fin.png'; // Import the image file
 import arrow from './assets/arrow.png';
 import  {computeDestPath,findFloorInfo} from "./dijktrasAlgo";
-
+import { Html5QrcodeScanner } from 'html5-qrcode';
 
 
 function TextInput({ style }) {
@@ -28,6 +28,50 @@ function TextInput({ style }) {
     const [isChoiceEnterFac, setIsChoiceEnterFac] = useState(false);
 
     const [selectedFacility, setSelectedFacility] = useState('');
+
+    const [qrCodeScanner, setQRCodeScanner]= useState(false);
+
+    const handleQRbuttonClick = () => {
+        console.log("tangaga");
+        event.preventDefault();
+        const scanner = new Html5QrcodeScanner('reader', { 
+            qrbox: {
+                
+                width: 300,
+                height: 300,
+            },
+            fps: 20,
+        });
+        
+        const success = (result) => {
+            console.log('QR Code Value Detected:', result);
+            document.getElementById('result').innerHTML = `
+                <h2>Success!</h2>
+                <p><a href="${result}">${result}</a></p>
+            `;
+            scanner.clear();
+            document.getElementById('reader').remove();
+        }
+
+        const error = (err) => {
+            console.error(err);
+        }
+        
+
+        if(!qrCodeScanner){
+            setQRCodeScanner(true);
+            scanner.render(success, error);
+        }
+        
+        
+        
+        else{
+            setQRCodeScanner(false);
+            scanner.pause
+        }
+    }
+
+
 
     const handleChangeFacility = (event) =>{
         const {value} = event.target;
@@ -414,15 +458,17 @@ function TextInput({ style }) {
     };
     
     
+
     
    
 
 
     const [currentFloor, setCurrentFloor] = useState('');
-    
 
     return (
+        
         <div style={style} ref={inputRef}>
+            
             <div className="sticky-div">
                 <div >
                     <select 
@@ -464,7 +510,9 @@ function TextInput({ style }) {
                                         
                                     <div>
                                         <button
-                                                className='qrButton'>QR</button>
+                                                className='qrButton'
+                                                onClick={handleQRbuttonClick}
+                                                >QR</button>
                                     </div>
                                     
 
@@ -564,7 +612,7 @@ function TextInput({ style }) {
                 </div>
             </div>
             
-            
+            <div id='reader' style={{display: qrCodeScanner? 'block':'none', textAlign: 'center',paddingTop: '51%'}}></div>
             <div id="map" style={{ width: '100%', height: '1000px' }}></div>
         </div>
     );
