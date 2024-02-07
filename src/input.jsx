@@ -36,7 +36,7 @@ function TextInput({ style }) {
         event.preventDefault();
         const scanner = new Html5QrcodeScanner('reader', { 
             qrbox: {
-                
+
                 width: 300,
                 height: 300,
             },
@@ -612,7 +612,7 @@ function TextInput({ style }) {
                 </div>
             </div>
             
-            <div id='reader' style={{display: qrCodeScanner? 'block':'none', textAlign: 'center',paddingTop: '51%'}}></div>
+            <div id='reader' style={{display: qrCodeScanner? 'block':'none'}}></div>
             <div id="map" style={{ width: '100%', height: '1000px' }}></div>
         </div>
     );
