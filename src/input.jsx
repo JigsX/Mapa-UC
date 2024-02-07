@@ -51,8 +51,9 @@ function TextInput({ style }) {
             const success = (result) => {
                 console.log('QR Code Value Detected:', result);
                 setCurrentInputValue(result);
-                scanner.clear();
                 setQRCodeScanner(false);
+                scanner.clear();
+
             }
     
             const error = (err) => {
