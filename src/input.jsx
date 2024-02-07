@@ -4,7 +4,7 @@ import elevatorLogo from './assets/elevatorLogo.png';
 import emergencyExit from './assets/emergencyExit.png';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import finImage from './assets/fin.png'; // Import the image file
+import finImage from './assets/gh.png'; // Import the image file
 import arrow from './assets/arrow.png';
 import  {computeDestPath,findFloorInfo} from "./dijktrasAlgo";
 import { Html5QrcodeScanner } from 'html5-qrcode';
@@ -97,9 +97,10 @@ function TextInput({ style }) {
     const mapRef = useRef(null);
     useEffect(() => {
         mapRef.current = L.map('map', {
-            center: [51.505, -0.09],
+            center: [0, -0.09],
             zoom: 13,
-            zoomControl: false
+            zoomControl: false,
+            crs: L.CRS.EPSG3395
           });
           mapRef.current.setView([10,10], 5.5);
           
