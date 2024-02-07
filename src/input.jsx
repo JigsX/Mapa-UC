@@ -52,7 +52,7 @@ function TextInput({ style }) {
                 console.log('QR Code Value Detected:', result);
                 setCurrentInputValue(result);
                 scanner.clear();
-                document.getElementById('reader').remove();
+                setQRCodeScanner(false);
             }
     
             const error = (err) => {
