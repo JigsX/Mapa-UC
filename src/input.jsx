@@ -34,32 +34,33 @@ function TextInput({ style }) {
     const handleQRbuttonClick = () => {
         console.log("tangaga");
         event.preventDefault();
-        const scanner = new Html5QrcodeScanner('reader', { 
-            qrbox: {
-
-                width: 300,
-                height: 300,
-            },
-            fps: 20,
-        });
         
-        const success = (result) => {
-            console.log('QR Code Value Detected:', result);
-            document.getElementById('result').innerHTML = `
-                <h2>Success!</h2>
-                <p><a href="${result}">${result}</a></p>
-            `;
-            scanner.clear();
-            document.getElementById('reader').remove();
-        }
-
-        const error = (err) => {
-            console.error(err);
-        }
         
 
         if(!qrCodeScanner){
             setQRCodeScanner(true);
+            const scanner = new Html5QrcodeScanner('reader', { 
+                qrbox: {
+    
+                    width: 300,
+                    height: 300,
+                },
+                fps: 20,
+            });
+            
+            const success = (result) => {
+                console.log('QR Code Value Detected:', result);
+                document.getElementById('result').innerHTML = `
+                    <h2>Success!</h2>
+                    <p><a href="${result}">${result}</a></p>
+                `;
+                scanner.clear();
+                document.getElementById('reader').remove();
+            }
+    
+            const error = (err) => {
+                console.error(err);
+            }
             scanner.render(success, error);
         }
         
@@ -67,7 +68,7 @@ function TextInput({ style }) {
         
         else{
             setQRCodeScanner(false);
-            scanner.pause
+            
         }
     }
 
@@ -468,7 +469,7 @@ function TextInput({ style }) {
     return (
         
         <div style={style} ref={inputRef}>
-            
+            <div id='reader' style={{display: qrCodeScanner? 'block':'none'}}></div>
             <div className="sticky-div">
                 <div >
                     <select 
@@ -612,7 +613,7 @@ function TextInput({ style }) {
                 </div>
             </div>
             
-            <div id='reader' style={{display: qrCodeScanner? 'block':'none'}}></div>
+            
             <div id="map" style={{ width: '100%', height: '1000px' }}></div>
         </div>
     );
