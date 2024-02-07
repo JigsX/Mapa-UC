@@ -50,10 +50,7 @@ function TextInput({ style }) {
             
             const success = (result) => {
                 console.log('QR Code Value Detected:', result);
-                document.getElementById('result').innerHTML = `
-                    <h2>Success!</h2>
-                    <p><a href="${result}">${result}</a></p>
-                `;
+                setCurrentInputValue(result);
                 scanner.clear();
                 document.getElementById('reader').remove();
             }
