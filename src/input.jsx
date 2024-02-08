@@ -343,7 +343,7 @@ function TextInput({ style }) {
     function buildingNodes(buildingName) {
         let nodes = [];
         if (buildingName == "science") {
-            setCurrentFloor("Science Building, 1st Floor");
+            setCurrentFloor("Science Building: 1st Floor");
             
             nodes = [
                 { id: 1, lat: 1, lon: 2,building: `science` },
@@ -354,7 +354,7 @@ function TextInput({ style }) {
                 { id: 5, lat: 6, lon: 1,building: `science` , label: 'leaveButton', cat: 'exit', desti: 'science2' }
             ];
         } else if (buildingName == "science2") {
-            setCurrentFloor("Science Building, 2nd Floor");
+            setCurrentFloor("Science Building: 2nd Floor");
             nodes = [
                 { id: 7, lat: 1, lon: 0,building: `science2`  },
                 { id: 8, lat: 2, lon: 0,building: `science2`  },
