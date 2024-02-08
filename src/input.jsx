@@ -123,7 +123,8 @@ function TextInput({ style }) {
 
     const addImageOverlay = (ImageUrl) => {
         let images = [
-            { url: ImageUrl, bounds: [[0, 0], [40, 50]] },
+            { url: ImageUrl, bounds: [[0, 0], [20, 30]] },
+            
             // Add more images as needed
         ];
         mapRef.current.eachLayer(function (layer) {
@@ -218,7 +219,7 @@ function TextInput({ style }) {
                 marker.bindPopup(`Node ${node.id}`);
                 marker.setIcon(L.icon({
                     iconUrl: arrow,
-                    iconSize: [32, 32],
+                    iconSize: [20, 20],
                     iconAnchor: [16, 16],
                     popupAnchor: [0, -16]
                 }));
@@ -237,7 +238,7 @@ function TextInput({ style }) {
                 marker.bindPopup(`Node ${node.id}`);
                 marker.setIcon(L.icon({
                     iconUrl: elevatorLogo,
-                    iconSize: [40, 40],
+                    iconSize: [20, 20],
                     iconAnchor: [16, 16],
                     popupAnchor: [0, -16]
                 }));
@@ -331,7 +332,7 @@ function TextInput({ style }) {
             [node2.lat, node2.lon]
         ];
     
-        const polyline = L.polyline(latlngs, { weight:'8', color: '#4a80f5' });
+        const polyline = L.polyline(latlngs, { weight:'4', color: '#4a80f5' });
         polyline.addTo(map);
     };
     
