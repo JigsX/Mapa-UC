@@ -124,7 +124,7 @@ function TextInput({ style }) {
     const addImageOverlay = (ImageUrl) => {
         let images = [
             { url: ImageUrl, bounds: [[0,10], [20, 30]] },
-            { url: ImageUrl, bounds: [[-45, -25], [20, 30]] },
+            { url: ImageUrl, bounds: [[-45, -25], [20, 40]] },
             
             // Add more images as needed
         ];
