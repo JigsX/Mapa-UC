@@ -102,7 +102,7 @@ function TextInput({ style }) {
             zoomControl: false,
             crs: L.CRS.EPSG3395
           });
-          mapRef.current.setView([10,10], 5.5);
+          mapRef.current.setView([10,10], 3);
           
         
           const handleOutsideClick = () => {
@@ -123,7 +123,8 @@ function TextInput({ style }) {
 
     const addImageOverlay = (ImageUrl) => {
         let images = [
-            { url: ImageUrl, bounds: [[0, 0], [20, 30]] },
+            { url: ImageUrl, bounds: [[0,10], [20, 30]] },
+            { url: ImageUrl, bounds: [[-45, -25], [20, 30]] },
             
             // Add more images as needed
         ];
@@ -307,7 +308,7 @@ function TextInput({ style }) {
     
         if (node) {
             
-            mapRef.current.flyTo([node.lat, node.lon], 6, {
+            mapRef.current.flyTo([node.lat, node.lon], 7, {
                 duration: 1,  // Adjust the duration of the animation in seconds
                 easeLinearity: 0.5  // Adjust the easing factor for the animation
             });
