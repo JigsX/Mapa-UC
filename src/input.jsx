@@ -4,7 +4,7 @@ import elevatorLogo from './assets/elevatorLogo.png';
 import emergencyExit from './assets/emergencyExit.png';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import finImage from './assets/SB1F.png'; // Import the image file
+import finImage from './assets/color.png'; // Import the image file
 import arrow from './assets/arrow.png';
 import  {computeDestPath,findFloorInfo} from "./dijktrasAlgo";
 import { Html5QrcodeScanner } from 'html5-qrcode';
@@ -513,7 +513,7 @@ function TextInput({ style }) {
                                         </label>
                                     </div>
                                         
-                                    <div style={{marginTop: '0px'}}>
+                                    <div>
                                         <button
                                                 className='qrButton'
                                                 onClick={handleQRbuttonClick}
@@ -628,3 +628,4 @@ TextInput.propTypes = {
 };
 
 export default TextInput;
+``
