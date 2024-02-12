@@ -123,7 +123,8 @@ function TextInput({ style }) {
 
     const addImageOverlay = (ImageUrl) => {
         let images = [
-            { url: ImageUrl, bounds: [[0,10], [20, 30]] },
+            { url: ImageUrl, bounds: [[0,10], [10, 20]] },
+            { url: ImageUrl, bounds: [[-30,-10], [0, 20]] },
             
             
             // Add more images as needed
@@ -267,9 +268,15 @@ function TextInput({ style }) {
 
 
 
+            var coords = L.latLng(node.lat,node.lon);
+            L.marker(coords, {
+            icon: L.divIcon({
+                html: node.building,
+                className: 'text-below-marker',
+                })
+            }).addTo(map);
 
-
-
+            
             leaveButton1Clicked;    
             let popupName = 'Your Current Location: ';
             let targetLoc = 'Your Destination: '
