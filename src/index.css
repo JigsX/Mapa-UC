@@ -177,7 +177,8 @@ input[type="checkbox" i] {
 #qrButton{ 
    
     padding: 0;
-    background: 'none';
+    background: 'black';
+    margin-top: 8px;
    
 }
 
@@ -192,7 +193,9 @@ input[type="checkbox" i] {
     height: '44px'
 }
 
-
+button:focus {
+    outline: none;
+}
 
 .sticky-div {
     position: fixed;

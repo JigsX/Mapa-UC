@@ -513,7 +513,7 @@ function TextInput({ style }) {
                                         </label>
                                     </div>
                                         
-                                    <div>
+                                    <div style={{marginTop: '0px'}}>
                                         <button
                                                 className='qrButton'
                                                 onClick={handleQRbuttonClick}
