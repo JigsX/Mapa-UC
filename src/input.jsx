@@ -4,7 +4,7 @@ import elevatorLogo from './assets/elevatorLogo.png';
 import emergencyExit from './assets/emergencyExit.png';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import finImage from './assets/wq.png'; // Import the image file
+import finImage from './assets/rae.png'; // Import the image file
 import arrow from './assets/arrow.png';
 import  {computeDestPath,findFloorInfo} from "./dijktrasAlgo";
 import { Html5QrcodeScanner } from 'html5-qrcode';
@@ -124,7 +124,7 @@ function TextInput({ style }) {
     const addImageOverlay = (ImageUrl) => {
         let images = [
             { url: ImageUrl, bounds: [[0,10], [10, 20]] },
-            { url: ImageUrl, bounds: [[-30,-10], [0, 20]] },
+            { url: ImageUrl, bounds: [[-30,-10], [0, 25]] },
             
             
             // Add more images as needed
