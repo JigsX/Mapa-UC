@@ -8,6 +8,10 @@ import finImage from './assets/rae.png'; // Import the image file
 import arrow from './assets/arrow.png';
 import  {computeDestPath,findFloorInfo} from "./dijktrasAlgo";
 import { Html5QrcodeScanner } from 'html5-qrcode';
+import ES from './assets/floorES.png'; 
+import NE from './assets/123.png'; 
+import NW from './assets/1234.png'; 
+import WS from './assets/floorWS.png'; 
 
 
 function TextInput({ style }) {
@@ -121,10 +125,11 @@ function TextInput({ style }) {
 
     
 
-    const addImageOverlay = (ImageUrl) => {
+    const addImageOverlay = () => {
         let images = [
-            { url: ImageUrl, bounds: [[0,10], [10, 20]] },
-            { url: ImageUrl, bounds: [[-30,-10], [0, 25]] },
+            { url: NE, bounds: [[0,0], [10, 10]] },
+            { url: NW, bounds: [[0,-10], [11, 0]] },
+            
             
             
             // Add more images as needed
@@ -141,10 +146,10 @@ function TextInput({ style }) {
     
       function loadBuildingFloor (floorName) {
         if(floorName === 'science'){
-            addImageOverlay(finImage);
+            addImageOverlay();
         }
         else if(floorName === 'science2'){
-            addImageOverlay(arrow);
+            addImageOverlay();
         }
       }
       
