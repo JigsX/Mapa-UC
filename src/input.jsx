@@ -133,7 +133,7 @@ function TextInput({ style }) {
             
             
             
-            // Add more images as needed
+            
         ];
         mapRef.current.eachLayer(function (layer) {
             if (layer instanceof L.ImageOverlay) {
