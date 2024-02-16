@@ -220,7 +220,7 @@ function TextInput({ style }) {
             
         }
     
-        if(Object.prototype.hasOwnProperty.call(node, "label")){
+        
             const marker = L.marker([node.lat, node.lon]).addTo(map);
             
             if (node.label === 'leaveButton') {
@@ -274,13 +274,13 @@ function TextInput({ style }) {
 
 
 
-            var coords = L.latLng(node.lat,node.lon);
+            /*var coords = L.latLng(node.lat,node.lon);
             L.marker(coords, {
             icon: L.divIcon({
                 html: node.building,
                 className: 'text-below-marker',
                 })
-            }).addTo(map);
+            }).addTo(map);/*/
 
             
             leaveButton1Clicked;    
@@ -307,7 +307,7 @@ function TextInput({ style }) {
 
             zoomToNode(path[0]);
             
-        }
+        
         
         
     };
@@ -360,12 +360,20 @@ function TextInput({ style }) {
             setCurrentFloor("Science Building: 1st Floor");
             
             nodes = [
-                { id: 1, lat: 1, lon: 2,building: `science` },
-                { id: 2, lat: 2, lon: 0,building: `science` },
-                { id: 3, lat: 3, lon: 1,building: `science`  },
-                { id: 4, lat: 4, lon: 0,building: `science`  },
-                { id: 6, lat: 5, lon: 1,building: `science`, label:'elevator'  },
-                { id: 5, lat: 6, lon: 1,building: `science` , label: 'leaveButton', cat: 'exit', desti: 'science2' }
+                { id: 1, lat: 6.8, lon: 1.08,building: `science` },
+                { id: 2, lat: 6.5, lon: 0.55,building: `science` },
+                { id: 3, lat: 6.15, lon: 0.6,building: `science`  },
+                { id: 72, lat:  6.54, lon: 0.8,building: `science`  },
+                { id: 4, lat: 6.54, lon: 1.08,building: `science`  },
+                { id: 5, lat: 6.54, lon: 1.35,building: `science`  },
+                { id: 6, lat: 6.5, lon: 1.55,building: `science` },
+                { id: 7, lat: 6.8, lon: 2,building: `science` },
+                { id: 8, lat:  6.54, lon: 1.85,building: `science` },
+                { id: 9, lat:  6.3, lon: 1.9,building: `science` },
+                { id: 10, lat: 6.8, lon: 2.35,building: `science` },
+                { id: 11, lat: 6.54, lon: 2.46,building: `science` },
+                { id: 12, lat:6.3, lon: 2.46,building: `science` },
+                
             ];
         } else if (buildingName == "science2") {
             setCurrentFloor("Science Building: 2nd Floor");
