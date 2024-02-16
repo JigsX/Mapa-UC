@@ -173,7 +173,7 @@ function findFloorInfo(choice, currentPosition, Destination, useElevator, useEme
 
 export {computeDestPath,findFloorInfo};
 
-const V = 1000;
+const V = 10000;
 const g = new Graph(V);
 
 g.addEdge(3, 2, 1);
@@ -187,7 +187,7 @@ g.addEdge(4, 1, 1);
 g.addEdge(5, 4, 0.5);
 g.addEdge(5, 1, 1);
 g.addEdge(5, 6, 1);
-g.addEdge(6, 7, 1);
+g.addEdge(6, 7, 1);45
 g.addEdge(6, 8, 0.5);
 g.addEdge(11, 8, 0.5);
 g.addEdge(6, 9, 1);
@@ -196,13 +196,17 @@ g.addEdge(8, 9, 1);
 g.addEdge(8, 10, 1);
 g.addEdge(10, 7, 1);
 g.addEdge(13, 10, 1);
-g.addEdge(13, 15, 1);
-g.addEdge(16, 15, 1);
+g.addEdge(13, 73, 1);
+g.addEdge(74, 73, 1);
 g.addEdge(10, 12, 1);
 g.addEdge(12, 0, 1);
 g.addEdge(12, 17, 1);
 g.addEdge(12, 11, 1);
+g.addEdge(18, 11, 1);
 g.addEdge(12, 69, 1);
+g.addEdge(0, 69, 0.5);
+g.addEdge(11, 69, 0.5);
+g.addEdge(17, 69, 1);
 g.addEdge(12, 9, 1);
 g.addEdge(12, 18, 1);
 g.addEdge(11, 20, 1);
@@ -214,7 +218,14 @@ g.addEdge(18, 19, 1);
 g.addEdge(18, 20, 1);
 g.addEdge(18, 21, 1);
 g.addEdge(20, 23, 1);
+g.addEdge(25, 23, 0.5);
+g.addEdge(25, 27, 1);49
+g.addEdge(75, 27, 1);
+g.addEdge(28, 27, 1);
 g.addEdge(20, 21, 1);
+g.addEdge(20, 22, 1);
+g.addEdge(20, 24, 1);
+g.addEdge(28, 75, 1);
 g.addEdge(19, 20, 1);
 g.addEdge(19, 22, 1);
 g.addEdge(19, 23, 1);
@@ -224,14 +235,17 @@ g.addEdge(21, 23, 1);
 g.addEdge(21, 24, 1);
 g.addEdge(22, 23, 1);
 g.addEdge(23, 24, 1);
-g.addEdge(23, 29, 1);
+g.addEdge(23, 29, 0.5);
 g.addEdge(22, 25, 1);
+g.addEdge(29, 25, 0.5);
+
 g.addEdge(22, 29, 1);
 g.addEdge(24, 29, 1);
 g.addEdge(24, 25, 1);
 g.addEdge(24, 31, 1);
 g.addEdge(31, 29, 1);
 g.addEdge(30, 29, 1);
+g.addEdge(30, 25, 1);
 g.addEdge(31, 30, 1);
 g.addEdge(29, 32, 1);
 g.addEdge(30, 32, 1);
@@ -249,9 +263,12 @@ g.addEdge(70, 71, 1);
 g.addEdge(71, 36, 1);
 g.addEdge(36, 42, 1);
 g.addEdge(36, 41, 1);
-g.addEdge(36, 38, 1);
-g.addEdge(36, 39, 1);
-g.addEdge(36, 40, 1);
+g.addEdge(76, 36, 1);
+g.addEdge(76, 34, 1);
+g.addEdge(76, 41, 1);
+g.addEdge(76, 38, 1);
+g.addEdge(76, 39, 1);
+g.addEdge(76, 40, 1);
 g.addEdge(42, 71, 1);
 g.addEdge(42, 43, 1);
 g.addEdge(42, 44, 1);
@@ -259,9 +276,15 @@ g.addEdge(42, 41, 1);
 g.addEdge(45, 46, 1);
 g.addEdge(46, 47, 1);
 g.addEdge(48, 47, 1);
-g.addEdge(48, 49, 1);
+g.addEdge(77, 49, 1);
+g.addEdge(63, 78, 1);
+g.addEdge(62, 78, 1);
+g.addEdge(79, 78, 1);
+g.addEdge(79, 61, 0.5);
+g.addEdge(79, 62, 1);
+g.addEdge(77, 48, 1);
 g.addEdge(49, 50, 1);
-g.addEdge(48, 51, 1);
+g.addEdge(77, 51, 1);
 g.addEdge(48, 53, 1);
 g.addEdge(48, 52, 1);
 g.addEdge(48, 55, 1);
@@ -294,34 +317,10 @@ g.addEdge(67, 68, 1);
 g.addEdge(18, 68, 1);
 
 
-
-g.setNodeCategory(13, "cr");
-g.setNodeCategory(8, "cr");
-g.setNodeCategory(0, "exit");
-g.setNodeCategory(5, "exit");
-
-g.setNodeCategory(14, "elevator");
-g.setNodeCategory(15, "elevator");
-g.setNodeCategory(16, "elevator");
-
-g.setNodeBuilding(1,"science");
-g.setNodeBuilding(2,"science");
-g.setNodeBuilding(3,"science");
-g.setNodeBuilding(4,"science");
-g.setNodeBuilding(5,"science");
+for(let i = 0; i<=79; i++){
+    g.setNodeBuilding(i,"science");
+}
 
 
-g.setNodeBuilding(6,"science2");
-g.setNodeBuilding(7,"science2");
-g.setNodeBuilding(8,"science2");
-g.setNodeBuilding(9,"science2");
-g.setNodeBuilding(10,"science2");
-g.setNodeBuilding(11,"science2");
-g.setNodeBuilding(12,"science2");
-g.setNodeBuilding(13,"science2");
-g.setNodeBuilding(14,"science2");
-g.setNodeBuilding(15,"science2");
-
-g.setNodeBuilding(11,"science2");
 
 

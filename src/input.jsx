@@ -12,6 +12,7 @@ import ES from './assets/floorES.png';
 import NE from './assets/123.png'; 
 import NW from './assets/1234.png'; 
 import WS from './assets/floorWS.png'; 
+import classroomLogo from './assets/classroomLogo.png'; 
 
 
 function TextInput({ style }) {
@@ -220,7 +221,7 @@ function TextInput({ style }) {
             
         }
     
-        
+        if(Object.prototype.hasOwnProperty.call(node, "label")){
             const marker = L.marker([node.lat, node.lon]).addTo(map);
             
             if (node.label === 'leaveButton') {
@@ -240,7 +241,18 @@ function TextInput({ style }) {
                     connectBuildingNodes(node.desti);
         
                 });
-            } 
+            }
+            if (node.label === 'classroom') {
+                marker.bindPopup(`Node ${node.id}`);
+                marker.setIcon(L.icon({
+                    iconUrl: classroomLogo,
+                    iconSize: [20, 20],
+                    iconAnchor: [16, 16],
+                    popupAnchor: [0, -16]
+                }));
+        
+                
+            }  
             
             if (node.label === 'elevator') {
                 marker.bindPopup(`Node ${node.id}`);
@@ -307,7 +319,7 @@ function TextInput({ style }) {
 
             zoomToNode(path[0]);
             
-        
+        }
         
         
     };
@@ -346,7 +358,7 @@ function TextInput({ style }) {
             [node2.lat, node2.lon]
         ];
     
-        const polyline = L.polyline(latlngs, { weight:'4', color: '#4a80f5' });
+        const polyline = L.polyline(latlngs, { weight:'4', color: 'red' });
         polyline.addTo(map);
     };
     
@@ -360,19 +372,80 @@ function TextInput({ style }) {
             setCurrentFloor("Science Building: 1st Floor");
             
             nodes = [
-                { id: 1, lat: 6.8, lon: 1.08,building: `science` },
-                { id: 2, lat: 6.5, lon: 0.55,building: `science` },
-                { id: 3, lat: 6.15, lon: 0.6,building: `science`  },
-                { id: 72, lat:  6.54, lon: 0.8,building: `science`  },
-                { id: 4, lat: 6.54, lon: 1.08,building: `science`  },
-                { id: 5, lat: 6.54, lon: 1.35,building: `science`  },
+                { id: 1, lat: 6.8, lon: 1.08,building: `science`, label: 'classroom' },
+                { id: 2, lat: 6.5, lon: 0.55,building: `science`, label: 'classroom' },
+                { id: 3, lat: 6.15, lon: 0.6,building: `science` , label: 'classroom' },
+                { id: 72, lat:  6.54, lon: 0.8,building: `science` },
+                { id: 4, lat: 6.54, lon: 1.08,building: `science` },
+                { id: 5, lat: 6.54, lon: 1.35,building: `science` },
                 { id: 6, lat: 6.5, lon: 1.55,building: `science` },
-                { id: 7, lat: 6.8, lon: 2,building: `science` },
+                { id: 7, lat: 6.8, lon: 2,building: `science` , label: 'classroom'},
                 { id: 8, lat:  6.54, lon: 1.85,building: `science` },
-                { id: 9, lat:  6.3, lon: 1.9,building: `science` },
+                { id: 9, lat:  6.3, lon: 1.9,building: `science`, label: 'classroom' },
                 { id: 10, lat: 6.8, lon: 2.35,building: `science` },
                 { id: 11, lat: 6.54, lon: 2.46,building: `science` },
-                { id: 12, lat:6.3, lon: 2.46,building: `science` },
+                { id: 12, lat:6.3, lon: 2.46,building: `science` , label: 'classroom'},
+                { id: 69, lat: 6.8, lon: 2.6,building: `science` },
+                { id: 0, lat: 7.1, lon: 2.6,building: `science` , label: 'classroom'},
+                { id: 17, lat: 6.8, lon: 2.86,building: `science`, label: 'classroom' },
+                { id: 18, lat: 6.3, lon: 2.86,building: `science` },
+                { id: 68, lat: 5.8, lon: 2.92,building: `science` , label: 'classroom'},
+                { id: 67, lat: 4.9, lon: 2.92,building: `science` , label: 'classroom'},
+                { id: 66, lat: 4.15, lon: 2.92,building: `science` , label: 'classroom'},
+                { id: 64, lat: 3.7, lon: 2.86,building: `science` , label: 'classroom'},
+                { id: 65, lat: 3.15, lon: 2.6,building: `science` , label: 'classroom'},
+                { id: 62, lat: 3.6, lon: 3.4,building: `science` },
+                { id: 63, lat: 3.26, lon: 3.15,building: `science` , label: 'classroom'},
+                { id: 78, lat: 3.26, lon: 3.43,building: `science`, label: 'classroom' },
+                { id: 79, lat: 3.35, lon: 3.6,building: `science` },
+                { id: 59, lat: 3.6, lon: 4.4,building: `science` },
+                { id: 60, lat: 3.8, lon: 4.05,building: `science` , label: 'classroom'},
+                { id: 61, lat: 3.35, lon: 4.05,building: `science`, label: 'classroom' },
+                { id: 58, lat: 3.8, lon: 4.6,building: `science` , label: 'classroom'},
+                { id: 54, lat: 3.8, lon: 5.13,building: `science` , label: 'classroom'},
+                { id: 53, lat: 3.8, lon: 5.65,building: `science` , label: 'classroom'},
+                { id: 57, lat: 3.35, lon: 4.75,building: `science` , label: 'classroom'},
+                { id: 56, lat: 3.35, lon: 5.35,building: `science` , label: 'classroom'},
+                { id: 52, lat: 3.35, lon: 5.95,building: `science` , label: 'classroom'},
+
+                { id: 13, lat: 7.65, lon: 2.35,building: `science` , label: 'classroom'},
+                { id: 73, lat: 7.65, lon: 2.6,building: `science`},
+                { id: 74, lat: 7.49, lon: 2.6,building: `science`, label: 'classroom' },
+                { id: 19, lat: 6.8, lon: 3.4,building: `science`, label: 'classroom' },
+                { id: 20, lat: 6.54, lon: 3.4,building: `science` },
+                { id: 21, lat: 6.3, lon: 3.4,building: `science` , label: 'classroom'},
+                { id: 22, lat: 6.8, lon: 4.2,building: `science` , label: 'classroom'},
+                { id: 23, lat: 6.54, lon: 4.2,building: `science` },
+                { id: 24, lat: 6.3, lon: 4.2,building: `science` , label: 'classroom'},
+                { id: 25, lat: 6.8, lon: 4.7,building: `science` },
+                { id: 27, lat: 7.6, lon: 4.7,building: `science` },
+                { id: 28, lat: 7.83, lon: 4.8,building: `science` , label: 'classroom'},
+                { id: 75, lat: 7.83, lon: 4.6,building: `science` , label: 'classroom'},
+                { id: 29, lat: 6.54, lon: 4.7,building: `science` },
+                { id: 30, lat: 6.8, lon: 5.4,building: `science` , label: 'classroom'},
+                { id: 31, lat: 6.3, lon: 5.4,building: `science` , label: 'classroom'},
+                { id: 32, lat: 6.54, lon: 6,building: `science` },
+                { id: 33, lat: 6.8, lon: 6.3,building: `science` , label: 'classroom'},
+                { id: 34, lat: 6.3, lon: 6.58,building: `science` , label: 'classroom'},
+                { id: 70, lat: 6.8, lon: 6.88,building: `science` , label: 'classroom'},
+                { id: 71, lat: 6.8, lon: 7.5,building: `science` , label: 'classroom'},
+                { id: 42, lat: 6.6, lon: 7.7,building: `science` },
+                { id: 44, lat: 6.65, lon: 8.2,building: `science`, label: 'classroom' },
+                { id: 43, lat: 6.8, lon: 8,building: `science` , label: 'classroom'},
+                { id: 36, lat: 6.54, lon: 7.2,building: `science` },
+                { id: 41, lat: 6.35, lon: 7.8,building: `science` , label: 'classroom'},
+                { id: 76, lat: 6.3, lon: 7.2,building: `science` },
+                { id: 38, lat: 6, lon: 7.4,building: `science` , label: 'classroom'},
+                { id: 39, lat: 5.5, lon: 7.3,building: `science`, label: 'classroom' },
+                { id: 40, lat: 5.1, lon: 7.2,building: `science` , label: 'classroom'},
+                { id: 45, lat: 6.3, lon: 6.03,building: `science` },
+                { id: 46, lat: 4.9, lon: 6.09,building: `science`, label: 'classroom' },
+                { id: 47, lat: 4.15, lon: 6.09,building: `science`, label: 'classroom' },
+                { id: 48, lat: 3.7, lon: 6.03,building: `science` },
+                { id: 77, lat: 3.7, lon: 6.4,building: `science` },
+                { id: 51, lat: 3.12, lon: 6.4,building: `science` , label: 'classroom'},
+                { id: 49, lat: 3.7, lon: 7.18,building: `science` },
+                { id: 50, lat: 3.4, lon: 7.17,building: `science` , label: 'classroom'},
                 
             ];
         } else if (buildingName == "science2") {
