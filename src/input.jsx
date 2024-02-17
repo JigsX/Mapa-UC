@@ -4,15 +4,13 @@ import elevatorLogo from './assets/elevatorLogo.png';
 import emergencyExit from './assets/emergencyExit.png';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import finImage from './assets/rae.png'; // Import the image file
 import arrow from './assets/arrow.png';
 import  {computeDestPath,findFloorInfo} from "./dijktrasAlgo";
 import { Html5QrcodeScanner } from 'html5-qrcode';
-import ES from './assets/floorES.png'; 
-import NE from './assets/123.png'; 
-import NW from './assets/1234.png'; 
-import WS from './assets/floorWS.png'; 
 import classroomLogo from './assets/classroomLogo.png'; 
+import science2ndFloorPlan from './assets/science2ndFloor.png'; 
+import leaveButtonLogo from './assets/leaveButton.png'; 
+import BRS2ndFloor from './assets/BRS2ndFloorPlan.png'; 
 
 
 function TextInput({ style }) {
@@ -36,11 +34,19 @@ function TextInput({ style }) {
 
     const [qrCodeScanner, setQRCodeScanner]= useState(false);
 
+    
+    
+    
+    const getData = () => {
+        
+    }
+    
+
     const handleQRbuttonClick = () => {
         console.log("tangaga");
         event.preventDefault();
         
-        const scanner = new Html5QrcodeScanner('reader', { 
+        const scanner = new Html5QrcodeScanner('reader', {
             qrbox: {
 
                 width: 300,
@@ -126,9 +132,9 @@ function TextInput({ style }) {
 
     
 
-    const addImageOverlay = () => {
+    const addImageOverlay = (imageURL) => {
         let images = [
-            { url: NE,    bounds: [[0,0], [10, 10]] },
+            { url: imageURL,    bounds: [[0,0], [10, 10]] },
            
             
             
@@ -147,11 +153,11 @@ function TextInput({ style }) {
       };
     
       function loadBuildingFloor (floorName) {
-        if(floorName === 'science'){
-            addImageOverlay();
+        if(floorName === 'science2ndFloor'){
+            addImageOverlay(science2ndFloorPlan);
         }
-        else if(floorName === 'science2'){
-            addImageOverlay();
+        else if(floorName === "BRS2ndFloor"){
+            addImageOverlay(BRS2ndFloor);
         }
       }
       
@@ -160,7 +166,7 @@ function TextInput({ style }) {
       const connectBuildingNodes = (building) => {
         clearMapMarkers();
         clearMapPolylines();
-        loadBuildingNodes(building);
+        loadBuildingNodes(building);//
         loadBuildingFloor(building);
         const nodesToConnect = path;
         connectNodes(nodesToConnect);
@@ -220,14 +226,14 @@ function TextInput({ style }) {
             // Clear map markers and connect to "science2"
             
         }
-    
-        //if(Object.prototype.hasOwnProperty.call(node, "label")){
+        
+        if(Object.prototype.hasOwnProperty.call(node, "label")){
             const marker = L.marker([node.lat, node.lon]).addTo(map);
             
             if (node.label === 'leaveButton') {
                 marker.bindPopup(`Node ${node.id}`);
                 marker.setIcon(L.icon({
-                    iconUrl: arrow,
+                    iconUrl: leaveButtonLogo,
                     iconSize: [20, 20],
                     iconAnchor: [16, 16],
                     popupAnchor: [0, -16]
@@ -238,7 +244,7 @@ function TextInput({ style }) {
                     leaveButton1Clicked = true;
                     clearMapMarkers();
                     // Connect to "science2" and handle other logic if needed
-                    connectBuildingNodes(node.desti);
+                    connectBuildingNodes(node.destination);
         
                 });
             }
@@ -285,15 +291,7 @@ function TextInput({ style }) {
 
 
 
-
-            /*var coords = L.latLng(node.lat,node.lon);
-            L.marker(coords, {
-            icon: L.divIcon({
-                html: node.building,
-                className: 'text-below-marker',
-                })
-            }).addTo(map);/*/
-
+            
             
             leaveButton1Clicked;    
             let popupName = 'Your Current Location: ';
@@ -301,25 +299,35 @@ function TextInput({ style }) {
             let currentLocation = path[0];
             let destination = path[path.length -1];
         
-            if (node.id === currentLocation) {
-                marker.bindPopup(`<strong>${popupName}</strong> Room: ${node.id}`);
+            if(node.id === currentLocation){
+                marker.bindPopup(`<strong>${popupName}</strong> Room: ${node.roomID}`);
+                
+            }
+            if(node.id === destination){
+                marker.bindPopup(`<strong>${targetLoc}</strong> Room: ${node.roomID}`);
                 marker.openPopup();
             }
-            else if(node.id === destination){
-                marker.bindPopup(`<strong>${targetLoc}</strong> Room: ${node.id}`);
-                marker.openPopup();
-            }
-            
-            let popupContent = `<strong>Node ${node.id}</strong><br>`;
-        
-            // Add buttons if it's not a leaveButton
             
             
-            marker.bindPopup(popupContent);
 
-            zoomToNode(path[0]);
             
-        //}
+        }    
+
+        if (Object.prototype.hasOwnProperty.call(node, "title")) {
+            var coords = L.latLng(node.lat, node.lon);
+            L.marker(coords, {
+                icon: L.divIcon({
+                    html: node.title, // Center the text, set color to white, and add right margin
+                    className: 'text-below-marker',
+                    
+                })
+            }).addTo(map);
+        }
+        
+        
+        
+        
+        zoomToNode(path[0]);
         
         
     };
@@ -333,7 +341,7 @@ function TextInput({ style }) {
     
         if (node) {
             
-            mapRef.current.flyTo([node.lat, node.lon], 7, {
+            mapRef.current.flyTo([node.lat, node.lon], 8, {
                 duration: 1,  // Adjust the duration of the animation in seconds
                 easeLinearity: 0.5  // Adjust the easing factor for the animation
             });
@@ -368,80 +376,101 @@ function TextInput({ style }) {
     
     function buildingNodes(buildingName) {
         let nodes = [];
-        if (buildingName == "science") {
-            setCurrentFloor("Science Building: 1st Floor");
+        if (buildingName == "science2ndFloor") {
+            setCurrentFloor("Science Building 2nd Floor, PE Building 2nd Floor");
             
             nodes = [
-                { id: 0, lat: 6.53, lon: 0.55,building: `science`, label: 'classroom' },
-                { id: 1, lat: 6.15, lon: 0.55,building: `science` , label: 'classroom' },
-                { id: 2, lat: 6.8, lon: 1.08,building: `science`, label: 'classroom' },
-                { id: 3, lat: 6.53, lon: 1.08,building: `science`, label: 'classroom' },
-                { id: 6, lat: 6.53, lon: 1.9,building: `science`, label: 'classroom' },
-                { id: 5, lat: 6.3, lon: 1.9,building: `science`, label: 'classroom' },
-                { id: 4, lat: 6.8, lon: 1.9,building: `science`, label: 'classroom' },
-                { id: 7, lat: 6.53, lon: 2.35,building: `science`, label: 'classroom' },
-                { id: 8, lat: 6.53, lon: 2.48,building: `science`, label: 'classroom' },
-                { id: 9, lat: 6.3, lon: 2.48,building: `science`, label: 'classroom' },
-                { id: 10, lat: 6.53, lon: 2.63,building: `science`, label: 'classroom' },
-                { id: 14, lat: 7.15, lon: 2.63,building: `science`, label: 'classroom' },
-                { id: 11, lat: 7.65, lon: 2.35,building: `science`, label: 'classroom' },
-                { id: 12, lat: 7.65, lon: 2.63,building: `science`, label: 'classroom' },
-                { id: 13, lat: 7.49, lon: 2.63,building: `science`, label: 'classroom' },
-                { id: 15, lat: 6.8, lon: 2.88,building: `science`, label: 'classroom' },
-                { id: 16, lat: 6.53, lon: 2.88,building: `science`, label: 'classroom' },
-                { id: 19, lat: 6.53, lon: 3.4,building: `science`, label: 'classroom' },
-                { id: 18, lat: 6.8, lon: 3.4,building: `science`, label: 'classroom' },
-                { id: 20, lat: 6.3, lon: 3.4,building: `science`, label: 'classroom' },
-                { id: 22, lat: 6.53, lon: 4.2,building: `science`, label: 'classroom' },
-                { id: 23, lat: 6.3, lon: 4.2,building: `science`, label: 'classroom' },
-                { id: 21, lat: 6.8, lon: 4.2,building: `science`, label: 'classroom' },
-                { id: 24, lat: 6.53, lon: 4.73,building: `science`, label: 'classroom' },
-                { id: 25, lat: 7.82, lon: 4.73,building: `science`, label: 'classroom' },
-                { id: 26, lat: 7.82, lon: 4.825,building: `science`, label: 'classroom' },
-                { id: 27, lat: 7.82, lon: 4.6,building: `science`, label: 'classroom' },
-                { id: 28, lat: 6.53, lon: 5.4,building: `science`, label: 'classroom' },
-                { id: 29, lat: 6.8, lon: 5.4,building: `science`, label: 'classroom' },
-                { id: 30, lat: 6.3, lon: 5.4,building: `science`, label: 'classroom' },
-                { id: 31, lat: 6.53, lon: 6.02,building: `science`, label: 'classroom' },
-                { id: 33, lat: 6.53, lon: 6.4,building: `science`, label: 'classroom' },
-                { id: 34, lat: 6.53, lon: 6.57,building: `science`, label: 'classroom' },
-                { id: 32, lat: 6.8, lon: 6.4,building: `science`, label: 'classroom' },
-                { id: 35, lat: 6.3, lon: 6.57,building: `science`, label: 'classroom' },
-                { id: 37, lat: 6.53, lon: 6.9,building: `science`, label: 'classroom' },
-                { id: 36, lat: 6.8, lon: 6.9,building: `science`, label: 'classroom' },
-                { id: 38, lat: 6.53, lon: 7.22,building: `science`, label: 'classroom' },
-                { id: 39, lat: 6.53, lon: 7.5,building: `science`, label: 'classroom' },
-                { id: 48, lat: 5.1, lon: 7.22,building: `science`, label: 'classroom' },
-                { id: 47, lat: 5.6, lon: 7.31,building: `science`, label: 'classroom' },
-                { id: 46, lat: 6.05, lon: 7.4,building: `science`, label: 'classroom' },
-                { id: 40, lat: 6.8, lon: 7.5,building: `science`, label: 'classroom' },
-                { id: 41, lat: 6.53, lon: 7.75,building: `science`, label: 'classroom' },
-                { id: 42, lat: 6.67, lon: 7.75,building: `science`, label: 'classroom' },
-                { id: 43, lat: 6.67, lon: 8.04,building: `science`, label: 'classroom' },
-                { id: 44, lat: 6.8, lon: 8.04,building: `science`, label: 'classroom' },
-                { id: 49, lat: 4.95, lon: 6.02,building: `science`, label: 'classroom' },
-                { id: 50, lat: 4.95, lon: 6.09,building: `science`, label: 'classroom' },
-                { id: 51, lat: 4.2, lon: 6.02,building: `science`, label: 'classroom' },
-                { id: 52, lat: 4.2, lon: 6.09,building: `science`, label: 'classroom' },
-                { id: 53, lat: 3.6, lon: 6.02,building: `science`, label: 'classroom' },
-                { id: 54, lat: 3.35, lon: 6.02,building: `science`, label: 'classroom' },
-                { id: 55, lat: 3.6, lon: 6.4,building: `science`, label: 'classroom' },
-                { id: 56, lat: 3.13, lon: 6.4,building: `science`, label: 'classroom' },
-                { id: 57, lat: 3.73, lon: 6.4,building: `science`, label: 'classroom' },
-                { id: 58, lat: 3.71, lon: 7.2,building: `science`, label: 'classroom' },
-                { id: 59, lat: 3.42, lon: 7.2,building: `science`, label: 'classroom' },
-                { id: 60, lat: 3.6, lon: 5.65,building: `science`, label: 'classroom' },
-                { id: 61, lat: 3.84, lon: 5.65,building: `science`, label: 'classroom' },
-                { id: 82, lat: 3.35, lon:  5.35,building: `science`, label: 'classroom' },
-                { id: 63, lat: 3.6, lon: 5.65,building: `science`, label: 'classroom' },
+                { id: 0, lat: 6.53, lon: 0.55,building: `science2ndFloor`, label: 'classroom' }, 
+                { id: 1, lat: 6.15, lon: 0.55,building: `science2ndFloor` , label: 'classroom' },
+                { id: 2, lat: 6.8, lon: 1.08,building: `science2ndFloor`, label: 'classroom', roomID: 's213' }, { id: 2.0, lat: 7.4, lon: 0.9,building: `science2ndFloor`, title: 'S213: CpECompLab' }, 
+                { id: 3, lat: 6.53, lon: 1.08,building: `science2ndFloor`},
+                { id: 6, lat: 6.53, lon: 1.9,building: `science2ndFloor`},
+                { id: 5, lat: 6.3, lon: 1.9,building: `science2ndFloor`, label: 'classroom' },
+                { id: 4, lat: 6.8, lon: 1.9,building: `science2ndFloor`, label: 'classroom' },
+                { id: 7, lat: 6.53, lon: 2.35,building: `science2ndFloor`},
+                { id: 8, lat: 6.53, lon: 2.48,building: `science2ndFloor`},
+                { id: 9, lat: 6.3, lon: 2.48,building: `science2ndFloor`, label: 'classroom' },
+                { id: 10, lat: 6.53, lon: 2.63,building: `science2ndFloor`},
+                { id: 14, lat: 7.15, lon: 2.63,building: `science2ndFloor`, label: 'classroom' },
+                { id: 11, lat: 7.65, lon: 2.35,building: `science2ndFloor`, label: 'classroom' },
+                { id: 12, lat: 7.65, lon: 2.63,building: `science2ndFloor`},
+                { id: 13, lat: 7.49, lon: 2.63,building: `science2ndFloor`, label: 'classroom' },
+                { id: 15, lat: 6.8, lon: 2.88,building: `science2ndFloor`, label: 'classroom' },
+                { id: 16, lat: 6.53, lon: 2.88,building: `science2ndFloor`},
+                { id: 19, lat: 6.53, lon: 3.4,building: `science2ndFloor`},
+                { id: 18, lat: 6.8, lon: 3.4,building: `science2ndFloor`, label: 'classroom' },
+                { id: 20, lat: 6.3, lon: 3.4,building: `science2ndFloor`, label: 'classroom' },
+                { id: 22, lat: 6.53, lon: 4.2,building: `science2ndFloor`},
+                { id: 23, lat: 6.3, lon: 4.2,building: `science2ndFloor`, label: 'classroom' },
+                { id: 21, lat: 6.8, lon: 4.2,building: `science2ndFloor`, label: 'classroom' },
+                { id: 24, lat: 6.53, lon: 4.73,building: `science2ndFloor`},
+                { id: 25, lat: 7.82, lon: 4.73,building: `science2ndFloor`},
+                { id: 26, lat: 7.82, lon: 4.825,building: `science2ndFloor`, label: 'classroom' },
+                { id: 27, lat: 7.82, lon: 4.6,building: `science2ndFloor`, label: 'classroom' },
+                { id: 28, lat: 6.53, lon: 5.4,building: `science2ndFloor`},
+                { id: 29, lat: 6.8, lon: 5.4,building: `science2ndFloor`, label: 'classroom' },
+                { id: 30, lat: 6.3, lon: 5.4,building: `science2ndFloor`, label: 'classroom' },
+                { id: 31, lat: 6.53, lon: 6.02,building: `science2ndFloor`},
+                { id: 33, lat: 6.53, lon: 6.4,building: `science2ndFloor`},
+                { id: 34, lat: 6.53, lon: 6.57,building: `science2ndFloor`},
+                { id: 32, lat: 6.8, lon: 6.4,building: `science2ndFloor`, label: 'classroom' },
+                { id: 35, lat: 6.3, lon: 6.57,building: `science2ndFloor`, label: 'classroom' },
+                { id: 37, lat: 6.53, lon: 6.9,building: `science2ndFloor`},
+                { id: 36, lat: 6.8, lon: 6.9,building: `science2ndFloor`, label: 'classroom' },
+                { id: 38, lat: 6.53, lon: 7.22,building: `science2ndFloor`},
+                { id: 39, lat: 6.53, lon: 7.5,building: `science2ndFloor`},
+                { id: 48, lat: 5.1, lon: 7.22,building: `science2ndFloor`, label: 'classroom' },
+                { id: 47, lat: 5.6, lon: 7.31,building: `science2ndFloor`, label: 'classroom' },
+                { id: 46, lat: 6.05, lon: 7.4,building: `science2ndFloor`, label: 'classroom' },
+                { id: 40, lat: 6.8, lon: 7.5,building: `science2ndFloor`, label: 'classroom' },
+                { id: 41, lat: 6.53, lon: 7.75,building: `science2ndFloor`},
+                { id: 42, lat: 6.67, lon: 7.75,building: `science2ndFloor`, label: 'classroom' },
+                { id: 45, lat: 6.4, lon: 7.795,building: `science2ndFloor`, label: 'classroom' },
+                { id: 43, lat: 6.67, lon: 8.04,building: `science2ndFloor`, label: 'classroom' },
+                { id: 44, lat: 6.8, lon: 8.04,building: `science2ndFloor`, label: 'classroom' },
+                { id: 49, lat: 4.95, lon: 6.02,building: `science2ndFloor`},
+                { id: 50, lat: 4.95, lon: 6.09,building: `science2ndFloor`, label: 'classroom' },
+                { id: 51, lat: 4.2, lon: 6.02,building: `science2ndFloor`},
+                { id: 52, lat: 4.2, lon: 6.09,building: `science2ndFloor`, label: 'classroom' },
+                { id: 53, lat: 3.6, lon: 6.02,building: `science2ndFloor`},
+                { id: 54, lat: 3.35, lon: 6.02,building: `science2ndFloor`, label: 'classroom' },
+                { id: 55, lat: 3.6, lon: 6.4,building: `science2ndFloor`},
+                { id: 56, lat: 3.13, lon: 6.4,building: `science2ndFloor`, label: 'classroom' },
+                { id: 57, lat: 3.73, lon: 6.4,building: `science2ndFloor`},
+                { id: 58, lat: 3.71, lon: 7.2,building: `science2ndFloor`},
+                { id: 59, lat: 3.42, lon: 7.2,building: `science2ndFloor`, label: 'classroom' },
+                { id: 60, lat: 3.6, lon: 5.65,building: `science2ndFloor`, label: 'classroom' },
+                { id: 61, lat: 3.84, lon: 5.65,building: `science2ndFloor`, label: 'classroom' },
+                { id: 62, lat: 3.35, lon:  5.35,building: `science2ndFloor`, label: 'classroom' },
+                { id: 63, lat: 3.6, lon: 5.65,building: `science2ndFloor`},
+                { id: 17, lat: 3.6, lon: 5.15,building: `science2ndFloor`},
+                { id: 64, lat: 3.84, lon: 5.15,building: `science2ndFloor`, label: 'classroom' },
+                { id: 66, lat: 3.35, lon: 4.75,building: `science2ndFloor`, label: 'classroom' },
+                { id: 82, lat: 3.6, lon: 5.35,building: `science2ndFloor`},
+                { id: 68, lat: 3.84, lon: 4.6,building: `science2ndFloor`, label: 'classroom' },
+                { id: 67, lat: 3.6, lon: 4.6,building: `science2ndFloor`},
+                { id: 65, lat: 3.6, lon: 4.75,building: `science2ndFloor`},
+                { id: 71, lat: 3.35, lon: 4,building: `science2ndFloor`, label: 'classroom' },
+                { id: 69, lat: 3.6, lon: 4,building: `science2ndFloor`},
+                { id: 70, lat: 3.84, lon: 4,building: `science2ndFloor`, label: 'classroom' },
+                { id: 73, lat: 3.27, lon: 3.43,building: `science2ndFloor`, label: 'classroom' },
+                { id: 75, lat: 3.27, lon: 3.145,building: `science2ndFloor`, label: 'classroom' },
+                { id: 74, lat: 3.6, lon: 3.145,building: `science2ndFloor`},
+                { id: 72, lat: 3.6, lon: 3.43,building: `science2ndFloor`},
+                { id: 76, lat: 3.6, lon: 2.88,building: `science2ndFloor`},
+                { id: 77, lat: 3.15, lon: 2.6,building: `science2ndFloor`, label: 'leaveButton', destination: 'BRS2ndFloor' },
+                { id: 78, lat: 4.2, lon: 2.88,building: `science2ndFloor`},
+                { id: 79, lat: 4.2, lon: 2.94,building: `science2ndFloor`, label: 'classroom' },
+                { id: 80, lat: 4.95, lon: 2.88,building: `science2ndFloor`},
+                { id: 81, lat: 4.95, lon: 2.94,building: `science2ndFloor`, label: 'classroom' },
             ];
-        } else if (buildingName == "science2") {
-            setCurrentFloor("Science Building: 2nd Floor");
+        } else if (buildingName == "BRS2ndFloor") {
+            setCurrentFloor("BRS Building 2nd Floor");
             nodes = [
                 { id: 7, lat: 1, lon: 0,building: `science2`  },
                 { id: 8, lat: 2, lon: 0,building: `science2`  },
                 { id: 9, lat: 3, lon: 1,building: `science2`  },
-                { id: 10, lat: 4, lon: 0,building: `science2`,  label: 'leaveButton', cat: 'exit',desti: 'science'},
+                { id: 10, lat: 4, lon: 0,building: `science2`,  label: 'leaveButton', cat: 'exit',destination: 'science2ndFloor'},
                 { id: 11, lat: 5, lon: 1,building: `science2`  },
             ];
         }
@@ -496,7 +525,7 @@ function TextInput({ style }) {
             connectBuildingNodes(floor);
             
             
-            
+            getData();
         }
         else if(isChoiceEnterFac){
             path = computeDestPath(

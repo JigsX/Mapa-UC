@@ -211,6 +211,12 @@ button:focus {
     background-color:#7fffd4;
 }
 
+#text-below-marker{
+    display: flex; 
+    justify-content: center; 
+    color: black; 
+}
+
 
 
 
