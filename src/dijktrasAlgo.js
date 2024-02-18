@@ -260,9 +260,35 @@ g.addEdge(81, 80, 1);
 g.addEdge(16, 80, 2);
 
 
+g.addEdge(77, 100, 1);
+g.addEdge(101, 100, 1);
+g.addEdge(101, 102, 1);
+g.addEdge(103, 102, 1);
+g.addEdge(104, 102, 1);
+g.addEdge(104, 105, 1);
+g.addEdge(104, 106, 1);
+g.addEdge(107, 106, 1);
+g.addEdge(108, 106, 1);
+g.addEdge(108, 109, 1);
+g.addEdge(108, 110, 1);
+g.addEdge(111, 110, 1);
+g.addEdge(112, 110, 1);
+g.addEdge(112, 113, 1);
+g.addEdge(112, 114, 1);
+g.addEdge(115, 114, 1);
+g.addEdge(116, 114, 1);
+g.addEdge(116, 117, 1);
+g.addEdge(116, 118, 1);
+g.addEdge(119, 118, 1);
+g.addEdge(119, 120, 1);
+g.addEdge(121, 120, 1);
 
 for(let i = 0; i<=100; i++){
     g.setNodeBuilding(i,"science2ndFloor");
+}
+
+for(let i =100; i<=130; i++){
+    g.setNodeBuilding(i,"BRS2ndFloor");
 }
 
 

@@ -1,19 +1,100 @@
-const firebaseConfig = {
-    apiKey: "AIzaSyBwM78rh1iYKCnJlW1-oYwB4dZbrRFdz-c",
-    authDomain: "roomorientationdata.firebaseapp.com",
-    databaseURL: "https://roomorientationdata-default-rtdb.firebaseio.com",
-    projectId: "roomorientationdata",
-    storageBucket: "roomorientationdata.appspot.com",
-    messagingSenderId: "99942721154",
-    appId: "1:99942721154:web:18939bfc42074d9316769b"
-  };
+const nodes = [
+  { id: 0, lat: 6.53, lon: 0.55,building: `science2ndFloor`, label: 'classroom' }, 
+  { id: 1, lat: 6.15, lon: 0.55,building: `science2ndFloor` , label: 'classroom' },
+  { id: 2, lat: 6.8, lon: 1.08,building: `science2ndFloor`, label: 'classroom', roomID: 's213' }, { id: 2.0, lat: 7.4, lon: 0.9,building: `science2ndFloor`, title: 'S213: CpECompLab' }, 
+  { id: 3, lat: 6.53, lon: 1.08,building: `science2ndFloor`},
+  { id: 6, lat: 6.53, lon: 1.9,building: `science2ndFloor`},
+  { id: 5, lat: 6.3, lon: 1.9,building: `science2ndFloor`, label: 'classroom' },
+  { id: 4, lat: 6.8, lon: 1.9,building: `science2ndFloor`, label: 'classroom' },
+  { id: 7, lat: 6.53, lon: 2.35,building: `science2ndFloor`},
+  { id: 8, lat: 6.53, lon: 2.48,building: `science2ndFloor`},
+  { id: 9, lat: 6.3, lon: 2.48,building: `science2ndFloor`, label: 'classroom' },
+  { id: 10, lat: 6.53, lon: 2.63,building: `science2ndFloor`},
+  { id: 14, lat: 7.15, lon: 2.63,building: `science2ndFloor`, label: 'classroom' },
+  { id: 11, lat: 7.65, lon: 2.35,building: `science2ndFloor`, label: 'classroom' },
+  { id: 12, lat: 7.65, lon: 2.63,building: `science2ndFloor`},
+  { id: 13, lat: 7.49, lon: 2.63,building: `science2ndFloor`, label: 'classroom' },
+  { id: 15, lat: 6.8, lon: 2.88,building: `science2ndFloor`, label: 'classroom' },
+  { id: 16, lat: 6.53, lon: 2.88,building: `science2ndFloor`},
+  { id: 19, lat: 6.53, lon: 3.4,building: `science2ndFloor`},
+  { id: 18, lat: 6.8, lon: 3.4,building: `science2ndFloor`, label: 'classroom' },
+  { id: 20, lat: 6.3, lon: 3.4,building: `science2ndFloor`, label: 'classroom' },
+  { id: 22, lat: 6.53, lon: 4.2,building: `science2ndFloor`},
+  { id: 23, lat: 6.3, lon: 4.2,building: `science2ndFloor`, label: 'classroom' },
+  { id: 21, lat: 6.8, lon: 4.2,building: `science2ndFloor`, label: 'classroom' },
+  { id: 24, lat: 6.53, lon: 4.73,building: `science2ndFloor`},
+  { id: 25, lat: 7.82, lon: 4.73,building: `science2ndFloor`},
+  { id: 26, lat: 7.82, lon: 4.825,building: `science2ndFloor`, label: 'classroom' },
+  { id: 27, lat: 7.82, lon: 4.6,building: `science2ndFloor`, label: 'classroom' },
+  { id: 28, lat: 6.53, lon: 5.4,building: `science2ndFloor`},
+  { id: 29, lat: 6.8, lon: 5.4,building: `science2ndFloor`, label: 'classroom' },
+  { id: 30, lat: 6.3, lon: 5.4,building: `science2ndFloor`, label: 'classroom' },
+  { id: 31, lat: 6.53, lon: 6.02,building: `science2ndFloor`},
+  { id: 33, lat: 6.53, lon: 6.4,building: `science2ndFloor`},
+  { id: 34, lat: 6.53, lon: 6.57,building: `science2ndFloor`},
+  { id: 32, lat: 6.8, lon: 6.4,building: `science2ndFloor`, label: 'classroom' },
+  { id: 35, lat: 6.3, lon: 6.57,building: `science2ndFloor`, label: 'classroom' },
+  { id: 37, lat: 6.53, lon: 6.9,building: `science2ndFloor`},
+  { id: 36, lat: 6.8, lon: 6.9,building: `science2ndFloor`, label: 'classroom' },
+  { id: 38, lat: 6.53, lon: 7.22,building: `science2ndFloor`},
+  { id: 39, lat: 6.53, lon: 7.5,building: `science2ndFloor`},
+  { id: 48, lat: 5.1, lon: 7.22,building: `science2ndFloor`, label: 'classroom' },
+  { id: 47, lat: 5.6, lon: 7.31,building: `science2ndFloor`, label: 'classroom' },
+  { id: 46, lat: 6.05, lon: 7.4,building: `science2ndFloor`, label: 'classroom' },
+  { id: 40, lat: 6.8, lon: 7.5,building: `science2ndFloor`, label: 'classroom' },
+  { id: 41, lat: 6.53, lon: 7.75,building: `science2ndFloor`},
+  { id: 42, lat: 6.67, lon: 7.75,building: `science2ndFloor`, label: 'classroom' },
+  { id: 45, lat: 6.4, lon: 7.795,building: `science2ndFloor`, label: 'classroom' },
+  { id: 43, lat: 6.67, lon: 8.04,building: `science2ndFloor`, label: 'classroom' },
+  { id: 44, lat: 6.8, lon: 8.04,building: `science2ndFloor`, label: 'classroom' },
+  { id: 49, lat: 4.95, lon: 6.02,building: `science2ndFloor`},
+  { id: 50, lat: 4.95, lon: 6.09,building: `science2ndFloor`, label: 'classroom' },
+  { id: 51, lat: 4.2, lon: 6.02,building: `science2ndFloor`},
+  { id: 52, lat: 4.2, lon: 6.09,building: `science2ndFloor`, label: 'classroom' },
+  { id: 53, lat: 3.6, lon: 6.02,building: `science2ndFloor`},
+  { id: 54, lat: 3.35, lon: 6.02,building: `science2ndFloor`, label: 'classroom' },
+  { id: 55, lat: 3.6, lon: 6.4,building: `science2ndFloor`},
+  { id: 56, lat: 3.13, lon: 6.4,building: `science2ndFloor`, label: 'classroom' },
+  { id: 57, lat: 3.73, lon: 6.4,building: `science2ndFloor`},
+  { id: 58, lat: 3.71, lon: 7.2,building: `science2ndFloor`},
+  { id: 59, lat: 3.42, lon: 7.2,building: `science2ndFloor`, label: 'classroom' },
+  { id: 60, lat: 3.6, lon: 5.65,building: `science2ndFloor`, label: 'classroom' },
+  { id: 61, lat: 3.84, lon: 5.65,building: `science2ndFloor`, label: 'classroom' },
+  { id: 62, lat: 3.35, lon:  5.35,building: `science2ndFloor`, label: 'classroom' },
+  { id: 63, lat: 3.6, lon: 5.65,building: `science2ndFloor`},
+  { id: 17, lat: 3.6, lon: 5.15,building: `science2ndFloor`},
+  { id: 64, lat: 3.84, lon: 5.15,building: `science2ndFloor`, label: 'classroom' },
+  { id: 66, lat: 3.35, lon: 4.75,building: `science2ndFloor`, label: 'classroom' },
+  { id: 82, lat: 3.6, lon: 5.35,building: `science2ndFloor`},
+  { id: 68, lat: 3.84, lon: 4.6,building: `science2ndFloor`, label: 'classroom' },
+  { id: 67, lat: 3.6, lon: 4.6,building: `science2ndFloor`},
+  { id: 65, lat: 3.6, lon: 4.75,building: `science2ndFloor`},
+  { id: 71, lat: 3.35, lon: 4,building: `science2ndFloor`, label: 'classroom' },
+  { id: 69, lat: 3.6, lon: 4,building: `science2ndFloor`},
+  { id: 70, lat: 3.84, lon: 4,building: `science2ndFloor`, label: 'classroom' },
+  { id: 73, lat: 3.27, lon: 3.43,building: `science2ndFloor`, label: 'classroom' },
+  { id: 75, lat: 3.27, lon: 3.145,building: `science2ndFloor`, label: 'classroom' },
+  { id: 74, lat: 3.6, lon: 3.145,building: `science2ndFloor`},
+  { id: 72, lat: 3.6, lon: 3.43,building: `science2ndFloor`},
+  { id: 76, lat: 3.6, lon: 2.88,building: `science2ndFloor`},
+  { id: 77, lat: 3.15, lon: 2.6,building: `science2ndFloor`, label: 'leaveButton', destination: 'BRS2ndFloor' },
+  { id: 78, lat: 4.2, lon: 2.88,building: `science2ndFloor`},
+  { id: 79, lat: 4.2, lon: 2.94,building: `science2ndFloor`, label: 'classroom' },
+  { id: 80, lat: 4.95, lon: 2.88,building: `science2ndFloor`},
+  { id: 81, lat: 4.95, lon: 2.94,building: `science2ndFloor`, label: 'classroom' },
+];
 
-firebase.initializeApp(firebaseConfig);
-let database = firebase.database();
+console.log(nodes[1].id);
 
-let room = database.ref(
-    'RoomInfoNodes')
-    room.on('value', function(snapshot){
-        let data = snapshot.val();
-        console.log(data);
-    })
+const num2 = [10,9,8,7,6,5];
+let first;
+for(let i = 0; i<nodes.length; i++){
+  for (let j = 0; j<num2.length; j++){
+    if(Number(nodes[i].id)===num2[j]){
+      first = nodes[i].id;
+      continue;
+    }
+  }
+}
+
+console.log(first);
