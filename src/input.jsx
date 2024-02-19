@@ -11,6 +11,37 @@ import science2ndFloorPlan from './assets/science2ndFloor.png';
 import leaveButtonLogo from './assets/leaveButton.png'; 
 import BRS2ndFloor from './assets/BRS2ndFloorPlan.png'; 
 import buildingNodes from './buildingNodes';
+//import getInfo from './firebaseIni';
+
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, onValue} from "firebase/database";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyBwM78rh1iYKCnJlW1-oYwB4dZbrRFdz-c",
+    authDomain: "roomorientationdata.firebaseapp.com",
+    databaseURL: "https://roomorientationdata-default-rtdb.firebaseio.com",
+    projectId: "roomorientationdata",
+    storageBucket: "roomorientationdata.appspot.com",
+    messagingSenderId: "99942721154",
+    appId: "1:99942721154:web:18939bfc42074d9316769b"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+
+// Get a reference to the database service
+const database = getDatabase(app);
+
+
+
+
+
+
+
+
+
+
+
 
 function TextInput({ style }) {
     
@@ -314,15 +345,47 @@ function TextInput({ style }) {
             
         }    
 
+        const nodeInfo = (building, floor, type, node) => {
+            return new Promise((resolve, reject) => {
+                if (building === 'science') {
+                    if (type === 'roomID') {
+                        const userRef = ref(database, 'Science');
+                        onValue(userRef, (snapshot) => {
+                            const data = snapshot.val();
+                            if (data && data[floor] && data[floor].length > 0 && data[floor][node]) {
+                                const name = String(data[floor][node].roomID);
+                                resolve(name);
+                            } else {
+                                reject("No data for the specified floor or node");
+                            }
+                        });
+                    } else {
+                        reject("Type is not 'roomID'");
+                    }
+                } else {
+                    reject("Building is not 'science'");
+                }
+            });
+        }
+
         if (Object.prototype.hasOwnProperty.call(node, "title")) {
             var coords = L.latLng(node.lat, node.lon);
-            L.marker(coords, {
-                icon: L.divIcon({
-                    html: node.title, // Center the text, set color to white, and add right margin
-                    className: 'text-below-marker',
-                    
-                })
-            }).addTo(map);
+            nodeInfo('science','2nd Floor','roomID',2)
+            .then(roomID => {
+                L.marker(coords, {
+                    icon: L.divIcon({
+                        html: roomID, // Center the text, set color to white, and add right margin
+                        className: 'text-below-marker',
+                        
+                    })
+                }).addTo(map);
+                
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+
+            
         }
         
         
@@ -495,6 +558,8 @@ function TextInput({ style }) {
         }
     }
 
+    
+
 
 
 
@@ -502,6 +567,7 @@ function TextInput({ style }) {
     return (
         
         <div style={style} ref={inputRef}>
+            <div>tanga</div>
             <div id='reader' style={{display: qrCodeScanner? 'block':'none'}}></div>
             <div id='result'></div>
             <div className="sticky-div">
