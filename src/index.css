@@ -213,7 +213,7 @@ button:focus {
 
 #text-below-marker{
     display: flex; 
-    justify-content: center; 
+    
     color: black; 
 }
 

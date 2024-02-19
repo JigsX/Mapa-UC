@@ -353,7 +353,7 @@ function TextInput({ style }) {
                         onValue(userRef, (snapshot) => {
                             const data = snapshot.val();
                             if (data && data[floor] && data[floor].length > 0 && data[floor][node]) {
-                                const name = String(data[floor][node].roomID);
+                                const name = data[floor][node].roomID;
                                 resolve(name);
                             } else {
                                 reject("No data for the specified floor or node");
@@ -370,20 +370,20 @@ function TextInput({ style }) {
 
         if (Object.prototype.hasOwnProperty.call(node, "title")) {
             var coords = L.latLng(node.lat, node.lon);
-            nodeInfo('science','2nd Floor','roomID',2)
-            .then(roomID => {
-                L.marker(coords, {
-                    icon: L.divIcon({
-                        html: roomID, // Center the text, set color to white, and add right margin
-                        className: 'text-below-marker',
-                        
-                    })
-                }).addTo(map);
-                
-            })
-            .catch(error => {
-                console.error("Error:", error);
-            });
+                nodeInfo('science','2nd Floor','roomID',2)
+                .then(roomID => {
+                    L.marker(coords, {
+                        icon: L.divIcon({
+                            html: `<strong> Room: </strong> ${roomID}`,
+                            className: 'text-below-marker',
+                            
+                        })
+                    }).addTo(map);
+                    
+                })
+                .catch(error => {
+                    console.error("Error:", error);
+                });
 
             
         }
@@ -567,7 +567,6 @@ function TextInput({ style }) {
     return (
         
         <div style={style} ref={inputRef}>
-            <div>tanga</div>
             <div id='reader' style={{display: qrCodeScanner? 'block':'none'}}></div>
             <div id='result'></div>
             <div className="sticky-div">
