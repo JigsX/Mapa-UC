@@ -176,6 +176,10 @@ export {computeDestPath,findFloorInfo};
 const V = 10000;
 const g = new Graph(V);
 
+
+g.setNodeCategory(46,'cr');
+g.setNodeCategory(56,'cr');
+g.setNodeCategory(1,'CEA: Faculty Office');
 g.addEdge(0, 1, 1);
 g.addEdge(0, 3, 1);
 g.addEdge(3, 2, 1);

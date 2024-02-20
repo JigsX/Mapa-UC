@@ -347,9 +347,8 @@ function TextInput({ style }) {
 
         const nodeInfo = (building, floor, type, node) => {
             return new Promise((resolve, reject) => {
-                if (building === 'science') {
                     if (type === 'roomID') {
-                        const userRef = ref(database, 'Science');
+                        const userRef = ref(database, building);
                         onValue(userRef, (snapshot) => {
                             const data = snapshot.val();
                             if (data && data[floor] && data[floor].length > 0 && data[floor][node]) {
@@ -362,15 +361,12 @@ function TextInput({ style }) {
                     } else {
                         reject("Type is not 'roomID'");
                     }
-                } else {
-                    reject("Building is not 'science'");
-                }
             });
         }
 
         if (Object.prototype.hasOwnProperty.call(node, "title")) {
             var coords = L.latLng(node.lat, node.lon);
-                nodeInfo('science','2nd Floor','roomID',2)
+                nodeInfo(node.building,node.floor,'roomID',node.node)
                 .then(roomID => {
                     L.marker(coords, {
                         icon: L.divIcon({
@@ -383,21 +379,14 @@ function TextInput({ style }) {
                 })
                 .catch(error => {
                     console.error("Error:", error);
-                });
-
-            
+                });   
         }
         
-        
-        
-        
         zoomToNode(path,nodes);
-        
-        
+
     };
    
     const findFirstNode = (path,nodes) =>{
-        let first;
         for(let i = 0; i<path.length; i++){
             for (let j = 0; j<nodes.length; j++){
               if(path[i]===nodes[j].id){
@@ -406,8 +395,6 @@ function TextInput({ style }) {
               }
             }
           }
-        console.log("ehe:" ,first);
-        
     }
     
     
@@ -474,29 +461,67 @@ function TextInput({ style }) {
     };
 
     const clickHandle = (event) => {
+
         event.preventDefault();
+        const getNodeValue = (building,input) => {
+            return new Promise((resolve, reject) => {
+                const floors = ['1st Floor', '2nd Floor'];
+                const userRef = ref(database, building);
+                onValue(userRef, (snapshot) => {
+                    const data = snapshot.val();
+                    for (let i = 0; i < floors.length; i++) {
+                        for (let j = 1; j <= 2; j++) { // Adjusted loop condition
+                            if (data && data[floors[i]] && data[floors[i]][j]) {
+                                if (data[floors[i]][j].roomID === input.toLowerCase() || data[floors[i]][j].roomID === input.toUpperCase()) {
+                                    let nodeID = data[floors[i]][j].node;
+                                    console.log(nodeID);
+                                    resolve(nodeID); // Resolve the promise if 'S213' found
+                                    return; // Exit function after resolving the promise
+                                }
+                                else{
+                                    console.log('wala data');
+                                }
+                            }
+                            else{
+                                console.log('wala data');
+                            }
+                        }
+                    }
+                    // Resolve with a message if 'S213' not found
+                    resolve("Room not found");
+                }, (error) => {
+                    reject(error); // Reject promise in case of error
+                });
+            });
+        };
+        
+
         if(isChoiceEnterDest){
+            if(currentInputValue[0].toLowerCase() === 's'){
+                getNodeValue('Science',currentInputValue)
+                .then(currenRoomNode =>{
+                    path = computeDestPath(
+                        "enterDestination",
+                        String(currenRoomNode),
+                        destinationInputValue,
+                        isUseElevatorChecked,
+                        isEmergencyExitClicked
+                    );
+                    floor = findFloorInfo(
+                        "enterDestination",
+                        String(currenRoomNode),
+                        destinationInputValue,
+                        isUseElevatorChecked,
+                        isEmergencyExitClicked
+                    );                   
+                    connectBuildingNodes(floor);
+                    getData();
+                    
+                })
+            }
             
 
-            path = computeDestPath(
-                "enterDestination",
-                currentInputValue,
-                destinationInputValue,
-                isUseElevatorChecked,
-                isEmergencyExitClicked
-            );
-            floor = findFloorInfo(
-                "enterDestination",
-                currentInputValue,
-                destinationInputValue,
-                isUseElevatorChecked,
-                isEmergencyExitClicked
-            );
-            
-            connectBuildingNodes(floor);
-            
-            
-            getData();
+
         }
         else if(isChoiceEnterFac){
             path = computeDestPath(
@@ -506,9 +531,17 @@ function TextInput({ style }) {
                 isUseElevatorChecked,
                 isEmergencyExitClicked
             );
+            floor = findFloorInfo(
+                "enterDestination",
+                currentInputValue,
+                destinationInputValue,
+                isUseElevatorChecked,
+                isEmergencyExitClicked
+            );                   
+            connectBuildingNodes(floor);
+            getData();
             
-            
-            connectBuildingNodes('science');
+
             
             
            
@@ -583,7 +616,7 @@ function TextInput({ style }) {
                             Enter Destination
                         </option>
                         <option value="Find Closest Facility">
-                            Find Closest Facility
+                            Find Facility/Office
                         </option>
                     </select>
                     
@@ -658,7 +691,7 @@ function TextInput({ style }) {
                                     <option>Select Facility</option>
                                     <option>cr</option>
                                     <option>Gymnasium</option>
-                                    <option>test</option>
+                                    <option>CEA: Faculty Office</option>
                                     <option>test</option>
                                 </select>
                             </span>

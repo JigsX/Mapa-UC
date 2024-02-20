@@ -7,7 +7,7 @@ function buildingNodes(buildingName) {
         nodes = [
             { id: 0, lat: 6.53, lon: 0.55, label: 'classroom' }, 
             { id: 1, lat: 6.15, lon: 0.55, label: 'classroom' },
-            { id: 2, lat: 6.8, lon: 1.08, label: 'classroom', roomID: 'S213' }, { id: 2.0, lat: 7.4, lon: 0.9, title: '' }, 
+            { id: 2, lat: 6.8, lon: 1.08, label: 'classroom', roomID: 'S213' }, {lat: 7.4, lon: 0.9, title: '',building:'Science', floor:'2nd Floor',node: 2 }, 
             { id: 3, lat: 6.53, lon: 1.08,},
             { id: 6, lat: 6.53, lon: 1.9,},
             { id: 5, lat: 6.3, lon: 1.9, label: 'classroom' },
