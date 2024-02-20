@@ -280,7 +280,7 @@ function TextInput({ style }) {
         
                 });
             }
-            if (node.label === 'classroom') {
+            if (node.label === 'classroomLogo') {
                 marker.bindPopup(`Node ${node.id}`);
                 marker.setIcon(L.icon({
                     iconUrl: classroomLogo,
