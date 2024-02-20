@@ -519,7 +519,7 @@ function TextInput({ style }) {
                     
                 })
             }
-            
+            1
 
 
         }
@@ -547,7 +547,7 @@ function TextInput({ style }) {
            
            
         }
-        
+
     }
 
     const filteredCurrentSuggestions = suggestions.filter(suggestion =>
@@ -568,9 +568,15 @@ function TextInput({ style }) {
         if(value === 'Enter Destination'){
             setIsChoiceEnterDest(true);
             setIsChoiceEnterFac(false);
+            setCurrentInputValue('');
+            setSelectedFacility('');
         }else{
             setIsChoiceEnterDest(false);
             setIsChoiceEnterFac(true);
+            setCurrentInputValue('');
+            setDestinationInputValue('');
+
+
         }
         
     };
@@ -756,4 +762,3 @@ TextInput.propTypes = {
 };
 
 export default TextInput;
-``

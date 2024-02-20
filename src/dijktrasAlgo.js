@@ -51,7 +51,7 @@ class Graph {
             }
         }
 
-        let closestNode = -1;
+        let closestNode = -1;21
         let minDist = Number.POSITIVE_INFINITY;
 
         for (let i = 0; i < this.V; i++) {
@@ -294,7 +294,3 @@ for(let i = 0; i<=100; i++){
 for(let i =100; i<=130; i++){
     g.setNodeBuilding(i,"BRS2ndFloor");
 }
-
-
-
-
