@@ -177,8 +177,9 @@ const V = 10000;
 const g = new Graph(V);
 
 
-g.setNodeCategory(46,'cr');
-g.setNodeCategory(56,'cr');
+g.setNodeCategory(46,'CR(MEN)');
+g.setNodeCategory(56,'CR(WOMEN)');
+g.setNodeCategory(47,'CR(WOMEN)');
 g.setNodeCategory(1,'CEA: Faculty Office');
 g.addEdge(0, 1, 1);
 g.addEdge(0, 3, 1);
@@ -242,10 +243,9 @@ g.addEdge(60, 53, 1);
 g.addEdge(60, 61, 1);
 g.addEdge(60, 82, 1);
 g.addEdge(62, 82, 1);
-g.addEdge(17, 82, 1);
-g.addEdge(63, 17, 1);
-g.addEdge(17, 65, 1);
+g.addEdge(63, 65, 1);
 g.addEdge(66, 65, 1);
+g.addEdge(64, 63, 1);
 g.addEdge(67, 65, 1);
 g.addEdge(67, 68, 1);
 g.addEdge(67, 69, 1);

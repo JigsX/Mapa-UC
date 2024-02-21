@@ -345,18 +345,25 @@ function TextInput({ style }) {
             
         }    
 
-        const nodeInfo = (building, floor, type, node) => {
+        const nodeInfo = (building, floor, type, node) => { //4
             return new Promise((resolve, reject) => {
                     if (type === 'roomID') {
                         const userRef = ref(database, building);
                         onValue(userRef, (snapshot) => {
                             const data = snapshot.val();
-                            if (data && data[floor] && data[floor].length > 0 && data[floor][node]) {
-                                const name = data[floor][node].roomID;
-                                resolve(name);
-                            } else {
-                                reject("No data for the specified floor or node");
+                            for(let i=1; i<=50; i++){
+                                if (data && data[floor] && data[floor].length > 0) {
+                                    if(data[floor][i].node === node){
+                                        const name = data[floor][i].roomID;
+                                        
+                                        resolve(name);
+                                    }
+                                    
+                                    
+                                }
                             }
+
+                            
                         });
                     } else {
                         reject("Type is not 'roomID'");
@@ -366,6 +373,7 @@ function TextInput({ style }) {
 
         if (Object.prototype.hasOwnProperty.call(node, "title")) {
             var coords = L.latLng(node.lat, node.lon);
+                console.log("tannnn" ,node.node);
                 nodeInfo(node.building,node.floor,'roomID',node.node)
                 .then(roomID => {
                     L.marker(coords, {
@@ -469,8 +477,9 @@ function TextInput({ style }) {
                 const userRef = ref(database, building);
                 onValue(userRef, (snapshot) => {
                     const data = snapshot.val();
+                    console.log("HAHAHAHHHAH", data.length)
                     for (let i = 0; i < floors.length; i++) {
-                        for (let j = 1; j <= 3; j++) { // Adjusted loop condition
+                        for (let j = 1; j <= 50; j++) { // Adjusted loop condition
                             if (data && data[floors[i]] && data[floors[i]][j]) {
                                 if (data[floors[i]][j].roomID === input.toLowerCase() || data[floors[i]][j].roomID === input.toUpperCase()) {
                                     let nodeID = data[floors[i]][j].node;
@@ -699,8 +708,8 @@ function TextInput({ style }) {
                                 <select style={{ display: !isChoiceEnterDest ? 'block' : 'none' }}
                                         className="InputBox" id="selectFac" value={selectedFacility} onChange={handleChangeFacility}>
                                     <option>Select Facility</option>
-                                    <option>cr</option>
-                                    <option>Gymnasium</option>
+                                    <option>CR(WOMEN)</option>
+                                    <option>CR(MEN)</option>
                                     <option>CEA: Faculty Office</option>
                                     <option>test</option>
                                 </select>
