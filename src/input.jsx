@@ -470,7 +470,7 @@ function TextInput({ style }) {
                 onValue(userRef, (snapshot) => {
                     const data = snapshot.val();
                     for (let i = 0; i < floors.length; i++) {
-                        for (let j = 1; j <= 2; j++) { // Adjusted loop condition
+                        for (let j = 1; j <= 3; j++) { // Adjusted loop condition
                             if (data && data[floors[i]] && data[floors[i]][j]) {
                                 if (data[floors[i]][j].roomID === input.toLowerCase() || data[floors[i]][j].roomID === input.toUpperCase()) {
                                     let nodeID = data[floors[i]][j].node;
@@ -483,7 +483,7 @@ function TextInput({ style }) {
                                 }
                             }
                             else{
-                                console.log('wala data');
+                                console.log('wala data2');
                             }
                         }
                     }
@@ -495,57 +495,67 @@ function TextInput({ style }) {
             });
         };
         
-
+        const getBuilding = (roomName) =>{
+            if(roomName[0].toLowerCase() === 's'){
+                return 'Science';
+            }
+        };
         if(isChoiceEnterDest){
+            console.log("fac:",isChoiceEnterFac);
+                getNodeValue(getBuilding(currentInputValue),currentInputValue)
+                .then(currentRoomNode =>{
+                    getNodeValue(getBuilding(destinationInputValue),destinationInputValue)
+                    .then(DestiRoomNode =>{ 
+                        console.log(DestiRoomNode);
+                        path = computeDestPath(
+                            "enterDestination",
+                            String(currentRoomNode),
+                            String(DestiRoomNode),
+                            isUseElevatorChecked,
+                            isEmergencyExitClicked
+                        );
+                        floor = findFloorInfo(
+                            "enterDestination",
+                            String(currentRoomNode),
+                            String(DestiRoomNode),
+                            isUseElevatorChecked,
+                            isEmergencyExitClicked
+                        );                   
+                        connectBuildingNodes(floor);
+                        getData();
+                    })
+                    
+                })
+        
+        }
+        if(isChoiceEnterFac){
+            console.log("dest:",isChoiceEnterDest);
             if(currentInputValue[0].toLowerCase() === 's'){
-                getNodeValue('Science',currentInputValue)
-                .then(currenRoomNode =>{
+                getNodeValue(getBuilding(currentInputValue),currentInputValue)
+                .then(currentRoomNode =>{
                     path = computeDestPath(
-                        "enterDestination",
-                        String(currenRoomNode),
-                        destinationInputValue,
+                        "enterFindFacility",
+                        currentRoomNode,
+                        selectedFacility,
                         isUseElevatorChecked,
                         isEmergencyExitClicked
                     );
                     floor = findFloorInfo(
-                        "enterDestination",
-                        String(currenRoomNode),
-                        destinationInputValue,
+                        "enterFindFacility",
+                        currentRoomNode,
+                        selectedFacility,
                         isUseElevatorChecked,
                         isEmergencyExitClicked
                     );                   
                     connectBuildingNodes(floor);
                     getData();
-                    
+
+
                 })
             }
             
 
 
-        }
-        else if(isChoiceEnterFac){
-            path = computeDestPath(
-                "enterFindFacility",
-                currentInputValue,
-                selectedFacility,
-                isUseElevatorChecked,
-                isEmergencyExitClicked
-            );
-            floor = findFloorInfo(
-                "enterDestination",
-                currentInputValue,
-                destinationInputValue,
-                isUseElevatorChecked,
-                isEmergencyExitClicked
-            );                   
-            connectBuildingNodes(floor);
-            getData();
-            
-
-            
-            
-           
-           
         }
         
     }
