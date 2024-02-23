@@ -10,6 +10,7 @@ import classroomLogo from './assets/classroomLogo.png';
 import science2ndFloorPlan from './assets/science2ndFloor.png'; 
 import leaveButtonLogo from './assets/leaveButton.png'; 
 import BRS2ndFloor from './assets/BRS2ndFloorPlan.png'; 
+import BRS1stFloor from './assets/BRS1stFloorPlan.png'; 
 import buildingNodes from './buildingNodes';
 //import getInfo from './firebaseIni';
 
@@ -188,6 +189,9 @@ function TextInput({ style }) {
         }
         else if(floorName === "BRS2ndFloor"){
             addImageOverlay(BRS2ndFloor);
+        }
+        else if(floorName === "BRS1stFloor"){
+            addImageOverlay(BRS1stFloor);
         }
       }
       
@@ -370,24 +374,70 @@ function TextInput({ style }) {
                     }
             });
         }
+        const nodeTitleInfo = (building, floor, type, node) => { //4
+            return new Promise((resolve, reject) => {
+                    if (type === 'roomID') {
+                        const userRef = ref(database, building);
+                        onValue(userRef, (snapshot) => {
+                            const data = snapshot.val();
+                            for(let i=1; i<=50; i++){
+                                if (data && data[floor] && data[floor].length > 0) {
+                                    if(data[floor][i].node === node){
+                                        const cathegory = data[floor][i].cat;
+                                        
+                                        resolve(cathegory);
+                                    }
+                                    
+                                    
+                                }
+                            }
+
+                            
+                        });
+                    } else {
+                        reject("Type is not 'roomID'");
+                    }
+            });
+        }
 
         if (Object.prototype.hasOwnProperty.call(node, "title")) {
             var coords = L.latLng(node.lat, node.lon);
-                console.log("tannnn" ,node.node);
+            nodeTitleInfo(node.building,node.floor,'roomID',node.node)
+            .then(roomCat => {
                 nodeInfo(node.building,node.floor,'roomID',node.node)
                 .then(roomID => {
-                    L.marker(coords, {
-                        icon: L.divIcon({
-                            html: `<strong> Room: </strong> ${roomID}`,
-                            className: 'text-below-marker',
-                            
-                        })
-                    }).addTo(map);
+                    if(roomCat ===''){
+                        L.marker(coords, {
+                            icon: L.divIcon({
+                                
+                                html: `<strong> ${roomCat} </strong> ${roomID}`,
+                                className: 'text-below-marker',
+                                
+                            })
+                        }).addTo(map);
+                    }
+                    else{
+                        L.marker(coords, {
+                            icon: L.divIcon({
+                                
+                                html: `<strong> ${roomCat}: </strong> ${roomID}`,
+                                className: 'text-below-marker',
+                                
+                            })
+                        }).addTo(map);
+                    }
                     
-                })
-                .catch(error => {
+
+                }).catch(error => {
                     console.error("Error:", error);
-                });   
+                }); 
+
+            })
+            .catch(error => {
+            console.error("Error:", error);
+            }); 
+                    
+                  
         }
         
         zoomToNode(path,nodes);
@@ -507,6 +557,8 @@ function TextInput({ style }) {
         const getBuilding = (roomName) =>{
             if(roomName[0].toLowerCase() === 's'){
                 return 'Science';
+            }else if(roomName[0].toLowerCase() === 'u'){
+                return 'BRS';
             }
         };
         if(isChoiceEnterDest){
