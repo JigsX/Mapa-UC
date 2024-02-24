@@ -9,8 +9,9 @@ import { Html5QrcodeScanner } from 'html5-qrcode';
 import classroomLogo from './assets/classroomLogo.png'; 
 import science2ndFloorPlan from './assets/science2ndFloor.png'; 
 import leaveButtonLogo from './assets/leaveButton.png'; 
+import BRS1stFloor from './assets/BRS1stFloorPlan.png';
 import BRS2ndFloor from './assets/BRS2ndFloorPlan.png'; 
-import BRS1stFloor from './assets/BRS1stFloorPlan.png'; 
+import BRS3rdFloor from './assets/BRS3rdFloorPlan.png';
 import buildingNodes from './buildingNodes';
 //import getInfo from './firebaseIni';
 
@@ -187,12 +188,16 @@ function TextInput({ style }) {
         if(floorName === 'science2ndFloor'){
             addImageOverlay(science2ndFloorPlan);
         }
-        else if(floorName === "BRS2ndFloor"){
-            addImageOverlay(BRS2ndFloor);
-        }
         else if(floorName === "BRS1stFloor"){
             addImageOverlay(BRS1stFloor);
         }
+        else if(floorName === "BRS2ndFloor"){
+            addImageOverlay(BRS2ndFloor);
+        }
+        else if(floorName === "BRS3rdFloor"){
+            addImageOverlay(BRS3rdFloor);
+        }
+        
       }
       
       
@@ -244,21 +249,21 @@ function TextInput({ style }) {
         }
 
         function handleButtonClick(choice) {
-            // Perform actions based on the user's choice
+            
             switch (choice) {
                 case 1:
-                    // Set the flag indicating leaveButton1 is clicked
+                    
                     connectBuildingNodes('science');
                     break;
                 case 2:
                     connectBuildingNodes('science2');
                     break;
-                // Add cases for choices 3, 4, and 5 as needed
+                
                 default:
                     break;
             }
         
-            // Clear map markers and connect to "science2"
+           
             
         }
         
@@ -316,6 +321,7 @@ function TextInput({ style }) {
                         button.addEventListener('click', () => {
                             handleButtonClick(i);
                         });
+                        
                         buttonDiv.appendChild(button);
                     }
             
@@ -523,11 +529,11 @@ function TextInput({ style }) {
         event.preventDefault();
         const getNodeValue = (building,input) => {
             return new Promise((resolve, reject) => {
-                const floors = ['1st Floor', '2nd Floor'];
+                const floors = ['1st Floor', '2nd Floor','3rd Floor'];
                 const userRef = ref(database, building);
                 onValue(userRef, (snapshot) => {
                     const data = snapshot.val();
-                    console.log("HAHAHAHHHAH", data.length)
+                    
                     for (let i = 0; i < floors.length; i++) {
                         for (let j = 1; j <= 50; j++) { // Adjusted loop condition
                             if (data && data[floors[i]] && data[floors[i]][j]) {
@@ -657,9 +663,16 @@ function TextInput({ style }) {
         if(buildingName == "science2ndFloor") {
         setCurrentFloor("Science Building 2nd Floor, PE Building 2nd Floor");
         }
+        else if (buildingName == "BRS1stFloor") {
+            setCurrentFloor("BRS Building 1st Floor");
+        }
         else if (buildingName == "BRS2ndFloor") {
             setCurrentFloor("BRS Building 2nd Floor");
         }
+        else if (buildingName == "BRS3rdFloor") {
+            setCurrentFloor("BRS Building 3rdFloor");
+        }
+        
     }
 
     

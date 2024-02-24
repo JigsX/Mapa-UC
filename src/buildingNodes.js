@@ -89,34 +89,33 @@ function buildingNodes(buildingName) {
             { id: 80, lat: 4.95, lon: 2.88,},
             { id: 81, lat: 4.95, lon: 2.94,  }, { lat: 5, lon: 3.3, title: 'classRoom',building:'Science', floor:'2nd Floor',node: 81,label: 'classroomLogo' },
         ];
-    } else if (buildingName == "BRS2ndFloor") {
-        nodes = [
-            { id: 100, lat: 8.55, lon: 9.65, label: 'leaveButton',destination: 'science2ndFloor' },
-            { id: 101, lat: 5.25, lon: 9.65 },
-            { id: 102, lat: 5.25, lon: 8.1},
-            { id: 103, lat: 5.6, lon: 8.1 }, { lat: 6.8, lon: 7.9, title: 'classRoom',building:'BRS', floor:'2nd Floor',node: 103,label: 'classroomLogo' },
-            { id: 104, lat: 5.25, lon: 7.7},
-            { id: 105, lat: 4.95, lon: 7.7}, { lat: 3.5, lon: 7.6, title: 'classRoom',building:'BRS', floor:'2nd Floor',node: 105,label: 'classroomLogo' },
-            { id: 106, lat: 5.25, lon: 5.7},
-            { id: 107, lat: 5.6, lon: 5.7 }, { lat: 6.8, lon: 5.5, title: 'classRoom',building:'BRS', floor:'2nd Floor',node: 107,label: 'classroomLogo' },
-            { id: 108, lat: 5.25, lon: 4.7},
-            { id: 109, lat: 4.95, lon: 4.7}, { lat: 3.5, lon: 4.5, title: 'classRoom',building:'BRS', floor:'2nd Floor',node: 109,label: 'classroomLogo' },
-            { id: 110, lat: 5.25, lon: 4.17},
-            { id: 111, lat: 5.8, lon: 4.17},  { lat: 6.7, lon: 3.8, title: 'facility',building:'BRS', floor:'2nd Floor',node: 111,label: 'classroomLogo' },
-            { id: 112, lat: 5.25, lon: 3.1},
-            { id: 113, lat: 5.6, lon: 3.1, label: 'elevator' }, { lat: 6.1, lon: 2.9, title: '',building:'BRS', floor:'2nd Floor',node: 113},
-            { id: 114, lat: 5.25, lon: 1.9},
-            { id: 115, lat: 5.6, lon: 1.9, label: 'leaveButton', destination: 'BRS1stFloor' },
-            { id: 116, lat: 5.25, lon: 1.6},
-            { id: 117, lat: 4.95, lon: 1.6}, { lat: 3.5, lon: 1.4, title: 'classRoom',building:'BRS', floor:'2nd Floor',node: 117,label: 'classroomLogo' },
-            { id: 118, lat: 5.25, lon: 0.7},
-            { id: 119, lat: 6.9, lon: 0.7},
-            { id: 120, lat: 6.9, lon: 1.9},
-            { id: 121, lat: 6.5, lon: 1.9, label: 'leaveButton' },
-        ];
-    }
+    } 
     else if (buildingName == "BRS1stFloor") {
         nodes = [
+            { id: 130, lat: 8.3, lon:9.65, label: 'leaveButton',destination: 'BRS2ndFloor' },
+            { id: 131, lat: 5, lon: 9.65 ,},
+            { id: 132, lat: 5, lon: 8.1,},
+            { id: 133, lat: 5.38, lon: 8.1 }, { lat: 6.8, lon: 7.9, title: 'classRoom',building:'BRS', floor:'1st Floor',node: 133,label: 'classroomLogo' },
+            { id: 134, lat: 5, lon: 7.1,},
+            { id: 135, lat: 4.66, lon: 7.1,}, { lat: 3.4, lon: 7, title: 'classRoom',building:'BRS', floor:'1st Floor',node: 135,label: 'classroomLogo' },
+            { id: 136, lat: 5, lon: 5.7,},
+            { id: 137, lat: 5.38, lon: 5.7 }, { lat: 6.8, lon: 5.5, title: 'classRoom',building:'BRS', floor:'1st Floor',node: 137,label: 'classroomLogo' },
+            { id: 138, lat: 5, lon: 4.3,},
+            { id: 139, lat: 4.66, lon: 4.3}, { lat: 3.5, lon: 4.1, title: 'classRoom',building:'BRS', floor:'1st Floor',node: 139,label: 'classroomLogo' },
+            { id: 140, lat: 5, lon: 4.17,},
+            { id: 141, lat: 5.4, lon: 4.17},  { lat: 6.7, lon: 3.5, title: 'facility',building:'BRS', floor:'1st Floor',node: 141,label: 'classroomLogo' },
+            { id: 142, lat: 5, lon: 3.1,},
+            { id: 143, lat: 5.38, lon: 3.1, label: 'elevator' }, { lat: 5.8, lon: 2.9, title: '',building:'BRS', floor:'1st Floor',node: 143},
+            { id: 144, lat: 5, lon: 1.5,},
+            { id: 145, lat: 4.66, lon: 1.5}, { lat: 3.5, lon: 1.2, title: 'classRoom',building:'BRS', floor:'1st Floor',node: 145,label: 'classroomLogo' },
+            { id: 146, lat: 5, lon: 0.7,},
+            { id: 147, lat: 6.6, lon: 0.7,},
+            { id: 148, lat: 6.6, lon: 1.9,},
+            { id: 149, lat: 6.2, lon: 1.9, label: 'leaveButton',destination: 'BRS2ndFloor' },
+        ];
+    }
+    else if (buildingName == "BRS2ndFloor") {
+        nodes = [
             { id: 100, lat: 8.55, lon: 9.65, label: 'leaveButton',destination: 'science2ndFloor' },
             { id: 101, lat: 5.25, lon: 9.65 },
             { id: 102, lat: 5.25, lon: 8.1},
@@ -128,7 +127,7 @@ function buildingNodes(buildingName) {
             { id: 108, lat: 5.25, lon: 4.7},
             { id: 109, lat: 4.95, lon: 4.7}, { lat: 3.5, lon: 4.5, title: 'classRoom',building:'BRS', floor:'2nd Floor',node: 109,label: 'classroomLogo' },
             { id: 110, lat: 5.25, lon: 4.17},
-            { id: 111, lat: 5.8, lon: 4.17},  { lat: 6.7, lon: 3.8, title: 'facility',building:'BRS', floor:'2nd Floor',node: 111,label: 'classroomLogo' },
+            { id: 111, lat: 5.8, lon: 4.17},  { lat: 6.9, lon: 3.6, title: 'facility',building:'BRS', floor:'2nd Floor',node: 111,label: 'classroomLogo' },
             { id: 112, lat: 5.25, lon: 3.1},
             { id: 113, lat: 5.6, lon: 3.1, label: 'elevator' }, { lat: 6.1, lon: 2.9, title: '',building:'BRS', floor:'2nd Floor',node: 113},
             { id: 114, lat: 5.25, lon: 1.9},
@@ -138,7 +137,34 @@ function buildingNodes(buildingName) {
             { id: 118, lat: 5.25, lon: 0.7},
             { id: 119, lat: 6.9, lon: 0.7},
             { id: 120, lat: 6.9, lon: 1.9},
-            { id: 121, lat: 6.5, lon: 1.9, label: 'leaveButton' },
+            { id: 121, lat: 6.5, lon: 1.9, label: 'leaveButton',destination: 'BRS3rdFloor' },
+        ];
+    }
+    
+    else if (buildingName == "BRS3rdFloor") {
+        nodes = [
+            { id: 155, lat: 8.3, lon:9.65, label: 'leaveButton',destination: 'BRS2ndFloor' },
+            { id: 156, lat: 5, lon: 9.65 },
+            { id: 157, lat: 5, lon: 7.8,},
+            { id: 158, lat: 4.66, lon: 7.8,},{ lat: 3.4, lon: 7.5, title: 'classRoom',building:'BRS', floor:'3rd Floor',node: 158,label: 'classroomLogo' },
+            { id: 159, lat: 5, lon: 7}, 
+            { id: 160, lat: 5.38, lon: 7}, { lat: 7, lon: 6.5, title: 'classRoom',building:'BRS', floor:'3rd Floor',node: 160,label: 'classroomLogo' },
+            
+            
+            { id: 161, lat: 5, lon: 4.3},
+            { id: 162, lat: 4.66, lon: 4.3,}, { lat: 3.5, lon: 4.1, title: 'classRoom',building:'BRS', floor:'3rd Floor',node: 162,label: 'classroomLogo' },
+            { id: 163, lat: 5, lon: 4.17,},
+            { id: 164, lat: 5.5, lon: 4.17,},  { lat: 6.7, lon: 3.5, title: 'facility',building:'BRS', floor:'3rd Floor',node: 164,label: 'classroomLogo' },
+            { id: 165, lat: 5, lon: 3.1,},
+            { id: 166, lat: 5.38, lon: 3.1, label: 'elevator' }, { lat: 5.8, lon: 2.9, title: '',building:'BRS', floor:'3rd Floor',node: 166},
+            { id: 167, lat: 5, lon: 1.9,},
+            { id: 168, lat: 5.38, lon: 1.9,label: 'leaveButton'},
+            { id: 169, lat: 5, lon: 1.5,},
+            { id: 170, lat: 4.66, lon: 1.5,}, { lat: 3.5, lon: 1.2, title: 'classRoom',building:'BRS', floor:'3rd Floor',node: 170,label: 'classroomLogo' },
+            { id: 171, lat: 5, lon: 0.7,},
+            { id: 172, lat: 6.6, lon: 0.7,},
+            { id: 173, lat: 6.6, lon: 1.9,},
+            { id: 174, lat: 6.2, lon: 1.9, label: 'leaveButton',destination: 'BRS2ndFloor' },
         ];
     }
 

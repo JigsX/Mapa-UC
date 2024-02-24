@@ -264,6 +264,8 @@ g.addEdge(81, 80, 1);
 g.addEdge(16, 80, 2);
 
 
+//BRS 2nd Floor
+g.setNodeCategory(133, "elevator");
 g.addEdge(77, 100, 1);
 g.addEdge(101, 100, 1);
 g.addEdge(101, 102, 1);
@@ -287,13 +289,67 @@ g.addEdge(119, 118, 1);
 g.addEdge(119, 120, 1);
 g.addEdge(121, 120, 1);
 
+
+//BRS 1st Floor
+g.setNodeCategory(143, "elevator");
+g.addEdge(115, 149, 1);
+g.addEdge(130, 131, 1);
+g.addEdge(132, 131, 1);
+g.addEdge(132, 133, 1);
+g.addEdge(132, 134, 1);
+g.addEdge(135, 134, 1);
+g.addEdge(136, 134, 1);
+g.addEdge(136, 137, 1);
+g.addEdge(136, 138, 1);
+g.addEdge(139, 138, 1);
+g.addEdge(140, 138, 1);
+g.addEdge(140, 141, 1);
+g.addEdge(140, 142, 1);
+g.addEdge(143, 142, 1);
+g.addEdge(144, 142, 1);
+g.addEdge(144, 145, 1);
+g.addEdge(144, 146, 1);
+g.addEdge(147, 146, 1);
+g.addEdge(147, 148, 1);
+g.addEdge(149, 148, 1);
+g.addEdge(143, 113, 1);
+
+
+//BRS 3rd Floor
+g.addEdge(168, 121, 1);
+g.addEdge(155, 156, 1);
+g.addEdge(157, 156, 1);
+g.addEdge(157, 158, 1);
+g.addEdge(157, 159, 1);
+g.addEdge(160, 159, 1);
+g.addEdge(161, 159, 1);
+g.addEdge(161, 162, 1);
+g.addEdge(161, 163, 1);
+g.addEdge(164, 163, 1);
+g.addEdge(165, 163, 1);
+g.addEdge(165, 166, 1);
+g.addEdge(165, 167, 1);
+g.addEdge(168, 167, 1);
+g.addEdge(167, 169, 1);
+g.addEdge(170, 169, 1);
+g.addEdge(171, 169, 1);
+g.addEdge(171, 172, 1);
+g.addEdge(173, 172, 1);
+g.addEdge(173, 174, 1);
+
 for(let i = 0; i<=100; i++){
     g.setNodeBuilding(i,"science2ndFloor");
 }
-
-for(let i =100; i<=130; i++){
+for(let i =126; i<=150; i++){
+    g.setNodeBuilding(i,"BRS1stFloor");
+}
+for(let i =100; i<=125; i++){
     g.setNodeBuilding(i,"BRS2ndFloor");
 }
+for(let i =155; i<=175; i++){
+    g.setNodeBuilding(i,"BRS3rdFloor");
+}
+
 
 
 
