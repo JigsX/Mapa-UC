@@ -164,7 +164,41 @@ function buildingNodes(buildingName) {
             { id: 171, lat: 5, lon: 0.7,},
             { id: 172, lat: 6.6, lon: 0.7,},
             { id: 173, lat: 6.6, lon: 1.9,},
-            { id: 174, lat: 6.2, lon: 1.9, label: 'leaveButton',destination: 'BRS2ndFloor' },
+            { id: 174, lat: 6.2, lon: 1.9, label: 'leaveButton',destination: 'BRS4thFloor' },
+        ];
+    }
+    else if (buildingName == "BRS4thFloor") {
+        nodes = [
+            { id: 202, lat: 6.22, lon: 2.95,label: 'leaveButton',destination: 'BRS3rdFloor'},
+            { id: 201, lat: 6.6, lon: 2.95,},
+            { id: 200, lat: 6.6, lon: 1.9,},
+            { id: 199, lat: 5.22, lon: 1.9,}, 
+            { id: 198, lat: 5.22, lon: 2.45,},
+            { id: 203, lat: 4.9, lon: 2.45,},
+            { id: 204, lat: 4.9, lon: 1.9,},
+            { id: 205, lat: 4.9, lon: 0.85,},
+            { id: 206, lat: 5.6, lon: 0.85,label: 'leaveButton'},
+            { id: 207, lat: 4.9, lon: 0.1,},
+            { id: 196, lat: 5.22, lon: 2.95,},
+            { id: 197, lat: 5.55, lon: 2.95,label: 'leaveButton',destination: 'BRS3rdFloor'},
+            { id: 194, lat: 5.22, lon: 4,},
+            { id: 195, lat: 5.55, lon: 4,label: 'elevator'},
+            { id: 192, lat: 5.22, lon: 4.5,},
+            { id: 193, lat: 4.93, lon: 4.5,}, {lat: 4, lon: 4.3, title: 'classRoom',building:'BRS', floor:'4th Floor',node: 193,label: 'classroomLogo' },
+            { id: 190, lat: 5.22, lon: 4.98,},
+            { id: 191, lat: 5.7, lon: 4.98,},
+            { id: 188, lat: 5.22, lon: 6.3,},
+            { id: 189, lat: 5.55, lon: 6.3,}, {lat: 6.8, lon: 6, title: 'classRoom',building:'BRS', floor:'4th Floor',node: 189,label: 'classroomLogo' },
+            { id: 186, lat: 5.22, lon: 6.55,},
+            { id: 187, lat: 4.93, lon: 6.55,}, {lat: 4, lon: 6.4, title: 'classRoom',building:'BRS', floor:'4th Floor',node: 187,label: 'classroomLogo' },
+            { id: 184, lat: 5.22, lon: 8.3,},
+            { id: 185, lat: 5.55, lon: 8.3,},  {lat: 6.8, lon: 8, title: 'classRoom',building:'BRS', floor:'4th Floor',node: 185,label: 'classroomLogo' },
+            { id: 182, lat: 5.22, lon: 8.5,},
+            { id: 183, lat: 4.93, lon: 8.5,}, {lat: 4, lon: 8.3, title: 'classRoom',building:'BRS', floor:'4th Floor',node: 183,label: 'classroomLogo' },
+            { id: 181, lat: 5.22, lon: 9.67,},
+            { id: 180, lat: 8.05, lon: 9.67,},
+            { id: 208, lat: 1.9, lon: 2.45,}, {lat: 2, lon: 2.45, title: 'classRoom',building:'BRS', floor:'4th Floor',node: 208 },
+            
         ];
     }
 
