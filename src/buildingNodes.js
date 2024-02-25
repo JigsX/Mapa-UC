@@ -158,7 +158,7 @@ function buildingNodes(buildingName) {
             { id: 165, lat: 5, lon: 3.1,},
             { id: 166, lat: 5.38, lon: 3.1, label: 'elevator' }, { lat: 5.8, lon: 2.9, title: '',building:'BRS', floor:'3rd Floor',node: 166},
             { id: 167, lat: 5, lon: 1.9,},
-            { id: 168, lat: 5.38, lon: 1.9,label: 'leaveButton'},
+            { id: 168, lat: 5.38, lon: 1.9,label: 'leaveButton',destination: 'BRS2ndFloor'},
             { id: 169, lat: 5, lon: 1.5,},
             { id: 170, lat: 4.66, lon: 1.5,}, { lat: 3.5, lon: 1.2, title: 'classRoom',building:'BRS', floor:'3rd Floor',node: 170,label: 'classroomLogo' },
             { id: 171, lat: 5, lon: 0.7,},
