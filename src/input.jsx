@@ -13,6 +13,7 @@ import BRS1stFloor from './assets/BRS1stFloorPlan.png';
 import BRS2ndFloor from './assets/BRS2ndFloorPlan.png'; 
 import BRS3rdFloor from './assets/BRS3rdFloorPlan.png';
 import BRS4thFloor from './assets/BRS4thFloorPlan.png';
+import BRS5thFloor from './assets/BRS5thFloorPlan.png';
 import buildingNodes from './buildingNodes';
 //import getInfo from './firebaseIni';
 
@@ -200,6 +201,9 @@ function TextInput({ style }) {
         }
         else if(floorName === "BRS4thFloor"){
             addImageOverlay(BRS4thFloor);
+        }
+        else if(floorName === "BRS5thFloor"){
+            addImageOverlay(BRS5thFloor);
         }
         
       }
@@ -533,7 +537,7 @@ function TextInput({ style }) {
         event.preventDefault();
         const getNodeValue = (building,input) => {
             return new Promise((resolve, reject) => {
-                const floors = ['1st Floor', '2nd Floor','3rd Floor','4th Floor'];
+                const floors = ['1st Floor', '2nd Floor','3rd Floor','4th Floor','5th Floor'];
                 const userRef = ref(database, building);
                 onValue(userRef, (snapshot) => {
                     const data = snapshot.val();
@@ -678,6 +682,9 @@ function TextInput({ style }) {
         }
         else if (buildingName == "BRS4thFloor") {
             setCurrentFloor("BRS Building 4th Floor");
+        }
+        else if (buildingName == "BRS5thFloor") {
+            setCurrentFloor("BRS Building 5th Floor");
         }
         
     }

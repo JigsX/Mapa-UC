@@ -371,8 +371,19 @@ g.addEdge(182, 181, 1);
 g.addEdge(181, 180, 1);
 
 
-
-
+//BRS 5th Floor
+g.addEdge(202, 222, 1);
+g.addEdge(215, 216, 1);
+g.addEdge(217, 216, 1);
+g.addEdge(217, 218, 1);
+g.addEdge(219, 218, 1);
+g.addEdge(219, 220, 1);
+g.addEdge(219, 221, 1);
+g.addEdge(222, 221, 1);
+g.addEdge(223, 221, 1);
+g.addEdge(223, 224, 1);
+g.addEdge(223, 225, 1);
+g.addEdge(226, 225, 1);
 for(let i = 0; i<=100; i++){
     g.setNodeBuilding(i,"science2ndFloor");
 }
@@ -387,6 +398,9 @@ for(let i =155; i<=175; i++){
 }
 for(let i =175; i<=210; i++){
     g.setNodeBuilding(i,"BRS4thFloor");
+}
+for(let i =215; i<=230; i++){
+    g.setNodeBuilding(i,"BRS5thFloor");
 }
 
 
