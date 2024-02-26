@@ -243,7 +243,7 @@ function buildingNodes(buildingName) {
     }
     else if (buildingName == "BRS7thFloor") {
         nodes = [
-            { id: 255, lat: 6.24, lon: 1.88,label: 'leaveButton',destination: 'BRS6thFloor'},
+            { id: 255, lat: 6.24, lon: 1.88,label: 'leaveButton',destination: 'BRS8thFloor'},
             { id: 256, lat: 6.65, lon: 1.88,},
             { id: 257, lat: 6.65, lon: 0.65,},
             { id: 258, lat: 4.95, lon: 0.65,},
@@ -263,9 +263,61 @@ function buildingNodes(buildingName) {
             { id: 272, lat:  4.95, lon: 8.1,},
             { id: 273, lat:   4.66, lon: 8.1,}, {lat:  3.3, lon: 7.8, title: 'classRoom',building:'BRS', floor:'7th Floor',node: 273},
             { id: 274, lat:  4.95, lon: 8.6,},
-            { id: 275, lat:  5.4, lon: 8.6,}, {lat:  7.5, lon: 7.9, title: 'classRoom',building:'BRS', floor:'7th Floor',node: 275},
+            { id: 275, lat:  5.4, lon: 8.6,}, {lat:  7.5, lon: 7.9, title: 'classRoom',building:'BRS', floor:'7th Floor',node: 275}, 
             
+        ];
+    }
+    else if (buildingName == "BRS8thFloor") {
+        nodes = [
+            { id: 280, lat: 6.24, lon: 1.88,label: 'leaveButton',destination: 'BRS9thFloor'},
+            { id: 281, lat: 6.65, lon: 1.88,},
+            { id: 282, lat: 6.65, lon: 0.65,},
+            { id: 283, lat: 4.95, lon: 0.65,},
+            { id: 284, lat:  4.95, lon: 1.2,},
+            { id: 285, lat:  4.66, lon: 1.2,},{lat:  3.3, lon: 1.1, title: 'classRoom',building:'BRS', floor:'8th Floor',node: 285},
+            { id: 286, lat:  4.95, lon: 1.88,},
+            { id: 287, lat:  5.4, lon: 1.88,label: 'leaveButton',destination: 'BRS7thFloor'},
+            { id: 288, lat:  4.95, lon: 3.1,},
+            { id: 289, lat:  5.4, lon: 3.1,label: 'elevator',elevatorBuilding:'BRS'}, { lat:  5.8, lon: 2.9, title: 'classRoom',building:'BRS', floor:'8th Floor',node: 289},
+            { id: 290, lat:  4.95, lon: 3.5,},
+            { id: 291, lat:  4.66, lon: 3.5,}, {lat:  3.3, lon: 3.3, title: 'classRoom',building:'BRS', floor:'8th Floor',node: 291},
+            { id: 292, lat:  4.95, lon: 4.15,},
+            { id: 293, lat:  5.6, lon: 4.15,}, { lat:  6.6, lon: 3.6, title: 'classRoom',building:'BRS', floor:'8th Floor',node: 293},       
+            { id: 294, lat:  4.95, lon: 5.8,},
+            { id: 295, lat:  5.4, lon: 5.8,}, { lat:  7.5, lon: 5.5, title: 'classRoom',building:'BRS', floor:'8th Floor',node: 295},
+            { id: 296, lat:  4.66, lon: 5.8,}, {lat:  3.3, lon: 5.5, title: 'classRoom',building:'BRS', floor:'8th Floor',node: 296},
+            { id: 297, lat:  4.95, lon: 8.1,},
+            { id: 298, lat:   4.66, lon: 8.1,}, {lat:  3.3, lon: 7.8, title: 'classRoom',building:'BRS', floor:'8th Floor',node: 298},
+            { id: 299, lat:  4.95, lon: 8.6,},
+            { id: 300, lat:  5.4, lon: 8.6,}, {lat:  7.5, lon: 7.9, title: 'classRoom',building:'BRS', floor:'8th Floor',node: 300}, 
             
+        ];
+    }else if (buildingName == "BRS9thFloor") {
+        nodes = [
+            { id: 305, lat: 6.24, lon: 1.88,label: 'leaveButton',destination: 'BRS10thFloor'},
+            { id: 306, lat: 6.65, lon: 1.88,},
+            { id: 307, lat: 6.65, lon: 0.65,},
+            { id: 308, lat: 4.95, lon: 0.65,},
+            { id: 309, lat:  4.95, lon: 1.2,},
+            { id: 310, lat:  4.43, lon: 1.2,},{lat:  3.3, lon: 1.1, title: 'classRoom',building:'BRS', floor:'9th Floor',node: 310},
+            { id: 311, lat:  4.95, lon: 1.88,},
+            { id: 312, lat:  5.6, lon: 1.88,label: 'leaveButton',destination: 'BRS8thFloor'},
+            { id: 313, lat:  4.95, lon: 3.1,},
+            { id: 314, lat:  5.6, lon: 3.1,label: 'elevator',elevatorBuilding:'BRS'}, { lat:  6, lon: 2.9, title: 'classRoom',building:'BRS', floor:'9th Floor',node: 314},
+            { id: 315, lat:  4.95, lon: 3.5,},
+            { id: 316, lat:  4.43, lon: 3.5,}, {lat:  3.3, lon: 3.3, title: 'classRoom',building:'BRS', floor:'9th Floor',node: 316},
+            { id: 317, lat:  4.95, lon: 4.15,},
+            { id: 318, lat:  5.7, lon: 4.15,}, { lat:  6.8, lon: 3.6, title: 'classRoom',building:'BRS', floor:'9th Floor',node: 318},       
+            { id: 319, lat:  4.95, lon: 5.3,},
+            { id: 320, lat:  5.6, lon: 5.3,}, { lat:  7.5, lon: 5, title: 'classRoom',building:'BRS', floor:'9th Floor',node: 320},
+            { id: 321, lat: 4.95, lon: 5.8,},
+            { id: 322, lat:  4.43, lon: 5.8,}, {lat:  3.3, lon: 5.5, title: 'classRoom',building:'BRS', floor:'9th Floor',node: 322},
+            { id: 323, lat:  4.95, lon: 7.2,},
+            { id: 324, lat:  5.6, lon: 7.2,}, { lat:  7.5, lon: 7, title: 'classRoom',building:'BRS', floor:'9th Floor',node: 324},
+            { id: 325, lat:  4.95, lon: 8.1,},
+            { id: 326, lat:   4.43, lon: 8.1,}, {lat:  3.3, lon: 7.8, title: 'classRoom',building:'BRS', floor:'9th Floor',node: 326},
+            { id: 327, lat:  4.95, lon: 9.15,},
+            { id: 328, lat:  5.6, lon: 9.15,}, {lat:  7.5, lon: 8.8, title: 'classRoom',building:'BRS', floor:'9th Floor',node: 328}, 
             
         ];
     }
