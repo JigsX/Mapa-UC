@@ -250,7 +250,7 @@ function buildingNodes(buildingName) {
             { id: 259, lat:  4.95, lon: 1.2,},
             { id: 260, lat:  4.66, lon: 1.2,},{lat:  3.3, lon: 1.1, title: 'classRoom',building:'BRS', floor:'7th Floor',node: 260},
             { id: 261, lat:  4.95, lon: 1.88,},
-            { id: 262, lat:  5.4, lon: 1.88,label: 'leaveButton',destination: 'BRS5thFloor'},
+            { id: 262, lat:  5.4, lon: 1.88,label: 'leaveButton',destination: 'BRS6thFloor'},
             { id: 263, lat:  4.95, lon: 3.1,},
             { id: 264, lat:  5.4, lon: 3.1,label: 'elevator',elevatorBuilding:'BRS'}, { lat:  5.8, lon: 2.9, title: 'classRoom',building:'BRS', floor:'7th Floor',node: 264},
             { id: 265, lat:  4.95, lon: 3.5,},
