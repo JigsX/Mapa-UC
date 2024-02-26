@@ -14,6 +14,8 @@ import BRS2ndFloor from './assets/BRS2ndFloorPlan.png';
 import BRS3rdFloor from './assets/BRS3rdFloorPlan.png';
 import BRS4thFloor from './assets/BRS4thFloorPlan.png';
 import BRS5thFloor from './assets/BRS5thFloorPlan.png';
+import BRS6thFloor from './assets/BRS6thFloorPlan.png';
+import BRS7thFloor from './assets/BRS7thFloorPlan.png';
 import buildingNodes from './buildingNodes';
 //import getInfo from './firebaseIni';
 
@@ -35,17 +37,6 @@ const app = initializeApp(firebaseConfig);
 
 // Get a reference to the database service
 const database = getDatabase(app);
-
-
-
-
-
-
-
-
-
-
-
 
 function TextInput({ style }) {
     
@@ -168,12 +159,7 @@ function TextInput({ style }) {
 
     const addImageOverlay = (imageURL) => {
         let images = [
-            { url: imageURL,    bounds: [[0,0], [10, 10]] },
-           
-            
-            
-            
-            
+            { url: imageURL,    bounds: [[0,0], [10, 10]] },  
             
         ];
         mapRef.current.eachLayer(function (layer) {
@@ -204,6 +190,12 @@ function TextInput({ style }) {
         }
         else if(floorName === "BRS5thFloor"){
             addImageOverlay(BRS5thFloor);
+        }
+        else if(floorName === "BRS6thFloor"){
+            addImageOverlay(BRS6thFloor);
+        }
+        else if(floorName === "BRS7thFloor"){
+            addImageOverlay(BRS7thFloor);
         }
         
       }
@@ -256,20 +248,36 @@ function TextInput({ style }) {
             return;
         }
 
-        function handleButtonClick(choice) {
+        function handleButtonClick(choice,building) {
             
-            switch (choice) {
-                case 1:
-                    
-                    connectBuildingNodes('science');
-                    break;
-                case 2:
-                    connectBuildingNodes('science2');
-                    break;
-                
-                default:
-                    break;
+            if(building === 'BRS'){
+                switch (choice) {
+                    case 1:
+                        connectBuildingNodes('BRS1stFloor');
+                        break;
+                    case 2:
+                        connectBuildingNodes('BRS2ndFloor');
+                        break;
+                    case 3:
+                        connectBuildingNodes('BRS3rdFloor');
+                        break;
+                    case 4:
+                        connectBuildingNodes('BRS4thFloor');
+                        break;
+                    case 5:
+                        connectBuildingNodes('BRS5thFloor');
+                        break;
+                    case 6:
+                        connectBuildingNodes('BRS6thFloor');
+                        break;
+                    case 7:
+                        connectBuildingNodes('BRS7thFloor');
+                        break;
+                    default:
+                        break;
+                }
             }
+            
         
            
             
@@ -317,18 +325,34 @@ function TextInput({ style }) {
                     iconAnchor: [16, 16],
                     popupAnchor: [0, -16]
                 }));
-        
+                let elevatorNodes;
+                if(node.elevatorBuilding==='BRS'){
+                    elevatorNodes = [{id: 1, node: 143},{id: 2, node: 113},{id: 3, node: 166},{id: 4, node: 195},{id: 5, node: 224},{id: 6, node: 239},{id: 7, node: 264}]
+                }
                 marker.on('click', () => {
+
+                    let ElevatorTargetFloor;
+                    for(let i = 0; i<path.length; i++){
+                        for(let j = 0; j<elevatorNodes.length; j++){
+                            if(path[i]===elevatorNodes[j].node){
+                                ElevatorTargetFloor = elevatorNodes[j].id;
+                            }
+                        }
+                    }
                     // Create a div element to contain the buttons
                     let buttonDiv = document.createElement('div');
             
                     // Create buttons for choices 1 to 5
-                    for (let i = 1; i <= 5; i++) {
+                    for (let i = 1; i <= elevatorNodes.length; i++) {
                         let button = document.createElement('button');
                         button.textContent = i;
                         button.addEventListener('click', () => {
-                            handleButtonClick(i);
+                            handleButtonClick(i,node.elevatorBuilding);
                         });
+
+                        if(i === ElevatorTargetFloor){
+                            button.style.backgroundColor = 'red';
+                        }
                         
                         buttonDiv.appendChild(button);
                     }
@@ -537,7 +561,7 @@ function TextInput({ style }) {
         event.preventDefault();
         const getNodeValue = (building,input) => {
             return new Promise((resolve, reject) => {
-                const floors = ['1st Floor', '2nd Floor','3rd Floor','4th Floor','5th Floor'];
+                const floors = ['1st Floor', '2nd Floor','3rd Floor','4th Floor','5th Floor','6th Floor','7th Floor'];
                 const userRef = ref(database, building);
                 onValue(userRef, (snapshot) => {
                     const data = snapshot.val();
@@ -605,8 +629,7 @@ function TextInput({ style }) {
         }
         if(isChoiceEnterFac){
             console.log("dest:",isChoiceEnterDest);
-            if(currentInputValue[0].toLowerCase() === 's'){
-                getNodeValue(getBuilding(currentInputValue),currentInputValue)
+            getNodeValue(getBuilding(currentInputValue),currentInputValue)
                 .then(currentRoomNode =>{
                     path = computeDestPath(
                         "enterFindFacility",
@@ -625,9 +648,8 @@ function TextInput({ style }) {
                     connectBuildingNodes(floor);
                     getData();
 
-
                 })
-            }
+    
             
 
 
@@ -685,6 +707,12 @@ function TextInput({ style }) {
         }
         else if (buildingName == "BRS5thFloor") {
             setCurrentFloor("BRS Building 5th Floor");
+        }
+        else if (buildingName == "BRS6thFloor") {
+            setCurrentFloor("BRS Building 6th Floor");
+        }
+        else if (buildingName == "BRS7thFloor") {
+            setCurrentFloor("BRS Building 7th Floor");
         }
         
     }

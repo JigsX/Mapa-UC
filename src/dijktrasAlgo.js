@@ -178,7 +178,13 @@ const g = new Graph(V);
 
 
 g.setNodeCategory(46,'CR(MEN)');
+g.setNodeCategory(241,'CR(MEN)');
+g.setNodeCategory(111,'CR(MEN)');
+g.setNodeCategory(191,'CR(MEN)');
 g.setNodeCategory(56,'CR(WOMEN)');
+g.setNodeCategory(141,'CR(WOMEN)');
+g.setNodeCategory(164,'CR(WOMEN)');
+g.setNodeCategory(226,'CR(WOMEN)');
 g.setNodeCategory(47,'CR(WOMEN)');
 g.setNodeCategory(1,'CEA: Faculty Office');
 g.addEdge(0, 1, 1);
@@ -263,32 +269,13 @@ g.addEdge(78, 80, 1);
 g.addEdge(81, 80, 1);
 g.addEdge(16, 80, 2);
 
-
-//BRS 2nd Floor
-g.setNodeCategory(133, "elevator");
-g.addEdge(77, 100, 1);
-g.addEdge(101, 100, 1);
-g.addEdge(101, 102, 1);
-g.addEdge(103, 102, 1);
-g.addEdge(104, 102, 1);
-g.addEdge(104, 105, 1);
-g.addEdge(104, 106, 1);
-g.addEdge(107, 106, 1);
-g.addEdge(108, 106, 1);
-g.addEdge(108, 109, 1);
-g.addEdge(108, 110, 1);
-g.addEdge(111, 110, 1);
-g.addEdge(112, 110, 1);
-g.addEdge(112, 113, 1);
-g.addEdge(112, 114, 1);
-g.addEdge(115, 114, 1);
-g.addEdge(116, 114, 1);
-g.addEdge(116, 117, 1);
-g.addEdge(116, 118, 1);
-g.addEdge(119, 118, 1);
-g.addEdge(119, 120, 1);
-g.addEdge(121, 120, 1);
-
+//BRS ELEVATOR
+g.addEdge(143, 113, 1);
+g.addEdge(166, 113, 1);
+g.addEdge(166, 195, 1);
+g.addEdge(224, 195, 1);
+g.addEdge(224, 239, 1);
+g.addEdge(264, 239, 1);
 
 //BRS 1st Floor
 g.setNodeCategory(143, "elevator");
@@ -314,8 +301,37 @@ g.addEdge(147, 148, 1);
 g.addEdge(149, 148, 1);
 g.addEdge(143, 113, 1);
 
+//BRS 2nd Floor
+g.setNodeCategory(113, "elevator");
+g.addEdge(77, 100, 1);
+g.addEdge(101, 100, 1);
+g.addEdge(101, 102, 1);
+g.addEdge(103, 102, 1);
+g.addEdge(104, 102, 1);
+g.addEdge(104, 105, 1);
+g.addEdge(104, 106, 1);
+g.addEdge(107, 106, 1);
+g.addEdge(108, 106, 1);
+g.addEdge(108, 109, 1);
+g.addEdge(108, 110, 1);
+g.addEdge(111, 110, 1);
+g.addEdge(112, 110, 1);
+g.addEdge(112, 113, 1);
+g.addEdge(112, 114, 1);
+g.addEdge(115, 114, 1);
+g.addEdge(116, 114, 1);
+g.addEdge(116, 117, 1);
+g.addEdge(116, 118, 1);
+g.addEdge(119, 118, 1);
+g.addEdge(119, 120, 1);
+g.addEdge(121, 120, 1);
+
+
+
+
 
 //BRS 3rd Floor
+g.setNodeCategory(166, "elevator");
 g.addEdge(168, 121, 1);
 g.addEdge(155, 156, 1);
 g.addEdge(157, 156, 1);
@@ -338,6 +354,7 @@ g.addEdge(173, 172, 1);
 g.addEdge(173, 174, 1);
 
 //BRS 4th Floor
+g.setNodeCategory(195, "elevator");
 g.addEdge(197, 174, 1);
 g.addEdge(202, 201, 1);
 g.addEdge(200, 201, 1);
@@ -372,6 +389,7 @@ g.addEdge(181, 180, 1);
 
 
 //BRS 5th Floor
+g.setNodeCategory(224, "elevator");
 g.addEdge(202, 222, 1);
 g.addEdge(215, 216, 1);
 g.addEdge(217, 216, 1);
@@ -384,6 +402,54 @@ g.addEdge(223, 221, 1);
 g.addEdge(223, 224, 1);
 g.addEdge(223, 225, 1);
 g.addEdge(226, 225, 1);
+
+//brs 6th Floor
+g.setNodeCategory(239, "elevator");
+
+g.addEdge(215, 237, 1);
+g.addEdge(230, 231, 1);
+g.addEdge(232, 231, 1);
+g.addEdge(232, 233, 1);
+g.addEdge(234, 233, 1);
+g.addEdge(234, 235, 1);
+g.addEdge(234, 236, 1);
+g.addEdge(237, 236, 1);
+g.addEdge(238, 236, 1);
+g.addEdge(238, 239, 1);
+g.addEdge(238, 240, 1);
+g.addEdge(241, 240, 1);
+g.addEdge(242, 240, 1);
+g.addEdge(243, 240, 1);
+g.addEdge(243, 244, 1);
+g.addEdge(243, 245, 1);
+g.addEdge(243, 246, 1);
+g.addEdge(247, 246, 1);
+
+
+//brs 7th Floor
+g.setNodeCategory(264, "elevator");
+g.addEdge(262, 230, 1);
+g.addEdge(255, 256, 1);
+g.addEdge(257, 256, 1);
+g.addEdge(257, 258, 1);
+g.addEdge(259, 258, 1);
+g.addEdge(259, 260, 1);
+g.addEdge(259, 261, 1);
+g.addEdge(262, 261, 1);
+g.addEdge(263, 261, 1);
+g.addEdge(263, 264, 1);
+g.addEdge(263, 265, 1);
+g.addEdge(266, 265, 1);
+g.addEdge(267, 265, 1);
+g.addEdge(267, 268, 1);
+g.addEdge(267, 269, 1);
+g.addEdge(270, 269, 1);
+g.addEdge(271, 269, 1);
+g.addEdge(272, 269, 1);
+g.addEdge(272, 273, 1);
+g.addEdge(272, 274, 1);
+g.addEdge(275, 274, 1);
+
 for(let i = 0; i<=100; i++){
     g.setNodeBuilding(i,"science2ndFloor");
 }
@@ -399,8 +465,14 @@ for(let i =155; i<=175; i++){
 for(let i =175; i<=210; i++){
     g.setNodeBuilding(i,"BRS4thFloor");
 }
-for(let i =215; i<=230; i++){
+for(let i =215; i<=229; i++){
     g.setNodeBuilding(i,"BRS5thFloor");
+}
+for(let i =230; i<=250; i++){
+    g.setNodeBuilding(i,"BRS6thFloor");
+}
+for(let i =255; i<=280; i++){
+    g.setNodeBuilding(i,"BRS7thFloor");
 }
 
 
