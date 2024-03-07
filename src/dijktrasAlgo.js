@@ -133,7 +133,7 @@ class Graph {
 }
 
 function computeDestPath(choice, currentPosition, Destination, useElevator, useEmerExit) {
-
+    console.log("Wlaa: ", currentPosition,Destination)
     g.parent = new Array(V).fill(-1);
     g.arrayPath = [];
 
@@ -248,16 +248,17 @@ g.addEdge(58, 59, 1);
 g.addEdge(60, 53, 1);
 g.addEdge(60, 61, 1);
 g.addEdge(60, 82, 1);
+g.addEdge(63, 82, 1);
 g.addEdge(62, 82, 1);
-g.addEdge(63, 65, 1);
+g.addEdge(63, 65, 0.5);
 g.addEdge(66, 65, 1);
 g.addEdge(64, 63, 1);
-g.addEdge(67, 65, 1);
+g.addEdge(67, 65, 0.5);
 g.addEdge(67, 68, 1);
-g.addEdge(67, 69, 1);
+g.addEdge(67, 69, 0.5);
 g.addEdge(70, 69, 1);
 g.addEdge(71, 69, 1);
-g.addEdge(72, 69, 1);
+g.addEdge(72, 69, 0.5);
 g.addEdge(72, 73, 1);
 g.addEdge(72, 74, 0.5);
 g.addEdge(75, 74, 1);

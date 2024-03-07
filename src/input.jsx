@@ -614,6 +614,9 @@ function TextInput({ style }) {
             }else if(roomName[0].toLowerCase() === 'u'){
                 return 'BRS';
             }
+            else if(roomName[0].toLowerCase() === 'g'){
+                return 'PE';
+            }
         };
         if(isChoiceEnterDest){
             console.log("fac:",isChoiceEnterFac);

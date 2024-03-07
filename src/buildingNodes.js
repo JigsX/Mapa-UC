@@ -2,8 +2,6 @@
 function buildingNodes(buildingName) {
     let nodes = [];
     if (buildingName == "science2ndFloor") {
-        
-        
         nodes = [
             { id: 0, lat: 6.53, lon: 0.55,  }, 
             { id: 1, lat: 6.15, lon: 0.55,  }, {lat: 5.2, lon: .8, title: 'office',building:'Science', floor:'2nd Floor',node: 1,label: 'classroomLogo' }, 
@@ -58,24 +56,24 @@ function buildingNodes(buildingName) {
             { id: 51, lat: 4.2, lon: 6.02,},
             { id: 52, lat: 4.2, lon: 6.09,  }, {lat: 4.25, lon: 6.5, title: 'classRoom',building:'Science', floor:'2nd Floor',node: 52,label: 'classroomLogo' },
             { id: 53, lat: 3.6, lon: 6.02,},
-            { id: 54, lat: 3.35, lon: 6.02,  }, { lat: 3, lon: 5.9, title: '',building:'Science', floor:'2nd Floor',node: 54,label: 'classroomLogo' },
-            { id: 55, lat: 3.6, lon: 6.4,},
-            { id: 56, lat: 3.13, lon: 6.4,  },
+            { id: 54, lat: 3.35, lon: 6.02,  }, { lat: 3, lon: 5.85, title: '',building:'PE', floor:'2nd Floor',node: 54,label: 'classroomLogo' },
+            { id: 55, lat: 3.6, lon: 6.4,}, 
+            { id: 56, lat: 3.13, lon: 6.4,  }, { lat: 2.75, lon:6.4, title: '',building:'PE', floor:'2nd Floor',node: 56,label: 'classroomLogo' },
             { id: 57, lat: 3.73, lon: 6.4,},
             { id: 58, lat: 3.73, lon: 7.2,},
             { id: 59, lat: 3.42, lon: 7.2,  },
             { id: 60, lat: 3.6, lon: 5.65, },
             { id: 61, lat: 3.84, lon: 5.65,  }, { lat: 4.4, lon: 5.53, title: 'classRoom',building:'Science', floor:'2nd Floor',node: 61,label: 'classroomLogo' },
-            { id: 62, lat: 3.35, lon:  5.35,  },
+            { id: 62, lat: 3.35, lon:  5.35,  }, { lat: 3, lon: 5.25, title: '',building:'PE', floor:'2nd Floor',node: 62,label: 'classroomLogo' },
             { id: 63, lat: 3.6, lon: 5.15,},
             { id: 17, lat: 3.6, lon: 5.15,},
             { id: 64, lat: 3.84, lon: 5.15,  }, { lat: 4.4, lon: 5., title: 'classRoom',building:'Science', floor:'2nd Floor',node: 64,label: 'classroomLogo' },
-            { id: 66, lat: 3.35, lon: 4.75,  },
+            { id: 66, lat: 3.35, lon: 4.75,  }, { lat: 3, lon: 4.6, title: '',building:'PE', floor:'2nd Floor',node: 66,label: 'classroomLogo' },
             { id: 82, lat: 3.6, lon: 5.35,},
             { id: 68, lat: 3.84, lon: 4.6,  }, { lat: 4.4, lon: 4.45, title: 'classRoom',building:'Science', floor:'2nd Floor',node: 68,label: 'classroomLogo' },
             { id: 67, lat: 3.6, lon: 4.6,}, 
             { id: 65, lat: 3.6, lon: 4.75,},
-            { id: 71, lat: 3.35, lon: 4,  },
+            { id: 71, lat: 3.35, lon: 4,  }, { lat: 3, lon: 3.9, title: '',building:'PE', floor:'2nd Floor',node: 71,label: 'classroomLogo' },
             { id: 69, lat: 3.6, lon: 4,},
             { id: 70, lat: 3.84, lon: 4,  }, { lat: 4.4, lon: 3.92, title: 'classRoom',building:'Science', floor:'2nd Floor',node: 70,label: 'classroomLogo' },
             { id: 73, lat: 3.27, lon: 3.43,  },
