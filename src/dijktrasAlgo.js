@@ -529,6 +529,9 @@ g.addEdge(327, 328, 1);
 for(let i = 0; i<=99; i++){
     g.setNodeBuilding(i,"science2ndFloor");
 }
+for(let i =340; i<=410; i++){
+    g.setNodeBuilding(i,"science1stFloor");
+}
 for(let i =126; i<=150; i++){
     g.setNodeBuilding(i,"BRS1stFloor");
 }
@@ -556,6 +559,7 @@ for(let i =280; i<=300; i++){
 for(let i =305; i<=330; i++){
     g.setNodeBuilding(i,"BRS9thFloor");
 }
+
 
 
 
