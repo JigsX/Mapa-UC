@@ -187,7 +187,11 @@ g.setNodeCategory(164,'CR(WOMEN)');
 g.setNodeCategory(226,'CR(WOMEN)');
 g.setNodeCategory(47,'CR(WOMEN)');
 g.setNodeCategory(1,'CEA: Faculty Office');
-g.addEdge(0, 1, 1);
+g.addEdge(0, 85, 1);
+g.addEdge(0, 87, 1);
+g.addEdge(88, 87, 1);
+g.addEdge(1, 85, 1);
+g.addEdge(86, 85, 1);
 g.addEdge(0, 3, 1);
 g.addEdge(3, 2, 1);
 g.addEdge(3, 6, 1);
@@ -269,6 +273,22 @@ g.addEdge(78, 79, 1);
 g.addEdge(78, 80, 1);
 g.addEdge(81, 80, 1);
 g.addEdge(16, 80, 2);
+
+g.addEdge(43, 83, 1);
+g.addEdge(90, 83, 1);
+g.addEdge(90, 98, 1);
+g.addEdge(91, 98, 1);
+g.addEdge(89, 98, 1);
+g.addEdge(91, 92, 1);
+g.addEdge(59, 94, 1);
+g.addEdge(59, 93, 1);
+
+g.addEdge(45, 95, 1);
+g.addEdge(46, 95, 1);
+g.addEdge(46, 97, 1);
+g.addEdge(75, 17, 1);
+g.addEdge(17, 99, 1);
+g.addEdge(84, 99, 1);
 
 //BRS ELEVATOR
 g.addEdge(143, 113, 1);
@@ -506,7 +526,7 @@ g.addEdge(327, 325, 1);
 g.addEdge(327, 328, 1);
 
 
-for(let i = 0; i<=100; i++){
+for(let i = 0; i<=99; i++){
     g.setNodeBuilding(i,"science2ndFloor");
 }
 for(let i =126; i<=150; i++){

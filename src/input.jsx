@@ -7,7 +7,7 @@ import 'leaflet/dist/leaflet.css';
 import  {computeDestPath,findFloorInfo} from "./dijktrasAlgo";
 import { Html5QrcodeScanner } from 'html5-qrcode';
 import classroomLogo from './assets/classroomLogo.png'; 
-import science2ndFloorPlan from './assets/science2ndFloor.png'; 
+import science2ndFloorPlan from './assets/Science2ndFloorPlan.png'; 
 import leaveButtonLogo from './assets/leaveButton.png'; 
 import BRS1stFloor from './assets/BRS1stFloorPlan.png';
 import BRS2ndFloor from './assets/BRS2ndFloorPlan.png'; 
