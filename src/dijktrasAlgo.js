@@ -187,6 +187,79 @@ g.setNodeCategory(164,'CR(WOMEN)');
 g.setNodeCategory(226,'CR(WOMEN)');
 g.setNodeCategory(47,'CR(WOMEN)');
 g.setNodeCategory(1,'CEA: Faculty Office');
+
+//science 1st Floor
+g.addEdge(340, 14, 1);
+g.addEdge(340, 341, 1);
+g.addEdge(342, 341, 1);
+g.addEdge(342, 343, 1);
+g.addEdge(344, 343, 1);
+g.addEdge(344, 345, 1);
+g.addEdge(344, 346, 1);
+g.addEdge(347, 346, 1);
+g.addEdge(348, 346, 1);
+g.addEdge(348, 349, 1);
+g.addEdge(348, 350, 1);
+g.addEdge(351, 350, 1);
+g.addEdge(352, 350, 1);
+g.addEdge(353, 350, 1);
+g.addEdge(353, 354, 1);
+g.addEdge(353, 355, 1);
+g.addEdge(356, 355, 1);
+g.addEdge(357, 355, 1);
+g.addEdge(357, 358, 1);
+g.addEdge(357, 359, 1);
+g.addEdge(360, 359, 1);
+g.addEdge(361, 359, 1);
+g.addEdge(361, 362, 1);
+g.addEdge(363, 362, 1);
+g.addEdge(364, 362, 1);
+g.addEdge(364, 365, 1);
+g.addEdge(364, 366, 1);
+g.addEdge(367, 366, 1);
+g.addEdge(368, 366, 1);
+g.addEdge(368, 369, 1);
+g.addEdge(368, 370, 1);
+g.addEdge(371, 370, 1);
+g.addEdge(372, 370, 1);
+g.addEdge(372, 373, 1);
+g.addEdge(372, 374, 1);
+g.addEdge(375, 374, 1);
+g.addEdge(376, 374, 1);
+g.addEdge(376, 377, 1);
+g.addEdge(378, 377, 1);
+g.addEdge(379, 377, 1);
+g.addEdge(376, 405, 1);
+g.addEdge(406, 405, 1);
+g.addEdge(380, 405, 1);
+g.addEdge(380, 407, 1);
+g.addEdge(381, 407, 1);
+g.addEdge(382, 407, 1);
+g.addEdge(382, 383, 1);
+g.addEdge(382, 384, 1);
+g.addEdge(380, 385, 1);
+g.addEdge(386, 385, 1);
+g.addEdge(386, 387, 1);
+
+g.addEdge(383, 402, 1);
+g.addEdge(390, 402, 1);
+g.addEdge(390, 391, 1);
+g.addEdge(392, 391, 1);
+g.addEdge(392, 393, 1);
+g.addEdge(394, 361, 1);
+g.addEdge(394, 395, 1);
+g.addEdge(394, 396, 1);
+g.addEdge(397, 396, 1);
+g.addEdge(398, 396, 1);
+g.addEdge(398, 399, 1);
+g.addEdge(398, 400, 1);
+g.addEdge(401, 400, 1);
+g.addEdge(403, 400, 1); 389
+g.addEdge(403, 404, 1);
+g.addEdge(130, 404, 1);
+
+
+//science 2nd Floor
 g.addEdge(0, 85, 1);
 g.addEdge(0, 87, 1);
 g.addEdge(88, 87, 1);
@@ -205,7 +278,7 @@ g.addEdge(7, 8, 1);
 g.addEdge(9, 8, 1);
 g.addEdge(10, 8, 1);
 g.addEdge(10, 14, 1);
-g.addEdge(10, 16, 1);
+g.addEdge(10, 16, 1); 
 g.addEdge(15, 16, 1);
 g.addEdge(19, 16, 1);
 g.addEdge(19, 18, 1);
@@ -233,7 +306,7 @@ g.addEdge(38, 47, 1);
 g.addEdge(38, 48, 1);
 g.addEdge(38, 39, 1);
 g.addEdge(40, 39, 1);
-g.addEdge(41, 39, 1);
+g.addEdge(41, 39, 1); 
 g.addEdge(41, 45, 1);
 g.addEdge(41, 42, 1);
 g.addEdge(43, 42, 1);
@@ -274,21 +347,17 @@ g.addEdge(78, 80, 1);
 g.addEdge(81, 80, 1);
 g.addEdge(16, 80, 2);
 
-g.addEdge(43, 83, 1);
-g.addEdge(90, 83, 1);
-g.addEdge(90, 98, 1);
-g.addEdge(91, 98, 1);
-g.addEdge(89, 98, 1);
-g.addEdge(91, 92, 1);
-g.addEdge(59, 94, 1);
-g.addEdge(59, 93, 1);
+g.addEdge(59, 94, 2);
+g.addEdge(59, 93, 2);
+g.addEdge(401, 94, 2);
 
-g.addEdge(45, 95, 1);
-g.addEdge(46, 95, 1);
-g.addEdge(46, 97, 1);
-g.addEdge(75, 17, 1);
-g.addEdge(17, 99, 1);
-g.addEdge(84, 99, 1);
+g.addEdge(98, 89, 2);
+g.addEdge(387, 89, 2);
+g.addEdge(98, 90, 2);
+g.addEdge(83, 90, 2);
+g.addEdge(83, 43, 2);
+
+
 
 //BRS ELEVATOR
 g.addEdge(143, 113, 1);
