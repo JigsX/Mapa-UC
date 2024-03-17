@@ -188,6 +188,57 @@ g.setNodeCategory(226,'CR(WOMEN)');
 g.setNodeCategory(47,'CR(WOMEN)');
 g.setNodeCategory(1,'CEA: Faculty Office');
 
+
+//science ground Floor
+g.addEdge(393, 466, 1);
+g.addEdge(420, 347, 1);
+g.addEdge(420, 421, 1);
+g.addEdge(422, 421, 1);
+g.addEdge(422, 425, 1);
+g.addEdge(424, 425, 1);
+g.addEdge(426, 425, 1);
+g.addEdge(426, 427, 1);
+g.addEdge(426, 428, 1);
+g.addEdge(429, 428, 1);
+g.addEdge(430, 428, 1);
+g.addEdge(430, 431, 1);
+g.addEdge(430, 432, 1);
+g.addEdge(430, 433, 1);
+g.addEdge(434, 433, 1);
+g.addEdge(435, 433, 1);
+g.addEdge(436, 433, 1);
+g.addEdge(436, 437, 1);
+g.addEdge(436, 438, 1);
+g.addEdge(439, 438, 1);
+g.addEdge(440, 438, 1);
+g.addEdge(440, 441, 1);
+g.addEdge(440, 442, 1);
+g.addEdge(443, 442, 1);
+g.addEdge(442, 444, 1);
+g.addEdge(445, 444, 1);
+g.addEdge(446, 444, 1);
+g.addEdge(446, 447, 1);
+g.addEdge(446, 448, 1);
+g.addEdge(446, 449, 1);
+g.addEdge(450, 449, 1);
+g.addEdge(451, 449, 1);
+g.addEdge(452, 449, 1);
+g.addEdge(452, 453, 1);
+g.addEdge(452, 454, 1);
+g.addEdge(452, 455, 1);
+g.addEdge(456, 455, 1);
+g.addEdge(456, 457, 1);
+g.addEdge(458, 457, 1);
+g.addEdge(459, 457, 1);
+g.addEdge(459, 460, 1);
+g.addEdge(459, 461, 1);
+g.addEdge(462, 461, 1);
+g.addEdge(463, 461, 1);
+g.addEdge(463, 464, 1);
+g.addEdge(465, 464, 1);
+g.addEdge(466, 464, 1);
+
+
 //science 1st Floor
 g.addEdge(340, 14, 1);
 g.addEdge(340, 341, 1);
@@ -254,7 +305,7 @@ g.addEdge(398, 396, 1);
 g.addEdge(398, 399, 1);
 g.addEdge(398, 400, 1);
 g.addEdge(401, 400, 1);
-g.addEdge(403, 400, 1); 389
+g.addEdge(403, 400, 1); 
 g.addEdge(403, 404, 1);
 g.addEdge(130, 404, 1);
 
@@ -354,6 +405,8 @@ g.addEdge(401, 94, 2);
 g.addEdge(98, 89, 2);
 g.addEdge(387, 89, 2);
 g.addEdge(98, 90, 2);
+g.addEdge(98, 91, 2);
+g.addEdge(92, 91, 2);
 g.addEdge(83, 90, 2);
 g.addEdge(83, 43, 2);
 
@@ -598,8 +651,11 @@ g.addEdge(327, 328, 1);
 for(let i = 0; i<=99; i++){
     g.setNodeBuilding(i,"science2ndFloor");
 }
-for(let i =340; i<=410; i++){
+for(let i =340; i<=419; i++){
     g.setNodeBuilding(i,"science1stFloor");
+}
+for(let i =420; i<=480; i++){
+    g.setNodeBuilding(i,"scienceGroundFloor");
 }
 for(let i =126; i<=150; i++){
     g.setNodeBuilding(i,"BRS1stFloor");

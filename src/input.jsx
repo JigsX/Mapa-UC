@@ -6,9 +6,11 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import  {computeDestPath,findFloorInfo} from "./dijktrasAlgo";
 import { Html5QrcodeScanner } from 'html5-qrcode';
-import classroomLogo from './assets/classroomLogo.png'; 
-import science2ndFloorPlan from './assets/Science2ndFloorPlan.png';
+import classroomLogo from './assets/classroomLogo.png';
+import scienceGroundFloorPlan from './assets/ScienceGroundFloorPlan.png';  
 import science1stFloorPlan from './assets/Science1stFloorPlan.png';  
+import science2ndFloorPlan from './assets/Science2ndFloorPlan.png';
+
 import leaveButtonLogo from './assets/leaveButton.png'; 
 import BRS1stFloor from './assets/BRS1stFloorPlan.png';
 import BRS2ndFloor from './assets/BRS2ndFloorPlan.png'; 
@@ -181,6 +183,9 @@ function TextInput({ style }) {
         }
         else if(floorName === 'science1stFloor'){
             addImageOverlay(science1stFloorPlan);
+        }
+        else if(floorName === 'scienceGroundFloor'){
+            addImageOverlay(scienceGroundFloorPlan);
         }
         else if(floorName === "BRS1stFloor"){
             addImageOverlay(BRS1stFloor);
@@ -580,7 +585,7 @@ function TextInput({ style }) {
         event.preventDefault();
         const getNodeValue = (building,input) => {
             return new Promise((resolve, reject) => {
-                const floors = ['1st Floor', '2nd Floor','3rd Floor','4th Floor','5th Floor','6th Floor','7th Floor',
+                const floors = ['Ground Floor','1st Floor', '2nd Floor','3rd Floor','4th Floor','5th Floor','6th Floor','7th Floor',
                                 '8th Floor','9th Floor'];
                 const userRef = ref(database, building);
                 onValue(userRef, (snapshot) => {
@@ -718,6 +723,9 @@ function TextInput({ style }) {
         }
         else if(buildingName == "science1stFloor") {
             setCurrentFloor("Science Building 1st Floor, PE Building Ground Floor");
+        }
+        else if(buildingName == "scienceGroundFloor") {
+            setCurrentFloor("Science Building Ground Floor");
         }
         else if (buildingName == "BRS1stFloor") {
             setCurrentFloor("BRS Building 1st Floor");
