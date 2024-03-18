@@ -11,6 +11,7 @@ import scienceGroundFloorPlan from './assets/ScienceGroundFloorPlan.png';
 import science1stFloorPlan from './assets/Science1stFloorPlan.png';  
 import science2ndFloorPlan from './assets/Science2ndFloorPlan.png';
 import science3rdFloorPlan from './assets/Science3rdFloorPlan.png';
+import science4thFloorPlan from './assets/Science4thFloorPlan.png';
 import leaveButtonLogo from './assets/leaveButton.png'; 
 import BRS1stFloor from './assets/BRS1stFloorPlan.png';
 import BRS2ndFloor from './assets/BRS2ndFloorPlan.png'; 
@@ -183,6 +184,9 @@ function TextInput({ style }) {
         }
         else if(floorName === 'science3rdFloor'){
             addImageOverlay(science3rdFloorPlan);
+        }
+        else if(floorName === 'science4thFloor'){
+            addImageOverlay(science4thFloorPlan);
         }
         else if(floorName === 'science1stFloor'){
             addImageOverlay(science1stFloorPlan);
@@ -725,7 +729,10 @@ function TextInput({ style }) {
         setCurrentFloor("Science Building 2nd Floor, PE Building 1st Floor");
         }
         else if(buildingName == "science3rdFloor") {
-            setCurrentFloor("Science Building 3rd Floor, PE Building 2nd Floor");
+            setCurrentFloor("Science Building 3rd Floor, PE Building 3rd Floor");
+        }
+        else if(buildingName == "science4thFloor") {
+            setCurrentFloor("Science Building 4th Floor, PE Building 4th Floor");
         }
         else if(buildingName == "science1stFloor") {
             setCurrentFloor("Science Building 1st Floor, PE Building Ground Floor");
