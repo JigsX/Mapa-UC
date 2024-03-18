@@ -526,6 +526,7 @@ g.addEdge(585, 586, 1);
 g.addEdge(578, 95, 1);
 g.addEdge(541, 84, 1);
 g.addEdge(565, 93, 1);
+g.addEdge(532, 155, 1);
 
 
 //BRS ELEVATOR

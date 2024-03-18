@@ -397,7 +397,7 @@ function buildingNodes(buildingName) {
     
     else if (buildingName == "BRS3rdFloor") {
         nodes = [
-            { id: 155, lat: 8.3, lon:9.65, label: 'leaveButton',destination: 'BRS2ndFloor' },
+            { id: 155, lat: 8.3, lon:9.65, label: 'leaveButton',destination: 'science3rdFloor' },
             { id: 156, lat: 5, lon: 9.65 },
             { id: 157, lat: 5, lon: 7.8,},
             { id: 158, lat: 4.66, lon: 7.8,},{ lat: 3.4, lon: 7.5, title: 'classRoom',building:'BRS', floor:'3rd Floor',node: 158,label: 'classroomLogo' },
