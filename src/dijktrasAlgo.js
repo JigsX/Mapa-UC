@@ -187,6 +187,7 @@ g.setNodeCategory(164,'CR(WOMEN)');
 g.setNodeCategory(226,'CR(WOMEN)');
 g.setNodeCategory(47,'CR(WOMEN)');
 g.setNodeCategory(1,'CEA: Faculty Office');
+g.setNodeCategory(487,'Gymnasium');
 
 
 //science ground Floor

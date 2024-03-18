@@ -864,7 +864,7 @@ function TextInput({ style }) {
                                     <option>CR(WOMEN)</option>
                                     <option>CR(MEN)</option>
                                     <option>CEA: Faculty Office</option>
-                                    <option>test</option>
+                                    <option>Gymnasium</option>
                                 </select>
                             </span>
 
