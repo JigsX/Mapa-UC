@@ -263,7 +263,7 @@ function buildingNodes(buildingName) {
             { id: 510, lat: 6.7, lon: 1.4, },  { lat: 7.3 , lon: 1.4, title: 'classRoom',building:'Science', floor:'3rd Floor',node: 510,label: 'classroomLogo' },
             { id: 511, lat: 6.47, lon: 1, },
             { id: 512, lat: 5.85, lon: 0.9, },
-            { id: 513, lat: 5.85, lon: 0.4, label: 'leaveButton' },
+            { id: 513, lat: 5.85, lon: 0.4, label: 'leaveButton', destination: 'main3rdFloor' },
             { id: 514, lat: 4.85, lon: 0.85, },
             { id: 515, lat: 4.85, lon: 1, }, { lat: 5.4, lon: 1.6, title: 'classRoom',building:'Science', floor:'3rd Floor',node: 515,label: 'classroomLogo' },
             { id: 516, lat: 4.7, lon: 0.85, },{ lat: 4.35, lon: 0.95, title: 'classRoom',building:'Science', floor:'3rd Floor',node: 516,label: 'classroomLogo' },
@@ -407,6 +407,82 @@ function buildingNodes(buildingName) {
             { id: 671, lat: 7.3, lon: 9.1,},{lat: 7.8, lon: 9.26, title: 'classRoom',building:'Science', floor:'4th Floor',node: 671,label: 'classroomLogo' },
         ];
     }
+    else if (buildingName == "main4thFloor") {
+        nodes = [
+            { id: 700, lat: 7.25, lon: 7.4,label: 'leaveButton',destination: 'BRS4thFloor'},
+            { id: 701, lat: 5.98, lon: 7.4,},
+            { id: 702, lat: 5.98, lon: 7.55,}, {lat: 6.5, lon: 8.25, title: 'classRoom',building:'Main', floor:'4th Floor',node: 702,label: 'classroomLogo' },
+            { id: 703, lat: 5.1, lon: 7.4,},
+            { id: 704, lat: 5.1, lon: 7.55,},
+            { id: 705, lat: 4.74, lon: 7.55,}, {lat: 4, lon: 7.9, title: 'classRoom',building:'Main', floor:'4th Floor',node: 705,label: 'classroomLogo' },
+            { id: 706, lat: 5.1, lon: 8.95,},
+            { id: 707, lat: 5.1, lon: 6.93,},
+            { id: 708, lat: 7.05, lon: 6.93,},
+            { id: 709, lat: 7.05, lon: 6.4,},
+            { id: 710, lat: 6.83, lon: 6.4,label: 'leaveButton'},
+            { id: 711, lat: 5.1, lon: 6.4,},
+            { id: 712, lat: 6.1, lon: 6.4,label: 'leaveButton', destination: 'main3rdFloor'},
+            { id: 713, lat: 5.1, lon: 6.1,},
+            { id: 714, lat: 4.74, lon: 6.1,}, {lat: 4, lon: 6, title: 'classRoom',building:'Main', floor:'4th Floor',node: 714,label: 'classroomLogo' },
+            { id: 715, lat: 5.1, lon: 5.65,},
+            { id: 716, lat: 5.5, lon: 5.65,}, {lat: 6.5, lon: 5.45, title: 'classRoom',building:'Main', floor:'4th Floor',node: 716,label: 'classroomLogo' },
+            { id: 719, lat: 5.1, lon: 4.1,},
+            { id: 720, lat: 5.5, lon: 4.1,}, {lat: 6.5, lon: 3.9, title: 'classRoom',building:'Main', floor:'4th Floor',node: 720,label: 'classroomLogo' },
+            { id: 721, lat: 5.1, lon: 3.5,},
+            { id: 722, lat: 4.74, lon: 3.5,}, {lat: 4, lon: 3.5, title: 'classRoom',building:'Main', floor:'4th Floor',node: 722,label: 'classroomLogo' },
+            { id: 723, lat: 5.1, lon: 2.5,},
+            { id: 724, lat: 4.74, lon: 2.5,}, {lat: 4, lon: 1.9, title: 'classRoom',building:'Main', floor:'4th Floor',node: 724,label: 'classroomLogo' },
+            { id: 725, lat: 5.5, lon: 2.5,}, {lat: 6.5, lon: 2.4, title: 'classRoom',building:'Main', floor:'4th Floor',node: 725,label: 'classroomLogo' },
+            { id: 726, lat: 5.1, lon: 1.92,},
+            { id: 727, lat: 6.3, lon: 1.92,},
+            { id: 728, lat: 6.48, lon: 1.92,},{lat: 7, lon: 1.55, title: 'classRoom',building:'Main', floor:'4th Floor',node: 728,label: 'classroomLogo' },
+            { id: 729, lat: 6.3, lon: 1.82,}, {lat: 6.3, lon: 1.5, title: 'classRoom',building:'Main', floor:'4th Floor',node: 729,label: 'classroomLogo' },
+            { id: 730, lat: 5.1, lon: 1.05,},
+            { id: 731, lat: 6.15, lon: 0.58,label: 'leaveButton'},
+            { id: 732, lat: 7.05, lon: 1.05,},
+            { id: 733, lat: 7.05, lon: 0.39,},
+            { id: 734, lat: 6.87, lon: 0.39,label: 'leaveButton'},
+            
+            
+        ];
+    }
+    else if (buildingName == "main3rdFloor") {
+        nodes = [
+            { id: 750, lat: 7.05, lon: 7,label: 'leaveButton'},
+            { id: 751, lat: 7.25, lon: 7,},
+            { id: 752, lat: 7.25, lon: 7.5,},
+            { id: 753, lat: 5.8, lon: 7.5,},
+            { id: 754, lat: 5.8, lon: 7.75,}, {lat: 6.6, lon: 8.8, title: 'classRoom',building:'Main', floor:'3rd Floor',node: 754,label: 'classroomLogo' },
+            { id: 755, lat: 5.8, lon: 7,},
+            { id: 756, lat: 6.28, lon: 7,label: 'leaveButton'},
+            { id: 757, lat: 5.1, lon: 7.5,},
+            { id: 758, lat: 5.1, lon: 7.75,}, {lat: 4.8, lon: 8.5, title: 'classRoom',building:'Main', floor:'3rd Floor',node: 758,label: 'classroomLogo' },
+            { id: 759, lat: 5.1, lon: 7,},
+            { id: 760, lat: 4.7, lon: 7,}, {lat: 3.7, lon: 6.6, title: 'classRoom',building:'Main', floor:'3rd Floor',node: 760,label: 'classroomLogo' },
+            { id: 761, lat: 5.1, lon: 5.8,},
+            { id: 762, lat: 5.55, lon: 5.8,}, {lat: 6.6, lon: 5.7, title: 'classRoom',building:'Main', floor:'3rd Floor',node: 762,label: 'classroomLogo' },
+            { id: 763, lat: 5.1, lon: 4.8,},
+            { id: 764, lat: 4.7, lon: 4.8,}, {lat: 3.7, lon: 4.6, title: 'classRoom',building:'Main', floor:'3rd Floor',node: 764,label: 'classroomLogo' },
+            { id: 765, lat: 5.1, lon: 4.1,},
+            { id: 766, lat: 5.55, lon: 4.1,}, {lat: 6.6, lon: 3.75, title: 'classRoom',building:'Main', floor:'3rd Floor',node: 766,label: 'classroomLogo' },
+            { id: 767, lat: 5.1, lon: 2.93,},
+            { id: 768, lat: 6.1, lon: 2.93,},
+            { id: 769, lat: 6.1, lon: 2.68,}, {lat: 6.1, lon: 1.9, title: 'classRoom',building:'Main', floor:'3rd Floor',node: 769,label: 'classroomLogo' },
+            { id: 770, lat: 7, lon: 2.93,},
+            { id: 771, lat: 7, lon: 2.68,}, {lat: 7, lon: 1.9, title: 'classRoom',building:'Main', floor:'3rd Floor',node: 771,label: 'classroomLogo' },
+            { id: 772, lat: 7.45, lon: 2.93,label: 'leaveButton'},
+            { id: 773, lat: 5.1, lon: 2.6,},
+            { id: 774, lat: 4.7, lon: 2.6,}, {lat: 3.7, lon: 2.4, title: 'classRoom',building:'Main', floor:'3rd Floor',node: 774,label: 'classroomLogo' },
+            { id: 775, lat: 5.1, lon: 1.2,},
+            { id: 776, lat: 6.25, lon: 0.65,label: 'leaveButton'},
+            { id: 777, lat: 7.3, lon: 1.2,},
+            { id: 778, lat: 7.3, lon: 0.4,},
+            { id: 779, lat: 7.09, lon: 0.4,label: 'leaveButton'},
+            
+            
+            
+        ];
+    }
     else if (buildingName == "BRS1stFloor") {
         nodes = [
             { id: 130, lat: 8.3, lon:9.65, label: 'leaveButton',destination: 'science1stFloor' },
@@ -482,6 +558,7 @@ function buildingNodes(buildingName) {
             { id: 174, lat: 6.26, lon: 1.9, label: 'leaveButton',destination: 'BRS4thFloor' },
         ];
     }
+    
     else if (buildingName == "BRS4thFloor") {
         nodes = [
             { id: 202, lat: 6.28, lon: 2.95,label: 'leaveButton',destination: 'BRS5thFloor'},
@@ -493,7 +570,7 @@ function buildingNodes(buildingName) {
             { id: 204, lat: 4.9, lon: 1.9,},
             { id: 205, lat: 4.9, lon: 0.85,},
             { id: 206, lat: 5.6, lon: 0.85,label: 'leaveButton',destination:'science4thFloor'},
-            { id: 207, lat: 4.9, lon: 0.1,},
+            { id: 207, lat: 4.9, lon: 0.1,label: 'leaveButton',destination:'main4thFloor'},
             { id: 196, lat: 5.22, lon: 2.95,},
             { id: 197, lat: 5.55, lon: 2.95,label: 'leaveButton',destination: 'BRS3rdFloor'},
             { id: 194, lat: 5.22, lon: 4,},

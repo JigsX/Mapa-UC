@@ -12,6 +12,8 @@ import science1stFloorPlan from './assets/Science1stFloorPlan.png';
 import science2ndFloorPlan from './assets/Science2ndFloorPlan.png';
 import science3rdFloorPlan from './assets/Science3rdFloorPlan.png';
 import science4thFloorPlan from './assets/Science4thFloorPlan.png';
+import main4thFloorPlan from './assets/Main4thFloorPlan.png';
+import main3rdFloorPlan from './assets/Main3rdFloorPlan.png';
 import leaveButtonLogo from './assets/leaveButton.png'; 
 import BRS1stFloor from './assets/BRS1stFloorPlan.png';
 import BRS2ndFloor from './assets/BRS2ndFloorPlan.png'; 
@@ -184,6 +186,12 @@ function TextInput({ style }) {
         }
         else if(floorName === 'science3rdFloor'){
             addImageOverlay(science3rdFloorPlan);
+        }
+        else if(floorName === 'main4thFloor'){
+            addImageOverlay(main4thFloorPlan);
+        }
+        else if(floorName === 'main3rdFloor'){
+            addImageOverlay(main3rdFloorPlan);
         }
         else if(floorName === 'science4thFloor'){
             addImageOverlay(science4thFloorPlan);
@@ -633,6 +641,9 @@ function TextInput({ style }) {
             else if(roomName[0].toLowerCase() === 'g'){
                 return 'PE';
             }
+            else if(roomName[0].toLowerCase() === 'm'){
+                return 'Main';
+            }
         };
         if(isChoiceEnterDest){
             console.log("fac:",isChoiceEnterFac);
@@ -733,6 +744,12 @@ function TextInput({ style }) {
         }
         else if(buildingName == "science4thFloor") {
             setCurrentFloor("Science Building 4th Floor, PE Building 4th Floor");
+        }
+        else if(buildingName == "main4thFloor") {
+            setCurrentFloor("Main Building 4th Floor");
+        }
+        else if(buildingName == "main3rdFloor") {
+            setCurrentFloor("Main Building 3rd Floor");
         }
         else if(buildingName == "science1stFloor") {
             setCurrentFloor("Science Building 1st Floor, PE Building Ground Floor");
