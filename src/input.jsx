@@ -14,6 +14,7 @@ import science3rdFloorPlan from './assets/Science3rdFloorPlan.png';
 import science4thFloorPlan from './assets/Science4thFloorPlan.png';
 import main4thFloorPlan from './assets/Main4thFloorPlan.png';
 import main3rdFloorPlan from './assets/Main3rdFloorPlan.png';
+import main2ndFloorPlan from './assets/Main2ndFloorPlan.png';
 import leaveButtonLogo from './assets/leaveButton.png'; 
 import BRS1stFloor from './assets/BRS1stFloorPlan.png';
 import BRS2ndFloor from './assets/BRS2ndFloorPlan.png'; 
@@ -166,8 +167,9 @@ function TextInput({ style }) {
     
 
     const addImageOverlay = (imageURL) => {
+        
         let images = [
-            { url: imageURL,    bounds: [[0,0], [10, 10]] },  
+            { url: imageURL, bounds: imageURL === 'main2ndFloorPlan' ? [[0,0], [12, 15]] :  [[0,0], [10, 10]] },  
             
         ];
         mapRef.current.eachLayer(function (layer) {
@@ -192,6 +194,9 @@ function TextInput({ style }) {
         }
         else if(floorName === 'main3rdFloor'){
             addImageOverlay(main3rdFloorPlan);
+        }
+        else if(floorName === 'main2ndFloor'){
+            addImageOverlay(main2ndFloorPlan);
         }
         else if(floorName === 'science4thFloor'){
             addImageOverlay(science4thFloorPlan);
@@ -644,6 +649,9 @@ function TextInput({ style }) {
             else if(roomName[0].toLowerCase() === 'm'){
                 return 'Main';
             }
+            else if(roomName[0].toLowerCase() === 'n'){
+                return 'EDS';
+            }
         };
         if(isChoiceEnterDest){
             console.log("fac:",isChoiceEnterFac);
@@ -750,6 +758,9 @@ function TextInput({ style }) {
         }
         else if(buildingName == "main3rdFloor") {
             setCurrentFloor("Main Building 3rd Floor");
+        }
+        else if(buildingName == "main2ndFloor") {
+            setCurrentFloor("Main Building 2nd Floor, EDS Building 2nd Floor");
         }
         else if(buildingName == "science1stFloor") {
             setCurrentFloor("Science Building 1st Floor, PE Building Ground Floor");
