@@ -344,7 +344,23 @@ function TextInput({ style }) {
                     clearMapMarkers();
                     // Connect to "science2" and handle other logic if needed
                     connectBuildingNodes(node.destination);
-                    zoomToNode(path,nodes);
+
+                    const findNodeById2 = (nodeId) => nodes.find((node) => node.id === nodeId);
+
+                    if(node.id === 576){
+
+                        let des = findNodeById2(node.desti)
+                        mapRef.current.flyTo([des.lat,  des.lon], 8, {
+                            duration: 1,  // Adjust the duration of the animation in seconds
+                            easeLinearity: 0.5  // Adjust the easing factor for the animation
+                        });
+                    }
+                    
+                    else{
+                        zoomToNode(path,nodes);
+                    }
+                    
+                    
         
                 });
             }
@@ -539,6 +555,8 @@ function TextInput({ style }) {
     
     
     const findNodeById = (nodeId) => nodes.find((node) => node.id === nodeId);
+
+
     
     const zoomToNode = (path,nodes) => {
 

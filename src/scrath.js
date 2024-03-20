@@ -1,85 +1,9 @@
-if(node.title === 'classRoom'){
-    nodeInfo(node.building,node.floor,'roomID',node.node)
-    .then(roomID => {
-        L.marker(coords, {
-            icon: L.divIcon({
-                
-                html: `<strong> Room: </strong> ${roomID}`,
-                className: 'text-below-marker',
-                
-            })
-        }).addTo(map);
-        
-    })
-    .catch(error => {
-        console.error("Error:", error);
-    }); 
-}
-else if(node.title === 'facility'){
-    nodeInfo(node.building,node.floor,'roomID',node.node)
-    .then(roomID => {
-        L.marker(coords, {
-            icon: L.divIcon({
-                
-                html: `<strong> Facility: </strong> ${roomID}`,
-                className: 'text-below-marker',
-                
-            })
-        }).addTo(map);
-        
-    })
-    .catch(error => {
-        console.error("Error:", error);
-    }); 
-}
-else if(node.title === ''){
-    nodeInfo(node.building,node.floor,'roomID',node.node)
-    .then(roomID => {
-        L.marker(coords, {
-            icon: L.divIcon({
-                
-                html: `<strong> ${roomID} </strong> `,
-                className: 'text-below-marker',
-                
-            })
-        }).addTo(map);
-        
-    })
-    .catch(error => {
-        console.error("Error:", error);
-    }); 
-}
-else if(node.title === 'office'){
-    nodeInfo(node.building,node.floor,'roomID',node.node)
-    .then(roomID => {
-        L.marker(coords, {
-            icon: L.divIcon({
-                
-                html: `<strong> Office: </strong> ${roomID}`,
-                className: 'text-below-marker',
-                
-            })
-        }).addTo(map);
-        
-    })
-    .catch(error => {
-        console.error("Error:", error);
-    }); 
-}
-else if(node.title === 'lab'){
-    nodeInfo(node.building,node.floor,'roomID',node.node)
-    .then(roomID => {
-        L.marker(coords, {
-            icon: L.divIcon({
-                
-                html: `<strong> Laboratory: </strong> ${roomID}`,
-                className: 'text-below-marker',
-                
-            })
-        }).addTo(map);
-        
-    })
-    .catch(error => {
-        console.error("Error:", error);
-    }); 
-}
+const findNodeById = (nodeId) => test.find((node) => node.id === nodeId);
+const test = [{ id: 1, desti: 2},{ id: 2, desti: 3, }]
+let a  = test[0].desti;
+
+let kat = findNodeById(a);
+
+
+console.log(kat.desti);
+
