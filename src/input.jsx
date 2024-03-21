@@ -12,6 +12,8 @@ import science1stFloorPlan from './assets/Science1stFloorPlan.png';
 import science2ndFloorPlan from './assets/Science2ndFloorPlan.png';
 import science3rdFloorPlan from './assets/Science3rdFloorPlan.png';
 import science4thFloorPlan from './assets/Science4thFloorPlan.png';
+import science5thFloorPlan from './assets/Science5thFloorPlan.png';
+import science6thFloorPlan from './assets/Science6thFloorPlan.png';
 import main4thFloorPlan from './assets/Main4thFloorPlan.png';
 import main3rdFloorPlan from './assets/Main3rdFloorPlan.png';
 import main2ndFloorPlan from './assets/Main2ndFloorPlan.png';
@@ -201,6 +203,12 @@ function TextInput({ style }) {
         else if(floorName === 'science4thFloor'){
             addImageOverlay(science4thFloorPlan);
         }
+        else if(floorName === 'science5thFloor'){
+            addImageOverlay(science5thFloorPlan);
+        }
+        else if(floorName === 'science6thFloor'){
+            addImageOverlay(science6thFloorPlan);
+        }
         else if(floorName === 'science1stFloor'){
             addImageOverlay(science1stFloorPlan);
         }
@@ -347,18 +355,15 @@ function TextInput({ style }) {
 
                     const findNodeById2 = (nodeId) => nodes.find((node) => node.id === nodeId);
 
-                    if(node.id === 576){
-
+                    
                         let des = findNodeById2(node.desti)
                         mapRef.current.flyTo([des.lat,  des.lon], 8, {
                             duration: 1,  // Adjust the duration of the animation in seconds
                             easeLinearity: 0.5  // Adjust the easing factor for the animation
                         });
-                    }
                     
-                    else{
-                        zoomToNode(path,nodes);
-                    }
+                    
+                    
                     
                     
         
@@ -770,6 +775,12 @@ function TextInput({ style }) {
         }
         else if(buildingName == "science4thFloor") {
             setCurrentFloor("Science Building 4th Floor, PE Building 4th Floor");
+        }
+        else if(buildingName == "science5thFloor") {
+            setCurrentFloor("Science Building 5th Floor, PE Building 5th Floor");
+        }
+        else if(buildingName == "science6thFloor") {
+            setCurrentFloor("Science Building 6th Floor, PE Building 6th Floor");
         }
         else if(buildingName == "main4thFloor") {
             setCurrentFloor("Main Building 4th Floor");

@@ -553,7 +553,7 @@ g.addEdge(625, 626, 1);
 g.addEdge(625, 627, 1);
 g.addEdge(628, 627, 1);
 g.addEdge(629, 627, 1);
-g.addEdge(629, 630, 1);
+g.addEdge(629, 737, 1);
 g.addEdge(629, 631, 1);
 g.addEdge(632, 631, 1);
 g.addEdge(633, 620, 1);
@@ -600,6 +600,66 @@ g.addEdge(640, 539, 1);
 g.addEdge(634, 180, 1);
 g.addEdge(624, 206, 1);
 
+//science 5th Floor 
+g.addEdge(638, 906, 1);
+g.addEdge(929, 654, 1);
+g.addEdge(662, 890, 1);
+g.addEdge(891, 890, 1);
+g.addEdge(891, 892, 1);
+g.addEdge(893, 892, 1);
+g.addEdge(894, 892, 1);
+g.addEdge(894, 895, 1);
+g.addEdge(894, 896, 1);
+g.addEdge(897, 896, 1);
+g.addEdge(891, 898, 1);
+g.addEdge(899, 898, 1);
+g.addEdge(900, 898, 1);
+g.addEdge(903, 904, 1);
+g.addEdge(905, 904, 1);
+g.addEdge(905, 906, 1);
+g.addEdge(905, 907, 1);
+g.addEdge(907, 908, 1);
+g.addEdge(905, 910, 1);
+g.addEdge(911, 910, 1);
+g.addEdge(912, 910, 1);
+g.addEdge(912, 913, 1);
+g.addEdge(912, 914, 1);
+g.addEdge(915, 914, 1);
+g.addEdge(915, 916, 1);
+g.addEdge(917, 916, 1);
+g.addEdge(918, 916, 1);
+g.addEdge(918, 919, 1);
+g.addEdge(918, 920, 1);
+g.addEdge(921, 920, 1);
+g.addEdge(922, 920, 1);
+g.addEdge(922, 923, 1);
+g.addEdge(922, 924, 1);
+g.addEdge(925, 924, 1);
+g.addEdge(925, 926, 1);
+g.addEdge(927, 926, 1);
+g.addEdge(928, 924, 1);
+g.addEdge(928, 929, 1);
+
+//Science 6th Floor
+g.addEdge(950, 900, 1);
+g.addEdge(950, 951, 1);
+g.addEdge(952, 951, 1);
+g.addEdge(952, 953, 1);
+g.addEdge(952, 954, 1);
+g.addEdge(955, 954, 1);
+g.addEdge(956, 955, 1);
+g.addEdge(957, 955, 1);
+g.addEdge(957, 958, 1);
+g.addEdge(959, 954, 1);
+g.addEdge(959, 960, 1);
+g.addEdge(959, 961, 1);
+g.addEdge(962, 961, 1);
+g.addEdge(963, 961, 1);
+g.addEdge(965, 966, 1);
+g.addEdge(967, 966, 1);
+g.addEdge(964, 927, 1);
+g.addEdge(965, 908, 1);
+
 //Main 4th Floor
 g.addEdge(700, 207, 1);
 g.addEdge(700, 701, 1);
@@ -630,7 +690,10 @@ g.addEdge(727, 726, 1);
 g.addEdge(727, 728, 1);
 g.addEdge(727, 729, 1);
 g.addEdge(730, 726, 1);
-g.addEdge(730, 731, 1);
+g.addEdge(730, 735, 1);
+g.addEdge(731, 735, 1);
+g.addEdge(736, 735, 1);
+g.addEdge(736, 737, 1);
 g.addEdge(730, 732, 1);
 g.addEdge(733, 732, 1);
 g.addEdge(733, 734, 1);
@@ -670,6 +733,7 @@ g.addEdge(779, 778, 1);
 g.addEdge(772, 513, 1);
 
 //Main 2nd Floor
+g.addEdge(827, 88, 1);
 g.addEdge(756, 800, 1);
 g.addEdge(801, 800, 1);
 g.addEdge(801, 802, 1);
@@ -993,6 +1057,12 @@ for(let i =750; i<=790; i++){
 }
 for(let i =800; i<=880; i++){
     g.setNodeBuilding(i,"main2ndFloor");
+}
+for(let i =890; i<=940; i++){
+    g.setNodeBuilding(i,"science5thFloor");
+}
+for(let i =950; i<=980; i++){
+    g.setNodeBuilding(i,"science6thFloor");
 }
 for(let i =420; i<=480; i++){
     g.setNodeBuilding(i,"scienceGroundFloor");
