@@ -15,6 +15,7 @@ import science4thFloorPlan from './assets/Science4thFloorPlan.png';
 import science5thFloorPlan from './assets/Science5thFloorPlan.png';
 import science6thFloorPlan from './assets/Science6thFloorPlan.png';
 import main4thFloorPlan from './assets/Main4thFloorPlan.png';
+import main5thFloorPlan from './assets/Main5thFloorPlan.png';
 import main3rdFloorPlan from './assets/Main3rdFloorPlan.png';
 import main2ndFloorPlan from './assets/Main2ndFloorPlan.png';
 import leaveButtonLogo from './assets/leaveButton.png'; 
@@ -171,7 +172,7 @@ function TextInput({ style }) {
     const addImageOverlay = (imageURL) => {
         
         let images = [
-            { url: imageURL, bounds: imageURL === 'main2ndFloorPlan' ? [[0,0], [12, 15]] :  [[0,0], [10, 10]] },  
+            { url: imageURL, bounds: imageURL === 'main2ndFloorPlan'  ? [[0,0], [12, 15]] :  [[0,0], [10, 10]] },  
             
         ];
         mapRef.current.eachLayer(function (layer) {
@@ -193,6 +194,9 @@ function TextInput({ style }) {
         }
         else if(floorName === 'main4thFloor'){
             addImageOverlay(main4thFloorPlan);
+        }
+        else if(floorName === 'main5thFloor'){
+            addImageOverlay(main5thFloorPlan);
         }
         else if(floorName === 'main3rdFloor'){
             addImageOverlay(main3rdFloorPlan);
@@ -784,6 +788,9 @@ function TextInput({ style }) {
         }
         else if(buildingName == "main4thFloor") {
             setCurrentFloor("Main Building 4th Floor");
+        }
+        else if(buildingName == "main5thFloor") {
+            setCurrentFloor("Main Building 5th Floor");
         }
         else if(buildingName == "main3rdFloor") {
             setCurrentFloor("Main Building 3rd Floor");

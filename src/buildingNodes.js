@@ -361,6 +361,10 @@ function buildingNodes(buildingName) {
             { id: 625, lat: 4, lon: 0.4,},
             { id: 626, lat: 4, lon: 0.53,}, {lat: 4.3, lon: 0.85, title: 'classRoom',building:'Science', floor:'4th Floor',node: 626,label: 'classroomLogo' },
             { id: 627, lat: 5.5, lon: 0.7,},
+            { id: 675, lat: 6.4, lon: 0.9, },
+            { id: 676, lat: 6.4, lon: 1.075, }, {lat:  6.4, lon: 1.1, title: 'classRoom',building:'Science', floor:'4th Floor',node: 676,label: 'classroomLogo' },
+            { id: 677, lat: 6.65, lon: 0.95, },
+            { id: 678, lat: 6.65, lon: 1.075, },  {lat:  6.7, lon: 1.1, title: 'classRoom',building:'Science', floor:'4th Floor',node: 678,label: 'classroomLogo' },
             { id: 628, lat: 5.5, lon: 1.05,}, {lat: 5.8, lon: 1.6, title: 'classRoom',building:'Science', floor:'4th Floor',node: 628,label: 'classroomLogo' },
             { id: 629, lat: 7.85, lon: 1.15,label: 'leaveButton',destination: 'main4thFloor', desti: 737 },
             
@@ -405,6 +409,9 @@ function buildingNodes(buildingName) {
             { id: 669, lat: 7.05, lon: 8.9,}, {lat: 7.8, lon: 8.6, title: 'classRoom',building:'Science', floor:'4th Floor',node: 669,label: 'classroomLogo' },
             { id: 670, lat: 6.91, lon: 9.1,},
             { id: 671, lat: 7.3, lon: 9.1,},{lat: 7.8, lon: 9.26, title: 'classRoom',building:'Science', floor:'4th Floor',node: 671,label: 'classroomLogo' },
+            { id: 672, lat: 3.6, lon: 2.7, },
+            { id: 673, lat: 3.68, lon: 2.7, },
+            { id: 674, lat: 3.68, lon: 2.57, label: 'leaveButton', destination:'science3rdFloor',desti: 526 },
         ];
     }
     else if (buildingName == "science5thFloor") {
@@ -487,7 +494,7 @@ function buildingNodes(buildingName) {
             { id: 707, lat: 5.1, lon: 6.98,},
             { id: 708, lat: 6.9, lon: 6.98,},
             { id: 709, lat: 6.9, lon: 6.5,},
-            { id: 710, lat: 6.65, lon: 6.5,label: 'leaveButton'},
+            { id: 710, lat: 6.65, lon: 6.5,label: 'leaveButton', destination: 'main5thFloor'},
             { id: 711, lat: 5.1, lon: 6.5,},
             { id: 712, lat: 5.98, lon: 6.5,label: 'leaveButton', destination: 'main3rdFloor',desti: 750},
             { id: 713, lat: 5.1, lon: 6.2,},
