@@ -28,6 +28,7 @@ import BRS6thFloor from './assets/BRS6thFloorPlan.png';
 import BRS7thFloor from './assets/BRS7thFloorPlan.png';
 import BRS8thFloor from './assets/BRS8thFloorPlan.png';
 import BRS9thFloor from './assets/BRS9thFloorPlan.png';
+import BRS10thFloor from './assets/BRS10thFloorPlan.png';
 import buildingNodes from './buildingNodes';
 //import getInfo from './firebaseIni';
 
@@ -246,6 +247,9 @@ function TextInput({ style }) {
         else if(floorName === "BRS9thFloor"){
             addImageOverlay(BRS9thFloor);
         }
+        else if(floorName === "BRS10thFloor"){
+            addImageOverlay(BRS10thFloor);
+        }
         
       }
       
@@ -396,7 +400,7 @@ function TextInput({ style }) {
                 let elevatorNodes;
                 if(node.elevatorBuilding==='BRS'){
                     elevatorNodes = [{id: 1, node: 143},{id: 2, node: 113},{id: 3, node: 166},{id: 4, node: 195},{id: 5, node: 224},{id: 6, node: 239},{id: 7, node: 264}
-                        ,{id: 8, node: 289},{id: 9, node: 314}]
+                        ,{id: 8, node: 289},{id: 9, node: 314}, {id: 10, node: 1046}]
                 }
                 marker.on('click', () => {
 
@@ -633,7 +637,7 @@ function TextInput({ style }) {
         const getNodeValue = (building,input) => {
             return new Promise((resolve, reject) => {
                 const floors = ['Ground Floor','1st Floor', '2nd Floor','3rd Floor','4th Floor','5th Floor','6th Floor','7th Floor',
-                                '8th Floor','9th Floor'];
+                                '8th Floor','9th Floor', '10th Floor'];
                 const userRef = ref(database, building);
                 onValue(userRef, (snapshot) => {
                     const data = snapshot.val();
@@ -830,6 +834,9 @@ function TextInput({ style }) {
         }
         else if (buildingName == "BRS9thFloor") {
             setCurrentFloor("BRS Building 9th Floor");
+        }
+        else if (buildingName == "BRS10thFloor") {
+            setCurrentFloor("BRS Building 10th Floor");
         }
         
     }
