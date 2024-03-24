@@ -1151,6 +1151,87 @@ g.addEdge(1199, 1201, 1);
 g.addEdge(1199, 1202, 1);
 g.addEdge(1203, 1202, 1);
 g.addEdge(1204, 1202, 1);
+
+//CHTM EDS 4TH FLOOR
+g.addEdge(1100, 1102, 1);
+g.addEdge(1103, 1102, 1);
+g.addEdge(1104, 1102, 1);
+g.addEdge(1104, 1105, 1);
+g.addEdge(1106, 1105, 1);
+g.addEdge(1107, 1105, 1);
+g.addEdge(1107, 1108, 1);
+g.addEdge(1109, 1108, 1);
+g.addEdge(1110, 1108, 1);
+g.addEdge(1110, 1111, 1);
+g.addEdge(1110, 1112, 1);
+g.addEdge(1107, 1113, 1);
+g.addEdge(1114, 1113, 1);
+g.addEdge(1115, 1113, 1);
+g.addEdge(1115, 1116, 1);
+g.addEdge(1115, 1117, 1);
+g.addEdge(1118, 1117, 1);
+g.addEdge(1104, 1119, 1);
+g.addEdge(1120, 1119, 1);
+g.addEdge(1120, 1121, 1);
+g.addEdge(1122, 1121, 1);
+g.addEdge(1123, 1119, 1);
+g.addEdge(1123, 1124, 1);
+g.addEdge(1123, 1125, 1);
+g.addEdge(1123, 1126, 1);
+g.addEdge(1127, 1126, 1);
+g.addEdge(1128, 1126, 1);
+g.addEdge(1128, 1129, 1);
+g.addEdge(1130, 1129, 1);
+g.addEdge(1130, 1131, 1);
+g.addEdge(1130, 1132, 1);
+g.addEdge(1130, 1133, 1);
+g.addEdge(1134, 1133, 1);
+g.addEdge(1135, 1133, 1);
+g.addEdge(1135, 1136, 1);
+g.addEdge(1137, 1136, 1);
+g.addEdge(1137, 1149, 1);
+g.addEdge(1194, 1149, 1);
+g.addEdge(1135, 1138, 1);
+g.addEdge(1139, 1138, 1);
+g.addEdge(1139, 1140, 1);
+g.addEdge(1139, 1141, 1);
+g.addEdge(1142, 1141, 1);
+g.addEdge(1143, 1141, 1);
+g.addEdge(1143, 1144, 1);
+g.addEdge(1143, 1145, 1);
+g.addEdge(1146, 1145, 1);
+g.addEdge(1147, 1145, 1);
+g.addEdge(1147, 1148, 1);
+g.addEdge(1122, 1174, 1);
+
+
+//EDS 3rd Floor
+g.addEdge(1220, 1106, 1);
+g.addEdge(1220, 1221, 1);
+g.addEdge(1222, 1221, 1);
+g.addEdge(1222, 1223, 1);
+g.addEdge(1224, 1223, 1);
+g.addEdge(1224, 1225, 1);
+g.addEdge(1224, 1226, 1);
+g.addEdge(1227, 1226, 1);
+g.addEdge(1227, 1228, 1);
+g.addEdge(1227, 1229, 1);
+g.addEdge(1230, 1229, 1);
+g.addEdge(1231, 1229, 1);
+g.addEdge(1232, 1226, 1);
+g.addEdge(1233, 1226, 1);
+g.addEdge(1233, 1234, 1);
+g.addEdge(1233, 1235, 1);
+g.addEdge(1236, 1235, 1);
+g.addEdge(1237, 1223, 1);
+g.addEdge(1237, 1239, 1);
+g.addEdge(1237, 1238, 1);
+g.addEdge(1237, 1240, 1);
+g.addEdge(1241, 1240, 1);
+g.addEdge(1242, 1240, 1);
+g.addEdge(1242, 1243, 1);
+g.addEdge(854, 1225, 1);
+
 for(let i = 0; i<=99; i++){
     g.setNodeBuilding(i,"science2ndFloor");
 }
@@ -1186,6 +1267,12 @@ for(let i =1080; i<=1090; i++){
 }
 for(let i =1160; i<=1210; i++){
     g.setNodeBuilding(i,"CHTMEDS5thFloor");
+}
+for(let i =1100; i<=1159; i++){
+    g.setNodeBuilding(i,"CHTMEDS4thFloor");
+}
+for(let i =1220; i<=1250; i++){
+    g.setNodeBuilding(i,"EDS3rdFloor");
 }
 for(let i =420; i<=480; i++){
     g.setNodeBuilding(i,"scienceGroundFloor");
