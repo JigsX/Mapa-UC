@@ -276,7 +276,7 @@ function buildingNodes(buildingName) {
             { id: 523, lat: 3.65, lon: 2.5, },
             { id: 524, lat: 3.55, lon: 2.5, },
             { id: 525, lat: 3.7, lon: 2.5, },
-            { id: 526, lat: 3.7, lon: 2.6,label: 'leaveButton',   },
+            { id: 526, lat: 3.7, lon: 2.6,label: 'leaveButton', destination: 'science4thFloor', desti: 674 },
             { id: 527, lat: 3.55, lon: 3.44, },
             { id: 528, lat: 4.5, lon: 3.44, },
             { id: 529, lat: 4.5, lon: 3.12, },
@@ -540,16 +540,29 @@ function buildingNodes(buildingName) {
             { id: 1016, lat: 2.7, lon: 8.8,},
             { id: 1017, lat: 3.4, lon: 8.9,},
             { id: 1018, lat: 3.4, lon: 8.69,}, {lat: 3.7, lon: 8.4, title: 'classRoom',building:'Main', floor:'5th Floor',node: 1018,label: 'classroomLogo' },
-            { id: 1019, lat: 4.15, lon: 9,label: 'leaveButton',},
+            { id: 1019, lat: 4.15, lon: 9,label: 'leaveButton', destination: 'main6thFloor', desti: 1041},
             { id: 1020, lat: 2.7, lon: 9.3,},
             { id: 1021, lat: 0.65, lon: 9.,},
             { id: 1022, lat: 0.25, lon: 8.7,},
             { id: 1023, lat: 0.25, lon: 7.25,},
-            { id: 1024, lat: 0, lon: 7.25,label: 'leaveButton', },
+            { id: 1024, lat: 0, lon: 7.25,label: 'leaveButton', destination: 'CHTMEDS5thFloor', desti: 1160 },
             
    
         ];
     }
+    else if (buildingName == "main6thFloor") {
+        nodes = [
+           
+            { id: 1080, lat: 6.89, lon: 8.9,label: 'leaveButton', destination:'main5thFloor', desti: 1019 },
+            { id: 1081, lat: 7.1, lon: 8.9, },
+            { id: 1082, lat: 7.1, lon: 8.3, },
+            { id: 1083, lat: 5.2, lon: 8.3, },
+            { id: 1084, lat: 5.2, lon: 8.03, }, {lat: 5.2, lon: 4.3, title: 'classRoom',building:'Main', floor:'6th Floor',node: 1084,label: 'classroomLogo' },
+            
+   
+        ];
+    }
+
     else if (buildingName == "main3rdFloor") {
         nodes = [
             { id: 750, lat: 7.05, lon: 7,label: 'leaveButton', destination: 'main4thFloor',desti: 712 },
@@ -654,6 +667,107 @@ function buildingNodes(buildingName) {
             { id: 865, lat: 7.25, lon: 6.6,},
             { id: 866, lat: 7.25, lon: 6.75,}, {lat: 7.2, lon: 7.3, title: 'classRoom',building:'Main', floor:'2nd Floor',node: 866,label: 'classroomLogo' },
 
+        ];
+    }
+    else if (buildingName == "CHTMEDS4thFloor") {
+        nodes = [
+           
+            
+            { id: 1161, lat: 4.95, lon: .75,label: 'leaveButtons',},
+            { id: 1162, lat: 5.28, lon: .75,label: 'leaveButtons',},    
+            { id: 1164, lat: 4.95, lon: 1.42,label: 'leaveButtons',},
+            { id: 1165, lat: 4.57, lon: 1.42,label: 'elevator',},
+            { id: 1166, lat: 4.95, lon: 1.9,label: 'leaveButtons',},
+            { id: 1167, lat: 2.95, lon: 1.9,label: 'leaveButtons',},
+            { id: 1168, lat: 2.95, lon: 1.7,label: 'leaveButtons',},
+            { id: 1169, lat: 2.95, lon: 2.1,label: 'leaveButtons',},
+            { id: 1170, lat: 2.42, lon: 1.9,label: 'leaveButtons',},
+            { id: 1171, lat: 4.95, lon: 2.15,label: 'leaveButtons',},
+            { id: 1172, lat: 5.28, lon: 2.15,label: 'leaveButtons',},
+            { id: 1173, lat: 4.95, lon: 2.39,label: 'leaveButtons',},
+            { id: 1174, lat: 4.5, lon: 2.39,label: 'leaveButton', destination: 'CHTMEDS4thFloor'},
+            { id: 1175, lat: 4.95, lon: 2.9,label: 'leaveButtons',},
+            { id: 1176, lat: 3.5, lon: 2.9,label: 'leaveButtons',},
+            { id: 1177, lat: 3.5, lon: 2.39,label: 'leaveButtons',},
+            { id: 1178, lat: 3.88, lon: 2.39,label: 'leaveButton',},
+            { id: 1179, lat: 4.95, lon: 3.65,label: 'leaveButtons',},
+            { id: 1180, lat: 5.28, lon: 3.65,label: 'leaveButtons',},
+            { id: 1181, lat: 4.57, lon: 3.65,label: 'leaveButtons',},
+            { id: 1182, lat: 4.95, lon: 4.5,label: 'leaveButtons',},
+            { id: 1183, lat: 4.57, lon: 4.5,label: 'leaveButtons',},
+            { id: 1184, lat: 4.95, lon: 5.2,label: 'leaveButtons',},
+            { id: 1185, lat: 6.05, lon: 5.2,label: 'leaveButtons',},
+            { id: 1186, lat: 6.05, lon: 6,label: 'leaveButtons',},
+            { id: 1187, lat: 6.43, lon: 6,label: 'leaveButtons',},
+            { id: 1188, lat: 5.71, lon: 6,label: 'leaveButtons',},
+            { id: 1189, lat: 6.05, lon: 6.75,label: 'leaveButtons',},
+            { id: 1190, lat: 5.67, lon: 6.75,label: 'leaveButton',},
+            { id: 1191, lat: 6.05, lon: 7.2,label: 'leaveButtons',},
+            { id: 1192, lat: 4.8, lon: 7.2,label: 'leaveButtons',},
+            { id: 1193, lat: 4.8, lon: 6.75,label: 'leaveButtons',},
+            { id: 1194, lat: 5.07, lon: 6.75,label: 'leaveButton',},
+            { id: 1195, lat: 6.75, lon: 7.2,label: 'leaveButtons',},
+            { id: 1196, lat: 7.07, lon: 7.2,label: 'leaveButtons',},
+            { id: 1197, lat: 6.75, lon: 7.65,label: 'leaveButtons',},
+            { id: 1198, lat: 6.47, lon: 7.65,label: 'elevator',},
+            { id: 1199, lat: 6.75, lon: 7.95,label: 'leaveButtons',},
+            { id: 1200, lat: 6.47, lon: 7.95,label: 'leaveButtons',},
+            { id: 1201, lat: 7.07, lon: 7.95,label: 'leaveButtons',},
+            { id: 1202, lat: 6.75, lon: 8.8,label: 'leaveButtons',},
+            { id: 1203, lat: 7.07, lon: 8.8,label: 'leaveButtons',},
+            { id: 1204, lat: 6.47, lon: 8.8,label: 'leaveButtons',},
+   
+        ];
+    }
+    else if (buildingName == "CHTMEDS5thFloor") {
+        nodes = [
+           
+            { id: 1160, lat: 4.95, lon: 0,label: 'leaveButton', destination:'main5thFloor', desti: 1024},
+            { id: 1161, lat: 4.95, lon: .75,label: 'leaveButtons',},
+            { id: 1162, lat: 5.28, lon: .75,label: 'leaveButtons',},  { lat: 6.4, lon: .4, title: 'classRoom',building:'EDS', floor:'5th Floor',node: 1162,label: 'classroomLogo' },
+            { id: 1163, lat: 4.57, lon: .75,label: 'leaveButtons',},
+            { id: 1164, lat: 4.95, lon: 1.42,label: 'leaveButtons',},
+            { id: 1165, lat: 4.57, lon: 1.42,label: 'elevator',}, { lat: 4.3, lon: 1.27, title: 'classRoom',building:'EDS', floor:'5th Floor',node: 1165,label: 'classroomLogo' },
+            { id: 1166, lat: 4.95, lon: 1.9,label: 'leaveButtons',},
+            { id: 1167, lat: 2.95, lon: 1.9,label: 'leaveButtons',},
+            { id: 1168, lat: 2.95, lon: 1.7,label: 'leaveButtons',}, { lat: 3.3, lon: 0.75, title: 'classRoom',building:'EDS', floor:'5th Floor',node: 1168,label: 'classroomLogo' },
+            { id: 1169, lat: 2.95, lon: 2.1,label: 'leaveButtons',}, { lat: 2.5, lon: 2.52, title: 'classRoom',building:'EDS', floor:'5th Floor',node: 1169,label: 'classroomLogo' },
+            { id: 1170, lat: 2.42, lon: 1.9,label: 'leaveButtons',}, { lat: 1.9, lon: 0.75, title: 'classRoom',building:'EDS', floor:'5th Floor',node: 1170,label: 'classroomLogo' },
+            { id: 1171, lat: 4.95, lon: 2.15,label: 'leaveButtons',},
+            { id: 1172, lat: 5.28, lon: 2.15,label: 'leaveButtons',}, { lat: 6.8, lon: 2.1, title: 'classRoom',building:'EDS', floor:'5th Floor',node: 1172,label: 'classroomLogo' },
+            { id: 1173, lat: 4.95, lon: 2.39,label: 'leaveButtons',},
+            { id: 1174, lat: 4.5, lon: 2.39,label: 'leaveButton', destination: 'CHTMEDS4thFloor'},
+            { id: 1175, lat: 4.95, lon: 2.9,label: 'leaveButtons',},
+            { id: 1176, lat: 3.5, lon: 2.9,label: 'leaveButtons',},
+            { id: 1177, lat: 3.5, lon: 2.39,label: 'leaveButtons',},
+            { id: 1178, lat: 3.88, lon: 2.39,label: 'leaveButton',},
+            { id: 1179, lat: 4.95, lon: 3.65,label: 'leaveButtons',},
+            { id: 1180, lat: 5.28, lon: 3.65,label: 'leaveButtons',}, { lat: 6.4, lon: 3.55, title: 'classRoom',building:'EDS', floor:'5th Floor',node: 1180,label: 'classroomLogo' },
+            { id: 1181, lat: 4.57, lon: 3.65,label: 'leaveButtons',}, { lat: 3.8, lon: 3.55, title: 'classRoom',building:'EDS', floor:'5th Floor',node: 1181,label: 'classroomLogo' },
+            { id: 1182, lat: 4.95, lon: 4.5,label: 'leaveButtons',},
+            { id: 1183, lat: 4.57, lon: 4.5,label: 'leaveButtons',}, { lat: 4, lon: 4.4, title: 'classRoom',building:'EDS', floor:'5th Floor',node: 1183,label: 'classroomLogo' },
+            { id: 1184, lat: 4.95, lon: 5.2,label: 'leaveButtons',},
+            { id: 1185, lat: 6.05, lon: 5.2,label: 'leaveButtons',},
+            { id: 1186, lat: 6.05, lon: 6,label: 'leaveButtons',},
+            { id: 1187, lat: 6.43, lon: 6,label: 'leaveButtons',}, { lat: 7.1, lon: 5.85, title: 'classRoom',building:'CHTM', floor:'5th Floor',node: 1187,label: 'classroomLogo' },
+            { id: 1188, lat: 5.71, lon: 6,label: 'leaveButtons',}, { lat: 5.2, lon: 5.85, title: 'classRoom',building:'CHTM', floor:'5th Floor',node: 1188,label: 'classroomLogo' },
+            { id: 1189, lat: 6.05, lon: 6.75,label: 'leaveButtons',},
+            { id: 1190, lat: 5.67, lon: 6.75,label: 'leaveButton',},
+            { id: 1191, lat: 6.05, lon: 7.2,label: 'leaveButtons',},
+            { id: 1192, lat: 4.8, lon: 7.2,label: 'leaveButtons',},
+            { id: 1193, lat: 4.8, lon: 6.75,label: 'leaveButtons',},
+            { id: 1194, lat: 5.07, lon: 6.75,label: 'leaveButton',},
+            { id: 1195, lat: 6.75, lon: 7.2,label: 'leaveButtons',},
+            { id: 1196, lat: 7.07, lon: 7.2,label: 'leaveButtons',}, { lat: 7.9, lon: 6.85, title: 'classRoom',building:'CHTM', floor:'5th Floor',node: 1196,label: 'classroomLogo' },
+            { id: 1197, lat: 6.75, lon: 7.65,label: 'leaveButtons',},
+            { id: 1198, lat: 6.47, lon: 7.65,label: 'elevator',},  { lat: 6.3, lon: 7.5, title: 'classRoom',building:'CHTM', floor:'5th Floor',node: 1198,label: 'classroomLogo' },
+            { id: 1199, lat: 6.75, lon: 7.95,label: 'leaveButtons',},
+            { id: 1200, lat: 6.47, lon: 7.95,label: 'leaveButtons',},  { lat: 5.8, lon: 7.65, title: 'classRoom',building:'CHTM', floor:'5th Floor',node: 1200,label: 'classroomLogo' },
+            { id: 1201, lat: 7.07, lon: 7.95,label: 'leaveButtons',}, { lat: 7.9, lon: 7.8, title: 'classRoom',building:'CHTM', floor:'5th Floor',node: 1201,label: 'classroomLogo' },
+            { id: 1202, lat: 6.75, lon: 8.8,label: 'leaveButtons',},
+            { id: 1203, lat: 7.07, lon: 8.8,label: 'leaveButtons',}, { lat: 7.9, lon: 8.9, title: 'classRoom',building:'CHTM', floor:'5th Floor',node: 1203,label: 'classroomLogo' },
+            { id: 1204, lat: 6.47, lon: 8.8,label: 'leaveButtons',},
+   
         ];
     }
     else if (buildingName == "BRS1stFloor") {

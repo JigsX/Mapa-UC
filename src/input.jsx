@@ -14,8 +14,11 @@ import science3rdFloorPlan from './assets/Science3rdFloorPlan.png';
 import science4thFloorPlan from './assets/Science4thFloorPlan.png';
 import science5thFloorPlan from './assets/Science5thFloorPlan.png';
 import science6thFloorPlan from './assets/Science6thFloorPlan.png';
+import CHTMEDS4thFloorPlan from './assets/CHTMEDS4thFloorPlan.png';
+import CHTMEDS5thFloorPlan from './assets/CHTMEDS5thFloorPlan.png';
 import main4thFloorPlan from './assets/Main4thFloorPlan.png';
 import main5thFloorPlan from './assets/Main5thFloorPlan.png';
+import main6thFloorPlan from './assets/Main6thFloorPlan.png';
 import main3rdFloorPlan from './assets/Main3rdFloorPlan.png';
 import main2ndFloorPlan from './assets/Main2ndFloorPlan.png';
 import leaveButtonLogo from './assets/leaveButton.png'; 
@@ -199,6 +202,9 @@ function TextInput({ style }) {
         else if(floorName === 'main5thFloor'){
             addImageOverlay(main5thFloorPlan);
         }
+        else if(floorName === 'main6thFloor'){
+            addImageOverlay(main6thFloorPlan);
+        }
         else if(floorName === 'main3rdFloor'){
             addImageOverlay(main3rdFloorPlan);
         }
@@ -219,6 +225,12 @@ function TextInput({ style }) {
         }
         else if(floorName === 'scienceGroundFloor'){
             addImageOverlay(scienceGroundFloorPlan);
+        }
+        else if(floorName === 'CHTMEDS4thFloor'){
+            addImageOverlay(CHTMEDS4thFloorPlan);
+        }
+        else if(floorName === 'CHTMEDS5thFloor'){
+            addImageOverlay(CHTMEDS5thFloorPlan);
         }
         else if(floorName === "BRS1stFloor"){
             addImageOverlay(BRS1stFloor);
@@ -683,6 +695,9 @@ function TextInput({ style }) {
             else if(roomName[0].toLowerCase() === 'n'){
                 return 'EDS';
             }
+            else if(roomName[0].toLowerCase() === 'f'){
+                return 'CHTM';
+            }
         };
         if(isChoiceEnterDest){
             console.log("fac:",isChoiceEnterFac);
@@ -790,11 +805,21 @@ function TextInput({ style }) {
         else if(buildingName == "science6thFloor") {
             setCurrentFloor("Science Building 6th Floor, PE Building 6th Floor");
         }
+        else if(buildingName == "CHTMEDS4thFloor") {
+            setCurrentFloor("EDS 4th Floor, CHTM Building 4th Floor");
+        }
+        else if(buildingName == "CHTMEDS5thFloor") {
+            setCurrentFloor("EDS 6th Floor, CHTM Building 6th Floor");
+        }
+        
         else if(buildingName == "main4thFloor") {
             setCurrentFloor("Main Building 4th Floor");
         }
         else if(buildingName == "main5thFloor") {
             setCurrentFloor("Main Building 5th Floor");
+        }
+        else if(buildingName == "main6thFloor") {
+            setCurrentFloor("Main Building 6th Floor");
         }
         else if(buildingName == "main3rdFloor") {
             setCurrentFloor("Main Building 3rd Floor");

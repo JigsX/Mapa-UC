@@ -693,6 +693,15 @@ g.addEdge(1022, 1021, 1);
 g.addEdge(1022, 1023, 1);
 g.addEdge(1024, 1023, 1);
 
+//main 6th Floor
+g.addEdge(1080, 1019, 1);
+g.addEdge(1080, 1081, 1);
+g.addEdge(1082, 1081, 1);
+g.addEdge(1082, 1083, 1);
+g.addEdge(1084, 1083, 1);
+
+
+
 
 //Main 4th Floor
 g.addEdge(700, 207, 1);
@@ -1095,6 +1104,53 @@ g.addEdge(1057, 1058, 1);
 g.addEdge(1059, 1056, 1);
 g.addEdge(1059, 1060, 1);
 
+
+//CHTM EDS 5TH FLOOR
+g.addEdge(1160, 1024, 1);
+g.addEdge(1160, 1161, 1);
+g.addEdge(1162, 1161, 1);
+g.addEdge(1163, 1161, 1);
+g.addEdge(1164, 1161, 1);
+g.addEdge(1164, 1165, 1);
+g.addEdge(1164, 1166, 1);
+g.addEdge(1167, 1166, 1);
+g.addEdge(1167, 1168, 1);
+g.addEdge(1167, 1169, 1);
+g.addEdge(1167, 1170, 1);
+g.addEdge(1171, 1166, 1);
+g.addEdge(1171, 1172, 1);
+g.addEdge(1171, 1173, 1);
+g.addEdge(1174, 1173, 1);
+g.addEdge(1175, 1173, 1);
+g.addEdge(1175, 1176, 1);
+g.addEdge(1177, 1176, 1);
+g.addEdge(1177, 1178, 1);
+g.addEdge(1175, 1179, 1);
+g.addEdge(1180, 1179, 1);
+g.addEdge(1181, 1179, 1);
+g.addEdge(1182, 1179, 1);
+g.addEdge(1182, 1183, 1);
+g.addEdge(1182, 1184, 1);
+g.addEdge(1185, 1184, 1);
+g.addEdge(1185, 1186, 1);
+g.addEdge(1187, 1186, 1);
+g.addEdge(1188, 1186, 1);
+g.addEdge(1189, 1186, 1);
+g.addEdge(1189, 1190, 1);
+g.addEdge(1189, 1191, 1);
+g.addEdge(1192, 1191, 1);
+g.addEdge(1192, 1193, 1);
+g.addEdge(1194, 1193, 1);
+g.addEdge(1195, 1191, 1);
+g.addEdge(1195, 1196, 1);
+g.addEdge(1195, 1197, 1);
+g.addEdge(1198, 1197, 1);
+g.addEdge(1199, 1197, 1);
+g.addEdge(1199, 1200, 1);
+g.addEdge(1199, 1201, 1);
+g.addEdge(1199, 1202, 1);
+g.addEdge(1203, 1202, 1);
+g.addEdge(1204, 1202, 1);
 for(let i = 0; i<=99; i++){
     g.setNodeBuilding(i,"science2ndFloor");
 }
@@ -1124,6 +1180,12 @@ for(let i =950; i<=980; i++){
 }
 for(let i =1000; i<=1030; i++){
     g.setNodeBuilding(i,"main5thFloor");
+}
+for(let i =1080; i<=1090; i++){
+    g.setNodeBuilding(i,"main6thFloor");
+}
+for(let i =1160; i<=1210; i++){
+    g.setNodeBuilding(i,"CHTMEDS5thFloor");
 }
 for(let i =420; i<=480; i++){
     g.setNodeBuilding(i,"scienceGroundFloor");
