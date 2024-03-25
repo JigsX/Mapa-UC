@@ -18,7 +18,10 @@ import CHTMEDS4thFloorPlan from './assets/CHTMEDS4thFloorPlan.png';
 import CHTMEDS5thFloorPlan from './assets/CHTMEDS5thFloorPlan.png';
 import CHTMEDS6thFloorPlan from './assets/CHTMEDS6thFloorPlan.png';
 import CHTMEDS7thFloorPlan from './assets/CHTMEDS7thFloorPlan.png';
+import CHTMEDS8thFloorPlan from './assets/CHTMEDS8thFloorPlan.png';
+import CHTMEDS9thFloorPlan from './assets/CHTMEDS9thFloorPlan.png';
 import EDS3rdFloorPlan from './assets/EDS3rdFloorPlan.png';
+import CHTM10thFloorPlan from './assets/CHTM10thFloorPlan.png';
 import main4thFloorPlan from './assets/Main4thFloorPlan.png';
 import main5thFloorPlan from './assets/Main5thFloorPlan.png';
 import main6thFloorPlan from './assets/Main6thFloorPlan.png';
@@ -241,8 +244,17 @@ function TextInput({ style }) {
         else if(floorName === 'CHTMEDS7thFloor'){
             addImageOverlay(CHTMEDS7thFloorPlan);
         }
+        else if(floorName === 'CHTMEDS8thFloor'){
+            addImageOverlay(CHTMEDS8thFloorPlan);
+        }
+        else if(floorName === 'CHTMEDS9thFloor'){
+            addImageOverlay(CHTMEDS9thFloorPlan);
+        }
         else if(floorName === 'EDS3rdFloor'){
             addImageOverlay(EDS3rdFloorPlan);
+        }
+        else if(floorName === 'CHTM10thFloor'){
+            addImageOverlay(CHTM10thFloorPlan);
         }
         else if(floorName === "BRS1stFloor"){
             addImageOverlay(BRS1stFloor);
@@ -829,8 +841,17 @@ function TextInput({ style }) {
         else if(buildingName == "CHTMEDS7thFloor") {
             setCurrentFloor("EDS 7th Floor, CHTM Building 7th Floor");
         }
+        else if(buildingName == "CHTMEDS8thFloor") {
+            setCurrentFloor("EDS 8th Floor, CHTM Building 8th Floor");
+        }
+        else if(buildingName == "CHTMEDS9thFloor") {
+            setCurrentFloor("EDS 9th Floor, CHTM Building 9th Floor");
+        }
         else if(buildingName == "EDS3rdFloor") {
             setCurrentFloor("EDS 3rd Floor");
+        }
+        else if(buildingName == "CHTM10thFloor") {
+            setCurrentFloor("CHTM 10th Floor");
         }
         
         else if(buildingName == "main4thFloor") {

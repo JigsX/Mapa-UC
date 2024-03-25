@@ -1295,6 +1295,86 @@ g.addEdge(1337, 1260, 1);
 g.addEdge(1362, 1284, 1);
 
 
+//EDS CHTM 8th Floor
+g.addEdge(1366, 1453, 1);
+g.addEdge(1330, 1410, 1);
+g.addEdge(1452, 1410, 1);
+g.addEdge(1452, 1411, 1);
+g.addEdge(1412, 1411, 1);
+g.addEdge(1412, 1413, 1);
+g.addEdge(1412, 1414, 1);
+g.addEdge(1412, 1415, 1);
+g.addEdge(1416, 1411, 1);
+g.addEdge(1416, 1417, 1);
+g.addEdge(1416, 1418, 1);
+g.addEdge(1419, 1418, 1);
+g.addEdge(1420, 1418, 1);
+g.addEdge(1420, 1421, 1);
+g.addEdge(1420, 1422, 1);
+g.addEdge(1423, 1422, 1);
+g.addEdge(1423, 1424, 1);
+g.addEdge(1425, 1424, 1);
+g.addEdge(1452, 1426, 1);
+g.addEdge(1427, 1426, 1);
+g.addEdge(1428, 1426, 1);
+g.addEdge(1428, 1429, 1);
+g.addEdge(1428, 1430, 1);
+g.addEdge(1428, 1431, 1);
+g.addEdge(1432, 1431, 1);
+g.addEdge(1433, 1431, 1);
+g.addEdge(1433, 1434, 1);
+g.addEdge(1435, 1434, 1);
+g.addEdge(1435, 1436, 1);
+g.addEdge(1435, 1437, 1);
+g.addEdge(1435, 1438, 1);
+g.addEdge(1453, 1438, 1);
+g.addEdge(1439, 1438, 1);
+g.addEdge(1439, 1440, 1);
+g.addEdge(1441, 1440, 1);
+g.addEdge(1442, 1441, 1);
+g.addEdge(1439, 1443, 1);
+g.addEdge(1444, 1443, 1);
+g.addEdge(1444, 1445, 1);
+g.addEdge(1444, 1454, 1);
+g.addEdge(1446, 1454, 1);
+g.addEdge(1455, 1454, 1);
+g.addEdge(1455, 1456, 1);
+g.addEdge(1455, 1447, 1);
+g.addEdge(1448, 1447, 1);
+g.addEdge(1449, 1447, 1);
+g.addEdge(1450, 1447, 1);
+g.addEdge(1451, 1450, 1);
+
+
+
+//EDS CHTM 9th Floor
+g.addEdge(1425, 1500, 1);
+g.addEdge(1442, 1515, 1);
+g.addEdge(1501, 1500, 1);
+g.addEdge(1501, 1502, 1);
+g.addEdge(1503, 1502, 1);
+g.addEdge(1504, 1502, 1);
+g.addEdge(1501, 1505, 1);
+g.addEdge(1506, 1505, 1);
+g.addEdge(1507, 1505, 1);
+g.addEdge(1507, 1508, 1);
+g.addEdge(1507, 1509, 1);
+g.addEdge(1510, 1511, 1);
+g.addEdge(1512, 1511, 1);
+g.addEdge(1512, 1513, 1);
+g.addEdge(1514, 1513, 1);
+g.addEdge(1516, 1513, 1);
+g.addEdge(1514, 1515, 1);
+g.addEdge(1517, 1516, 1);
+g.addEdge(1517, 1514, 1);
+g.addEdge(1517, 1518, 1);
+g.addEdge(1519, 1516, 1);
+g.addEdge(1519, 1520, 1);
+g.addEdge(1519, 1521, 1);
+g.addEdge(1519, 1522, 1);
+g.addEdge(1523, 1522, 1);
+g.addEdge(1524, 1522, 1);
+g.addEdge(1524, 1525, 1);
 
 //EDS 3rd Floor
 g.addEdge(1220, 1106, 1);
@@ -1322,6 +1402,14 @@ g.addEdge(1241, 1240, 1);
 g.addEdge(1242, 1240, 1);
 g.addEdge(1242, 1243, 1);
 g.addEdge(854, 1225, 1);
+
+//EDS 10th Floor
+g.addEdge(1600, 1510, 1);
+g.addEdge(1600, 1601, 1);
+g.addEdge(1602, 1601, 1);
+g.addEdge(1602, 1603, 1);
+g.addEdge(1604, 1603, 1);
+
 
 for(let i = 0; i<=99; i++){
     g.setNodeBuilding(i,"science2ndFloor");
@@ -1368,8 +1456,17 @@ for(let i =1260; i<=1320; i++){
 for(let i =1330; i<=1400; i++){
     g.setNodeBuilding(i,"CHTMEDS7thFloor");
 }
+for(let i =1410; i<=1480; i++){
+    g.setNodeBuilding(i,"CHTMEDS8thFloor");
+}
+for(let i =1500; i<=1550; i++){
+    g.setNodeBuilding(i,"CHTMEDS9thFloor");
+}
 for(let i =1220; i<=1250; i++){
     g.setNodeBuilding(i,"EDS3rdFloor");
+}
+for(let i =1600; i<=1650; i++){
+    g.setNodeBuilding(i,"EDS10thFloor");
 }
 for(let i =420; i<=480; i++){
     g.setNodeBuilding(i,"scienceGroundFloor");
