@@ -16,6 +16,8 @@ import science5thFloorPlan from './assets/Science5thFloorPlan.png';
 import science6thFloorPlan from './assets/Science6thFloorPlan.png';
 import CHTMEDS4thFloorPlan from './assets/CHTMEDS4thFloorPlan.png';
 import CHTMEDS5thFloorPlan from './assets/CHTMEDS5thFloorPlan.png';
+import CHTMEDS6thFloorPlan from './assets/CHTMEDS6thFloorPlan.png';
+import CHTMEDS7thFloorPlan from './assets/CHTMEDS7thFloorPlan.png';
 import EDS3rdFloorPlan from './assets/EDS3rdFloorPlan.png';
 import main4thFloorPlan from './assets/Main4thFloorPlan.png';
 import main5thFloorPlan from './assets/Main5thFloorPlan.png';
@@ -232,6 +234,12 @@ function TextInput({ style }) {
         }
         else if(floorName === 'CHTMEDS5thFloor'){
             addImageOverlay(CHTMEDS5thFloorPlan);
+        }
+        else if(floorName === 'CHTMEDS6thFloor'){
+            addImageOverlay(CHTMEDS6thFloorPlan);
+        }
+        else if(floorName === 'CHTMEDS7thFloor'){
+            addImageOverlay(CHTMEDS7thFloorPlan);
         }
         else if(floorName === 'EDS3rdFloor'){
             addImageOverlay(EDS3rdFloorPlan);
@@ -814,6 +822,12 @@ function TextInput({ style }) {
         }
         else if(buildingName == "CHTMEDS5thFloor") {
             setCurrentFloor("EDS 5th Floor, CHTM Building 5th Floor");
+        }
+        else if(buildingName == "CHTMEDS6thFloor") {
+            setCurrentFloor("EDS 6th Floor, CHTM Building 6th Floor");
+        }
+        else if(buildingName == "CHTMEDS7thFloor") {
+            setCurrentFloor("EDS 7th Floor, CHTM Building 7th Floor");
         }
         else if(buildingName == "EDS3rdFloor") {
             setCurrentFloor("EDS 3rd Floor");
