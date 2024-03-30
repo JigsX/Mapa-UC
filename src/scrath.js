@@ -1,9 +1,50 @@
-const findNodeById = (nodeId) => test.find((node) => node.id === nodeId);
-const test = [{ id: 1, desti: 2},{ id: 2, desti: 3, }]
-let a  = test[0].desti;
+if(isChoiceEnterFac){
+    if(selectedFacility === 'CR(MEN)' || selectedFacility === 'CR(WOMEN)' || selectedFacility === 'Gymnasium'){
+        getNodeValue(getBuilding(currentInputValue),currentInputValue)
+        .then(currentRoomNode =>{
+            path = computeDestPath(
+                "enterFindFacility",
+                currentRoomNode,
+                selectedFacility,
+                isUseElevatorChecked,
+                isEmergencyExitClicked
+            );
+            floor = findFloorInfo(
+                "enterFindFacility",
+                currentRoomNode,
+                selectedFacility,
+                isUseElevatorChecked,
+                isEmergencyExitClicked
+            );                   
+            connectBuildingNodes(floor);
+            getData();
 
-let kat = findNodeById(a);
+        })
+     }   
+    }
+    else{
+        getNodeValue(getBuilding(currentInputValue),currentInputValue)
+        .then(currentRoomNode =>{
+            getFacNodeValue(selectedFacility)
+            .then(facilitySelected =>{
+                path = computeDestPath(
+                    "enterFindFacility",
+                    currentRoomNode,
+                    facilitySelected,
+                    isUseElevatorChecked,
+                    isEmergencyExitClicked
+                );
+                floor = findFloorInfo(
+                    "enterFindFacility",
+                    currentRoomNode,
+                    facilitySelected,
+                    isUseElevatorChecked,
+                    isEmergencyExitClicked
+                );                   
+                connectBuildingNodes(floor);
+                getData();
+            })
+            
 
-
-console.log(kat.desti);
-
+        })
+     } 

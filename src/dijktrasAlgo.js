@@ -186,7 +186,7 @@ g.setNodeCategory(141,'CR(WOMEN)');
 g.setNodeCategory(164,'CR(WOMEN)');
 g.setNodeCategory(226,'CR(WOMEN)');
 g.setNodeCategory(47,'CR(WOMEN)');
-g.setNodeCategory(1,'CEA: Faculty Office');
+g.setNodeCategory(1,'CEA Faculty Office');
 g.setNodeCategory(487,'Gymnasium');
 
 
@@ -781,6 +781,7 @@ g.addEdge(779, 778, 1);
 g.addEdge(772, 513, 1);
 
 //Main 2nd Floor
+g.setNodeCategory(864, "elevator")
 g.addEdge(827, 88, 1);
 g.addEdge(756, 800, 1);
 g.addEdge(801, 800, 1);
@@ -848,8 +849,25 @@ g.addEdge(858, 859, 1);
 g.addEdge(858, 861, 1);
 g.addEdge(862, 861, 1);
 
+//CHTM ELEVATORS
+g.addEdge(1142, 1198, 1); //4 1142 //5 1198
+g.addEdge(1290, 1198, 1); // 6 1290
+g.addEdge(1290, 1370, 1); // 7 1370
+g.addEdge(1446, 1370, 1); // 8 1446
+g.addEdge(1446, 1521, 1);  // 9 1521
+g.addEdge(1604, 1521, 1);  // 10 1604
 
-//BRS ELEVATOR
+
+//EDS ELEVATORS
+g.addEdge(864, 1234, 1); // 2 864
+g.addEdge(1116, 1234, 1); // 3 1234
+g.addEdge(1116, 1165, 1); // 4 1116 // 5 1165
+g.addEdge(1276, 1165, 1); // 6 1276
+g.addEdge(1276, 1346, 1); // 7 1346
+g.addEdge(1419, 1346, 1); // 8 1419
+g.addEdge(1419, 1506, 1); // 9 1506
+
+//BRS ELEVATORS
 g.addEdge(143, 113, 1);
 g.addEdge(166, 113, 1);
 g.addEdge(166, 195, 1);
@@ -1110,6 +1128,8 @@ g.addEdge(1059, 1056, 1);
 g.addEdge(1059, 1060, 1);
 
 //CHTM EDS 6TH FLOOR
+g.setNodeCategory(1290, "elevator");
+g.setNodeCategory(1276, "elevator");
 g.addEdge(1260, 1261, 1);
 g.addEdge(1262, 1261, 1);
 g.addEdge(1262, 1263, 1);
@@ -1146,6 +1166,8 @@ g.addEdge(1194, 1289, 1);
 
 
 //CHTM EDS 5TH FLOOR
+g.setNodeCategory(1198, "elevator");
+g.setNodeCategory(1165, "elevator");
 g.addEdge(1160, 1024, 1);
 g.addEdge(1160, 1161, 1);
 g.addEdge(1162, 1161, 1);
@@ -1193,6 +1215,8 @@ g.addEdge(1203, 1202, 1);
 g.addEdge(1204, 1202, 1);
 
 //CHTM EDS 4TH FLOOR
+g.setNodeCategory(1142, "elevator");
+g.setNodeCategory(1116, "elevator");
 g.addEdge(1100, 1102, 1);
 g.addEdge(1103, 1102, 1);
 g.addEdge(1104, 1102, 1);
@@ -1234,7 +1258,7 @@ g.addEdge(1190, 1149, 1);
 g.addEdge(1135, 1138, 1);
 g.addEdge(1139, 1138, 1);
 g.addEdge(1139, 1140, 1);
-g.addEdge(1139, 1141, 1);
+g.addEdge(1138, 1141, 1);
 g.addEdge(1142, 1141, 1);
 g.addEdge(1143, 1141, 1);
 g.addEdge(1143, 1144, 1);
@@ -1245,6 +1269,8 @@ g.addEdge(1147, 1148, 1);
 g.addEdge(1122, 1174, 1);
 
 //EDS CHTM 7th Floor
+g.setNodeCategory(1370, "elevator");
+g.setNodeCategory(1346, "elevator");
 g.addEdge(1330, 1331, 1);
 g.addEdge(1332, 1331, 1);
 g.addEdge(1332, 1333, 1);
@@ -1259,7 +1285,7 @@ g.addEdge(1341, 1339, 1);
 g.addEdge(1341, 1339, 1);
 g.addEdge(1338, 1343, 1);
 g.addEdge(1344, 1343, 1);
-g.addEdge(1344, 1345, 1);
+g.addEdge(1343, 1345, 1);
 g.addEdge(1346, 1345, 1);
 g.addEdge(1347, 1345, 1);
 g.addEdge(1347, 1348, 1);
@@ -1296,6 +1322,8 @@ g.addEdge(1362, 1284, 1);
 
 
 //EDS CHTM 8th Floor
+g.setNodeCategory(1446, "elevator");
+g.setNodeCategory(1419, "elevator");
 g.addEdge(1366, 1453, 1);
 g.addEdge(1330, 1410, 1);
 g.addEdge(1452, 1410, 1);
@@ -1348,6 +1376,8 @@ g.addEdge(1451, 1450, 1);
 
 
 //EDS CHTM 9th Floor
+g.setNodeCategory(1506, "elevator");
+g.setNodeCategory(1521, "elevator");
 g.addEdge(1425, 1500, 1);
 g.addEdge(1442, 1515, 1);
 g.addEdge(1501, 1500, 1);
@@ -1377,6 +1407,7 @@ g.addEdge(1524, 1522, 1);
 g.addEdge(1524, 1525, 1);
 
 //EDS 3rd Floor
+g.setNodeCategory(1234, "elevator");
 g.addEdge(1220, 1106, 1);
 g.addEdge(1220, 1221, 1);
 g.addEdge(1222, 1221, 1);
@@ -1404,6 +1435,7 @@ g.addEdge(1242, 1243, 1);
 g.addEdge(854, 1225, 1);
 
 //EDS 10th Floor
+g.setNodeCategory(1604, "elevator");
 g.addEdge(1600, 1510, 1);
 g.addEdge(1600, 1601, 1);
 g.addEdge(1602, 1601, 1);

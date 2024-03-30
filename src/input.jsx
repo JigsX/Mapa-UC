@@ -39,6 +39,7 @@ import BRS8thFloor from './assets/BRS8thFloorPlan.png';
 import BRS9thFloor from './assets/BRS9thFloorPlan.png';
 import BRS10thFloor from './assets/BRS10thFloorPlan.png';
 import buildingNodes from './buildingNodes';
+import { suggestionArray } from './SuggestBoxs';
 //import getInfo from './firebaseIni';
 
 import { initializeApp } from "firebase/app";
@@ -368,6 +369,41 @@ function TextInput({ style }) {
                     case 9:
                     connectBuildingNodes('BRS9thFloor');
                     break;
+                    case 10:
+                    connectBuildingNodes('BRS10thFloor');
+                    break;
+                    default:
+                        break;
+                }
+            }else if(building === 'EDS' ||building === 'CHTM' ){
+                switch (choice) {
+                    case 2:
+                        connectBuildingNodes('main2ndFloor');
+                        break;
+                    case 3:
+                        connectBuildingNodes('EDS3rdFloor');
+                        break;
+                    case 4:
+                        connectBuildingNodes('CHTMEDS4thFloor');
+                        break;
+                    case 5:
+                        connectBuildingNodes('CHTMEDS5thFloor');
+                        break;
+                    case 6:
+                        connectBuildingNodes('CHTMEDS6thFloor');
+                        break;
+                    case 7:
+                        connectBuildingNodes('CHTMEDS7thFloor');
+                        break;
+                    case 8:
+                        connectBuildingNodes('CHTMEDS8thFloor');
+                        break;
+                    case 9:
+                        connectBuildingNodes('CHTMEDS9thFloor');
+                        break;
+                    case 10:
+                        connectBuildingNodes('EDS10thFloor');
+                        break;
                     default:
                         break;
                 }
@@ -436,7 +472,17 @@ function TextInput({ style }) {
                 let elevatorNodes;
                 if(node.elevatorBuilding==='BRS'){
                     elevatorNodes = [{id: 1, node: 143},{id: 2, node: 113},{id: 3, node: 166},{id: 4, node: 195},{id: 5, node: 224},{id: 6, node: 239},{id: 7, node: 264}
-                        ,{id: 8, node: 289},{id: 9, node: 314}, {id: 10, node: 1046}]
+                        ,{id: 8, node: 289},{id: 9, node: 314}, {id: 10, node: 1046}];
+                }
+                else if(node.elevatorBuilding==='EDS'){
+                    elevatorNodes = [{id: 2, node: 864},{id:3,node:1234},{id:4, node: 1116},{id:5, node: 1165},{id:6, node:1276}, {id: 7, node: 1346}
+                                    , {id:8,node:1419}, {id:9, node: 1506}
+                    ];
+                }
+                else if(node.elevatorBuilding==='CHTM'){
+                    elevatorNodes = [{id: 4, node: 1142}, {id:5, node:1198}, {id:6, node: 1290}, {id:7, node: 1370}, {id:8, node:1446},
+                                    {id:9,node:1521},{id:10,node: 1604}
+                    ];
                 }
                 marker.on('click', () => {
 
@@ -452,7 +498,7 @@ function TextInput({ style }) {
                     let buttonDiv = document.createElement('div');
             
                     // Create buttons for choices 1 to 5
-                    for (let i = 1; i <= elevatorNodes.length; i++) {
+                    for (let i = elevatorNodes[0].id; i <= elevatorNodes[elevatorNodes.length-1].id; i++) {
                         let button = document.createElement('button');
                         button.textContent = i;
                         button.addEventListener('click', () => {
@@ -643,7 +689,7 @@ function TextInput({ style }) {
         polyline.addTo(map);
     };
     
-    const suggestions = ["S123", "S214", "S215", "S216", "S217", "S218", "S219", "S220"];
+    const suggestions = suggestionArray();
 
     const handleCurrentInputChange = (event) => {
         const { value } = event.target;
@@ -704,6 +750,7 @@ function TextInput({ style }) {
             });
         };
         
+        
         const getBuilding = (roomName) =>{
             if(roomName[0].toLowerCase() === 's'){
                 return 'Science';
@@ -711,7 +758,22 @@ function TextInput({ style }) {
                 return 'BRS';
             }
             else if(roomName[0].toLowerCase() === 'g'){
-                return 'PE';
+                if(roomName.toLowerCase() ==='gate 3'){
+                    return 'BRS'
+                }
+                else if(roomName.toLowerCase() ==='gate 1'){
+                    return 'Main'
+                }
+                else if(roomName.toLowerCase() ==='gate 2'){
+                    return 'EDS'
+                }
+                else if(roomName.toLowerCase() ==='gate 6'){
+                    return 'Science'
+                }
+                else{
+                    return 'PE';
+                }
+               
             }
             else if(roomName[0].toLowerCase() === 'm'){
                 return 'Main';
@@ -752,8 +814,8 @@ function TextInput({ style }) {
         
         }
         if(isChoiceEnterFac){
-            console.log("dest:",isChoiceEnterDest);
-            getNodeValue(getBuilding(currentInputValue),currentInputValue)
+                console.log("HAHAHAHA");
+                getNodeValue(getBuilding(currentInputValue),currentInputValue)
                 .then(currentRoomNode =>{
                     path = computeDestPath(
                         "enterFindFacility",
@@ -773,13 +835,11 @@ function TextInput({ style }) {
                     getData();
 
                 })
-    
+             }   
             
-
-
+            
         }
-        
-    }
+            
 
     const filteredCurrentSuggestions = suggestions.filter(suggestion =>
         suggestion.toLowerCase().indexOf(currentInputValue.toLowerCase()) !== -1
@@ -1008,7 +1068,7 @@ function TextInput({ style }) {
                                     <option>Select Facility</option>
                                     <option>CR(WOMEN)</option>
                                     <option>CR(MEN)</option>
-                                    <option>CEA: Faculty Office</option>
+                                    <option>CEA Faculty Office</option>
                                     <option>Gymnasium</option>
                                 </select>
                             </span>
