@@ -188,7 +188,7 @@ g.setNodeCategory(5,'CTE Faculty Office');
 g.setNodeCategory(4,'CTE Dean Office');
 g.setNodeCategory(46,'CR(MEN)');
 g.setNodeCategory(47,'CR(WOMEN)');
-g.setNodeCategory(47,'Student Dev&Welfare Office');
+g.setNodeCategory(15,'Student Dev&Welfare Office');
 g.setNodeCategory(56,'CR(WOMEN)');
 g.setNodeCategory(1,'CEA Faculty Office');
 
@@ -208,7 +208,7 @@ g.setNodeCategory(498,'Crime Scene Lab');
 g.setNodeCategory(496,'Phychological Testing Unit');
 g.setNodeCategory(494,'The Alternatives');
 g.setNodeCategory(492,'University Student Council');
-g.setNodeCategory(504,'Wellness Center');
+g.setNodeCategory(559,'Wellness Center');
 g.setNodeCategory(487,'Gymnasium');
 
 //facilty s PE 4th
@@ -221,21 +221,151 @@ g.setNodeCategory(665,'CR(WOMEN)');
 g.setNodeCategory(664,'CR(MEN)');
 g.setNodeCategory(657,'Architecture & Fine Arts Extension Office');
 
+//Facility s PE 5th
+g.setNodeCategory(921,'CR(WOMEN)');
+g.setNodeCategory(923,'CR(MEN)');
+g.setNodeCategory(911,'Office of Student Walfare Service');
+
+//Facility s PE 6th
+g.setNodeCategory(967,'Academic Director Office & Faculty Office');
+
+//Facility Main 2nd 
+g.setNodeCategory(822,'CR(WOMEN)');
+g.setNodeCategory(821,'CR(MEN)');
+g.setNodeCategory(830,'Dental Clinic');
+g.setNodeCategory(808,'COA Consultation');
+g.setNodeCategory(804,'COA Faculty Office');
+g.setNodeCategory(806,'COA Faculty Extension Office');
+g.setNodeCategory(862,'Building & Maintenance Office');
+g.setNodeCategory(825,'Simulation Room');
+
+//facility main 3rd
+g.setNodeCategory(758,'CITCS Faculty Office');
+g.setNodeCategory(754,'Multi-Media Room');
+g.setNodeCategory(771,'CR(WOMEN)');
+g.setNodeCategory(769,'CR(MEN)');
+
+//facility main 4th
+g.setNodeCategory(728,'CR(WOMEN)');
+g.setNodeCategory(729,'CR(MEN)');
+g.setNodeCategory(725,'Disbursing Office');
+g.setNodeCategory(720,'Accounting Office');
+g.setNodeCategory(716,'Vice-President for Administration Office');
+g.setNodeCategory(705,'BOT-HQ');
+g.setNodeCategory(714,'Registrar');
+g.setNodeCategory(722,'EVP Office');
+g.setNodeCategory(724,'President Office');
+
 //Facility Main 5th
 g.setNodeCategory(1007,'Main Library');
 g.setNodeCategory(1014,'Marketing Communications & Enrollment');
 g.setNodeCategory(1015,'Human Resources dev. Office');
 g.setNodeCategory(1018,'Legal Office');
 
+//Facility Main 6th
+g.setNodeCategory(1084,'Theater');
+
+//facility EDS 3rd
+g.setNodeCategory(1236,'CR(WOMEN)');
+g.setNodeCategory(1241,'CR(MEN)');
+g.setNodeCategory(1231,'CYPRESS');
+g.setNodeCategory(1230,'CITCS Open Lab');
+
+//facility EDS CHTM 4th
+g.setNodeCategory(1118,'CR(WOMEN)');
+g.setNodeCategory(1127,'CR(MEN)');
+g.setNodeCategory(1109,'CAS Faculty Office');
+g.setNodeCategory(1112,'CAS Dean Office');
+g.setNodeCategory(1114,'Cashier');
+g.setNodeCategory(1103,'Regiatrar Extension');
+g.setNodeCategory(1132,'Alumni Office');
+g.setNodeCategory(1134,'Medical Clinic');
+g.setNodeCategory(1140,'Occupational Safety & Health Office');
+g.setNodeCategory(1148,'TRIBU');
+g.setNodeCategory(1144,'CR(MEN)');
+g.setNodeCategory(1146,'Vice-President for Academic & Research');
+
+//Facility EDS CHTM 5th 
+g.setNodeCategory(1162,'CR(WOMEN)');
+g.setNodeCategory(1183,'CR(MEN)');
+g.setNodeCategory(1200,'CR(WOMEN)');
+g.setNodeCategory(1170,'CON Faculty Office');
+g.setNodeCategory(1172,'Graduate Program Library/Theses and Dissertations');
+
+//facilty EDS CHTM 6th
+g.setNodeCategory(1278,'CR(WOMEN)');
+g.setNodeCategory(1283,'CR(MEN)');
+g.setNodeCategory(1291,'Web & Graphics');
+g.setNodeCategory(1292,'Public Affairs Office');
 
 
-g.setNodeCategory(241,'CR(MEN)');
+//facility EDS CHTM 7th
+g.setNodeCategory(1348,'CR(WOMEN)');
+g.setNodeCategory(1355,'CR(MEN)');
+g.setNodeCategory(1349,'KAPATIRAN');
+g.setNodeCategory(1350,'CON Cosultation Room');
+g.setNodeCategory(1373,'CR(WOMEN)');
+
+//Facilit EDS CHTM 8th
+g.setNodeCategory(1421,'CR(WOMEN)');
+g.setNodeCategory(1432,'CR(MEN)');
+g.setNodeCategory(1415,'Health Center');
+g.setNodeCategory(1445,'CHTM Faculty Office');
+g.setNodeCategory(1448,'CBA Admin Staff/Faculty Office');
+g.setNodeCategory(1451,'CBA Consultation Room');
+g.setNodeCategory(1449,'CBA Dean Office');
+g.setNodeCategory(1456,'CR(WOMEN)');
+
+//Facilty EDS CHTM 9th Floor
+g.setNodeCategory(1509,'CR(WOMEN)');
+g.setNodeCategory(1508,'CR(MEN)');
+g.setNodeCategory(1504,'Sanctuary');
+g.setNodeCategory(1503,'Auditorium');
+
+//facillity EDS 10th Floor
+g.setNodeCategory(1603,'Canao Hall');
+
+// Fac BRS 1
+g.setNodeCategory(135,'MassCom E-Laboratory');
+g.setNodeCategory(141,'CR(WOMEN)');
+
+//fac BRS 2
 g.setNodeCategory(111,'CR(MEN)');
+
+//fac BRS 3
+g.setNodeCategory(164,'CR(WOMEN)');
+g.setNodeCategory(160,'CITCS Multi-Media Room');
+
+//fac BRS 4
 g.setNodeCategory(191,'CR(MEN)');
 
-g.setNodeCategory(141,'CR(WOMEN)');
-g.setNodeCategory(164,'CR(WOMEN)');
+//fac BRS 5 
 g.setNodeCategory(226,'CR(WOMEN)');
+g.setNodeCategory(220,'General Collection Library');
+
+
+//fac BRS 6
+g.setNodeCategory(241,'CR(MEN)');
+g.setNodeCategory(245,'COL Faculty Office');
+g.setNodeCategory(242,'COL Library');
+
+
+//fac BRS 7
+g.setNodeCategory(268,'CR(WOMEN)');
+
+//fac BRS 8
+g.setNodeCategory(293,'CR(MEN)');
+
+//fac BRS 9
+g.setNodeCategory(318,'CR(WOMEN)');
+
+//fac BRS 10
+g.setNodeCategory(1061,'CR(MEN)');
+
+
+
+
+
 
 
 
@@ -357,7 +487,7 @@ g.addEdge(398, 396, 1);
 g.addEdge(398, 399, 1);
 g.addEdge(398, 400, 1);
 g.addEdge(401, 400, 1);
-g.addEdge(4014, 400, 1); 
+g.addEdge(414, 400, 1); 
 g.addEdge(414, 415, 1); 
 g.addEdge(414, 410, 1); 
 g.addEdge(403, 410, 1); 
@@ -671,7 +801,7 @@ g.addEdge(624, 206, 1);
 
 //science 5th Floor 
 g.addEdge(638, 906, 1);
-g.addEdge(929, 654, 1);
+g.addEdge(927, 654, 1);
 g.addEdge(662, 890, 1);
 g.addEdge(891, 890, 1);
 g.addEdge(891, 892, 1);
@@ -890,18 +1020,19 @@ g.addEdge(842, 841, 1);
 g.addEdge(842, 843, 1);
 g.addEdge(842, 844, 1);
 g.addEdge(845, 844, 1);
-g.addEdge(845, 846, 1);
+g.addEdge(845, 846, 5);
 g.addEdge(847, 844, 1);
 g.addEdge(847, 848, 1);
 g.addEdge(847, 849, 1);
 g.addEdge(850, 849, 1);
 g.addEdge(851, 849, 1);
+g.addEdge(851, 855, 1);
 g.addEdge(851, 852, 1);
 g.addEdge(853, 852, 1);
 g.addEdge(853, 854, 1);
 g.addEdge(856, 855, 1);
 g.addEdge(857, 855, 1);
-g.addEdge(857, 846, 1);
+g.addEdge(857, 846, 5);
 g.addEdge(858, 855, 1);
 g.addEdge(858, 859, 1);
 g.addEdge(858, 861, 1);
@@ -1500,6 +1631,13 @@ g.addEdge(1602, 1601, 1);
 g.addEdge(1602, 1603, 1);
 g.addEdge(1604, 1603, 1);
 
+//main ground floor
+g.addEdge(1700, 1701, 1);
+g.addEdge(1702, 1701, 1);
+g.addEdge(1702, 86, 1);
+
+
+
 
 for(let i = 0; i<=99; i++){
     g.setNodeBuilding(i,"science2ndFloor");
@@ -1591,7 +1729,9 @@ for(let i =305; i<=330; i++){
 for(let i =1040; i<=1070; i++){
     g.setNodeBuilding(i,"BRS10thFloor");
 }
-
+for(let i =1700; i<=1710; i++){
+    g.setNodeBuilding(i,"mainGroundFloor");
+}
 
 
 

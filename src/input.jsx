@@ -27,6 +27,7 @@ import main5thFloorPlan from './assets/Main5thFloorPlan.png';
 import main6thFloorPlan from './assets/Main6thFloorPlan.png';
 import main3rdFloorPlan from './assets/Main3rdFloorPlan.png';
 import main2ndFloorPlan from './assets/Main2ndFloorPlan.png';
+import mainGroundFloorPlan from './assets/MainGroundFloorPlan.png';
 import leaveButtonLogo from './assets/leaveButton.png'; 
 import BRS1stFloor from './assets/BRS1stFloorPlan.png';
 import BRS2ndFloor from './assets/BRS2ndFloorPlan.png'; 
@@ -218,6 +219,9 @@ function TextInput({ style }) {
         else if(floorName === 'main2ndFloor'){
             addImageOverlay(main2ndFloorPlan);
         }
+        else if(floorName === 'mainGroundFloor'){
+            addImageOverlay(mainGroundFloorPlan);
+        }
         else if(floorName === 'science4thFloor'){
             addImageOverlay(science4thFloorPlan);
         }
@@ -402,7 +406,7 @@ function TextInput({ style }) {
                         connectBuildingNodes('CHTMEDS9thFloor');
                         break;
                     case 10:
-                        connectBuildingNodes('EDS10thFloor');
+                        connectBuildingNodes('CHTM10thFloor');
                         break;
                     default:
                         break;
@@ -761,7 +765,7 @@ function TextInput({ style }) {
                 if(roomName.toLowerCase() ==='gate 3'){
                     return 'BRS'
                 }
-                else if(roomName.toLowerCase() ==='gate 1'){
+                else if(roomName.toLowerCase() ==='gate 1' || roomName.toLowerCase() ==='gate 5'){
                     return 'Main'
                 }
                 else if(roomName.toLowerCase() ==='gate 2'){
@@ -925,6 +929,9 @@ function TextInput({ style }) {
         }
         else if(buildingName == "main3rdFloor") {
             setCurrentFloor("Main Building 3rd Floor");
+        }
+        else if(buildingName == "mainGroundFloor") {
+            setCurrentFloor("Main Building Ground Floor");
         }
         else if(buildingName == "main2ndFloor") {
             setCurrentFloor("Main Building 2nd Floor, EDS Building 2nd Floor");
@@ -1095,47 +1102,47 @@ function TextInput({ style }) {
                                     <option>Marketing Communications & Enrollment</option>
                                     <option>Human Resources dev. Office</option>
                                     <option>Legal Office</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
+                                    <option>Office of Student Walfare Service</option>
+                                    <option>Academic Director Office & Faculty Office</option>
+                                    <option>Dental Clinic</option>
+                                    <option>COA Consultation</option>
+                                    <option>COA Faculty Office</option>
+                                    <option>COA Faculty Extension Office</option>
+                                    <option>Building & Maintenance Office</option>
+                                    <option>Simulation Room</option>
+                                    <option>Disbursing Office</option>
+                                    <option>Accounting Office</option>
+                                    <option>Vice-President for Administration Office</option>
+                                    <option>BOT-HQ</option>
+                                    <option>Registrar</option>
+                                    <option>EVP Office</option>
+                                    <option>President Office</option>
+                                    <option>Theater</option>
+                                    <option>CYPRESS</option>
+                                    <option>CITCS Open Lab</option>
+                                    <option>CAS Faculty Office</option>
+                                    <option>CAS Dean Office</option>
+                                    <option>Cashier</option>
+                                    <option>Regiatrar Extension</option>
+                                    <option>Alumni Office</option>
+                                    <option>Medical Clinic</option>
+                                    <option>Occupational Safety & Health Office</option>
+                                    <option>TRIBU</option>
+                                    <option>Vice-President for Academic & Research</option>
+                                    <option>CON Faculty Office</option>
+                                    <option>Graduate Program Library/Theses and Dissertations</option>
+                                    <option>Web & Graphics</option>
+                                    <option>Public Affairs Office</option>
+                                    <option>KAPATIRAN</option>
+                                    <option>CON Cosultation Room</option>
+                                    <option>Health Center</option>
+                                    <option>CHTM Faculty Office</option>
+                                    <option>CBA Admin Staff/Faculty Office</option>
+                                    <option>CBA Consultation Room</option>
+                                    <option>CBA Dean Office</option>
+                                    <option>Sanctuary</option>
+                                    <option>Auditorium</option>
+                                    <option>Canao Hall</option>
                                     <option>Student Lounge</option>
                                     <option>Student Lounge</option>
                                     <option>Student Lounge</option>
