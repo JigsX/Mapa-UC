@@ -177,17 +177,68 @@ const V = 10000;
 const g = new Graph(V);
 
 
+//Facility S PE 1st
+g.setNodeCategory(378,'CR(MEN)');
+g.setNodeCategory(379,'CR(WOMEN)');
+g.setNodeCategory(381,'Logistic Management Office');
+g.setNodeCategory(400,'Student Lounge');
+
+//facility s PE 2nd
+g.setNodeCategory(5,'CTE Faculty Office');
+g.setNodeCategory(4,'CTE Dean Office');
 g.setNodeCategory(46,'CR(MEN)');
+g.setNodeCategory(47,'CR(WOMEN)');
+g.setNodeCategory(47,'Student Dev&Welfare Office');
+g.setNodeCategory(56,'CR(WOMEN)');
+g.setNodeCategory(1,'CEA Faculty Office');
+
+//facility s PE 3rd
+g.setNodeCategory(530,'CR(WOMEN)');
+g.setNodeCategory(531,'CR(MEN)');
+g.setNodeCategory(515,'ITSS/MIS');
+g.setNodeCategory(507,'Research Service Office');
+g.setNodeCategory(483,'ETEEAP');
+g.setNodeCategory(543,'Creative Production Office');
+g.setNodeCategory(547,'LMO Storage Room');
+g.setNodeCategory(551,'Female Shower/Dressing Room');
+g.setNodeCategory(555,'Male Shower/Dressing Room');
+g.setNodeCategory(557,'CR(MEN)');
+g.setNodeCategory(504,'Firing Range');
+g.setNodeCategory(498,'Crime Scene Lab');
+g.setNodeCategory(496,'Phychological Testing Unit');
+g.setNodeCategory(494,'The Alternatives');
+g.setNodeCategory(492,'University Student Council');
+g.setNodeCategory(504,'Wellness Center');
+g.setNodeCategory(487,'Gymnasium');
+
+//facilty s PE 4th
+g.setNodeCategory(619,'Office of Quality Assurance');
+g.setNodeCategory(617,'Office of Student Affairs & Services');
+g.setNodeCategory(648,'CR(WOMEN)');
+g.setNodeCategory(676,'CR(WOMEN)');
+g.setNodeCategory(678,'CR(MEN)');
+g.setNodeCategory(665,'CR(WOMEN)');
+g.setNodeCategory(664,'CR(MEN)');
+g.setNodeCategory(657,'Architecture & Fine Arts Extension Office');
+
+//Facility Main 5th
+g.setNodeCategory(1007,'Main Library');
+g.setNodeCategory(1014,'Marketing Communications & Enrollment');
+g.setNodeCategory(1015,'Human Resources dev. Office');
+g.setNodeCategory(1018,'Legal Office');
+
+
+
 g.setNodeCategory(241,'CR(MEN)');
 g.setNodeCategory(111,'CR(MEN)');
 g.setNodeCategory(191,'CR(MEN)');
-g.setNodeCategory(56,'CR(WOMEN)');
+
 g.setNodeCategory(141,'CR(WOMEN)');
 g.setNodeCategory(164,'CR(WOMEN)');
 g.setNodeCategory(226,'CR(WOMEN)');
-g.setNodeCategory(47,'CR(WOMEN)');
-g.setNodeCategory(1,'CEA Faculty Office');
-g.setNodeCategory(487,'Gymnasium');
+
+
+
 
 
 //science ground Floor
@@ -561,7 +612,14 @@ g.addEdge(625, 623, 1);
 g.addEdge(625, 626, 1);
 g.addEdge(625, 627, 1);
 g.addEdge(628, 627, 1);
-g.addEdge(629, 627, 1);
+g.addEdge(675, 627, 1);
+g.addEdge(675, 676, 1);
+g.addEdge(675, 677, 1);
+g.addEdge(678, 677, 1);
+g.addEdge(629, 677, 1);
+
+
+
 g.addEdge(629, 737, 1);
 g.addEdge(629, 631, 1);
 g.addEdge(632, 631, 1);
@@ -597,7 +655,7 @@ g.addEdge(663, 665, 1);
 g.addEdge(658, 660, 1);
 g.addEdge(661, 660, 1);
 g.addEdge(661, 662, 1);
-g.addEdge(656, 666, 1);
+g.addEdge(656, 666, 1); 
 g.addEdge(667, 666, 1);
 g.addEdge(668, 666, 1);
 g.addEdge(668, 669, 1);

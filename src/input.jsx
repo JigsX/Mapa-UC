@@ -1070,6 +1070,88 @@ function TextInput({ style }) {
                                     <option>CR(MEN)</option>
                                     <option>CEA Faculty Office</option>
                                     <option>Gymnasium</option>
+                                    <option>Logistic Management Office</option>
+                                    <option>Student Lounge</option>
+                                    <option>CTE Faculty Office</option>
+                                    <option>CTE Dean Office</option>
+                                    <option>Student Dev&Welfare Office</option>
+                                    <option>ITSS/MIS</option>
+                                    <option>Research Service Office</option>
+                                    <option>ETEEAP</option>
+                                    <option>Creative Production Office</option>
+                                    <option>LMO Storage Room</option>
+                                    <option>Female Shower/Dressing Room</option>
+                                    <option>Male Shower/Dressing Room</option>
+                                    <option>Firing Range</option>
+                                    <option>Crime Scene Lab</option>
+                                    <option>Phychological Testing Unit</option>
+                                    <option>The Alternatives</option>
+                                    <option>University Student Council</option>
+                                    <option>Wellness Center</option>
+                                    <option>Office of Quality Assurance</option>
+                                    <option>Office of Student Affairs & Services</option>
+                                    <option>Architecture & Fine Arts Extension Office</option>
+                                    <option>Main Library</option>
+                                    <option>Marketing Communications & Enrollment</option>
+                                    <option>Human Resources dev. Office</option>
+                                    <option>Legal Office</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
+                                    <option>Student Lounge</option>
                                 </select>
                             </span>
 
