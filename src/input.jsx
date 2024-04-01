@@ -552,7 +552,7 @@ function TextInput({ style }) {
                         const userRef = ref(database, building);
                         onValue(userRef, (snapshot) => {
                             const data = snapshot.val();
-                            for(let i=1; i<=50; i++){
+                            for(let i=1; i<=35; i++){
                                 if (data && data[floor] && data[floor].length > 0) {
                                     if(data[floor][i].node === node){
                                         const name = data[floor][i].roomID;
@@ -577,7 +577,7 @@ function TextInput({ style }) {
                         const userRef = ref(database, building);
                         onValue(userRef, (snapshot) => {
                             const data = snapshot.val();
-                            for(let i=1; i<=50; i++){
+                            for(let i=1; i<=35; i++){
                                 if (data && data[floor] && data[floor].length > 0) {
                                     if(data[floor][i].node === node){
                                         const cathegory = data[floor][i].cat;
@@ -729,7 +729,7 @@ function TextInput({ style }) {
                     const data = snapshot.val();
                     
                     for (let i = 0; i < floors.length; i++) {
-                        for (let j = 1; j <= 50; j++) { // Adjusted loop condition
+                        for (let j = 1; j <= 35; j++) { // Adjusted loop condition
                             if (data && data[floors[i]] && data[floors[i]][j]) {
                                 if (data[floors[i]][j].roomID === input.toLowerCase() || data[floors[i]][j].roomID === input.toUpperCase()) {
                                     let nodeID = data[floors[i]][j].node;
@@ -1143,22 +1143,7 @@ function TextInput({ style }) {
                                     <option>Sanctuary</option>
                                     <option>Auditorium</option>
                                     <option>Canao Hall</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
-                                    <option>Student Lounge</option>
+
                                 </select>
                             </span>
 

@@ -184,7 +184,7 @@ function buildingNodes(buildingName) {
     if (buildingName == "scienceGroundFloor") {
         nodes = [
             { id: 420, lat: 6.645, lon: 1.32,label: 'leaveButton',  destination: 'science1stFloor', desti: 347 },
-            { id: 421, lat: 6.76, lon: 1.32,}, 
+            { id: 421, lat: 6.76, lon: 1.32,}, { lat: 7, lon: 1.28, title: 'classRoom',building:'Science', floor:'Ground Floor',node: 421, },
             { id: 422, lat: 6.76, lon: 0.99,},
             { id: 425, lat: 5.5, lon: 0.99,},
             { id: 424, lat: 5.5, lon: 0.85,}, { lat: 5.5, lon: 0.3, title: 'classRoom',building:'Science', floor:'Ground Floor',node: 424,label: 'classroomLogo' },
@@ -495,7 +495,7 @@ function buildingNodes(buildingName) {
             { id: 703, lat: 5.1, lon: 7.45,},
             { id: 704, lat: 5.1, lon: 7.6,},
             { id: 705, lat: 4.74, lon: 7.6,}, {lat: 4, lon: 7.9, title: 'classRoom',building:'Main', floor:'4th Floor',node: 705,label: 'classroomLogo' },
-            { id: 706, lat: 5.1, lon: 9,},
+            { id: 706, lat: 5.1, lon: 9,}, {lat: 5.1, lon: 9.1, title: 'classRoom',building:'Main', floor:'4th Floor',node: 706, },
             { id: 707, lat: 5.1, lon: 6.98,},
             { id: 708, lat: 6.9, lon: 6.98,},
             { id: 709, lat: 6.9, lon: 6.5,},
@@ -704,7 +704,7 @@ function buildingNodes(buildingName) {
     }
     else if (buildingName == "CHTMEDS4thFloor") {
         nodes = [
-            { id: 1100, lat: 7.7, lon: 2.6,},
+            { id: 1100, lat: 7.7, lon: 2.6,},  { lat: 7.8, lon: 2.6, title: 'classRoom',building:'EDS', floor:'4th Floor',node: 1100, },
             { id: 1102, lat: 6.9, lon: 2.6,},
             { id: 1103, lat: 6.9, lon: 2.06,},  { lat: 6.9, lon: 1.4, title: 'classRoom',building:'EDS', floor:'4th Floor',node: 1103,label: 'classroomLogo' },
             { id: 1104, lat: 4.95, lon: 2.6,},
@@ -1252,7 +1252,7 @@ function buildingNodes(buildingName) {
     }
     else if (buildingName == "mainGroundFloor") {
         nodes = [
-            { id: 1700, lat: 5.1, lon: 0.7,},
+            { id: 1700, lat: 5.1, lon: 0.7,},{  lat: 5.1, lon: 0.5, title: 'classRoom',building:'Main', floor:'Ground Floor',node: 1700, },
             { id: 1701, lat: 5.1, lon: 2.2,},
             { id: 1702, lat: 6.2, lon: 2.2,label: 'leaveButton',destination: 'science2ndFloor', desti: 86},
             
