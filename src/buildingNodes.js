@@ -183,7 +183,7 @@ function buildingNodes(buildingName) {
     }
     if (buildingName == "scienceGroundFloor") {
         nodes = [
-            { id: 420, lat: 6.645, lon: 1.32,label: 'leaveButton',  destination: 'science1stFloor', desti: 347 },
+            { id: 420, lat: 6.645, lon: 1.32,label: 'leaveButton',  destination: 'science1stFloor', desti: 347, direction: 'up' },
             { id: 421, lat: 6.76, lon: 1.32,}, { lat: 7, lon: 1.28, title: 'classRoom',building:'Science', floor:'Ground Floor',node: 421, },
             { id: 422, lat: 6.76, lon: 0.99,},
             { id: 425, lat: 5.5, lon: 0.99,},

@@ -41,6 +41,8 @@ import BRS9thFloor from './assets/BRS9thFloorPlan.png';
 import BRS10thFloor from './assets/BRS10thFloorPlan.png';
 import buildingNodes from './buildingNodes';
 import { suggestionArray } from './SuggestBoxs';
+import upArrowLogo from './assets/UpArrow.png';
+import downArrowLogo from './assets/DownArrow.png';
 //import getInfo from './firebaseIni';
 
 import { initializeApp } from "firebase/app";
@@ -420,11 +422,20 @@ function TextInput({ style }) {
         
         if(Object.prototype.hasOwnProperty.call(node, "label")){
             const marker = L.marker([node.lat, node.lon]).addTo(map);
-            
+            let leaveButton;
             if (node.label === 'leaveButton') {
+                if(node.direction==='up'){
+                    leaveButton = upArrowLogo;
+                }
+                else if(node.direction==='down'){
+                    leaveButton = downArrowLogo;
+                }
+                else{
+                    leaveButton = leaveButtonLogo;
+                }
                 marker.bindPopup(`Node ${node.id}`);
                 marker.setIcon(L.icon({
-                    iconUrl: leaveButtonLogo,
+                    iconUrl: leaveButton,
                     iconSize: [20, 20],
                     iconAnchor: [16, 16],
                     popupAnchor: [0, -16]
