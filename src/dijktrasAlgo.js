@@ -1728,8 +1728,8 @@ for(let i =280; i<=300; i++){
 for(let i =305; i<=330; i++){
     g.setNodeBuilding(i,"BRS9thFloor");
 }
-for(let i =1040; i<=1070; i++){
-    g.setNodeBuilding(i,"BRS10thFloor");
+for(let i =1600; i<=1670; i++){
+    g.setNodeBuilding(i,"CHTM10thFloor");
 }
 for(let i =1700; i<=1710; i++){
     g.setNodeBuilding(i,"mainGroundFloor");
