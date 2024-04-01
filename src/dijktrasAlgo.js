@@ -960,12 +960,14 @@ g.addEdge(768, 770, 1);
 g.addEdge(771, 770, 1);
 g.addEdge(772, 770, 1);
 g.addEdge(773, 767, 1);
-g.addEdge(774, 767, 1);
+g.addEdge(774, 773, 1);
 g.addEdge(773, 775, 1);
 g.addEdge(776, 775, 1);
+g.addEdge(776, 833, 1);
 g.addEdge(777, 775, 1);
 g.addEdge(777, 778, 1);
 g.addEdge(779, 778, 1);
+g.addEdge(779, 731, 1);
 g.addEdge(772, 513, 1);
 
 //Main 2nd Floor
