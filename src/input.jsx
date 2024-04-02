@@ -731,82 +731,54 @@ function TextInput({ style }) {
     const clickHandle = (event) => {
 
         event.preventDefault();
-        const getNodeValue = (building,input) => {
+        const getNodeValue = (input) => {
             return new Promise((resolve, reject) => {
-                const floors = ['Ground Floor','1st Floor', '2nd Floor','3rd Floor','4th Floor','5th Floor','6th Floor','7th Floor',
+                const buildings = ['BRS','Science','EDS','Main','PE','CHTM'];
+                for(let k=0; k<buildings.length; k++){
+                    const floors = ['Ground Floor','1st Floor', '2nd Floor','3rd Floor','4th Floor','5th Floor','6th Floor','7th Floor',
                                 '8th Floor','9th Floor', '10th Floor'];
-                const userRef = ref(database, building);
-                onValue(userRef, (snapshot) => {
-                    const data = snapshot.val();
-                    
-                    for (let i = 0; i < floors.length; i++) {
-                        for (let j = 1; j <= 35; j++) { // Adjusted loop condition
-                            if (data && data[floors[i]] && data[floors[i]][j]) {
-                                if (data[floors[i]][j].roomID === input.toLowerCase() || data[floors[i]][j].roomID === input.toUpperCase()) {
-                                    let nodeID = data[floors[i]][j].node;
-                                    console.log(nodeID);
-                                    resolve(nodeID); // Resolve the promise if 'S213' found
-                                    return; // Exit function after resolving the promise
+                    const userRef = ref(database, buildings[k]);
+                    onValue(userRef, (snapshot) => {
+                        const data = snapshot.val();
+                        
+                        for (let i = 0; i < floors.length; i++) {
+                            for (let j = 1; j <= 35; j++) { // Adjusted loop condition
+                                if (data && data[floors[i]] && data[floors[i]][j]) {
+                                    if (data[floors[i]][j].roomID.toLowerCase() === input.toLowerCase() || data[floors[i]][j].roomID.toUpperCase() === input.toUpperCase()
+                                        || data[floors[i]][j].cat.toLowerCase() === input.toLowerCase() || data[floors[i]][j].cat.toUpperCase() === input.toUpperCase()) {
+                                        let nodeID = data[floors[i]][j].node;
+                                        console.log("Node: ",data[floors[i]][j].node,"Cat: ",data[floors[i]][j].cat);
+                                        resolve(nodeID); // Resolve the promise if 'S213' found
+                                        return; // Exit function after resolving the promise
+                                    }
+                                    else{
+                                        console.log('wala data');
+                                    }
                                 }
                                 else{
-                                    console.log('wala data');
+                                    console.log('sa ',data[floors[i]][j] ,'wala');
                                 }
                             }
-                            else{
-                                console.log('wala data2');
-                            }
                         }
-                    }
-                    // Resolve with a message if 'S213' not found
-                    resolve("Room not found");
-                }, (error) => {
-                    reject(error); // Reject promise in case of error
-                });
+                        // Resolve with a message if 'S213' not found
+                        
+                    }, (error) => {
+                        reject(error); // Reject promise in case of error
+                    });
+                }
+                
             });
         };
         
         
-        const getBuilding = (roomName) =>{
-            if(roomName[0].toLowerCase() === 's'){
-                return 'Science';
-            }else if(roomName[0].toLowerCase() === 'u'){
-                return 'BRS';
-            }
-            else if(roomName[0].toLowerCase() === 'g'){
-                if(roomName.toLowerCase() ==='gate 3'){
-                    return 'BRS'
-                }
-                else if(roomName.toLowerCase() ==='gate 1' || roomName.toLowerCase() ==='gate 5'){
-                    return 'Main'
-                }
-                else if(roomName.toLowerCase() ==='gate 2'){
-                    return 'EDS'
-                }
-                else if(roomName.toLowerCase() ==='gate 6'){
-                    return 'Science'
-                }
-                else{
-                    return 'PE';
-                }
-               
-            }
-            else if(roomName[0].toLowerCase() === 'm'){
-                return 'Main';
-            }
-            else if(roomName[0].toLowerCase() === 'n'){
-                return 'EDS';
-            }
-            else if(roomName[0].toLowerCase() === 'f'){
-                return 'CHTM';
-            }
-        };
+        
         if(isChoiceEnterDest){
             console.log("fac:",isChoiceEnterFac);
-                getNodeValue(getBuilding(currentInputValue),currentInputValue)
+                getNodeValue(currentInputValue)
                 .then(currentRoomNode =>{
-                    getNodeValue(getBuilding(destinationInputValue),destinationInputValue)
+                    getNodeValue(destinationInputValue)
                     .then(DestiRoomNode =>{ 
-                        console.log(DestiRoomNode);
+                        console.log('tagmga',DestiRoomNode);
                         path = computeDestPath(
                             "enterDestination",
                             String(currentRoomNode),
@@ -830,7 +802,7 @@ function TextInput({ style }) {
         }
         if(isChoiceEnterFac){
                 console.log("HAHAHAHA");
-                getNodeValue(getBuilding(currentInputValue),currentInputValue)
+                getNodeValue(currentInputValue)
                 .then(currentRoomNode =>{
                     path = computeDestPath(
                         "enterFindFacility",
@@ -1086,71 +1058,8 @@ function TextInput({ style }) {
                                     <option>Select Facility</option>
                                     <option>CR(WOMEN)</option>
                                     <option>CR(MEN)</option>
-                                    <option>CEA Faculty Office</option>
                                     <option>Gymnasium</option>
-                                    <option>Logistic Management Office</option>
                                     <option>Student Lounge</option>
-                                    <option>CTE Faculty Office</option>
-                                    <option>CTE Dean Office</option>
-                                    <option>Student Dev&Welfare Office</option>
-                                    <option>ITSS/MIS</option>
-                                    <option>Research Service Office</option>
-                                    <option>ETEEAP</option>
-                                    <option>Creative Production Office</option>
-                                    <option>LMO Storage Room</option>
-                                    <option>Female Shower/Dressing Room</option>
-                                    <option>Male Shower/Dressing Room</option>
-                                    <option>Firing Range</option>
-                                    <option>Crime Scene Lab</option>
-                                    <option>Phychological Testing Unit</option>
-                                    <option>The Alternatives</option>
-                                    <option>University Student Council</option>
-                                    <option>Wellness Center</option>
-                                    <option>Office of Quality Assurance</option>
-                                    <option>Office of Student Affairs & Services</option>
-                                    <option>Architecture & Fine Arts Extension Office</option>
-                                    <option>Main Library</option>
-                                    <option>Marketing Communications & Enrollment</option>
-                                    <option>Human Resources dev. Office</option>
-                                    <option>Legal Office</option>
-                                    <option>Office of Student Walfare Service</option>
-                                    <option>Academic Director Office & Faculty Office</option>
-                                    <option>Dental Clinic</option>
-                                    <option>COA Consultation</option>
-                                    <option>COA Faculty Office</option>
-                                    <option>COA Faculty Extension Office</option>
-                                    <option>Building & Maintenance Office</option>
-                                    <option>Simulation Room</option>
-                                    <option>Disbursing Office</option>
-                                    <option>Accounting Office</option>
-                                    <option>Vice-President for Administration Office</option>
-                                    <option>BOT-HQ</option>
-                                    <option>Registrar</option>
-                                    <option>EVP Office</option>
-                                    <option>President Office</option>
-                                    <option>Theater</option>
-                                    <option>CYPRESS</option>
-                                    <option>CITCS Open Lab</option>
-                                    <option>CAS Faculty Office</option>
-                                    <option>CAS Dean Office</option>
-                                    <option>Cashier</option>
-                                    <option>Regiatrar Extension</option>
-                                    <option>Alumni Office</option>
-                                    <option>Medical Clinic</option>
-                                    <option>Occupational Safety & Health Office</option>
-                                    <option>TRIBU</option>
-                                    <option>Vice-President for Academic & Research</option>
-                                    <option>CON Faculty Office</option>
-                                    <option>Graduate Program Library/Theses and Dissertations</option>
-                                    <option>Web & Graphics</option>
-                                    <option>Public Affairs Office</option>
-                                    <option>KAPATIRAN</option>
-                                    <option>CON Cosultation Room</option>
-                                    <option>Health Center</option>
-                                    <option>CHTM Faculty Office</option>
-                                    <option>CBA Admin Staff/Faculty Office</option>
-                                    <option>CBA Consultation Room</option>
-                                    <option>CBA Dean Office</option>
                                     <option>Sanctuary</option>
                                     <option>Auditorium</option>
                                     <option>Canao Hall</option>
