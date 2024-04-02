@@ -1083,16 +1083,7 @@ function TextInput({ style }) {
 
                                         
 
-                                        <div className={`CheckboxDiv ${isEmergencyExitClicked ? 'clicked' : ''}`} onClick={handleCheckboxEmergencyExitClick}>
-                                            <input
-                                                type="checkbox"
-                                                className='checkbox'
-                                                id="emer"
-                                                checked={isUseEmergencyExitChecked}
-                                                onChange={() => {}}
-                                            />
-                                            <img src={emergencyExit} className="checkbox-image" alt="Elevator Logo" />
-                                        </div>
+                                        
                                     </div>            
                                         
                                     <div >
