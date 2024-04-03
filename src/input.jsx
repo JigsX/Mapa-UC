@@ -43,6 +43,7 @@ import buildingNodes from './buildingNodes';
 import { suggestionArray } from './SuggestBoxs';
 import upArrowLogo from './assets/UpArrow.png';
 import downArrowLogo from './assets/DownArrow.png';
+import instructions from './assets/instructions.png'
 //import getInfo from './firebaseIni';
 
 import { initializeApp } from "firebase/app";
@@ -960,13 +961,33 @@ function TextInput({ style }) {
 
     
 
+    const [isOpen, setIsOpen] = useState(false);
 
+    // Function to toggle the popup
+    const togglePopup = () => {
+      setIsOpen(!isOpen);
+    };
 
 
 
     return (
         
         <div style={style} ref={inputRef}>
+            <div>
+      {/* Button to trigger the popup */}
+      
+
+      {/* Popup container */}
+      {isOpen && (
+        <div className="popup-container">
+          {/* Popup content */}
+          <div className="popup-content">
+            <span className="exit-button" onClick={togglePopup}>X</span>
+            <img src={instructions} alt="Placeholder Image" />
+          </div>
+        </div>
+      )}
+    </div>
             <div id='reader' style={{display: qrCodeScanner? 'block':'none'}}></div>
             <div id='result'></div>
             <div className="sticky-div">
@@ -1099,16 +1120,21 @@ function TextInput({ style }) {
                             
                     </form>
                 </div>
+                <button onClick={togglePopup} className="direction">Instructions/Legends</button>
                 <div className='currentPosition' style={{}}>
                     <h4 style={{
                         textAlign:'center', margin: '5px', opacity:'0.6',borderRadius:'60px'
                     }}
-                    > {currentFloor}</h4>
+                    > {currentFloor}
+                    
+                    </h4>
                 </div>
             </div>
             
             
-            <div id="map" style={{ width: '100%', height: '1000px' }}></div>
+            <div id="map" style={{ width: '100%', height: '1000px' }}>
+                
+            </div>
         </div>
     );
 }
