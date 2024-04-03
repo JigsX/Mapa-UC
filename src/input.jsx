@@ -878,28 +878,28 @@ function TextInput({ style }) {
             setCurrentFloor("Science Building 6th Floor, PE Building 6th Floor");
         }
         else if(buildingName == "CHTMEDS4thFloor") {
-            setCurrentFloor("EDS 4th Floor, CHTM Building 4th Floor");
+            setCurrentFloor("EDS Building 4th Floor, CHTM Building 4th Floor");
         }
         else if(buildingName == "CHTMEDS5thFloor") {
-            setCurrentFloor("EDS 5th Floor, CHTM Building 5th Floor");
+            setCurrentFloor("EDS Building 5th Floor, CHTM Building 5th Floor");
         }
         else if(buildingName == "CHTMEDS6thFloor") {
-            setCurrentFloor("EDS 6th Floor, CHTM Building 6th Floor");
+            setCurrentFloor("EDS Building 6th Floor, CHTM Building 6th Floor");
         }
         else if(buildingName == "CHTMEDS7thFloor") {
-            setCurrentFloor("EDS 7th Floor, CHTM Building 7th Floor");
+            setCurrentFloor("EDS Building 7th Floor, CHTM Building 7th Floor");
         }
         else if(buildingName == "CHTMEDS8thFloor") {
-            setCurrentFloor("EDS 8th Floor, CHTM Building 8th Floor");
+            setCurrentFloor("EDS Building 8th Floor, CHTM Building 8th Floor");
         }
         else if(buildingName == "CHTMEDS9thFloor") {
-            setCurrentFloor("EDS 9th Floor, CHTM Building 9th Floor");
+            setCurrentFloor("EDS Building 9th Floor, CHTM Building 9th Floor");
         }
         else if(buildingName == "EDS3rdFloor") {
-            setCurrentFloor("EDS 3rd Floor");
+            setCurrentFloor("EDS Building 3rd Floor");
         }
         else if(buildingName == "CHTM10thFloor") {
-            setCurrentFloor("CHTM 10th Floor");
+            setCurrentFloor("CHTM Building 10th Floor");
         }
         
         else if(buildingName == "main4thFloor") {
@@ -971,26 +971,31 @@ function TextInput({ style }) {
 
 
     return (
+
         
         <div style={style} ref={inputRef}>
             <div>
-      {/* Button to trigger the popup */}
-      
+                {/* Button to trigger the popup */}
+                
 
-      {/* Popup container */}
-      {isOpen && (
-        <div className="popup-container">
-          {/* Popup content */}
-          <div className="popup-content">
-            <span className="exit-button" onClick={togglePopup}>X</span>
-            <img src={instructions} alt="Placeholder Image" />
-          </div>
-        </div>
-      )}
-    </div>
+                {/* Popup container */}
+                {isOpen && (
+                    <div className="popup-container">
+                    {/* Popup content */}
+                    <div className="popup-content">
+                        <span className="exit-button" onClick={togglePopup}>X</span>
+                        <img src={instructions} alt="Placeholder Image" />
+                    </div>
+                    </div>
+                )}
+            </div>
+            
             <div id='reader' style={{display: qrCodeScanner? 'block':'none'}}></div>
             <div id='result'></div>
             <div className="sticky-div">
+                <div>
+                    <button onClick={togglePopup} className="direction">Instructions/Legends</button>
+                </div>
                 <div >
                     <select 
                             value={selectedDestination}
@@ -1120,7 +1125,7 @@ function TextInput({ style }) {
                             
                     </form>
                 </div>
-                <button onClick={togglePopup} className="direction">Instructions/Legends</button>
+                
                 <div className='currentPosition' style={{}}>
                     <h4 style={{
                         textAlign:'center', margin: '5px', opacity:'0.6',borderRadius:'60px'
