@@ -171,6 +171,8 @@ function TextInput({ style }) {
           const handleOutsideClick = () => {
                 setShowCurrentSuggestions(false);
                 setShowDestinationSuggestions(false);
+               
+
         };
 
         document.body.addEventListener('click', handleOutsideClick);
@@ -984,7 +986,7 @@ function TextInput({ style }) {
                     {/* Popup content */}
                     <div className="popup-content">
                         <span className="exit-button" onClick={togglePopup}>X</span>
-                        <img src={instructions} alt="Placeholder Image" />
+                        <img src={instructions} style={{}}alt="Placeholder Image" />
                     </div>
                     </div>
                 )}

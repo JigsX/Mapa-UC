@@ -239,55 +239,70 @@ button:focus {
 
 /* Style for popup container */
 .popup-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 9999;
-  overflow: hidden; /* Hide scrollbar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    overflow: hidden; /* Hide scrollbar */
 }
+
 /* Style for popup content */
 .popup-content {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  position: relative;
-  margin: 30%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    width: 80%; /* Set initial width */
+    max-width: 90%; /* Set maximum width */
+    max-height: 80%; /* Set maximum height */
+    overflow-y: auto; /* Enable vertical scrolling */
 }
 
 /* Style for exit button */
 .exit-button {
-  position: absolute;
-  top: 1%;
-  right: 1%;
-  cursor: pointer;
-  width: 30px;
-  height: 30px;
-  background-color: red;
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
+    position: fixed;
+    top: 10%; /* Adjust as needed */
+    right: 10%; /* Adjust as needed */
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
 }
 
 /* Style for image container */
 .image-container {
-  display: flex;
-  flex-direction: column; /* Display images vertically */
+    display: flex;
+    flex-direction: column; /* Display images vertically */
 }
 
 /* Style for individual images */
 .image-container img {
-  margin-bottom: 10px;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
+
+/* Responsive styles */
+@media only screen and (max-width: 600px) {
+    /* Adjust popup content width and positioning for mobile view */
+    .popup-content {
+        width: 90%;
+        max-width: 100%;
+        max-height: 90%;
+    }
+}
+
 
