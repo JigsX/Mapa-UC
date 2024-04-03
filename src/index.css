@@ -258,14 +258,14 @@ button:focus {
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   position: relative;
-  max-height: 80%; /* Set max height to allow scrolling */
+  margin: 30%;
 }
 
 /* Style for exit button */
 .exit-button {
   position: absolute;
   top: 1%;
-  right: 5%;
+  right: 1%;
   cursor: pointer;
   width: 30px;
   height: 30px;
