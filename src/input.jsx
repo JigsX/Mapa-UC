@@ -472,14 +472,21 @@ function TextInput({ style }) {
             }
             
             if (node.label === 'classroomLogo') {
-                let url = 'https://www.uc-bcf.edu.ph/college/of/engineering-and-architecture';
-                
+                let cea = 'https://www.uc-bcf.edu.ph/college/of/engineering-and-architecture';
+                let cte = 'https://www.uc-bcf.edu.ph/college/of/teacher-education';
                 // Set the width as a percentage of the popup's maximum width
+                let url = '';
+                if(node.node === 1){
+                    url = cea;
+                }else if(node.node === 5 ){
+                    url = cte;
+                }
+
                 let iframe = `<iframe src="${url}" width="250" height="300" style="overflow-x: auto; overflow-y: hidden; zoom: 1; margin: 100;"></iframe>`;
                 
                 // Bind the popup with the iframe content
                 
-                if(node.node ===1){
+                if(url!=''){
                     marker.bindPopup(iframe, {
                         maxWidth: 300, // Set maximum width for the popup
                         maxHeight: 200 // Set maximum height for the popup
