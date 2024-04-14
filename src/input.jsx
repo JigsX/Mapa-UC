@@ -472,31 +472,31 @@ function TextInput({ style }) {
             }
             
             if (node.label === 'classroomLogo') {
+                let dean = 'Engr. Dexter Hansel C. Apnoyan, MSCE';
                 const fruits = ['Computer Engineering', 'Civil Engineering', 'Environmental and Sanitary Engineering', 'Electronics Engineering',
                     'Mechatronics Engineering', 'Architecture'
                 ];
                 const fruitList = fruits.map(fruit => `<li>${fruit}</li>`).join('');
                 const contactInfo = `
                     <h3>Contact Information:</h3>
-                    <p>CEA: 09295061803 | 09776337047<br>
+                    <p>09295061803 | 09776337047<br>
                     cea@uc-bcf.edu.ph</p>
-                    <h4>HELPDESKS:</h4>
-                    <p>Registrar's office: 09293542239 | 09354952165<br>
-                    registrar@uc-bcf.edu.ph</p>
-                    <p>Accounting office: 09354952161<br>
-                    accounting@uc-bcf.edu.ph</p>
-                    <p>General Inquiries: 09976337034 | 09976336702<br>
-                    hei.enroll@uc-bcf.edu.ph</p>
+                    
                 `;
+
                 const photoUrl = CEALOGO;
                 const popupContent = `
                     <div class="popup-content">
                         <img src="${photoUrl}" style="max-width:30%; height:auto; margin: 0">
                         <h3>COLLEGE OF ENGINEERING AND ARCHITECTURE</h3>
                         <ul>${fruitList}</ul>
+                        <h3> Dean: </h3>
+                        ${dean} 
                         ${contactInfo}
                     </div>
                 `;
+
+                if(node.node === 1)
                 marker.bindPopup(popupContent, {
                     maxHeight: 200 // Set maximum height for the popup
                 });
