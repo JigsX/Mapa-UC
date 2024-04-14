@@ -44,6 +44,7 @@ import { suggestionArray } from './SuggestBoxs';
 import upArrowLogo from './assets/UpArrow.png';
 import downArrowLogo from './assets/DownArrow.png';
 import instructions from './assets/instructions.png'
+import CEALOGO from './assets/CEALOGO.png'
 //import getInfo from './firebaseIni';
 
 import { initializeApp } from "firebase/app";
@@ -85,10 +86,10 @@ function TextInput({ style }) {
     const [selectedFacility, setSelectedFacility] = useState('');
 
     const [qrCodeScanner, setQRCodeScanner]= useState(false);
+    
+    const [isInfoDivOpen, setIsInfoDivOpen] = useState(false);
+    
 
-    
-    
-    
     const getData = () => {
         
     }
@@ -171,6 +172,7 @@ function TextInput({ style }) {
           const handleOutsideClick = () => {
                 setShowCurrentSuggestions(false);
                 setShowDestinationSuggestions(false);
+                
                
 
         };
@@ -422,6 +424,7 @@ function TextInput({ style }) {
            
             
         }
+       
         
         if(Object.prototype.hasOwnProperty.call(node, "label")){
             const marker = L.marker([node.lat, node.lon]).addTo(map);
@@ -467,17 +470,42 @@ function TextInput({ style }) {
         
                 });
             }
+            
             if (node.label === 'classroomLogo') {
-                marker.bindPopup(`Node ${node.id}`);
+                const fruits = ['Computer Engineering', 'Civil Engineering', 'Engironmental and Sanitary Engineering', 'Electronics Engineering',
+                 'Mechatronics Engineering','Architecture'];
+                const fruitList = fruits.map(fruit => `<li>${fruit}</li>`).join('');
+                const contactInfo = `
+                    <h3>Contact Information:</h3>
+                    <p>CEA: 09295061803 | 09776337047<br>
+                    cea@uc-bcf.edu.ph</p>
+                    <h4>HELPDESKS:</h4>
+                    <p>Registrar's office: 09293542239 | 09354952165<br>
+                    registrar@uc-bcf.edu.ph</p>
+                    <p>Accounting office: 09354952161<br>
+                    accounting@uc-bcf.edu.ph</p>
+                    <p>General Inquiries: 09976337034 | 09976336702<br>
+                    hei.enroll@uc-bcf.edu.ph</p>
+                `;
+                const photoUrl = CEALOGO;
+                const popupContent = `
+                    <img src="${photoUrl}" style="max-width:30%; height:auto; margin: 0">
+                    <h3>COLLEGE OF ENGINEERING AND ARCHITECTURE</h3>
+                    <ul>${fruitList}</ul>
+                    ${contactInfo}
+                `;
+                marker.bindPopup(popupContent);
                 marker.setIcon(L.icon({
                     iconUrl: classroomLogo,
                     iconSize: [20, 20],
                     iconAnchor: [16, 16],
                     popupAnchor: [0, -16]
                 }));
-        
-                
-            }  
+            }
+            
+            
+            
+             
             
             if (node.label === 'elevator') {
                 marker.bindPopup(`Node ${node.id}`);
@@ -505,12 +533,32 @@ function TextInput({ style }) {
                 marker.on('click', () => {
 
                     let ElevatorTargetFloor;
+                    let ElevatorCurrentFloor;
                     for(let i = 0; i<path.length; i++){
                         for(let j = 0; j<elevatorNodes.length; j++){
                             if(path[i]===elevatorNodes[j].node){
                                 ElevatorTargetFloor = elevatorNodes[j].id;
                             }
                         }
+                    }
+                    console.log(path)
+                    let findCurrentFloor = false;
+                    for(let i = 0; i<path.length; i++){
+                        for(let j = 0; j<elevatorNodes.length; j++){
+
+                            
+                            if(path[i]===elevatorNodes[j].node){
+                                findCurrentFloor = true;
+                                ElevatorCurrentFloor = elevatorNodes[j].id;
+                                break;
+                            }
+                            
+                        }
+                        if(findCurrentFloor){
+                            break;
+                        }
+                        
+                        
                     }
                     // Create a div element to contain the buttons
                     let buttonDiv = document.createElement('div');
@@ -523,9 +571,13 @@ function TextInput({ style }) {
                             handleButtonClick(i,node.elevatorBuilding);
                         });
 
+                        if(i === ElevatorCurrentFloor){
+                            button.style.border = 'none';
+                        }
                         if(i === ElevatorTargetFloor){
                             button.style.backgroundColor = 'red';
                         }
+                        
                         
                         buttonDiv.appendChild(button);
                     }
@@ -976,11 +1028,11 @@ function TextInput({ style }) {
 
         
         <div style={style} ref={inputRef}>
-            <div>
-                {/* Button to trigger the popup */}
+            
                 
-
-                {/* Popup container */}
+            
+            <div>
+                
                 {isOpen && (
                     <div className="popup-container">
                     {/* Popup content */}
@@ -991,6 +1043,7 @@ function TextInput({ style }) {
                     </div>
                 )}
             </div>
+        
             
             <div id='reader' style={{display: qrCodeScanner? 'block':'none'}}></div>
             <div id='result'></div>
