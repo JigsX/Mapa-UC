@@ -494,7 +494,9 @@ function TextInput({ style }) {
                     <ul>${fruitList}</ul>
                     ${contactInfo}
                 `;
-                marker.bindPopup(popupContent);
+                marker.bindPopup(popupContent, {
+                    draggable: true // Enable dragging of the popup
+                });
                 marker.setIcon(L.icon({
                     iconUrl: classroomLogo,
                     iconSize: [20, 20],
