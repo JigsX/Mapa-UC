@@ -475,13 +475,13 @@ function TextInput({ style }) {
                 let url = 'https://www.uc-bcf.edu.ph/college/of/engineering-and-architecture';
                 
                 // Set the width as a percentage of the popup's maximum width
-                let iframe = `<iframe src="${url}" width="500" height="300" style="overflow-x: auto; overflow-y: hidden; zoom: 0.8;"></iframe>`;
+                let iframe = `<iframe src="${url}" width="400" height="300" style="overflow-x: auto; overflow-y: hidden; zoom: 0.8;"></iframe>`;
                 
                 // Bind the popup with the iframe content
                 
                 if(node.node ===1){
                     marker.bindPopup(iframe, {
-                        maxWidth: 500, // Set maximum width for the popup
+                        maxWidth: `100%`, // Set maximum width for the popup
                         maxHeight: 200 // Set maximum height for the popup
                     });
                 }
