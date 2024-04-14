@@ -481,7 +481,7 @@ function TextInput({ style }) {
                 
                 if(node.node ===1){
                     marker.bindPopup(iframe, {
-                        maxWidth: 600, // Set maximum width for the popup
+                        maxWidth: 500, // Set maximum width for the popup
                         maxHeight: 200 // Set maximum height for the popup
                     });
                 }
