@@ -472,34 +472,22 @@ function TextInput({ style }) {
             }
             
             if (node.label === 'classroomLogo') {
-                let dean = 'Engr. Dexter Hansel C. Apnoyan, MSCE';
-                const fruits = ['Computer Engineering', 'Civil Engineering', 'Environmental and Sanitary Engineering', 'Electronics Engineering',
-                    'Mechatronics Engineering', 'Architecture'
-                ];
-                const fruitList = fruits.map(fruit => `<li>${fruit}</li>`).join('');
-                const contactInfo = `
-                    <h3>Contact Information:</h3>
-                    <p>09295061803 | 09776337047<br>
-                    cea@uc-bcf.edu.ph</p>
-                    
-                `;
-
-                const photoUrl = CEALOGO;
-                const popupContent = `
-                    <div class="popup-content">
-                        <img src="${photoUrl}" style="max-width:30%; height:auto; margin: 0">
-                        <h3>COLLEGE OF ENGINEERING AND ARCHITECTURE</h3>
-                        <ul>${fruitList}</ul>
-                        <h3> Dean: </h3>
-                        ${dean} 
-                        ${contactInfo}
-                    </div>
-                `;
-
-                if(node.node === 1)
-                marker.bindPopup(popupContent, {
-                    maxHeight: 200 // Set maximum height for the popup
-                });
+                let url = 'https://www.uc-bcf.edu.ph/college/of/engineering-and-architecture';
+                
+                // Set the width as a percentage of the popup's maximum width
+                let iframe = `<iframe src="${url}" width="500" height="300" style="overflow-x: auto; overflow-y: hidden; zoom: 0.8;"></iframe>`;
+                
+                // Bind the popup with the iframe content
+                
+                if(node.node ===1){
+                    marker.bindPopup(iframe, {
+                        maxWidth: 600, // Set maximum width for the popup
+                        maxHeight: 200 // Set maximum height for the popup
+                    });
+                }
+                
+            
+                // Set icon for the marker
                 marker.setIcon(L.icon({
                     iconUrl: classroomLogo,
                     iconSize: [20, 20],
@@ -507,6 +495,11 @@ function TextInput({ style }) {
                     popupAnchor: [0, -16]
                 }));
             }
+            
+            
+            
+            
+            
             
             
             
