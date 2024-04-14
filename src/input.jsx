@@ -472,8 +472,9 @@ function TextInput({ style }) {
             }
             
             if (node.label === 'classroomLogo') {
-                const fruits = ['Computer Engineering', 'Civil Engineering', 'Engironmental and Sanitary Engineering', 'Electronics Engineering',
-                 'Mechatronics Engineering','Architecture'];
+                const fruits = ['Computer Engineering', 'Civil Engineering', 'Environmental and Sanitary Engineering', 'Electronics Engineering',
+                    'Mechatronics Engineering', 'Architecture'
+                ];
                 const fruitList = fruits.map(fruit => `<li>${fruit}</li>`).join('');
                 const contactInfo = `
                     <h3>Contact Information:</h3>
@@ -489,13 +490,15 @@ function TextInput({ style }) {
                 `;
                 const photoUrl = CEALOGO;
                 const popupContent = `
-                    <img src="${photoUrl}" style="max-width:30%; height:auto; margin: 0">
-                    <h3>COLLEGE OF ENGINEERING AND ARCHITECTURE</h3>
-                    <ul>${fruitList}</ul>
-                    ${contactInfo}
+                    <div class="popup-content">
+                        <img src="${photoUrl}" style="max-width:30%; height:auto; margin: 0">
+                        <h3>COLLEGE OF ENGINEERING AND ARCHITECTURE</h3>
+                        <ul>${fruitList}</ul>
+                        ${contactInfo}
+                    </div>
                 `;
                 marker.bindPopup(popupContent, {
-                    draggable: true // Enable dragging of the popup
+                    maxHeight: 200 // Set maximum height for the popup
                 });
                 marker.setIcon(L.icon({
                     iconUrl: classroomLogo,
@@ -504,6 +507,8 @@ function TextInput({ style }) {
                     popupAnchor: [0, -16]
                 }));
             }
+            
+            
             
             
             

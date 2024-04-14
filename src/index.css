@@ -363,3 +363,13 @@ button:focus {
     opacity: 1;
 }
 
+.popup-content {
+    max-height: 200px; /* Adjust according to your preference */
+    
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+.popup-content::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
