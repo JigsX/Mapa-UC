@@ -717,7 +717,7 @@ g.addEdge(565, 93, 1);
 g.addEdge(532, 155, 1);
 
 
-//Science 4th Floor
+//Science 4th Floor 
 g.addEdge(615, 480, 1);
 
 g.addEdge(610, 611, 1);
@@ -801,7 +801,7 @@ g.addEdge(624, 206, 1);
 
 //science 5th Floor 
 g.addEdge(638, 906, 1);
-g.addEdge(927, 654, 1);
+g.addEdge(927, 964, 1);
 g.addEdge(662, 890, 1);
 g.addEdge(891, 890, 1);
 g.addEdge(891, 892, 1);
@@ -811,7 +811,7 @@ g.addEdge(894, 895, 1);
 g.addEdge(894, 896, 1);
 g.addEdge(897, 896, 1);
 g.addEdge(891, 898, 1);
-g.addEdge(899, 898, 1);
+g.addEdge(899, 898, 1); 
 g.addEdge(900, 898, 1);
 g.addEdge(903, 904, 1);
 g.addEdge(905, 904, 1);
