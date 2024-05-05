@@ -39,7 +39,7 @@ function suggestionArray(){
         'G401','G402','G403','Combat Sports Gym','Office of Student Welfare Service',
         'G502','G503','G504','Academic Director Office & Faculty Room',
     
-        'S002','S003','S007','S009','S011','S013','S015','S017','S019','S022','S021','S016','S014','S012','S010','S008','S006','S004','OneStop School Items','Logistic Management Office','Student Lounge',
+        'S002','S003','S007','S009','S011','S013','S015','S017','S019','S022','S021','S016','S014','S012','S010','S008','S006','S004','OneStop School Items','Logistic Management Office','Student Lounge','BENSA Publishing',
         'S107','S111','S116','S118','S121','S123','S120','S117','S115','S114','S113','S113b','S122','S112','S109','S109','S108','S106',
         'S214','S213','S215','S216','S218','S243','S217','S220','S226','S227','S228','S229','S232','S238','S240','S242','S221','S225','S231','S233','S235','S237','S234','S236','S230','S224B','S224','S223','CEA Faculty Office','CpE Laboratory','CTE Dean Office','CTE faculty Office','CEA Computer Laboratory','Student Dev&Welfare office','Ideation Room',
         'S314','S316','S312','S311','S309','S310','S307','S319','S318','S320','S321','S322','S315','S313','Research Service Office','ETEEAP','ITSS/MIS','Printing Service',

@@ -375,6 +375,8 @@ g.setNodeCategory(1061,'CR(MEN)');
 g.addEdge(393, 466, 1);
 g.addEdge(420, 347, 1);
 g.addEdge(420, 421, 1);
+g.addEdge(4000, 421, 1);
+g.addEdge(4000, 3000, 1);
 g.addEdge(422, 421, 1);
 g.addEdge(422, 425, 1);
 g.addEdge(424, 425, 1);
@@ -430,6 +432,15 @@ g.addEdge(344, 343, 1);
 g.addEdge(344, 345, 1);
 g.addEdge(344, 346, 1);
 g.addEdge(347, 346, 1);
+
+g.addEdge(3008, 3000, 1);
+g.addEdge(3001, 3000, 1);
+g.addEdge(3001, 3002, 1);
+g.addEdge(3003, 3002, 1);
+g.addEdge(3003, 3007, 2000);
+g.addEdge(3006, 3007, 2000);
+g.addEdge(3006, 3005, 1);
+g.addEdge(3004, 3005, 1);
 g.addEdge(348, 346, 1);
 g.addEdge(348, 349, 1);
 g.addEdge(348, 350, 1);
@@ -600,9 +611,10 @@ g.addEdge(98, 91, 1);
 g.addEdge(92, 91, 1);
 g.addEdge(83, 90, 1);
 g.addEdge(83, 43, 1); 
+g.addEdge(38, 2000, 1); 
 
 
-//science 3rd Floor
+
 g.addEdge(486, 13, 1);
 g.addEdge(480, 481, 1);
 g.addEdge(482, 481, 1);
@@ -1637,6 +1649,9 @@ g.addEdge(1604, 1603, 1);
 g.addEdge(1700, 1701, 1);
 g.addEdge(1702, 1701, 1);
 g.addEdge(1702, 86, 1);
+g.addEdge(1700, 1703, 1);
+g.addEdge(1704, 1703, 1);
+g.addEdge(1704, 3004, 1);
 
 
 
@@ -1645,6 +1660,9 @@ for(let i = 0; i<=99; i++){
     g.setNodeBuilding(i,"science2ndFloor");
 }
 for(let i =340; i<=419; i++){
+    g.setNodeBuilding(i,"science1stFloor");
+}
+for(let i =3000; i<=3999; i++){
     g.setNodeBuilding(i,"science1stFloor");
 }
 for(let i =480; i<=600; i++){
