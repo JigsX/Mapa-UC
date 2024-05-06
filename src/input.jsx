@@ -425,7 +425,36 @@ function TextInput({ style }) {
             
         }
        
-        
+        const collegesLogoUrl = (Rnode) => {
+            return new Promise((resolve) => {
+                const buildings = ['BRS','Science','EDS','Main','PE','CHTM'];
+                const floors = ['Ground Floor','1st Floor', '2nd Floor','3rd Floor','4th Floor','5th Floor','6th Floor','7th Floor',
+                                '8th Floor','9th Floor', '10th Floor'];
+                for(let k=0; k<buildings.length; k++){
+                    
+                    const userRef = ref(database, buildings[k]);
+                    onValue(userRef, (snapshot) => {
+                        const data = snapshot.val();
+                        for (let i = 0; i < floors.length; i++) {
+                            for (let j = 1; j <= 35; j++) { 
+                                if(data[floors[i]][j].node === Number(Rnode)){
+                                    console.log(data[floors[i]][j],"BOBO");
+                                    resolve(data[floors[i]][j].cat);
+                                }
+                               
+                               
+                            }
+                        }
+                     
+                        
+                    }, () => {
+                        
+                    });
+                }
+                
+            });
+        };
+
         if(Object.prototype.hasOwnProperty.call(node, "label")){
             const marker = L.marker([node.lat, node.lon]).addTo(map);
             let leaveButton;
@@ -472,15 +501,37 @@ function TextInput({ style }) {
             }
             
             if (node.label === 'classroomLogo') {
-                let cea = 'https://www.uc-bcf.edu.ph/college/of/engineering-and-architecture';
-                let cte = 'https://www.uc-bcf.edu.ph/college/of/teacher-education';
+                const cea = 'https://www.uc-bcf.edu.ph/college/of/engineering-and-architecture';
+                const cte = 'https://www.uc-bcf.edu.ph/college/of/teacher-education';
+                const chtm = 'https://www.uc-bcf.edu.ph/college/of/hospitality-and-tourism-management';
+                const col = 'https://www.uc-bcf.edu.ph/college/of/law';
+                const citcs = 'https://www.uc-bcf.edu.ph/college/of/information-technology-and-computer-science';
+                const coa = 'https://www.uc-bcf.edu.ph/college/of/accountancy';
+                const cba = 'https://www.uc-bcf.edu.ph/college/of/business-administration';
+                const cas = 'https://www.uc-bcf.edu.ph/college/of/arts-and-sciences';
+                const con = 'https://www.uc-bcf.edu.ph/college/of/nursing';
                 // Set the width as a percentage of the popup's maximum width
                 let url = '';
                 if(node.node === 1){
                     url = cea;
                 }else if(node.node === 5 ){
                     url = cte;
+                }else if(node.node === 1445){
+                    url = chtm;
+                }else if(node.node === 245){
+                    url = col;
+                }else if(node.node === 758){
+                    url = citcs;
+                }else if(node.node === 804){
+                    url = coa;
+                }else if(node.node === 1448){
+                    url = cba;
+                }else if(node.node === 1109){
+                    url = cas;
+                }else if(node.node === 1170){
+                    url = con;
                 }
+                
 
                 let iframe = `<iframe src="${url}" width="250" height="300" style="overflow-x: auto; overflow-y: hidden; zoom: 1; margin: 100;"></iframe>`;
                 
@@ -492,15 +543,17 @@ function TextInput({ style }) {
                         maxHeight: 200 // Set maximum height for the popup
                     });
                 }
+
+
+                        marker.setIcon(L.icon({
+                            iconUrl: classroomLogo,
+                            iconSize: [20, 20],
+                            iconAnchor: [16, 16],
+                            popupAnchor: [0, -16]
+                        }));
+
+
                 
-            
-                // Set icon for the marker
-                marker.setIcon(L.icon({
-                    iconUrl: classroomLogo,
-                    iconSize: [20, 20],
-                    iconAnchor: [16, 16],
-                    popupAnchor: [0, -16]
-                }));
             }
             
             
@@ -699,12 +752,12 @@ function TextInput({ style }) {
                     
 
                 }).catch(error => {
-                    console.error("Error:", error);
+                    
                 }); 
 
             })
             .catch(error => {
-            console.error("Error:", error);
+            
             }); 
                     
                   
@@ -825,7 +878,7 @@ function TextInput({ style }) {
                         // Resolve with a message if 'S213' not found
                         
                     }, (error) => {
-                        reject(error); // Reject promise in case of error
+                       
                     });
                 }
                 

@@ -28,7 +28,7 @@ function suggestionArray(){
         'N9001','N9002','AUDITORIUM','Sanctuary',
     
         'M201','M202','M203','M203b','M204','M206','M208','M209','M210','M211','COA Consultation','COA Faculty Office','COA Faculty Extension Office','Dental Clinic','Simulation Room',
-        'M301','M302','M303','M304','M305','M306','M307','CITCS Office','Multi-Media Room',
+        'M301','M302','M303','M304','M305','M306','M307','CITCS Faculty Office','Multi-Media Room',
         'M401','M402','M403','M404','M405','M406','M407','M408','BOT-HQ','Registrar','Vice-President for Administration Office','Accounting Office','Disbursing Office',"President's Office","President's Office",'GATE 1',
         'M500','M501','M503','Main Library','Marketing Communications & Enrollment','Human Resources Dev. Office','THEATER',
         'M601',
