@@ -35,7 +35,7 @@ function suggestionArray(){
         'GATE 5',
     
         'G201','G202','G203','G204',
-        'G301','G308','G311','G312','G313','G314','G302','G303','G304','G305','G306','LMO Storage Room','Female Shower/Dressing Room','Male Shower/Dressing Room','Wellness Center','Dance Hall','Creative Production Office','Univeristy Student Council','The Alternatives','Physchological Testing Unit','Crime Scene Lab','Observation Room','Firing Range',
+        'G301','G308','G311','G312','G313','G314','G302','G303','G304','G305','G306','LMO Storage Room','Female Shower/Dressing Room','Male Shower/Dressing Room','Wellness Center','Dance Hall','Creative Production Office','Univeristy Student Council','The Alternatives','Physchological Testing Unit','NSTP/PE Office','Observation Room','Firing Range','Gymnasium',
         'G401','G402','G403','Combat Sports Gym','Office of Student Welfare Service',
         'G502','G503','G504','Academic Director Office & Faculty Room',
     

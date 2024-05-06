@@ -76,7 +76,7 @@ function buildingNodes(buildingName) {
             { id: 71, lat: 3.31, lon: 3.90,  }, { lat: 3, lon: 3.8, title: '',building:'PE', floor:'2nd Floor',node: 71,label: 'classroomLogo' },
             { id: 69, lat: 3.6, lon: 3.90,},
             { id: 70, lat: 3.83, lon: 3.90,  }, { lat: 4.4, lon: 3.84, title: 'classRoom',building:'Science', floor:'2nd Floor',node: 70,label: 'classroomLogo' },
-            { id: 73, lat: 3.24, lon: 3.33, label: 'leaveButton', destination: 'science1stFloor', desti: 408,direction: 'down' },
+            { id: 73, lat: 3.24, lon: 3.33, label: 'leaveButton', destination: 'science1stFloor', desti: 413,direction: 'down' },
             { id: 75, lat: 3.24, lon: 3.045,  },
             { id: 74, lat: 3.6, lon: 3.045,},
             { id: 72, lat: 3.6, lon: 3.33,}, 
@@ -184,7 +184,7 @@ function buildingNodes(buildingName) {
             { id: 412, lat: 2.4, lon: 3.67,  },
             { id: 413, lat: 2.55, lon: 3.67,label: 'leaveButton', destination: 'science2ndFloor', desti: 73,direction: 'up'  },
             { id: 414, lat: 3.45, lon: 3.67,  },
-            { id: 415, lat: 3.17, lon: 3.67,  },
+            { id: 415, lat: 3.17, lon: 3.67,  }, { lat: 2.8, lon: 3.67, title: 'classRoom',building:'PE', floor:'1st Floor',node: 415,label: 'classroomLogo' },
         
         ];
     }
@@ -250,7 +250,7 @@ function buildingNodes(buildingName) {
             { id: 484, lat: 6.47, lon: 3.15, },
             { id: 485, lat: 6.47, lon: 3.44, },
             { id: 486, lat: 7.05, lon: 3.44,label: 'leaveButton', destination: 'science2ndFloor', desti: 13,direction: 'down' },
-            { id: 487, lat: 6.47, lon: 3.65, },
+            { id: 487, lat: 6.47, lon: 3.65, }, { lat: 6, lon: 5.75,  title: 'classRoom',building:'PE', floor:'3rd Floor',node: 487,label: 'classroomLogo' },
             { id: 488, lat: 8, lon: 3.65, },
             { id: 489, lat: 8, lon: 3.73, }, { lat: 8, lon: 3.85, title: 'classRoom',building:'PE', floor:'3rd Floor',node: 489,label: 'classroomLogo' },
             { id: 490, lat: 8.4, lon: 3.65, },
