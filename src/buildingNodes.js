@@ -657,7 +657,7 @@ function buildingNodes(buildingName) {
             { id: 839, lat: 5.25, lon: 6.6,},
             { id: 840, lat: 5.25, lon: 6.75,},
             { id: 841, lat: 4.6, lon: 6.6,},
-            { id: 864, lat: 4.6, lon: 6.3,label: 'elevator',elevatorBuilding:'EDS'}, {lat: 4.7, lon: 5.75, title: 'classRoom',building:'Main', floor:'2nd Floor',node: 864 },
+            { id: 864, lat: 4.6, lon: 6.3,label: 'elevator',elevatorBuilding:'EDS'}, {lat: 4.7, lon: 5.75, title: 'classRoom',building:'EDS', floor:'2nd Floor',node: 864 },
             { id: 842, lat: 4.25, lon: 6.6,},
             { id: 843, lat: 4.25, lon: 6.75,}, { lat: 4.4, lon: 7.3, title: 'classRoom',building:'EDS', floor:'2nd Floor',node: 843,label: 'classroomLogo' },
             { id: 844, lat: 3.95, lon: 6.6,},
