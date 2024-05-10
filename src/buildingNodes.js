@@ -966,7 +966,7 @@ function buildingNodes(buildingName) {
             { id: 1503, lat: 3.65, lon: 1.52,}, { lat: 5.5, lon: 2.6, title: 'classRoom',building:'EDS', floor:'9th Floor',node: 1503,label: 'classroomLogo' },
             { id: 1504, lat: 2.35, lon: 1.3,}, { lat: 1.6, lon: 1.3, title: 'classRoom',building:'EDS', floor:'9th Floor',node: 1504,label: 'classroomLogo' },
             { id: 1505, lat: 4.2, lon: .75,},
-            { id: 1506, lat: 4.2, lon: 1.05,label: 'elevator',elevatorBuilding:'EDS'},
+            { id: 1506, lat: 4.2, lon: 1.05,label: 'elevator',elevatorBuilding:'EDS'},{ lat: 4.2, lon: 1.2, title: 'classRoom',building:'EDS', floor:'9th Floor',node: 1506,label: 'classroomLogo' },
             { id: 1507, lat: 5.95, lon: .75,},
             { id: 1508, lat: 5.95, lon: .515,}, { lat: 6, lon: .2, title: 'classRoom',building:'EDS', floor:'9th Floor',node: 1508,label: 'classroomLogo' },
             { id: 1509, lat: 6.23, lon: .75,}, { lat: 6.55, lon: .4, title: 'classRoom',building:'EDS', floor:'9th Floor',node: 1509,label: 'classroomLogo' },
