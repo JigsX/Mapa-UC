@@ -89,10 +89,76 @@ function TextInput({ style }) {
     
     const [isInfoDivOpen, setIsInfoDivOpen] = useState(false);
     
+    const [inputSuggestions, setInputSuggestions] = useState([]);
+    const [destinationSuggestions, setDestinationSuggestions] = useState([]);
 
-    const getData = () => {
-        
-    }
+    const collegesLogoUrl = (inputText) => {
+        let searchSuggest = [];
+        const buildings = ['BRS','Science','EDS','Main','PE','CHTM'];
+        const floors = ['Ground Floor','1st Floor', '2nd Floor','3rd Floor','4th Floor','5th Floor','6th Floor','7th Floor',
+                        '8th Floor','9th Floor', '10th Floor'];
+    
+        return new Promise((resolve, reject) => {
+          let promises = [];
+          let blockSuggestArray = ["<strong> ELEVATOR </strong>",
+                                      "Facility","Drafting Room","Classroom","CR(Women)","CR(Men)",
+                                      "Computer Room","Store"];
+          buildings.forEach(building => {
+            const userRef = ref(database, building);
+            promises.push(new Promise((resolve, reject) => {
+              onValue(userRef, (snapshot) => {
+                const data = snapshot.val();
+                floors.forEach(floor => {
+                  for (let j = 1; j <= 35; j++) {
+                    if (data && data[floor] && data[floor][j]) {
+                      if ((data[floor][j].cat != null) && (data[floor][j].cat != "") && !(blockSuggestArray.includes(data[floor][j].cat)) ) {
+                        if (data[floor][j].cat.toLowerCase().includes(inputText.toLowerCase())) {
+                          searchSuggest.push(data[floor][j].cat);
+                        }
+                      }
+                      if ((data[floor][j].roomID != null) && (data[floor][j].roomID != "") && !(blockSuggestArray.includes(data[floor][j].roomID))){
+                        if (data[floor][j].roomID.toLowerCase().includes(inputText.toLowerCase())) {
+                          searchSuggest.push(data[floor][j].roomID);
+                        }
+                      }
+                    }
+                  }
+                });
+                resolve();
+              }, (error) => {
+                reject(error);
+              });
+            }));
+          });
+    
+          Promise.all(promises).then(() => {
+            console.log(searchSuggest);
+            resolve(searchSuggest);
+          }).catch(error => {
+            reject(error);
+          });
+        });
+    };
+
+    const updateInputSuggestions = async () => {
+        try {
+          const fetchedSuggestions = await collegesLogoUrl(currentInputValue);
+          setInputSuggestions(fetchedSuggestions);
+        } catch (error) {
+          console.error('Error fetching suggestions:', error);
+          setInputSuggestions([]);
+        }
+    };
+    const updateDestiinationSuggestions = async () => {
+        try {
+          const fetchedSuggestions = await collegesLogoUrl(destinationInputValue);
+          setDestinationSuggestions(fetchedSuggestions);
+        } catch (error) {
+          console.error('Error fetching suggestions:', error);
+          setDestinationSuggestions([]);
+        }
+    };
+
     
 
     const handleQRbuttonClick = () => {
@@ -154,12 +220,19 @@ function TextInput({ style }) {
         setIsEmergencyExitClicked(!isUseEmergencyExitChecked); // Toggle isClicked when the checkbox is clicked
     };
 
+    const displayInt = ()=>{
+        
+    }
+
     
     
     let path = [];
     let floor;
     const mapRef = useRef(null);
     useEffect(() => {
+        displayInt();
+        updateDestiinationSuggestions();
+        updateInputSuggestions();
         mapRef.current = L.map('map', {
             center: [0, -0.09],
             zoom: 13,
@@ -172,8 +245,6 @@ function TextInput({ style }) {
           const handleOutsideClick = () => {
                 setShowCurrentSuggestions(false);
                 setShowDestinationSuggestions(false);
-                
-               
 
         };
 
@@ -425,35 +496,7 @@ function TextInput({ style }) {
             
         }
        
-        const collegesLogoUrl = (Rnode) => {
-            return new Promise((resolve) => {
-                const buildings = ['BRS','Science','EDS','Main','PE','CHTM'];
-                const floors = ['Ground Floor','1st Floor', '2nd Floor','3rd Floor','4th Floor','5th Floor','6th Floor','7th Floor',
-                                '8th Floor','9th Floor', '10th Floor'];
-                for(let k=0; k<buildings.length; k++){
-                    
-                    const userRef = ref(database, buildings[k]);
-                    onValue(userRef, (snapshot) => {
-                        const data = snapshot.val();
-                        for (let i = 0; i < floors.length; i++) {
-                            for (let j = 1; j <= 35; j++) { 
-                                if(data[floors[i]][j].node === Number(Rnode)){
-                                    console.log(data[floors[i]][j],"BOBO");
-                                    resolve(data[floors[i]][j].cat);
-                                }
-                               
-                               
-                            }
-                        }
-                     
-                        
-                    }, () => {
-                        
-                    });
-                }
-                
-            });
-        };
+        
 
         if(Object.prototype.hasOwnProperty.call(node, "label")){
             const marker = L.marker([node.lat, node.lon]).addTo(map);
@@ -819,7 +862,7 @@ function TextInput({ style }) {
         polyline.addTo(map);
     };
     
-    const suggestions = suggestionArray();
+    
 
     const handleCurrentInputChange = (event) => {
         const { value } = event.target;
@@ -844,6 +887,10 @@ function TextInput({ style }) {
     };
 
     const clickHandle = (event) => {
+        
+        
+        
+
 
         event.preventDefault();
         const getNodeValue = (input) => {
@@ -940,14 +987,20 @@ function TextInput({ style }) {
              }   
             
             
-        }
+    }
             
 
-    const filteredCurrentSuggestions = suggestions.filter(suggestion =>
-        suggestion.toLowerCase().indexOf(currentInputValue.toLowerCase()) !== -1
-    );
+    const filteredCurrentSuggestions = (
 
-    const filteredDestinationSuggestions = suggestions.filter(suggestion =>
+
+
+        inputSuggestions.filter(suggestion => suggestion.toLowerCase().indexOf(currentInputValue.toLowerCase()) !== -1)
+
+    );
+    
+    
+
+    const filteredDestinationSuggestions = destinationSuggestions.filter(suggestion =>
         suggestion.toLowerCase().indexOf(destinationInputValue.toLowerCase()) !== -1
     );
 
@@ -1155,10 +1208,6 @@ function TextInput({ style }) {
                                                 onClick={handleQRbuttonClick}
                                                 >QR</button>
                                     </div>
-                                    
-
-
-                                    
                                 </div>
                                 
                                 

@@ -74,7 +74,7 @@ class Graph {
     }
 
     printPath(v) {
-        this.arrayPath = []; // Reset arrayPath before storing the new path
+        this.arrayPath = []; 
         console.log(`Current Node: ${v}`);
         
         if (v === -1) {
