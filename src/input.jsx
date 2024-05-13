@@ -102,7 +102,7 @@ function TextInput({ style }) {
           let promises = [];
           let blockSuggestArray = ["<strong> ELEVATOR </strong>",
                                       "Facility","Drafting Room","Classroom","CR(Women)","CR(Men)",
-                                      "Computer Room","Store"];
+                                      "Computer Room","Store","ComputerLab","ComputerRoom","Property Storage Room","StockRoom","Room"];
           buildings.forEach(building => {
             const userRef = ref(database, building);
             promises.push(new Promise((resolve, reject) => {
