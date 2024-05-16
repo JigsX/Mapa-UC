@@ -941,7 +941,7 @@ g.addEdge(730, 726, 1);
 g.addEdge(730, 735, 1);
 g.addEdge(731, 735, 1);
 g.addEdge(736, 735, 1);
-g.addEdge(736, 737, 1);
+g.addEdge(736, 737, 10);
 g.addEdge(730, 732, 1);
 g.addEdge(733, 732, 1);
 g.addEdge(733, 734, 1);
