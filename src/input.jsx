@@ -45,6 +45,7 @@ import upArrowLogo from './assets/UpArrow.png';
 import downArrowLogo from './assets/DownArrow.png';
 import instructions from './assets/instructions.png'
 import CEALOGO from './assets/CEALOGO.png'
+import instructionsF from './assets/instructionsF.png';  
 //import getInfo from './firebaseIni';
 
 import { initializeApp } from "firebase/app";
@@ -223,7 +224,6 @@ function TextInput({ style }) {
     const displayInt = ()=>{
         
     }
-
     
     
     let path = [];
@@ -247,6 +247,11 @@ function TextInput({ style }) {
                 setShowDestinationSuggestions(false);
 
         };
+        addImageOverlay(instructionsF);
+        mapRef.current.flyTo([7, 7.8], 6, {
+            duration: 1,  // Adjust the duration of the animation in seconds
+            easeLinearity: 0.5  // Adjust the easing factor for the animation
+        });
 
         document.body.addEventListener('click', handleOutsideClick);
         
@@ -262,7 +267,8 @@ function TextInput({ style }) {
     const addImageOverlay = (imageURL) => {
         
         let images = [
-            { url: imageURL, bounds: imageURL === 'main2ndFloorPlan' || imageURL === 'main5thFloorPlan'  ? [[0,0], [12, 15]] :  [[0,0], [10, 10]] },  
+            { url: imageURL, bounds: imageURL === 'main2ndFloorPlan' || imageURL === 'main5thFloorPlan'  ? [[0,0], [12, 15]] :  
+            imageURL === 'instructionsF'  ? [[0,0], [15, 20]] : [[0,0], [12, 15]] },  
             
         ];
         mapRef.current.eachLayer(function (layer) {
