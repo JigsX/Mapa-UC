@@ -248,11 +248,7 @@ function TextInput({ style }) {
                 setShowDestinationSuggestions(false);
 
         };
-        addImageOverlay(instructionsF);
-        mapRef.current.flyTo([10,0], 6, {
-            duration: 1,  // Adjust the duration of the animation in seconds
-            easeLinearity: 0.5  // Adjust the easing factor for the animation
-        });
+
 
         document.body.addEventListener('click', handleOutsideClick);
         
@@ -267,8 +263,7 @@ function TextInput({ style }) {
 
     const addImageOverlay = (imageURL) => {     
         let images = [
-            { url: imageURL, bounds: imageURL === 'main2ndFloorPlan' || imageURL === 'main5thFloorPlan'  ? [[0,0], [12, 15]] :  
-            imageURL === '/Mapa-UC/src/assets/instructionsF.png?t=1717162026489'  ? [[0,0], [15, 30]] : [[0,0], [10, 10]] },  
+            { url: imageURL, bounds: imageURL === 'main2ndFloorPlan' || imageURL === 'main5thFloorPlan'  ? [[0,0], [12, 15]] :  [[0,0], [10, 10]] },  
             
         ];
         mapRef.current.eachLayer(function (layer) {
