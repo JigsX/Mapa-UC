@@ -267,7 +267,7 @@ function TextInput({ style }) {
     const addImageOverlay = (imageURL) => {     
         let images = [
             { url: imageURL, bounds: imageURL === 'main2ndFloorPlan' || imageURL === 'main5thFloorPlan'  ? [[0,0], [12, 15]] :  
-            imageURL === '/Mapa-UC/src/assets/instructionsF.png?t=1717162026489'  ? [[-2,0], [15, 20]] : [[0,0], [10, 10]] },  
+            imageURL === '/Mapa-UC/src/assets/instructionsF.png?t=1717162026489'  ? [[-2,0], [15, 23]] : [[0,0], [10, 10]] },  
             
         ];
         mapRef.current.eachLayer(function (layer) {
