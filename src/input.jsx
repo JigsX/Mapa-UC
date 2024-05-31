@@ -248,7 +248,7 @@ function TextInput({ style }) {
 
         };
         addImageOverlay(instructionsF);
-        mapRef.current.flyTo([0,0], 4, {
+        mapRef.current.flyTo([10,0], 5, {
             duration: 1,  // Adjust the duration of the animation in seconds
             easeLinearity: 0.5  // Adjust the easing factor for the animation
         });
