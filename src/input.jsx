@@ -46,6 +46,7 @@ import downArrowLogo from './assets/DownArrow.png';
 import instructions from './assets/instructions.png'
 import CEALOGO from './assets/CEALOGO.png'
 import instructionsF from './assets/instructionsF.png';  
+import legends from './assets/legends.png';  
 //import getInfo from './firebaseIni';
 
 import { initializeApp } from "firebase/app";
@@ -1156,7 +1157,8 @@ function TextInput({ style }) {
                     {/* Popup content */}
                     <div className="popup-content">
                         <span className="exit-button" onClick={togglePopup}>X</span>
-                        <img src={instructions} style={{}}alt="Placeholder Image" />
+                        <img src={instructionsF} className="ins" style={{}}alt="Placeholder Image" />
+                        <img src={legends} className="ins" style={{}}alt="Placeholder Image" />
                     </div>
                     </div>
                 )}
