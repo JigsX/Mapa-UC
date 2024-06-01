@@ -222,16 +222,13 @@ function TextInput({ style }) {
         setIsEmergencyExitClicked(!isUseEmergencyExitChecked); // Toggle isClicked when the checkbox is clicked
     };
 
-    const displayInt = ()=>{
-        
-    }
+
     
     
     let path = [];
     let floor;
     const mapRef = useRef(null);
     useEffect(() => {
-        displayInt();
         updateDestiinationSuggestions();
         updateInputSuggestions();
         mapRef.current = L.map('map', {
@@ -246,6 +243,8 @@ function TextInput({ style }) {
           const handleOutsideClick = () => {
                 setShowCurrentSuggestions(false);
                 setShowDestinationSuggestions(false);
+                setValidCurrentPositionInput(false);
+            
 
         };
 
@@ -804,7 +803,7 @@ function TextInput({ style }) {
             
             }); 
                     
-                  
+         
         }
         
         zoomToNode(path,nodes);
@@ -888,10 +887,8 @@ function TextInput({ style }) {
     };
 
     const clickHandle = (event) => {
-        
-        
-        
 
+        
 
         event.preventDefault();
         const getNodeValue = (input) => {
@@ -912,52 +909,64 @@ function TextInput({ style }) {
                                         let nodeID = data[floors[i]][j].node;
                                         console.log("Node: ",data[floors[i]][j].node,"Cat: ",data[floors[i]][j].cat);
                                         resolve(nodeID); // Resolve the promise if 'S213' found
+                                        
                                         return; // Exit function after resolving the promise
                                     }
-                                    else{
-                                        console.log('wala data');
-                                    }
+
                                 }
-                                else{
-                                    console.log('sa ',data[floors[i]][j] ,'wala');
-                                }
+
                             }
                         }
                         // Resolve with a message if 'S213' not found
                         
                     }, (error) => {
-                       
+                        
                     });
+                    
                 }
-                
+
+                    resolve(false);
+
+
             });
+            
         };
         
         
         
         if(isChoiceEnterDest){
-            console.log("fac:",isChoiceEnterFac);
-                getNodeValue(currentInputValue)
+            console.log("fac:",isChoiceEnterFac); //fac
+                getNodeValue(currentInputValue,"currentLoc")
                 .then(currentRoomNode =>{
-                    getNodeValue(destinationInputValue)
+                    if(currentRoomNode === false){
+                        ValidCurrent();
+                    }
+                    getNodeValue(destinationInputValue,"destLoc")
                     .then(DestiRoomNode =>{ 
-                        console.log('tagmga',DestiRoomNode);
-                        path = computeDestPath(
-                            "enterDestination",
-                            String(currentRoomNode),
-                            String(DestiRoomNode),
-                            isUseElevatorChecked,
-                            isEmergencyExitClicked
-                        );
-                        floor = findFloorInfo(
-                            "enterDestination",
-                            String(currentRoomNode),
-                            String(DestiRoomNode),
-                            isUseElevatorChecked,
-                            isEmergencyExitClicked
-                        );                   
-                        connectBuildingNodes(floor);
-                        getData();
+                        console.log("Det", DestiRoomNode);
+                        if(DestiRoomNode === false){
+                            ValidDest();
+                        }
+
+                        if(DestiRoomNode && currentRoomNode){
+                            path = computeDestPath(
+                                "enterDestination",
+                                String(currentRoomNode),
+                                String(DestiRoomNode),
+                                isUseElevatorChecked,
+                                isEmergencyExitClicked
+                            );
+                            floor = findFloorInfo(
+                                "enterDestination",
+                                String(currentRoomNode),
+                                String(DestiRoomNode),
+                                isUseElevatorChecked,
+                                isEmergencyExitClicked
+                            );                   
+                            connectBuildingNodes(floor);
+                        }
+                        
+                        
                     })
                     
                 })
@@ -965,24 +974,30 @@ function TextInput({ style }) {
         }
         if(isChoiceEnterFac){
                 console.log("HAHAHAHA");
-                getNodeValue(currentInputValue)
+                getNodeValue(currentInputValue,"currentLoc")
                 .then(currentRoomNode =>{
-                    path = computeDestPath(
-                        "enterFindFacility",
-                        currentRoomNode,
-                        selectedFacility,
-                        isUseElevatorChecked,
-                        isEmergencyExitClicked
-                    );
-                    floor = findFloorInfo(
-                        "enterFindFacility",
-                        currentRoomNode,
-                        selectedFacility,
-                        isUseElevatorChecked,
-                        isEmergencyExitClicked
-                    );                   
-                    connectBuildingNodes(floor);
-                    getData();
+                    if(currentRoomNode === false){
+                        ValidCurrent();
+                    }
+
+                    if(currentRoomNode){
+                        path = computeDestPath(
+                            "enterFindFacility",
+                            currentRoomNode,
+                            selectedFacility,
+                            isUseElevatorChecked,
+                            isEmergencyExitClicked
+                        );
+                        floor = findFloorInfo(
+                            "enterFindFacility",
+                            currentRoomNode,
+                            selectedFacility,
+                            isUseElevatorChecked,
+                            isEmergencyExitClicked
+                        );                   
+                        connectBuildingNodes(floor);
+                    }
+
 
                 })
              }   
@@ -1130,12 +1145,92 @@ function TextInput({ style }) {
     
 
     const [isOpen, setIsOpen] = useState(false);
+    const [isValidCurrentPositionInput, setValidCurrentPositionInput] = useState(true);
+    const ValidDest = () => {
+                // Create popup container element
+        var popupContainer = document.createElement("div");
+        popupContainer.className = "popup-container-ErroMessage";
 
-    // Function to toggle the popup
+        // Create popup content element
+        var popupContent = document.createElement("div");
+        popupContent.className = "popup-content-ErrorMessage";
+        var br = document.createElement("br");
+
+        var closeButton = document.createElement("button");
+        closeButton.textContent = "Okay";
+        closeButton.className = "exit-buttons";
+        closeButton.addEventListener("click", function() {
+        popupContainer.style.display = "none"; 
+
+        });
+        
+
+        // Create heading element
+        var heading = document.createElement("h1");
+        heading.textContent = "Error!";
+        heading.className = "errorHead";
+        popupContent.appendChild(heading);
+
+        // Create text element for error message
+        var errorMessage = document.createElement("text");
+        errorMessage.textContent = `Desstination location: ${destinationInputValue} - does not exist in the map`;
+        popupContent.appendChild(errorMessage);
+        popupContent.appendChild(br);
+            popupContent.appendChild(closeButton);
+
+        // Append popup content to container
+        popupContainer.appendChild(popupContent);
+
+        // Append popup container to the body
+        document.body.appendChild(popupContainer);
+
+
+}
+
+    const ValidCurrent = () => {
+                                    // Create popup container element
+            var popupContainer = document.createElement("div");
+            popupContainer.className = "popup-container-ErroMessage";
+
+            // Create popup content element
+            var popupContent = document.createElement("div");
+            popupContent.className = "popup-content-ErrorMessage";
+
+            var closeButton = document.createElement("button");
+            var br = document.createElement("br");
+            closeButton.textContent = "Okay";
+            closeButton.className = "exit-buttons";
+            closeButton.addEventListener("click", function() {
+                popupContainer.style.display = "none"; 
+                
+            });
+            
+
+            // Create heading element
+            var heading = document.createElement("h1");
+            heading.textContent = "Error!";
+            heading.className = "errorHead";
+            popupContent.appendChild(heading);
+
+            // Create text element for error message
+            var errorMessage = document.createElement("text");
+            errorMessage.textContent = `Current location: ${currentInputValue} - does not exist in the map`;
+            popupContent.appendChild(errorMessage);
+            popupContent.appendChild(br);
+            popupContent.appendChild(closeButton);
+            // Append popup content to container
+            popupContainer.appendChild(popupContent);
+            
+            // Append popup container to the body
+            document.body.appendChild(popupContainer);
+            
+
+
+    }
+
     const togglePopup = () => {
-      setIsOpen(!isOpen);
+        setIsOpen(!isOpen);
     };
-
 
 
     return (
@@ -1143,13 +1238,12 @@ function TextInput({ style }) {
         
         <div style={style} ref={inputRef}>
             
-                
+
+
             
             <div>
-                
                 {isOpen && (
                     <div className="popup-container">
-                    {/* Popup content */}
                     <div className="popup-content">
                         <span className="exit-button" onClick={togglePopup}>X</span>
                         <img src={instructionsF} className="ins" style={{}}alt="Placeholder Image" />
