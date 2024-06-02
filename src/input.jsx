@@ -1167,13 +1167,13 @@ function TextInput({ style }) {
 
         // Create heading element
         var heading = document.createElement("h1");
-        heading.textContent = "Error!";
+        heading.textContent = "Invalid Input";
         heading.className = "errorHead";
         popupContent.appendChild(heading);
 
         // Create text element for error message
         var errorMessage = document.createElement("text");
-        errorMessage.textContent = `Desstination location: ${destinationInputValue} - does not exist in the map`;
+        errorMessage.innerHTML = `<b>Destination Location:</b> ${destinationInputValue} - does not exist on the map`;
         popupContent.appendChild(errorMessage);
         popupContent.appendChild(br);
             popupContent.appendChild(closeButton);
@@ -1208,13 +1208,13 @@ function TextInput({ style }) {
 
             // Create heading element
             var heading = document.createElement("h1");
-            heading.textContent = "Error!";
+            heading.textContent = "Invalid Input";
             heading.className = "errorHead";
             popupContent.appendChild(heading);
 
             // Create text element for error message
             var errorMessage = document.createElement("text");
-            errorMessage.textContent = `Current location: ${currentInputValue} - does not exist in the map`;
+            errorMessage.innerHTML = `<b>Current location:</b> ${currentInputValue} - does not exist on the map`;
             popupContent.appendChild(errorMessage);
             popupContent.appendChild(br);
             popupContent.appendChild(closeButton);
