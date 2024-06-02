@@ -371,13 +371,13 @@ button:focus {
     text-align: center;
 }
 .popup-content-ErrorMessage {
-    height: 30%; /* Adjust according to your preference */
+    height: 20%; /* Adjust according to your preference */
     background-color: #2d8d58;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
     text-align: center;
     align-content: center;
-    width: 50%;
+    width: 90%;
     border-radius: 60px;
     
 }
