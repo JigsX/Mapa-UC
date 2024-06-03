@@ -1018,8 +1018,9 @@ function TextInput({ style }) {
                             NoCurrent();
                         }
                         if(selectedFacility === 'Select Facility'){
-                            NoFacilitySelected();
+                            NoFacilitySelected(); //s
                         }
+                        console.log("ds");
                     }
                     
         }
