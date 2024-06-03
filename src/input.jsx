@@ -936,40 +936,51 @@ function TextInput({ style }) {
         
         if(isChoiceEnterDest){
             console.log("fac:",isChoiceEnterFac); //fac
-                getNodeValue(currentInputValue,"currentLoc")
-                .then(currentRoomNode =>{
-                    if(currentRoomNode === false){
-                        ValidCurrent();
-                    }
-                    getNodeValue(destinationInputValue,"destLoc")
-                    .then(DestiRoomNode =>{ 
-                        console.log("Det", DestiRoomNode);
-                        if(DestiRoomNode === false){
-                            ValidDest();
+                if(currentInputValue !='' && destinationInputValue !=''){
+                    getNodeValue(currentInputValue,"currentLoc")
+                    .then(currentRoomNode =>{
+                        if(currentRoomNode === false){
+                            ValidCurrent();
                         }
+                        getNodeValue(destinationInputValue,"destLoc")
+                        .then(DestiRoomNode =>{ 
+                            console.log("Det", DestiRoomNode);
+                            if(DestiRoomNode === false){
+                                ValidDest();
+                            }
 
-                        if(DestiRoomNode && currentRoomNode){
-                            path = computeDestPath(
-                                "enterDestination",
-                                String(currentRoomNode),
-                                String(DestiRoomNode),
-                                isUseElevatorChecked,
-                                isEmergencyExitClicked
-                            );
-                            floor = findFloorInfo(
-                                "enterDestination",
-                                String(currentRoomNode),
-                                String(DestiRoomNode),
-                                isUseElevatorChecked,
-                                isEmergencyExitClicked
-                            );                   
-                            connectBuildingNodes(floor);
-                        }
-                        
+                            if(DestiRoomNode && currentRoomNode){
+                                path = computeDestPath(
+                                    "enterDestination",
+                                    String(currentRoomNode),
+                                    String(DestiRoomNode),
+                                    isUseElevatorChecked,
+                                    isEmergencyExitClicked
+                                );
+                                floor = findFloorInfo(
+                                    "enterDestination",
+                                    String(currentRoomNode),
+                                    String(DestiRoomNode),
+                                    isUseElevatorChecked,
+                                    isEmergencyExitClicked
+                                );                   
+                                connectBuildingNodes(floor);
+                            }
+                            
+                            
+                        })
                         
                     })
+                }else{
+                    if(currentInputValue === ''){
+                        NoCurrent();
+                    }
+                    if(destinationInputValue === ''){
+                        NoDest();
+                    }
                     
-                })
+                }
+                
         
         }
         if(isChoiceEnterFac){
@@ -1226,6 +1237,81 @@ function TextInput({ style }) {
             
 
 
+    }
+    const NoCurrent = () => {
+        // Create popup container element
+        var popupContainer = document.createElement("div");
+        popupContainer.className = "popup-container-ErroMessage";
+
+        // Create popup content element
+        var popupContent = document.createElement("div");
+        popupContent.className = "popup-content-ErrorMessage";
+
+        var closeButton = document.createElement("button");
+        var br = document.createElement("br");
+        closeButton.textContent = "Okay";
+        closeButton.className = "exit-buttons";
+        closeButton.addEventListener("click", function() {
+        popupContainer.style.display = "none"; 
+
+        });
+
+
+        // Create heading element
+        var heading = document.createElement("h1");
+        heading.textContent = "No Current Location";
+        heading.className = "errorHead";
+        popupContent.appendChild(heading);
+
+        // Create text element for error message
+        var errorMessage = document.createElement("text");
+        errorMessage.innerHTML = `Please fill up your current location.`;
+        popupContent.appendChild(errorMessage);
+        popupContent.appendChild(br);
+        popupContent.appendChild(closeButton);
+        // Append popup content to container
+        popupContainer.appendChild(popupContent);
+
+        // Append popup container to the body
+        document.body.appendChild(popupContainer);
+    }
+
+    const NoDest = () => {
+        // Create popup container element
+        var popupContainer = document.createElement("div");
+        popupContainer.className = "popup-container-ErroMessage";
+
+        // Create popup content element
+        var popupContent = document.createElement("div");
+        popupContent.className = "popup-content-ErrorMessage";
+
+        var closeButton = document.createElement("button");
+        var br = document.createElement("br");
+        closeButton.textContent = "Okay";
+        closeButton.className = "exit-buttons";
+        closeButton.addEventListener("click", function() {
+        popupContainer.style.display = "none"; 
+
+        });
+
+
+        // Create heading element
+        var heading = document.createElement("h1");
+        heading.textContent = "No Destination";
+        heading.className = "errorHead";
+        popupContent.appendChild(heading);
+
+        // Create text element for error message
+        var errorMessage = document.createElement("text");
+        errorMessage.innerHTML = `Please fill up your destination.`;
+        popupContent.appendChild(errorMessage);
+        popupContent.appendChild(br);
+        popupContent.appendChild(closeButton);
+        // Append popup content to container
+        popupContainer.appendChild(popupContent);
+
+        // Append popup container to the body
+        document.body.appendChild(popupContainer);
     }
 
     const togglePopup = () => {
