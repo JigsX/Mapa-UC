@@ -984,34 +984,47 @@ function TextInput({ style }) {
         
         }
         if(isChoiceEnterFac){
-                console.log("HAHAHAHA");
-                getNodeValue(currentInputValue,"currentLoc")
-                .then(currentRoomNode =>{
-                    if(currentRoomNode === false){
-                        ValidCurrent();
+            
+                if(selectedFacility !='Select Facility' && currentInputValue !=''){
+                    getNodeValue(currentInputValue,"currentLoc")
+                        .then(currentRoomNode =>{
+                            if(currentRoomNode === false){
+                                ValidCurrent();
+                            }
+
+                            console.log('GAAGGAAGAGGAGGA', selectedFacility);
+                            if(currentRoomNode){
+                                path = computeDestPath(
+                                    "enterFindFacility",
+                                    currentRoomNode,
+                                    selectedFacility,
+                                    isUseElevatorChecked,
+                                    isEmergencyExitClicked
+                                );
+                                floor = findFloorInfo(
+                                    "enterFindFacility",
+                                    currentRoomNode,
+                                    selectedFacility,
+                                    isUseElevatorChecked,
+                                    isEmergencyExitClicked
+                                );                   
+                                connectBuildingNodes(floor);
+                            }
+
+
+                        })
+                    }else{
+                        if(currentInputValue === ''){
+                            NoCurrent();
+                        }
+                        if(selectedFacility === 'Select Facility'){
+                            NoFacilitySelected();
+                        }
                     }
-
-                    if(currentRoomNode){
-                        path = computeDestPath(
-                            "enterFindFacility",
-                            currentRoomNode,
-                            selectedFacility,
-                            isUseElevatorChecked,
-                            isEmergencyExitClicked
-                        );
-                        floor = findFloorInfo(
-                            "enterFindFacility",
-                            currentRoomNode,
-                            selectedFacility,
-                            isUseElevatorChecked,
-                            isEmergencyExitClicked
-                        );                   
-                        connectBuildingNodes(floor);
-                    }
-
-
-                })
-             }   
+                    
+        }
+                
+                
             
             
     }
@@ -1304,6 +1317,44 @@ function TextInput({ style }) {
         // Create text element for error message
         var errorMessage = document.createElement("text");
         errorMessage.innerHTML = `Please fill up your destination.`;
+        popupContent.appendChild(errorMessage);
+        popupContent.appendChild(br);
+        popupContent.appendChild(closeButton);
+        // Append popup content to container
+        popupContainer.appendChild(popupContent);
+
+        // Append popup container to the body
+        document.body.appendChild(popupContainer);
+    }
+
+    const NoFacilitySelected = () => {
+        // Create popup container element
+        var popupContainer = document.createElement("div");
+        popupContainer.className = "popup-container-ErroMessage";
+
+        // Create popup content element
+        var popupContent = document.createElement("div");
+        popupContent.className = "popup-content-ErrorMessage";
+
+        var closeButton = document.createElement("button");
+        var br = document.createElement("br");
+        closeButton.textContent = "Okay";
+        closeButton.className = "exit-buttons";
+        closeButton.addEventListener("click", function() {
+        popupContainer.style.display = "none"; 
+
+        });
+
+
+        // Create heading element
+        var heading = document.createElement("h1");
+        heading.textContent = "No Facility";
+        heading.className = "errorHead";
+        popupContent.appendChild(heading);
+
+        // Create text element for error message
+        var errorMessage = document.createElement("text");
+        errorMessage.innerHTML = `Please select a facility.`;
         popupContent.appendChild(errorMessage);
         popupContent.appendChild(br);
         popupContent.appendChild(closeButton);
