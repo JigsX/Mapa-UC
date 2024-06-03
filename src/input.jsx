@@ -1020,7 +1020,7 @@ function TextInput({ style }) {
                         if(selectedFacility === 'Select Facility'){
                             NoFacilitySelected(); //s
                         }
-                        console.log("ds");
+                        console.log(selectedFacility);
                     }
                     
         }
