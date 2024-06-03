@@ -985,7 +985,7 @@ function TextInput({ style }) {
         }
         if(isChoiceEnterFac){
             
-                if(selectedFacility !='Select Facility' && currentInputValue !=''){
+                if((selectedFacility !='Select Facility' || selectedFacility ==='') && currentInputValue !=''){
                     getNodeValue(currentInputValue,"currentLoc")
                         .then(currentRoomNode =>{
                             if(currentRoomNode === false){
@@ -1017,7 +1017,7 @@ function TextInput({ style }) {
                         if(currentInputValue === ''){
                             NoCurrent();
                         }
-                        if(selectedFacility === 'Select Facility'){
+                        if(selectedFacility === 'Select Facility' || selectedFacility === ''){
                             NoFacilitySelected(); //s
                         }
                         console.log(selectedFacility);
