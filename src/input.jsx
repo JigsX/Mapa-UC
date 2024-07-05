@@ -251,7 +251,7 @@ function TextInput({ style }) {
             if (event.key === 'Enter') {
               event.preventDefault();
               // Additional logic for Enter key if needed
-              console.log("Enter key pressed");
+              inputRef.current.blur();
             }
           };
       
