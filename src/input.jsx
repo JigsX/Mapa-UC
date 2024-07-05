@@ -247,14 +247,25 @@ function TextInput({ style }) {
             
 
         };
+        const handleKeyPress = (event) => {
+            if (event.key === 'Enter') {
+              event.preventDefault();
+              // Additional logic for Enter key if needed
+              console.log("Enter key pressed");
+            }
+          };
+      
+        document.addEventListener('keydown', handleKeyPress);
 
 
         document.body.addEventListener('click', handleOutsideClick);
+        
         
 
         return () => {
             mapRef.current.remove();
             document.body.removeEventListener('click', handleOutsideClick);
+            document.removeEventListener('keydown', handleKeyPress);
         };
     }, []);
 
@@ -1370,6 +1381,15 @@ function TextInput({ style }) {
         setIsOpen(!isOpen);
     };
 
+    const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+        document.getElementById('submitButton').click();
+      
+    }
+  };
+
+
+
 
     return (
 
@@ -1425,6 +1445,7 @@ function TextInput({ style }) {
                                     <div style={{flex: '100%'}}>
                                         <label>
                                             <input
+                                                onKeyDown={handleKeyDown}
                                                 className="InputBox"
                                                 placeholder="Enter Your Current Location"
                                                 type="text"
@@ -1458,6 +1479,7 @@ function TextInput({ style }) {
                                 <label>
                                     <input
                                         className="InputBox"
+                                        onKeyDown={handleKeyDown}
                                         placeholder="Enter Your Destination"
                                         type="text"
                                         name="destination"
@@ -1512,7 +1534,9 @@ function TextInput({ style }) {
                                         
                                     <div >
                                         <button title="Locate"
+                                                id="submitButton"
                                                 className="Locatebuttons"
+                                                
                                                 onClick={clickHandle}> Locate 
                                         </button>
                                     </div>
