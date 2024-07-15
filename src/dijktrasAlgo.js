@@ -899,6 +899,18 @@ g.addEdge(1022, 1021, 1);
 g.addEdge(1022, 1023, 1);
 g.addEdge(1024, 1023, 1);
 
+g.addEdge(1020, 8510, .1);
+g.addEdge(8511, 8510, .1);
+g.addEdge(8511, 8512, .1);
+g.addEdge(8513, 8510, .1);
+g.addEdge(8513, 8514, .1);
+g.addEdge(8515, 8514, .1);
+g.addEdge(8515, 8516, .1);
+g.addEdge(8521, 8516, .1);
+
+g.setNodeCategory(8512,'emergencyExit');
+g.setNodeCategory(8516,'emergencyExit');
+
 //main 6th Floor
 g.addEdge(1080, 1019, 1);
 g.addEdge(1080, 1081, 1);
@@ -906,8 +918,9 @@ g.addEdge(1082, 1081, 1);
 g.addEdge(1082, 1083, 1);
 g.addEdge(1084, 1083, 1);
 
-
-
+g.addEdge(8520, 1083, .1);
+g.addEdge(8521, 8520, .1);
+g.setNodeCategory(8521,'emergencyExit');
 
 //Main 4th Floor
 g.addEdge(700, 207, 1);
@@ -946,6 +959,16 @@ g.addEdge(736, 737, 10);
 g.addEdge(730, 732, 1);
 g.addEdge(733, 732, 1);
 g.addEdge(733, 734, 1);
+
+g.addEdge(706, 8504, .1);
+g.addEdge(8500, 8504, .1);
+g.addEdge(8500, 8501, .1);
+g.addEdge(8502, 8501, .1);
+g.addEdge(8502, 8503, .1);
+g.addEdge(8503, 8512, .1);
+g.setNodeCategory(8503,'emergencyExit');
+g.setNodeCategory(8500,'emergencyExit');
+
 
 //Main 3rd Floor
 g.addEdge(750, 712, 1);
