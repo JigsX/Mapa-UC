@@ -946,7 +946,8 @@ function TextInput({ style }) {
         
         
         if(isChoiceEnterDest){
-            console.log("fac:",isChoiceEnterFac); //fac
+
+            console.log("EEEELLLLEVVAATTTOOORR:",isEmergencyExitClicked); //fac
                 if(currentInputValue !='' && destinationInputValue !=''){
                     getNodeValue(currentInputValue,"currentLoc")
                     .then(currentRoomNode =>{
@@ -1526,6 +1527,16 @@ function TextInput({ style }) {
                                             />
                                             <img src={elevatorLogo} className="checkbox-image" alt="Elevator Logo" />
                                         </div> 
+                                        <div className={`CheckboxDiv ${isEmergencyExitClicked ? 'clicked' : ''}`} onClick={handleCheckboxEmergencyExitClick}>
+                                            <input
+                                                type="checkbox"
+                                                className='checkbox'
+                                                id="elev"
+                                                checked={isUseElevatorChecked}
+                                                onChange={() => {}}
+                                            />
+                                            <img src={emergencyExit} className="checkbox-image" alt="Elevator Logo" />
+                                        </div>      
 
                                         
 

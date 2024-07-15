@@ -320,10 +320,10 @@ g.setNodeCategory(1456,'CR(WOMEN)');
 g.setNodeCategory(1509,'CR(WOMEN)');
 g.setNodeCategory(1508,'CR(MEN)');
 g.setNodeCategory(1504,'Sanctuary');
-g.setNodeCategory(1503,'Auditorium');
+g.setNodeCategory(8250,'Auditorium');
 
 //facillity EDS 10th Floor
-g.setNodeCategory(1603,'Canao Hall');
+g.setNodeCategory(8360,'Canao Hall');
 
 // Fac BRS 1
 g.setNodeCategory(135,'MassCom E-Laboratory');
@@ -826,6 +826,7 @@ g.addEdge(891, 898, 1);
 g.addEdge(899, 898, 1); 
 g.addEdge(900, 898, 1);
 g.addEdge(903, 904, 1);
+g.addEdge(903, 8449, 1);
 g.addEdge(905, 904, 1);
 g.addEdge(905, 906, 1);
 g.addEdge(905, 907, 1);
@@ -1051,6 +1052,13 @@ g.addEdge(858, 855, 1);
 g.addEdge(858, 859, 1);
 g.addEdge(858, 861, 1);
 g.addEdge(862, 861, 1);
+g.addEdge(860, 8100, 1);
+g.addEdge(858, 8100, 1);
+g.addEdge(860, 8003, 1);
+g.setNodeCategory(860,'emergencyExit');
+g.setNodeCategory(8003,'emergencyExit');
+
+
 
 //CHTM ELEVATORS
 g.addEdge(1142, 1198, 1); //4 1142 //5 1198
@@ -1105,6 +1113,13 @@ g.addEdge(147, 148, 1);
 g.addEdge(149, 148, 1);
 g.addEdge(143, 113, 1);
 
+
+g.addEdge(8400, 131, .1);
+g.addEdge(8400, 8401, .1);
+g.addEdge(8402, 8401, .1);
+g.addEdge(8402, 8412, .1);
+g.setNodeCategory(8402,'emergencyExit');
+
 //BRS 2nd Floor
 g.setNodeCategory(113, "elevator");
 g.addEdge(77, 100, 1);
@@ -1130,7 +1145,16 @@ g.addEdge(119, 118, 1);
 g.addEdge(119, 120, 1);
 g.addEdge(121, 120, 1);
 
-
+g.addEdge(8410, 101, .1);
+g.addEdge(8410, 8411, .1);
+g.addEdge(8412, 8411, .1);
+g.addEdge(8410, 8413, .1);
+g.addEdge(8414, 8413, .1);
+g.addEdge(8414, 8415, .1);
+g.addEdge(8416, 8415, .1);
+g.addEdge(8416, 8422, .1);
+g.setNodeCategory(8412,'emergencyExit');
+g.setNodeCategory(8416,'emergencyExit');
 
 
 
@@ -1156,6 +1180,17 @@ g.addEdge(171, 169, 1);
 g.addEdge(171, 172, 1);
 g.addEdge(173, 172, 1);
 g.addEdge(173, 174, 1);
+
+g.addEdge( 8420, 156, .1);
+g.addEdge( 8420, 8421, .1);
+g.addEdge( 8422, 8421, .1);
+g.addEdge( 8423, 8420, .1);
+g.addEdge( 8423, 8424, .1);
+g.addEdge( 8425, 8424, .1);
+g.addEdge( 8425, 8426, .1);
+g.addEdge( 8432, 8426, .1);
+g.setNodeCategory(8422,'emergencyExit');
+g.setNodeCategory(8426,'emergencyExit');
 
 //BRS 4th Floor
 g.setNodeCategory(195, "elevator");
@@ -1191,6 +1226,17 @@ g.addEdge(182, 183, 1);
 g.addEdge(182, 181, 1);
 g.addEdge(181, 180, 1);
 
+g.addEdge( 8430, 181, .1);
+g.addEdge( 8430, 8431, .1);
+g.addEdge( 8432, 8431, .1);
+g.addEdge( 8433, 8430, .1);
+g.addEdge( 8433, 8434, .1);
+g.addEdge( 8435, 8434, .1);
+g.addEdge( 8435, 8436, .1);
+g.addEdge( 8442, 8436, .1);
+g.setNodeCategory(8447,'emergencyExit');
+g.setNodeCategory(8442,'emergencyExit');
+g.setNodeCategory(8446,'emergencyExit');
 
 //BRS 5th Floor
 g.setNodeCategory(224, "elevator");
@@ -1206,6 +1252,22 @@ g.addEdge(223, 221, 1);
 g.addEdge(223, 224, 1);
 g.addEdge(223, 225, 1);
 g.addEdge(226, 225, 1);
+g.addEdge( 220, 3390, .1);
+g.addEdge( 8448, 3390, .1);
+g.addEdge(8448, 8447, .1);
+g.addEdge( 8449, 8447, .1);
+
+
+g.addEdge( 8440, 8447, .1);
+g.addEdge( 8440, 8441, .1);
+g.addEdge( 8442, 8441, .1);
+g.addEdge( 8443, 8440, .1);
+g.addEdge( 8443, 8444, .1);
+g.addEdge( 8445, 8444, .1);
+g.addEdge( 8445, 8446, .1);
+g.addEdge( 8452, 8446, .1);
+g.setNodeCategory(8432,'emergencyExit');
+g.setNodeCategory(8436,'emergencyExit');
 
 //brs 6th Floor
 g.setNodeCategory(239, "elevator");
@@ -1228,6 +1290,17 @@ g.addEdge(243, 244, 1);
 g.addEdge(243, 245, 1);
 g.addEdge(243, 246, 1);
 g.addEdge(247, 246, 1);
+
+g.addEdge( 8450, 246, .1);
+g.addEdge( 8450, 8451, .1);
+g.addEdge( 8452, 8451, .1);
+g.addEdge( 8453, 8450, .1);
+g.addEdge( 8453, 8454, .1);
+g.addEdge( 8455, 8454, .1);
+g.addEdge( 8455, 8456, .1);
+g.addEdge( 8462, 8456, .1);
+g.setNodeCategory(8452,'emergencyExit');
+g.setNodeCategory(8456,'emergencyExit');
 
 
 //brs 7th Floor
@@ -1254,6 +1327,18 @@ g.addEdge(272, 273, 1);
 g.addEdge(272, 274, 1);
 g.addEdge(275, 274, 1);
 
+g.addEdge( 274, 8467, .1);
+g.addEdge( 8460, 8467, .1);
+g.addEdge( 8460, 8461, .1);
+g.addEdge( 8462, 8461, .1);
+g.addEdge( 8463, 8460, .1);
+g.addEdge( 8463, 8464, .1);
+g.addEdge( 8465, 8464, .1);
+g.addEdge( 8465, 8466, .1);
+g.addEdge( 8472, 8466, .1);
+g.setNodeCategory(8462,'emergencyExit');
+g.setNodeCategory(8466,'emergencyExit');
+
 //BRS 8th Floor
 g.setNodeCategory(289, "elevator");
 g.addEdge(287, 255, 1);
@@ -1278,6 +1363,17 @@ g.addEdge(298, 297, 1);
 g.addEdge(299, 297, 1);
 g.addEdge(299, 300, 1);
 
+g.addEdge( 299, 8477, .1);
+g.addEdge( 8470, 8477, .1);
+g.addEdge( 8470, 8471, .1);
+g.addEdge( 8472, 8471, .1);
+g.addEdge( 8473, 8470, .1);
+g.addEdge( 8473, 8474, .1);
+g.addEdge( 8475, 8474, .1);
+g.addEdge( 8475, 8476, .1);
+g.addEdge( 8482, 8476, .1);
+g.setNodeCategory(8472,'emergencyExit');
+g.setNodeCategory(8476,'emergencyExit');
 
 //BRS 9th Floor
 g.setNodeCategory(314, "elevator");
@@ -1306,6 +1402,18 @@ g.addEdge(326, 325, 1);
 g.addEdge(327, 325, 1);
 g.addEdge(327, 328, 1);
 
+g.addEdge( 327, 8487, .1);
+g.addEdge( 8480, 8487, .1);
+g.addEdge( 8480, 8481, .1);
+g.addEdge( 8482, 8481, .1);
+g.addEdge( 8483, 8480, .1);
+g.addEdge( 8483, 8484, .1);
+g.addEdge( 8485, 8484, .1);
+g.addEdge( 8485, 8486, .1);
+g.addEdge( 8492, 8486, .1);
+g.setNodeCategory(8482,'emergencyExit');
+g.setNodeCategory(8486,'emergencyExit');
+
 //BRS 10th Floor
 g.setNodeCategory(1070, "elevator");
 g.addEdge(305, 1040, 1);
@@ -1326,9 +1434,15 @@ g.addEdge(1054, 1053, 1);
 g.addEdge(1054, 1055, 1);
 g.addEdge(1054, 1056, 1);
 g.addEdge(1057, 1056, 1);
-g.addEdge(1057, 1058, 1);
+
 g.addEdge(1059, 1056, 1);
 g.addEdge(1059, 1060, 1);
+
+g.addEdge( 1057, 8493, .1);
+g.addEdge( 8490, 8493, .1);
+g.addEdge( 8490, 8491, .1);
+g.addEdge( 8492, 8491, .1);
+g.setNodeCategory(8492,'emergencyExit');
 
 //CHTM EDS 6TH FLOOR
 g.setNodeCategory(1290, "elevator");
@@ -1365,7 +1479,28 @@ g.addEdge(1286, 1287, 1);
 g.addEdge(1288, 1287, 1);
 g.addEdge(1288, 1289, 1);
 g.addEdge(1194, 1289, 1);
+g.addEdge(8220, 1282, 1);
+g.addEdge(8220, 1279, 1);
+g.addEdge(8220, 8221, .1);
+g.addEdge(8222, 8221, .1);
+g.addEdge(8222, 8223, .1);
+g.addEdge(8224, 8221, .1);
+g.addEdge(8224, 8225, .1);
+g.addEdge(8225, 8226, .1);
+g.addEdge(8233, 8226, .1);
+g.addEdge(8216, 8223, .1);
 
+g.addEdge(8320, 8321, .1);
+g.addEdge(8322, 8321, .1);
+g.addEdge(8322, 8323, .1);
+g.addEdge(8324, 8323, .1);
+g.addEdge(8324, 8325, .1);
+g.addEdge(8333, 8325, .1);
+
+g.setNodeCategory(8320,'emergencyExit');
+g.setNodeCategory(8325,'emergencyExit');
+g.setNodeCategory(8223,'emergencyExit');
+g.setNodeCategory(8226,'emergencyExit');
 
 
 //CHTM EDS 5TH FLOOR
@@ -1416,6 +1551,30 @@ g.addEdge(1199, 1201, 1);
 g.addEdge(1199, 1202, 1);
 g.addEdge(1203, 1202, 1);
 g.addEdge(1204, 1202, 1);
+g.addEdge(1179, 8210, 1);
+g.addEdge(1182, 8210, 1);
+g.addEdge(8211, 8210, .1);
+g.addEdge(8211, 8212, .1);
+g.addEdge(8213, 8212, .1);
+g.addEdge(8211, 8214, .1);
+g.addEdge(8215, 8214, .1);
+g.addEdge(8215, 8216, .1);
+g.addEdge(8213, 8206, .1);
+
+g.addEdge(1202, 8310, .1);
+g.addEdge(8311, 8310, .1);
+g.addEdge(8311, 8312, .1);
+g.addEdge(8313, 8312, .1);
+g.addEdge(8311, 8314, .1);
+g.addEdge(8315, 8314, .1);
+g.addEdge(8315, 8316, .1);
+g.addEdge(8320, 8316, .1);
+
+
+g.setNodeCategory(8313,'emergencyExit');
+g.setNodeCategory(8316,'emergencyExit');
+g.setNodeCategory(8213,'emergencyExit');
+g.setNodeCategory(8216,'emergencyExit');
 
 //CHTM EDS 4TH FLOOR
 g.setNodeCategory(1142, "elevator");
@@ -1470,6 +1629,23 @@ g.addEdge(1146, 1145, 1);
 g.addEdge(1147, 1145, 1);
 g.addEdge(1147, 1148, 1);
 g.addEdge(1122, 1174, 1);
+g.addEdge(8200, 1126, 1);
+g.addEdge(8200, 1123, 1);
+g.addEdge(8200, 8201, .1);
+g.addEdge(8202, 8201, .1);
+g.addEdge(8202, 8203, .1);
+g.addEdge(8204, 8201, .1);
+g.addEdge(8204, 8205, .1);
+g.addEdge(8206, 8205, .1);
+g.addEdge(1147, 8300, .1);
+g.addEdge(8301, 8300, .1);
+g.addEdge(8301, 8302, .1);
+g.addEdge(8303, 8302, .1);
+g.addEdge(8303, 8313, .1);
+
+g.setNodeCategory(8303,'emergencyExit');
+g.setNodeCategory(8203,'emergencyExit');
+g.setNodeCategory(8206,'emergencyExit');
 
 //EDS CHTM 7th Floor
 g.setNodeCategory(1370, "elevator");
@@ -1522,7 +1698,29 @@ g.addEdge(1374, 1375, 1);
 g.addEdge(1374, 1376, 1);
 g.addEdge(1337, 1260, 1);
 g.addEdge(1362, 1284, 1);
+g.addEdge(8230, 1354, .1);
+g.addEdge(8230, 1351, .1);
+g.addEdge(8230, 8231, .1);
+g.addEdge(8232, 8231, .1);
+g.addEdge(8232, 8233, .1);
+g.addEdge(8234, 8231, .1);
+g.addEdge(8234, 8235, .1);
+g.addEdge(8236, 8235, .1);
+g.addEdge(8236, 8243, .1);
 
+
+g.addEdge(8330, 1374, .1);
+g.addEdge(8330, 8331, .1);
+g.addEdge(8332, 8331, .1);
+g.addEdge(8332, 8333, .1);
+g.addEdge(8334, 8331, .1);
+g.addEdge(8334, 8335, .1);
+g.addEdge(8336, 8335, .1);
+g.addEdge(8336, 8343, .1);
+g.setNodeCategory(8333,'emergencyExit');
+g.setNodeCategory(8336,'emergencyExit');
+g.setNodeCategory(8233,'emergencyExit');
+g.setNodeCategory(8236,'emergencyExit');
 
 //EDS CHTM 8th Floor
 g.setNodeCategory(1446, "elevator");
@@ -1575,7 +1773,26 @@ g.addEdge(1448, 1447, 1);
 g.addEdge(1449, 1447, 1);
 g.addEdge(1450, 1447, 1);
 g.addEdge(1451, 1450, 1);
+g.addEdge(8240, 1431, .1);
+g.addEdge(8240, 1428, .1);
+g.addEdge(8240, 8241, .1);
+g.addEdge(8242, 8241, .1);
+g.addEdge(8242, 8243, .1);
+g.addEdge(8241, 8244, .1);
+g.addEdge(8245, 8244, .1);
+g.addEdge(8245, 8246, .1);
+g.addEdge(8257, 8246, .1);
 
+g.addEdge(8340, 1450, .1);
+g.addEdge(8340, 8341, .1);
+g.addEdge(8342, 8341, .1);
+g.addEdge(8342, 8343, .1);
+g.addEdge(8344, 8341, .1);
+g.addEdge(8344, 8345, .1);
+g.addEdge(8346, 8345, .1);
+g.addEdge(8346, 8353, .1);
+g.setNodeCategory(8246,'emergencyExit');
+g.setNodeCategory(8243,'emergencyExit');
 
 
 //EDS CHTM 9th Floor
@@ -1608,6 +1825,28 @@ g.addEdge(1519, 1522, 1);
 g.addEdge(1523, 1522, 1);
 g.addEdge(1524, 1522, 1);
 g.addEdge(1524, 1525, 1);
+g.addEdge(8257, 8256, .1);
+g.addEdge(8255, 8256, .1);
+g.addEdge(8255, 8254, .1);
+g.addEdge(8253, 8254, .1);
+g.addEdge(8253, 8252, .1);
+g.addEdge(8251, 8252, .1);
+g.addEdge(8261, 8251, .1);
+g.addEdge(8261, 8250, .1);
+g.addEdge(1503, 8260, .1);
+g.addEdge(8250, 8260, .1);
+
+g.addEdge(8350, 1524, .1);
+g.addEdge(8350, 8351, .1);
+g.addEdge(8352, 8351, .1);
+g.addEdge(8352, 8353, .1);
+g.addEdge(8354, 8351, .1);
+g.addEdge(8354, 8355, .1);
+g.addEdge(8356, 8355, .1);
+g.addEdge(8356, 8363, .1);
+g.setNodeCategory(8353,'emergencyExit');
+g.setNodeCategory(8356,'emergencyExit');
+g.setNodeCategory(8257,'emergencyExit');
 
 //EDS 3rd Floor
 g.setNodeCategory(1234, "elevator");
@@ -1636,6 +1875,19 @@ g.addEdge(1241, 1240, 1);
 g.addEdge(1242, 1240, 1);
 g.addEdge(1242, 1243, 1);
 g.addEdge(854, 1225, 1);
+g.addEdge(1237, 8000, 1);
+g.addEdge(1240, 8000, 1);
+g.addEdge(8001, 8000, .1);
+g.addEdge(8001, 8002, .1);
+g.addEdge(8003, 8002, .1);
+g.addEdge(8001, 8004, .1);
+g.addEdge(8005, 8004, .1);
+g.addEdge(8005, 8006, .1);
+g.addEdge(8203, 8006, .1);
+g.setNodeCategory(8003,'emergencyExit');
+g.setNodeCategory(8006,'emergencyExit');
+
+
 
 //EDS 10th Floor
 g.setNodeCategory(1604, "elevator");
@@ -1644,6 +1896,11 @@ g.addEdge(1600, 1601, 1);
 g.addEdge(1602, 1601, 1);
 g.addEdge(1602, 1603, 1);
 g.addEdge(1604, 1603, 1);
+g.addEdge(8360, 1603, .1);
+g.addEdge(8360, 8361, .1);
+g.addEdge(8362, 8361, .1);
+g.addEdge(8362, 8363, .1);
+g.setNodeCategory(8363,'emergencyExit');
 
 //main ground floor
 g.addEdge(1700, 1701, 1);
@@ -1707,6 +1964,9 @@ for(let i =1330; i<=1400; i++){
 for(let i =1410; i<=1480; i++){
     g.setNodeBuilding(i,"CHTMEDS8thFloor");
 }
+
+g.setNodeBuilding(8360,"CHTM10thFloor");
+g.setNodeBuilding(8250,"CHTMEDS9thFloor");
 for(let i =1500; i<=1550; i++){
     g.setNodeBuilding(i,"CHTMEDS9thFloor");
 }
