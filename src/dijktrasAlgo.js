@@ -1080,7 +1080,7 @@ g.addEdge(860, 8100, 1);
 g.addEdge(858, 8100, 1);
 g.addEdge(860, 8003, 1);
 g.setNodeCategory(860,'emergencyExit');
-g.setNodeCategory(8003,'emergencyExit');
+g.setNodeCategory(8003,'emergencyExit'); //
 
 
 
