@@ -1475,7 +1475,7 @@ function TextInput({ style }) {
                             Enter Destination
                         </option>
                         <option value="Find Closest Facility">
-                            Find Closest Facility/Office/Exit
+                            Find Closest Facility/Exit
                         </option>
                     </select>
                     
