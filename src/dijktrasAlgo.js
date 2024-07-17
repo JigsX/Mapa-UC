@@ -182,6 +182,7 @@ g.setNodeCategory(378,'CR(MEN)');
 g.setNodeCategory(379,'CR(WOMEN)');
 g.setNodeCategory(381,'Logistic Management Office');
 g.setNodeCategory(400,'Student Lounge');
+g.setNodeCategory(3001,'Exit');
 
 //facility s PE 2nd
 g.setNodeCategory(5,'CTE Faculty Office');
@@ -191,6 +192,7 @@ g.setNodeCategory(47,'CR(WOMEN)');
 g.setNodeCategory(15,'Student Dev&Welfare Office');
 g.setNodeCategory(56,'CR(WOMEN)');
 g.setNodeCategory(1,'CEA Faculty Office');
+g.setNodeCategory(98,'Exit');
 
 //facility s PE 3rd
 g.setNodeCategory(530,'CR(WOMEN)');
@@ -229,6 +231,8 @@ g.setNodeCategory(911,'Office of Student Walfare Service');
 //Facility s PE 6th
 g.setNodeCategory(967,'Academic Director Office & Faculty Office');
 
+g.setNodeCategory(1700,'Exit');
+
 //Facility Main 2nd 
 g.setNodeCategory(822,'CR(WOMEN)');
 g.setNodeCategory(821,'CR(MEN)');
@@ -255,6 +259,7 @@ g.setNodeCategory(705,'BOT-HQ');
 g.setNodeCategory(714,'Registrar');
 g.setNodeCategory(722,'EVP Office');
 g.setNodeCategory(724,'President Office');
+g.setNodeCategory(706,'Exit');
 
 //Facility Main 5th
 g.setNodeCategory(1007,'Main Library');
@@ -284,6 +289,7 @@ g.setNodeCategory(1140,'Occupational Safety & Health Office');
 g.setNodeCategory(1148,'TRIBU');
 g.setNodeCategory(1144,'CR(MEN)');
 g.setNodeCategory(1146,'Vice-President for Academic & Research');
+g.setNodeCategory(1100,'Exit');
 
 //Facility EDS CHTM 5th 
 g.setNodeCategory(1162,'CR(WOMEN)');
@@ -338,6 +344,7 @@ g.setNodeCategory(160,'CITCS Multi-Media Room');
 
 //fac BRS 4
 g.setNodeCategory(191,'CR(MEN)');
+g.setNodeCategory(208,'Exit');
 
 //fac BRS 5 
 g.setNodeCategory(226,'CR(WOMEN)');
@@ -508,6 +515,7 @@ g.addEdge(413, 412, 1);
 g.addEdge(413, 73, 1); 
 g.addEdge(403, 404, 1);
 g.addEdge(130, 404, 1);
+
 //science 2nd Floor
 g.addEdge(0, 85, 1);
 g.addEdge(0, 87, 1);
@@ -728,6 +736,13 @@ g.addEdge(541, 84, 1);
 g.addEdge(565, 93, 1);
 g.addEdge(532, 155, 1);
 
+g.addEdge(9000, 574, .1);
+g.addEdge(9000, 9001, .1);
+g.addEdge(9002, 9001, .1);
+g.addEdge(9002, 9003, .1);
+g.addEdge(9012, 9003, .1);
+g.setNodeCategory(9003,'emergencyExit');
+
 
 //Science 4th Floor 
 g.addEdge(615, 480, 1);
@@ -811,6 +826,16 @@ g.addEdge(640, 539, 1);
 g.addEdge(634, 180, 1);
 g.addEdge(624, 206, 0.1);
 
+g.addEdge(9010, 660, .1);
+g.addEdge(9010, 9011, .1);
+g.addEdge(9012, 9011, .1);
+g.addEdge(9010, 9013, .1);
+g.addEdge(9014, 9013, .1);
+g.addEdge(9014, 9015, .1);
+g.addEdge(9022, 9015, .1);
+g.setNodeCategory(9002,'emergencyExit');
+g.setNodeCategory(9015,'emergencyExit');
+
 //science 5th Floor 
 g.addEdge(638, 906, 1);
 g.addEdge(927, 964, 1);
@@ -852,8 +877,21 @@ g.addEdge(927, 926, 1);
 g.addEdge(928, 924, 1);
 g.addEdge(928, 929, 1);
 
+g.addEdge(900, 9090, 1);
+g.addEdge(9091, 9090, 1);
+
+g.addEdge(9020, 900, .1);
+g.addEdge(9020, 9021, .1);
+g.addEdge(9022, 9021, .1);
+g.addEdge(9020, 9023, .1);
+g.addEdge(9024, 9023, .1);
+g.addEdge(9024, 9025, .1);
+g.addEdge(9032, 9025, .1);
+g.setNodeCategory(9002,'emergencyExit');
+g.setNodeCategory(9015,'emergencyExit');
+
 //Science 6th Floor
-g.addEdge(950, 900, 1);
+g.addEdge(950, 9091, 1);
 g.addEdge(950, 951, 1);
 g.addEdge(952, 951, 1);
 g.addEdge(952, 953, 1);
@@ -871,6 +909,12 @@ g.addEdge(965, 966, 1);
 g.addEdge(967, 966, 1);
 g.addEdge(964, 927, 1);
 g.addEdge(965, 908, 1);
+
+
+g.addEdge(9030, 951, .1);
+g.addEdge(9030, 9031, .1);
+g.addEdge(9032, 9031, .1);
+g.setNodeCategory(9032,'emergencyExit');
 
 //Main 5th Floor
 g.addEdge(1002, 610, 1);

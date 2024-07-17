@@ -1503,6 +1503,7 @@ function TextInput({ style }) {
                                 <select style={{ display: !isChoiceEnterDest ? 'block' : 'none' }}
                                         className="InputBox" id="selectFac" value={selectedFacility} onChange={handleChangeFacility}>
                                     <option>Select Facility</option>
+                                    <option>Exit</option>
                                     <option>CR(WOMEN)</option>
                                     <option>CR(MEN)</option>
                                     <option>Gymnasium</option>
