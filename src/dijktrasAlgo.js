@@ -36,7 +36,7 @@ class Graph {
                 if (!useElevator && this.nodeCategories[node] === "elevator") {
                     continue;
                 }
-                if (!useEmerExit && this.nodeCategories[V] === "emergencyExit") {
+                if (!useEmerExit && this.nodeCategories[node] === "emergencyExit") {
                 continue;
                 }
 
@@ -99,7 +99,7 @@ class Graph {
           const u = tmp[1];
     
           for (const [v, weight] of this.adj[u]) {
-            if (!useEmerExit && this.nodeCategories[v] === "emergencyExit") {
+            if (!useEmerExit && this.nodeCategories[v] === "emergencyExit") {//
               continue;
             }
             if (!useElevator && this.nodeCategories[v] === "elevator") {
