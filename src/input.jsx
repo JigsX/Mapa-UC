@@ -942,6 +942,46 @@ function TextInput({ style }) {
             });
             
         };
+        const getBuildingName = (input) => {
+            return new Promise((resolve, reject) => {
+                const buildings = ['BRS','Science','EDS','Main','PE','CHTM'];
+                for(let k=0; k<buildings.length; k++){
+                    const floors = ['Ground Floor','1st Floor', '2nd Floor','3rd Floor','4th Floor','5th Floor','6th Floor','7th Floor',
+                                '8th Floor','9th Floor', '10th Floor'];
+                    const userRef = ref(database, buildings[k]);
+                    onValue(userRef, (snapshot) => {
+                        const data = snapshot.val();
+                        
+                        for (let i = 0; i < floors.length; i++) {
+                            for (let j = 1; j <= 35; j++) { // Adjusted loop condition
+                                if (data && data[floors[i]] && data[floors[i]][j]) {
+                                    if (data[floors[i]][j].roomID.toLowerCase() === input.toLowerCase() || data[floors[i]][j].roomID.toUpperCase() === input.toUpperCase()
+                                        || data[floors[i]][j].cat.toLowerCase() === input.toLowerCase() || data[floors[i]][j].cat.toUpperCase() === input.toUpperCase()) {
+                                        let nodeID = data[floors[i]][j].node;
+                                        console.log("Node: ",data[floors[i]][j].node,"Cat: ",data[floors[i]][j].cat);
+                                        resolve(buildings[k]); // Resolve the promise if 'S213' found
+                                        
+                                        return; // Exit function after resolving the promise
+                                    }
+
+                                }
+
+                            }
+                        }
+                        // Resolve with a message if 'S213' not found
+                        
+                    }, (error) => {
+                        
+                    });
+                    
+                }
+
+                    resolve(false);
+
+
+            });
+            
+        };
         
         
         
@@ -1003,26 +1043,29 @@ function TextInput({ style }) {
                             if(currentRoomNode === false){
                                 ValidCurrent();
                             }
-
-                            console.log('GAAGGAAGAGGAGGA', selectedFacility);
-                            if(currentRoomNode){
-                                path = computeDestPath(
-                                    "enterFindFacility",
-                                    currentRoomNode,
-                                    selectedFacility,
-                                    isUseElevatorChecked,
-                                    isEmergencyExitClicked
-                                );
-                                floor = findFloorInfo(
-                                    "enterFindFacility",
-                                    currentRoomNode,
-                                    selectedFacility,
-                                    isUseElevatorChecked,
-                                    isEmergencyExitClicked
-                                );                   
-                                connectBuildingNodes(floor);
-                            }
-
+                            getBuildingName(currentInputValue,"currentLoc")
+                                .then(buildingName =>{
+                                    console.log('GAAGGAAGAGGAGGA', selectedFacility);
+                                    if(currentRoomNode){
+                                        path = computeDestPath(
+                                            "enterFindFacility",
+                                            currentRoomNode,
+                                            selectedFacility,
+                                            isUseElevatorChecked,
+                                            isEmergencyExitClicked,
+                                            buildingName
+                                        );
+                                        floor = findFloorInfo(
+                                            "enterFindFacility",
+                                            currentRoomNode,
+                                            selectedFacility,
+                                            isUseElevatorChecked,
+                                            isEmergencyExitClicked,
+                                            buildingName
+                                        );                   
+                                        connectBuildingNodes(floor);
+                                    }
+                                })
 
                         })
                     }else{
@@ -1432,7 +1475,7 @@ function TextInput({ style }) {
                             Enter Destination
                         </option>
                         <option value="Find Closest Facility">
-                            Find Facility/Office
+                            Find Closest Facility/Office/Exit
                         </option>
                     </select>
                     

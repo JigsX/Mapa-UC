@@ -21,7 +21,7 @@ class Graph {
         this.nodeBuilding[node] = building;
     }
 
-    findClosestCategory(src, targetCategory, useElevator, useEmerExit) {
+    findClosestCategory(src, targetCategory, useElevator, useEmerExit, BuildingName) {
         const distances = new Array(this.V).fill(Number.POSITIVE_INFINITY);
         const setDistance = new Set();
         setDistance.add([0, src]);
@@ -39,6 +39,19 @@ class Graph {
                 if (!useEmerExit && this.nodeCategories[node] === "emergencyExit") {
                 continue;
                 }
+                if(BuildingName === "Main" || BuildingName === "Science"){
+                    g.setNodeCategory(706,'Exit');
+                    g.setNodeCategory(98,'Exit');
+                    g.setNodeCategory(3001,'Exit');
+                    g.setNodeCategory(1700,'Exit');
+
+                }else if(BuildingName ==="BRS"){
+                    g.setNodeCategory(208,'Exit');
+                }else if((BuildingName ==="EDS") || (BuildingName ==="CHTM")){
+                    g.setNodeCategory(1100,'Exit');
+                }
+                
+                
 
                 if (distances[node] > distances[u] + weight) {
                     if (distances[node] !== Number.POSITIVE_INFINITY) {
@@ -132,7 +145,7 @@ class Graph {
     
 }
 
-function computeDestPath(choice, currentPosition, Destination, useElevator, useEmerExit) {
+function computeDestPath(choice, currentPosition, Destination, useElevator, useEmerExit,BuildingName) {
     console.log("Wlaa: ", currentPosition,Destination)
     g.parent = new Array(V).fill(-1);
     g.arrayPath = [];
@@ -145,13 +158,13 @@ function computeDestPath(choice, currentPosition, Destination, useElevator, useE
         
     }
     else if(choice === 'enterFindFacility'){
-        g.findClosestCategory(currentPosition, Destination, useElevator, useEmerExit);
+        g.findClosestCategory(currentPosition, Destination, useElevator, useEmerExit, BuildingName);
         return g.arrayPath
     }
     
 }
 
-function findFloorInfo(choice, currentPosition, Destination, useElevator, useEmerExit) {
+function findFloorInfo(choice, currentPosition, Destination, useElevator, useEmerExit,BuildingName) {
 
     g.parent = new Array(V).fill(-1);
     g.arrayPath = [];
@@ -164,7 +177,7 @@ function findFloorInfo(choice, currentPosition, Destination, useElevator, useEme
         
     }
     else if(choice === 'enterFindFacility'){
-        g.findClosestCategory(currentPosition, Destination, useElevator, useEmerExit);
+        g.findClosestCategory(currentPosition, Destination, useElevator, useEmerExit, BuildingName);
         return g.nodeBuilding[g.arrayPath[0]]
         
     }
@@ -182,7 +195,7 @@ g.setNodeCategory(378,'CR(MEN)');
 g.setNodeCategory(379,'CR(WOMEN)');
 g.setNodeCategory(381,'Logistic Management Office');
 g.setNodeCategory(400,'Student Lounge');
-g.setNodeCategory(3001,'Exit');
+
 
 //facility s PE 2nd
 g.setNodeCategory(5,'CTE Faculty Office');
@@ -192,7 +205,7 @@ g.setNodeCategory(47,'CR(WOMEN)');
 g.setNodeCategory(15,'Student Dev&Welfare Office');
 g.setNodeCategory(56,'CR(WOMEN)');
 g.setNodeCategory(1,'CEA Faculty Office');
-g.setNodeCategory(98,'Exit');
+
 
 //facility s PE 3rd
 g.setNodeCategory(530,'CR(WOMEN)');
@@ -231,7 +244,7 @@ g.setNodeCategory(911,'Office of Student Walfare Service');
 //Facility s PE 6th
 g.setNodeCategory(967,'Academic Director Office & Faculty Office');
 
-g.setNodeCategory(1700,'Exit');
+
 
 //Facility Main 2nd 
 g.setNodeCategory(822,'CR(WOMEN)');
@@ -259,7 +272,7 @@ g.setNodeCategory(705,'BOT-HQ');
 g.setNodeCategory(714,'Registrar');
 g.setNodeCategory(722,'EVP Office');
 g.setNodeCategory(724,'President Office');
-g.setNodeCategory(706,'Exit');
+
 
 //Facility Main 5th
 g.setNodeCategory(1007,'Main Library');
@@ -289,7 +302,7 @@ g.setNodeCategory(1140,'Occupational Safety & Health Office');
 g.setNodeCategory(1148,'TRIBU');
 g.setNodeCategory(1144,'CR(MEN)');
 g.setNodeCategory(1146,'Vice-President for Academic & Research');
-g.setNodeCategory(1100,'Exit');
+
 
 //Facility EDS CHTM 5th 
 g.setNodeCategory(1162,'CR(WOMEN)');
@@ -344,7 +357,7 @@ g.setNodeCategory(160,'CITCS Multi-Media Room');
 
 //fac BRS 4
 g.setNodeCategory(191,'CR(MEN)');
-g.setNodeCategory(208,'Exit');
+
 
 //fac BRS 5 
 g.setNodeCategory(226,'CR(WOMEN)');
