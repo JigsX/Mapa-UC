@@ -415,3 +415,11 @@ button:focus {
 .errorHead{
     margin: 10px;
 }
+
+.default-text{
+    align-items: center;
+    margin-top: 0%;
+    margin-bottom: 10%;
+    padding-top: 0%;
+   
+}

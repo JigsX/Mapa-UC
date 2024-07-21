@@ -39,6 +39,7 @@ import BRS7thFloor from './assets/BRS7thFloorPlan.png';
 import BRS8thFloor from './assets/BRS8thFloorPlan.png';
 import BRS9thFloor from './assets/BRS9thFloorPlan.png';
 import BRS10thFloor from './assets/BRS10thFloorPlan.png';
+import defRoute from './assets/defaultR.png';
 import buildingNodes from './buildingNodes';
 import { suggestionArray } from './SuggestBoxs';
 import upArrowLogo from './assets/UpArrow.png';
@@ -77,9 +78,11 @@ function TextInput({ style }) {
     const inputRef = useRef(null);
 
     const [isUseElevatorChecked, setIsUseElevatorChecked] = useState(false);
-    const [isElevatorClicked, setIsElevatorClicked] = useState(false);
+    const [isElevatorClicked, setIsElevatorClicked] = useState(false); 
+    const [isUseDefaultRouteClicked, setIsUseDefaultRouteClicked] = useState(false);
 
     const [isUseEmergencyExitChecked, setIsUseEmergencyExitChecked] = useState(false);
+    const [isUseDefaultRouteChecked, setIsUseDefaultRouteChecked] = useState(false);
     const [isEmergencyExitClicked, setIsEmergencyExitClicked] = useState(false);
     
     const [isChoiceEnterDest, setIsChoiceEnterDest] = useState(false);
@@ -215,11 +218,45 @@ function TextInput({ style }) {
     const handleCheckboxElevatorClick = () => {
         setIsUseElevatorChecked(!isUseElevatorChecked);
         setIsElevatorClicked(!isUseElevatorChecked); // Toggle isClicked when the checkbox is clicked
+
+        if(isUseEmergencyExitChecked === true){
+            setIsUseEmergencyExitChecked(!isUseEmergencyExitChecked);
+            setIsEmergencyExitClicked(!isUseEmergencyExitChecked);
+        }
+        if(isUseDefaultRouteChecked === true){
+            setIsUseDefaultRouteChecked(!isUseDefaultRouteChecked);
+            setIsUseDefaultRouteClicked(!isUseDefaultRouteClicked);
+        }
     };
 
     const handleCheckboxEmergencyExitClick = () => {
         setIsUseEmergencyExitChecked(!isUseEmergencyExitChecked);
         setIsEmergencyExitClicked(!isUseEmergencyExitChecked); // Toggle isClicked when the checkbox is clicked
+    
+        if(isUseElevatorChecked === true){
+            setIsUseElevatorChecked(!isUseElevatorChecked);
+            setIsElevatorClicked(!isUseElevatorChecked);
+        }
+        if(isUseDefaultRouteChecked === true){
+            setIsUseDefaultRouteChecked(!isUseDefaultRouteChecked);
+            setIsUseDefaultRouteClicked(!isUseDefaultRouteClicked);
+        }
+    
+    };
+    const handleCheckboxUseDefaultRouteClick = () => {
+        setIsUseDefaultRouteChecked(!isUseDefaultRouteChecked);
+        setIsUseDefaultRouteClicked(!isUseDefaultRouteClicked); // Toggle isClicked when the checkbox is clicked
+    
+        if(isUseElevatorChecked === true){
+            setIsUseElevatorChecked(!isUseElevatorChecked);
+            setIsElevatorClicked(!isUseElevatorChecked); 
+        }
+        if(isUseEmergencyExitChecked === true){
+            setIsUseEmergencyExitChecked(!isUseEmergencyExitChecked);
+            setIsEmergencyExitClicked(!isUseEmergencyExitChecked); 
+            
+        }
+    
     };
 
 
@@ -900,7 +937,7 @@ function TextInput({ style }) {
     const clickHandle = (event) => {
 
         
-
+        
         event.preventDefault();
         const getNodeValue = (input) => {
             return new Promise((resolve, reject) => {
@@ -987,6 +1024,7 @@ function TextInput({ style }) {
         
         if(isChoiceEnterDest){
 
+           
             console.log("EEEELLLLEVVAATTTOOORR:",isEmergencyExitClicked); //fac
                 if(currentInputValue !='' && destinationInputValue !=''){
                     getNodeValue(currentInputValue,"currentLoc")
@@ -1000,8 +1038,11 @@ function TextInput({ style }) {
                             if(DestiRoomNode === false){
                                 ValidDest();
                             }
+                            if((isEmergencyExitClicked || isElevatorClicked || isUseDefaultRouteClicked) === false){
+                                choosePath();
+                            }
 
-                            if(DestiRoomNode && currentRoomNode){
+                            if(DestiRoomNode && currentRoomNode && (isEmergencyExitClicked || isElevatorClicked || isUseDefaultRouteClicked)){
                                 path = computeDestPath(
                                     "enterDestination",
                                     String(currentRoomNode),
@@ -1226,6 +1267,9 @@ function TextInput({ style }) {
 
     const [isOpen, setIsOpen] = useState(false);
     const [isValidCurrentPositionInput, setValidCurrentPositionInput] = useState(true);
+    
+    
+    
     const ValidDest = () => {
                 // Create popup container element
         var popupContainer = document.createElement("div");
@@ -1307,6 +1351,42 @@ function TextInput({ style }) {
 
 
     }
+     const choosePath= () => {
+        var popupContainer = document.createElement("div");
+        popupContainer.className = "popup-container-ErroMessage";
+
+        // Create popup content element
+        var popupContent = document.createElement("div");
+        popupContent.className = "popup-content-ErrorMessage";
+
+        var closeButton = document.createElement("button");
+        var br = document.createElement("br");
+        closeButton.textContent = "Okay";
+        closeButton.className = "exit-buttons";
+        closeButton.addEventListener("click", function() {
+        popupContainer.style.display = "none"; 
+
+        });
+
+
+        // Create heading element
+        var heading = document.createElement("h1");
+        heading.textContent = "Please Select your Path";
+        heading.className = "errorHead";
+        popupContent.appendChild(heading);
+
+        // Create text element for error message
+        var errorMessage = document.createElement("text");
+        errorMessage.innerHTML = `Please choose your path above: Default Route, Use Elevator, Use Emergency Exit`;
+        popupContent.appendChild(errorMessage);
+        popupContent.appendChild(br);
+        popupContent.appendChild(closeButton);
+        // Append popup content to container
+        popupContainer.appendChild(popupContent);
+
+        // Append popup container to the body
+        document.body.appendChild(popupContainer);
+     }
     const NoCurrent = () => {
         // Create popup container element
         var popupContainer = document.createElement("div");
@@ -1561,6 +1641,16 @@ function TextInput({ style }) {
                             <span style={{flex:'30%', background:'#0c380c', borderLeft: '2px solid #0c380c',borderRight: '2px solid #0c380c',borderTop: '1px solid #0c380c'}}>
                                 <div>
                                     <div style={{ display: 'flex', justifyContent: 'center' }}>
+                                    <div className={`CheckboxDiv ${isUseDefaultRouteChecked ? 'clicked' : ''}`} onClick={handleCheckboxUseDefaultRouteClick}>
+                                            <input
+                                                type="checkbox"
+                                                className='checkbox'
+                                                id="elev"
+                                                checked={isUseDefaultRouteChecked}
+                                                onChange={() => {}}
+                                            />
+                                            <img src={defRoute} className="checkbox-image" alt="Elevator Logo" />
+                                        </div>  
                                         <div className={`CheckboxDiv ${isElevatorClicked ? 'clicked' : ''}`} onClick={handleCheckboxElevatorClick}>
                                             <input
                                                 type="checkbox"
