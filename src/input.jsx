@@ -227,6 +227,8 @@ function TextInput({ style }) {
             setIsUseDefaultRouteChecked(!isUseDefaultRouteChecked);
             setIsUseDefaultRouteClicked(!isUseDefaultRouteClicked);
         }
+        
+
     };
 
     const handleCheckboxEmergencyExitClick = () => {
@@ -241,6 +243,8 @@ function TextInput({ style }) {
             setIsUseDefaultRouteChecked(!isUseDefaultRouteChecked);
             setIsUseDefaultRouteClicked(!isUseDefaultRouteClicked);
         }
+
+       
     
     };
     const handleCheckboxUseDefaultRouteClick = () => {
@@ -256,6 +260,7 @@ function TextInput({ style }) {
             setIsEmergencyExitClicked(!isUseEmergencyExitChecked); 
             
         }
+        
     
     };
 
@@ -660,6 +665,7 @@ function TextInput({ style }) {
             
             if (node.label === 'elevator') {
                 marker.bindPopup(`Node ${node.id}`);
+                
                 marker.setIcon(L.icon({
                     iconUrl: elevatorLogo,
                     iconSize: [20, 20],
@@ -681,7 +687,7 @@ function TextInput({ style }) {
                                     {id:9,node:1521},{id:10,node: 1604}
                     ];
                 }
-                marker.on('click', () => {
+                if(path.includes(node.id)){ 
 
                     let ElevatorTargetFloor;
                     let ElevatorCurrentFloor;
@@ -736,7 +742,7 @@ function TextInput({ style }) {
                     // Append the button div to the popup
                     marker.getPopup().setContent(buttonDiv);
                     marker.openPopup();
-                });
+                }
             } 
 
 
