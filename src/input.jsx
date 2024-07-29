@@ -742,6 +742,63 @@ function TextInput({ style }) {
                     // Append the button div to the popup
                     marker.getPopup().setContent(buttonDiv);
                     marker.openPopup();
+                }else{
+                    marker.on('click', () => {
+                        let ElevatorTargetFloor;
+                        let ElevatorCurrentFloor;
+                        for(let i = 0; i<path.length; i++){
+                            for(let j = 0; j<elevatorNodes.length; j++){
+                                if(path[i]===elevatorNodes[j].node){
+                                    ElevatorTargetFloor = elevatorNodes[j].id;
+                                }
+                            }
+                        }
+                        console.log(path)
+                        let findCurrentFloor = false;
+                        for(let i = 0; i<path.length; i++){
+                            for(let j = 0; j<elevatorNodes.length; j++){
+    
+                                
+                                if(path[i]===elevatorNodes[j].node){
+                                    findCurrentFloor = true;
+                                    ElevatorCurrentFloor = elevatorNodes[j].id;
+                                    break;
+                                }
+                                
+                            }
+                            if(findCurrentFloor){
+                                break;
+                            }
+                            
+                            
+                        }
+                        // Create a div element to contain the buttons
+                        let buttonDiv = document.createElement('div');
+                
+                        // Create buttons for choices 1 to 5
+                        for (let i = elevatorNodes[0].id; i <= elevatorNodes[elevatorNodes.length-1].id; i++) {
+                            let button = document.createElement('button');
+                            button.textContent = i;
+                            button.addEventListener('click', () => {
+                                handleButtonClick(i,node.elevatorBuilding);
+                            });
+    
+                            if(i === ElevatorCurrentFloor){
+                                button.style.border = 'none';
+                            }
+                            if(i === ElevatorTargetFloor){
+                                button.style.backgroundColor = 'red';
+                            }
+                            
+                            
+                            buttonDiv.appendChild(button);
+                        }
+                
+                        // Append the button div to the popup
+                        marker.getPopup().setContent(buttonDiv);
+                        marker.openPopup();
+            
+                    });
                 }
             } 
 
@@ -1383,7 +1440,7 @@ function TextInput({ style }) {
 
         // Create text element for error message
         var errorMessage = document.createElement("text");
-        errorMessage.innerHTML = `Please choose your path above: Default Route, Use Elevator, Use Emergency Exit`;
+        errorMessage.innerHTML = `Please choose your path above: Default Route, Elevator, Emergency Exit`;
         popupContent.appendChild(errorMessage);
         popupContent.appendChild(br);
         popupContent.appendChild(closeButton);

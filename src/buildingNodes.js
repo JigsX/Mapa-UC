@@ -1146,7 +1146,7 @@ function buildingNodes(buildingName) {
             { id: 131, lat: 5, lon: 9.65 ,},
             { id: 8400, lat: 4.3, lon: 9.65 ,},
             { id: 8401, lat: 4.3, lon: 9.8 ,},
-            { id: 8402, lat: 3.4, lon: 9.8 ,label: 'leaveButton',destination: 'BRS2ndFloor', desti:115,direction: 'up' },
+            { id: 8402, lat: 3.4, lon: 9.8 ,label: 'leaveButton',destination: 'BRS2ndFloor', desti:8412,direction: 'up' },
             { id: 132, lat: 5, lon: 8.1,},
             { id: 133, lat: 5.38, lon: 8.1 }, { lat: 6.8, lon: 7.9, title: 'classRoom',building:'BRS', floor:'1st Floor',node: 133,label: 'classroomLogo' },
             { id: 134, lat: 5, lon: 7.1,},
@@ -1268,7 +1268,7 @@ function buildingNodes(buildingName) {
             { id: 8433, lat: 4.55, lon: 9.77, },
             { id: 8434, lat: 3.65, lon: 9.77, },
             { id: 8435, lat: 3.65, lon: 9.55, },
-            { id: 8436, lat: 3.9, lon: 9.55,label: 'leaveButton', destination: 'BRS4thFloor', desti: 8442,direction: 'up'},
+            { id: 8436, lat: 3.9, lon: 9.55,label: 'leaveButton', destination: 'BRS5thFloor', desti: 8442,direction: 'up'},
             { id: 180, lat: 8.05, lon: 9.67,label: 'leaveButton', destination:'science4thFloor',desti: 634},
             { id: 208, lat: 1.9, lon: 2.45,}, {lat: 2, lon: 2.45, title: 'classRoom',building:'BRS', floor:'4th Floor',node: 208 },
             
