@@ -1086,9 +1086,7 @@ function TextInput({ style }) {
         
         
         if(isChoiceEnterDest){
-            if((isEmergencyExitClicked || isElevatorClicked || isUseDefaultRouteClicked) === false){
-                choosePath();
-            }
+            
            
             console.log("EEEELLLLEVVAATTTOOORR:",isEmergencyExitClicked); //fac
                 if(currentInputValue !='' && destinationInputValue !=''){
@@ -1102,26 +1100,30 @@ function TextInput({ style }) {
                             console.log("Det", DestiRoomNode);
                             if(DestiRoomNode === false){
                                 ValidDest();
+                            }else{
+                                if((isEmergencyExitClicked || isElevatorClicked || isUseDefaultRouteClicked) === false){
+                                    choosePath();
+                                }else{
+                                    if(DestiRoomNode && currentRoomNode && (isEmergencyExitClicked || isElevatorClicked || isUseDefaultRouteClicked)){
+                                        path = computeDestPath(
+                                            "enterDestination",
+                                            String(currentRoomNode),
+                                            String(DestiRoomNode),
+                                            isUseElevatorChecked,
+                                            isEmergencyExitClicked
+                                        );
+                                        floor = findFloorInfo(
+                                            "enterDestination",
+                                            String(currentRoomNode),
+                                            String(DestiRoomNode),
+                                            isUseElevatorChecked,
+                                            isEmergencyExitClicked
+                                        );                   
+                                        connectBuildingNodes(floor);
+                                    }
+                                }
+                                
                             }
-                            
-                            if(DestiRoomNode && currentRoomNode && (isEmergencyExitClicked || isElevatorClicked || isUseDefaultRouteClicked)){
-                                path = computeDestPath(
-                                    "enterDestination",
-                                    String(currentRoomNode),
-                                    String(DestiRoomNode),
-                                    isUseElevatorChecked,
-                                    isEmergencyExitClicked
-                                );
-                                floor = findFloorInfo(
-                                    "enterDestination",
-                                    String(currentRoomNode),
-                                    String(DestiRoomNode),
-                                    isUseElevatorChecked,
-                                    isEmergencyExitClicked
-                                );                   
-                                connectBuildingNodes(floor);
-                            }
-                            
                             
                         })
                         
@@ -1139,47 +1141,56 @@ function TextInput({ style }) {
         
         }
         if(isChoiceEnterFac){
-            
                 if((selectedFacility !='Select Facility' || selectedFacility ==='') && currentInputValue !=''){
-                    getNodeValue(currentInputValue,"currentLoc")
-                        .then(currentRoomNode =>{
-                            if(currentRoomNode === false){
-                                ValidCurrent();
-                            }
-                            getBuildingName(currentInputValue,"currentLoc")
-                                .then(buildingName =>{
-                                    console.log('GAAGGAAGAGGAGGA', selectedFacility);
-                                    if(currentRoomNode){
-                                        path = computeDestPath(
-                                            "enterFindFacility",
-                                            currentRoomNode,
-                                            selectedFacility,
-                                            isUseElevatorChecked,
-                                            isEmergencyExitClicked,
-                                            buildingName
-                                        );
-                                        floor = findFloorInfo(
-                                            "enterFindFacility",
-                                            currentRoomNode,
-                                            selectedFacility,
-                                            isUseElevatorChecked,
-                                            isEmergencyExitClicked,
-                                            buildingName
-                                        );                   
-                                        connectBuildingNodes(floor);
-                                    }
-                                })
-
-                        })
-                    }else{
-                        if(currentInputValue === ''){
-                            NoCurrent();
-                        }
+                    if((isEmergencyExitClicked || isElevatorClicked || isUseDefaultRouteClicked) === true){
                         if(selectedFacility === 'Select Facility' || selectedFacility === ''){
                             NoFacilitySelected(); //s
+                        }else{
+                            getNodeValue(currentInputValue,"currentLoc")
+                            .then(currentRoomNode =>{
+                                if(currentRoomNode === false){
+                                    ValidCurrent();
+                                }
+                                getBuildingName(currentInputValue,"currentLoc")
+                                    .then(buildingName =>{
+                                        console.log('GAAGGAAGAGGAGGA', selectedFacility);
+                                        if(currentRoomNode){
+                                            path = computeDestPath(
+                                                "enterFindFacility",
+                                                currentRoomNode,
+                                                selectedFacility,
+                                                isUseElevatorChecked,
+                                                isEmergencyExitClicked,
+                                                buildingName
+                                            );
+                                            floor = findFloorInfo(
+                                                "enterFindFacility",
+                                                currentRoomNode,
+                                                selectedFacility,
+                                                isUseElevatorChecked,
+                                                isEmergencyExitClicked,
+                                                buildingName
+                                            );                   
+                                            connectBuildingNodes(floor);
+                                        }
+                                    })
+    
+                            })
                         }
-                        console.log(selectedFacility);
+                    }else{
+                        choosePath();
                     }
+                    
+                    
+                }else{
+                    if(currentInputValue === ''){
+                        NoCurrent();
+                    }
+                    if(selectedFacility === 'Select Facility' || selectedFacility === ''){
+                            NoFacilitySelected(); //s
+                    }
+                        
+                }
                     
         }
                 
