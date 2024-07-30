@@ -1086,7 +1086,9 @@ function TextInput({ style }) {
         
         
         if(isChoiceEnterDest){
-
+            if((isEmergencyExitClicked || isElevatorClicked || isUseDefaultRouteClicked) === false){
+                choosePath();
+            }
            
             console.log("EEEELLLLEVVAATTTOOORR:",isEmergencyExitClicked); //fac
                 if(currentInputValue !='' && destinationInputValue !=''){
@@ -1101,10 +1103,7 @@ function TextInput({ style }) {
                             if(DestiRoomNode === false){
                                 ValidDest();
                             }
-                            if((isEmergencyExitClicked || isElevatorClicked || isUseDefaultRouteClicked) === false){
-                                choosePath();
-                            }
-
+                            
                             if(DestiRoomNode && currentRoomNode && (isEmergencyExitClicked || isElevatorClicked || isUseDefaultRouteClicked)){
                                 path = computeDestPath(
                                     "enterDestination",
