@@ -1361,7 +1361,7 @@ function TextInput({ style }) {
         // Create text element for error message
         var errorMessage = document.createElement("text");
         errorMessage.className  = "errorBody";
-        errorMessage.innerHTML = `Enter your destination exactly as it appears in the suggestion box. Disregard any locations not in the suggestion box.`;
+        errorMessage.innerHTML = `Enter your destination exactly as it appears in the suggestion box. Disregard any locations not listed in the suggestion box.`;
         popupContent.appendChild(errorMessage);
         popupContent.appendChild(br);
             popupContent.appendChild(closeButton);
@@ -1402,7 +1402,7 @@ function TextInput({ style }) {
 
             // Create text element for error message
             var errorMessage = document.createElement("text");
-            errorMessage.innerHTML = `Enter your current location exactly as it appears in the suggestion box. Disregard any locations not in the suggestion box.`;
+            errorMessage.innerHTML = `Enter your current location exactly as it appears in the suggestion box. Disregard any locations not listed in the suggestion box.`;
             popupContent.appendChild(errorMessage);
             popupContent.appendChild(br);
             popupContent.appendChild(closeButton);
@@ -1451,6 +1451,7 @@ function TextInput({ style }) {
         // Append popup container to the body
         document.body.appendChild(popupContainer);
      }
+
     const NoCurrent = () => {
         // Create popup container element
         var popupContainer = document.createElement("div");
@@ -1509,14 +1510,14 @@ function TextInput({ style }) {
 
 
         // Create heading element
-        var heading = document.createElement("h1");
-        heading.textContent = "No Destination";
+        var heading = document.createElement("h2");
+        heading.textContent = "No Destination Entered";
         heading.className = "errorHead";
         popupContent.appendChild(heading);
 
         // Create text element for error message
         var errorMessage = document.createElement("text");
-        errorMessage.innerHTML = `Please fill up your destination.`;
+        errorMessage.innerHTML = `Please enter your destination.`;
         popupContent.appendChild(errorMessage);
         popupContent.appendChild(br);
         popupContent.appendChild(closeButton);
