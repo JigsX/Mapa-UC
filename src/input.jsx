@@ -1442,6 +1442,8 @@ function TextInput({ style }) {
         // Create text element for error message
         var errorMessage = document.createElement("text");
         errorMessage.innerHTML = `Please choose your path above: Default Route, Elevator, Emergency Exit`;
+
+        popupContainer.appendChild(popupContent);
         popupContent.appendChild(errorMessage);
         popupContent.appendChild(br);
         popupContent.appendChild(closeButton);
