@@ -583,10 +583,7 @@ function TextInput({ style }) {
 
                     
                         let des = findNodeById2(node.desti)
-                        mapRef.current.flyTo([des.lat,  des.lon], 8, {
-                            duration: 1,  // Adjust the duration of the animation in seconds
-                            easeLinearity: 0.5  // Adjust the easing factor for the animation
-                        });
+                        mapRef.current.setView([des.lat, des.lon], 8); //fly
                     
                     
                     
@@ -648,7 +645,7 @@ function TextInput({ style }) {
                             popupAnchor: [0, -16]
                         }));
 
-
+//up
                 
             }
             
@@ -948,6 +945,7 @@ function TextInput({ style }) {
                 duration: 1,  // Adjust the duration of the animation in seconds
                 easeLinearity: 0.5  // Adjust the easing factor for the animation
             });
+            
         }
     };
     
