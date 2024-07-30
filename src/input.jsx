@@ -1474,7 +1474,7 @@ function TextInput({ style }) {
 
 
         // Create heading element
-        var heading = document.createElement("h1");
+        var heading = document.createElement("h2");
         heading.textContent = "No Current Location";
         heading.className = "errorHead";
         popupContent.appendChild(heading);
@@ -1550,7 +1550,7 @@ function TextInput({ style }) {
 
 
         // Create heading element
-        var heading = document.createElement("h1");
+        var heading = document.createElement("h2");
         heading.textContent = "No Facility";
         heading.className = "errorHead";
         popupContent.appendChild(heading);
