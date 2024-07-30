@@ -1434,7 +1434,7 @@ function TextInput({ style }) {
 
 
         // Create heading element
-        var heading = document.createElement("h1");
+        var heading = document.createElement("h2");
         heading.textContent = "Please Select your Path";
         heading.className = "errorHead";
         popupContent.appendChild(heading);
