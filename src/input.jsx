@@ -1353,14 +1353,15 @@ function TextInput({ style }) {
         
 
         // Create heading element
-        var heading = document.createElement("h1");
-        heading.textContent = "Invalid Input";
+        var heading = document.createElement("h2");
+        heading.textContent = `Your destination "${destinationInputValue}" does not exist on the map`;
         heading.className = "errorHead";
         popupContent.appendChild(heading);
 
         // Create text element for error message
         var errorMessage = document.createElement("text");
-        errorMessage.innerHTML = `<b>Destination Location:</b> ${destinationInputValue} - does not exist on the map`;
+        errorMessage.className  = "errorBody";
+        errorMessage.innerHTML = `Enter your destination exactly as it appears in the suggestion box. Disregard any locations not in the suggestion box.`;
         popupContent.appendChild(errorMessage);
         popupContent.appendChild(br);
             popupContent.appendChild(closeButton);
@@ -1394,14 +1395,14 @@ function TextInput({ style }) {
             
 
             // Create heading element
-            var heading = document.createElement("h1");
-            heading.textContent = "Invalid Input";
+            var heading = document.createElement("h2");
+            heading.textContent = `Your current location "${currentInputValue}" does not exist on the map`;
             heading.className = "errorHead";
             popupContent.appendChild(heading);
 
             // Create text element for error message
             var errorMessage = document.createElement("text");
-            errorMessage.innerHTML = `<b>Current location:</b> ${currentInputValue} - does not exist on the map`;
+            errorMessage.innerHTML = `Enter your current location exactly as it appears in the suggestion box. Disregard any locations not in the suggestion box.`;
             popupContent.appendChild(errorMessage);
             popupContent.appendChild(br);
             popupContent.appendChild(closeButton);
