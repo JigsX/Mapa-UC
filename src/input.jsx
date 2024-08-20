@@ -177,6 +177,7 @@ function TextInput({ style }) {
                 height: 300,
             },
             fps: 20,
+            facingMode: { exact: "environment" }
         });
         
         const success = (result) => {
@@ -197,14 +198,12 @@ function TextInput({ style }) {
             
             scanner.render(success, error);
         }
-        
-        
-        
         else{
             scanner.clear();
             setQRCodeScanner(false);
             
         }
+        
     }
 
 
@@ -282,11 +281,11 @@ function TextInput({ style }) {
           mapRef.current.setView([10,10], 3);
           
         
-          const handleOutsideClick = () => {
+        const handleOutsideClick = () => {
                 setShowCurrentSuggestions(false);
                 setShowDestinationSuggestions(false);
                 setValidCurrentPositionInput(false);
-            
+                
 
         };
         const handleKeyPress = (event) => {

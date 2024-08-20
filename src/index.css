@@ -423,3 +423,72 @@ button:focus {
     padding-top: 0%;
    
 }
+
+/* General styling for the reader container */
+#reader {
+    border: 2px solid #007bff !important;
+    border-radius: 10px !important;
+    background-color: #f0f8ff !important;
+    padding: 20px !important;
+    max-width: 500px !important;
+    margin: auto !important;
+}
+
+/* Styling for the full region of the QR code scanner */
+#reader .qr-code-full-region {
+    background-color: #e6f7ff !important;
+    border: 2px solid #007bff !important;
+    border-radius: 8px !important;
+    padding: 10px !important;
+}
+
+/* Styling for the shaded region of the QR code scanner */
+#reader .qr-shaded-region {
+    background-color: rgba(0, 123, 255, 0.1) !important;
+}
+
+/* Styling for the scanning region */
+#reader .qr-scanning-region {
+    border: 2px dashed #007bff !important;
+    border-radius: 5px !important;
+}
+
+/* Styling for buttons inside the QR code scanner */
+#reader button {
+    background-color: #007bff !important;
+    color: #fff !important;
+    border: none !important;
+    border-radius: 5px !important;
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s !important;
+}
+
+/* Styling for buttons on hover */
+#reader button:hover {
+    background-color: #0056b3 !important;
+}
+
+/* Styling for buttons on active state */
+#reader button:active {
+    background-color: #004080 !important;
+}
+
+/* Styling for text buttons */
+#reader .text-button {
+    color: #007bff !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    transition: color 0.3s !important;
+}
+
+/* Styling for text buttons on hover */
+#reader .text-button:hover {
+    color: #0056b3 !important;
+}
+
+/* Styling for text buttons on active state */
+#reader .text-button:active {
+    color: #004080 !important;
+}
