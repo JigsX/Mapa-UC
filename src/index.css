@@ -432,6 +432,10 @@ button:focus {
     padding: 20px !important;
     max-width: 500px !important;
     margin: auto !important;
+    
+}
+#reader .html5-qrcode-info-icon {
+    display: none !important;
 }
 
 /* Styling for the full region of the QR code scanner */

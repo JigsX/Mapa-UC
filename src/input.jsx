@@ -1610,8 +1610,8 @@ function TextInput({ style }) {
             </div>
         
             
-            <div id='reader' style={{display: qrCodeScanner? 'block':'none'}}></div>
-            <div id='result'></div>
+             {/* <div id='reader' style={{display: qrCodeScanner? 'block':'none'}}></div> */}
+            {/* <div id='result'></div> -->  */}
             <div className="sticky-div">
                 <div>
                     <button onClick={togglePopup} className="direction">Instructions/Legends</button>
@@ -1655,12 +1655,12 @@ function TextInput({ style }) {
                                         </label>
                                     </div>
                                         
-                                    <div>
-                                        <button
-                                                className='qrButton'
-                                                onClick={handleQRbuttonClick}
-                                                >QR</button>
-                                    </div>
+                                    {/* <div> */}
+                                        {/* <button */}
+                                                {/* className='qrButton' */}
+                                                {/* onClick={handleQRbuttonClick} */}
+                                                {/* >QR</button> */}
+                                    {/* </div> */}
                                 </div>
                                 
                                 
